@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+inhibit_all_warnings!
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'Pod-Integration-iOS' do
+	pod 'QAMenu', path: '../..'
+	pod 'QAMenuUIKit', path: '../..'
+	pod 'QAMenuUtils', path: '../..'
+	pod 'QAMenuCatalog', path: '../..'
+end

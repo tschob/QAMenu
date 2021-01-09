@@ -1,0 +1,6 @@
+# Child / Parent configurations are considered when this file is the "main" SwiftLint configuration file
+# This setup is used for the target specific build phase scripts
+parent_config: ../.swiftlint.yml
+
+disabled_rules:
+  - explicit_acl

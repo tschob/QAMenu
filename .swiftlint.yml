@@ -1,0 +1,45 @@
+# This configuration is used in two ways:
+# * "Main" configuration when running SwiftLint against the repo root directory
+#   * Target specific configurations are included automatically as nested configurations
+#   * This setup is used for the Linting aggregate target and in the CI
+# * Parent configuration for when target specific configuration files are the "main" configuration files
+#   * The nested configuration files are ignored, but they manually to refer to this config as "parent_config"
+#   * This setup is used for the target specific build phase scripts
+
+disabled_rules:
+  - identifier_name # e.g. "qm_functioName" should be possible
+  - nesting # e.g. "QAMenu.Log.Level" should be possible
+
+opt_in_rules:
+  - anyobject_protocol
+  - closure_end_indentation
+  - closure_spacing
+  - collection_alignment
+  - explicit_acl
+  - explicit_self
+  - file_name_no_space
+  - file_types_order
+  - force_unwrapping
+  - let_var_whitespace
+  - lower_acl_than_parent
+  - modifier_order
+  - multiline_arguments
+  - multiline_arguments_brackets
+  - multiline_function_chains
+  - multiline_literal_brackets
+  - multiline_parameters
+  - multiline_parameters_brackets
+  - operator_usage_whitespace
+  - prefer_self_type_over_type_of_self
+  - private_action
+  - private_outlet
+  - vertical_whitespace_closing_braces
+  - yoda_condition
+
+excluded:
+  - Pods
+  - Vendor
+
+line_length: 
+  warning: 140
+  ignores_comments: true

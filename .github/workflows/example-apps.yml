@@ -1,0 +1,70 @@
+name: Example-Apps
+
+on:
+  pull_request:
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_12.2.app/Contents/Developer
+
+jobs:
+  job-build-ios-example-app:
+    name: Example-iOS
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v2
+
+      - name: ruby versions
+        run: |
+          ruby --version
+          gem --version
+          bundler --version
+
+      - name: Cache Gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+
+      - name: Install bundles
+        run: |
+          bundle config path Vendor/Bundle
+          bundle install --without=documentation --jobs 4 --retry 3
+
+      - name: Build Example-iOS
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bundle exec fastlane build_ios_example_app
+
+  job-build-pod-integration-example-app:
+    name: Pod-Integration-iOS
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v2
+
+      - name: ruby versions
+        run: |
+          ruby --version
+          gem --version
+          bundler --version
+
+      - name: Cache Gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+
+      - name: Install bundles
+        run: |
+          bundle config path Vendor/Bundle
+          bundle install --without=documentation --jobs 4 --retry 3
+
+      - name: Build Pod-Integration-iOS
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bundle exec fastlane build_pods_integration_example_app

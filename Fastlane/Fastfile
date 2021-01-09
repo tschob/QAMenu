@@ -1,0 +1,65 @@
+default_platform(:ios)
+
+platform :ios do
+  
+  desc "Runs the AllUnitTests scheme"
+  lane :unit_tests do
+    run_tests(
+      workspace: "QAMenu.xcworkspace",
+      scheme: "AllUnitTests"
+    )
+  end
+
+  desc "Builds the Example-iOS app"
+  lane :build_ios_example_app do
+    build_app(
+      workspace: "QAMenu.xcworkspace",
+      scheme: "Example-iOS",
+      skip_archive: true,
+      skip_codesigning: true
+    )
+  end
+
+  desc "Builds the Pod-Integration example app"
+  lane :build_pods_integration_example_app do
+    cocoapods(
+      clean_install: true,
+      podfile: "Examples/Pod-Integration/Podfile"
+    )
+    build_app(
+      workspace: "Examples/Pod-Integration/Pod-Integration.xcworkspace",
+      scheme: "Pod-Integration-iOS",
+      skip_archive: true,
+      skip_codesigning: true
+    )
+  end
+
+  desc "Ships Pods for the current version"
+  lane :ship_pods do
+    podspecs = [
+      "QAMenuUtils.podspec",
+      "QAMenu.podspec",
+      "QAMenuUIKit.podspec",
+      "QAMenuCatalog.podspec"
+    ]
+    podspecs.each { |podspec|
+      pod_lib_lint(
+        podspec: podspec,
+        use_bundle_exec: true
+      )
+    }
+
+    add_git_tag(
+      tag: File.read('VERSION')
+    )
+    push_git_tags
+
+    podspecs.each { |podspec|
+      pod_push(
+        podspec: podspec,
+        use_bundle_exec: true,
+        synchronous: true
+      )
+    }
+  end
+end

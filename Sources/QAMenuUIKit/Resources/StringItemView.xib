@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StringItemView" customModule="QAMenuUIKit">
+            <connections>
+                <outlet property="stackView" destination="rQ8-Be-LmF" id="HSQ-TC-ySL"/>
+                <outlet property="textStackView" destination="qzJ-ZW-enx" id="h0z-PO-Dh9"/>
+                <outlet property="titleLabel" destination="suP-sd-BSz" id="pST-P8-z3L"/>
+                <outlet property="valueLabel" destination="AU6-Fc-hkI" id="OSX-cj-gCU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="RIp-IU-gfN">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rQ8-Be-LmF">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qzJ-ZW-enx">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suP-sd-BSz">
+                                    <rect key="frame" x="0.0" y="0.0" width="207" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="cL0-9R-XTQ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Lorem Ipsum Dolores Dolores" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AU6-Fc-hkI">
+                                    <rect key="frame" x="215" y="0.0" width="199" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="wO0-my-YPy"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="AU6-Fc-hkI" secondAttribute="trailing" id="2u3-0f-AiK"/>
+                                <constraint firstItem="suP-sd-BSz" firstAttribute="leading" secondItem="qzJ-ZW-enx" secondAttribute="leading" id="wGG-3G-78M"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="qzJ-ZW-enx" firstAttribute="leading" secondItem="rQ8-Be-LmF" secondAttribute="leading" id="UXn-Cd-h3s"/>
+                        <constraint firstAttribute="trailing" secondItem="qzJ-ZW-enx" secondAttribute="trailing" id="l8t-vg-TSp"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="rQ8-Be-LmF" secondAttribute="trailing" id="Jgb-1I-t2p"/>
+                <constraint firstItem="rQ8-Be-LmF" firstAttribute="leading" secondItem="RIp-IU-gfN" secondAttribute="leading" id="ha7-wI-64p"/>
+                <constraint firstItem="rQ8-Be-LmF" firstAttribute="top" secondItem="RIp-IU-gfN" secondAttribute="top" id="pr3-I2-8rO"/>
+                <constraint firstAttribute="bottom" secondItem="rQ8-Be-LmF" secondAttribute="bottom" id="r79-uO-Yal"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="834.78260869565224" y="322.76785714285711"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BooleanItemView" customModule="QAMenuUIKit">
+            <connections>
+                <outlet property="stackView" destination="rQ8-Be-LmF" id="lSx-Ow-tMu"/>
+                <outlet property="switch" destination="ZYy-5f-4KM" id="KCJ-lI-HuW"/>
+                <outlet property="titleLabel" destination="suP-sd-BSz" id="Fwv-Q7-daS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Mef-cN-PVA">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rQ8-Be-LmF">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F31-pa-eID">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suP-sd-BSz">
+                                    <rect key="frame" x="0.0" y="0.0" width="355" height="100"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYy-5f-4KM">
+                                    <rect key="frame" x="365" y="34.5" width="51" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="49" id="IwT-sc-DvQ"/>
+                                        <constraint firstAttribute="height" constant="31" id="vBM-oH-DGE"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="onSwitchValueChanged:" destination="-1" eventType="valueChanged" id="BeM-B6-QFF"/>
+                                    </connections>
+                                </switch>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="ZYy-5f-4KM" secondAttribute="trailing" id="5PT-W9-8qr"/>
+                                <constraint firstItem="ZYy-5f-4KM" firstAttribute="leading" secondItem="suP-sd-BSz" secondAttribute="trailing" constant="10" id="YcN-Ln-esi"/>
+                                <constraint firstItem="ZYy-5f-4KM" firstAttribute="centerY" secondItem="F31-pa-eID" secondAttribute="centerY" id="dcY-GV-uGa"/>
+                                <constraint firstAttribute="bottom" secondItem="suP-sd-BSz" secondAttribute="bottom" id="fzo-sM-yUA"/>
+                                <constraint firstItem="suP-sd-BSz" firstAttribute="leading" secondItem="F31-pa-eID" secondAttribute="leading" id="r4J-h7-HUW"/>
+                                <constraint firstItem="suP-sd-BSz" firstAttribute="top" secondItem="F31-pa-eID" secondAttribute="top" id="xyP-fC-8dP"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="rQ8-Be-LmF" secondAttribute="trailing" id="O9v-3i-qJH"/>
+                <constraint firstAttribute="bottom" secondItem="rQ8-Be-LmF" secondAttribute="bottom" id="aaT-LP-U73"/>
+                <constraint firstItem="rQ8-Be-LmF" firstAttribute="top" secondItem="Mef-cN-PVA" secondAttribute="top" id="bxm-VB-ow0"/>
+                <constraint firstItem="rQ8-Be-LmF" firstAttribute="leading" secondItem="Mef-cN-PVA" secondAttribute="leading" id="kNT-Bn-jaP"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-3" y="62"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,101 @@
+//
+//  SearchableTests.swift
+//
+//  Created by Hans Seiffert on 08.11.20.
+//
+//  ---
+//  MIT License
+//
+//  Copyright © 2020 Hans Seiffert
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//
+
+import XCTest
+@testable import QAMenu
+
+class SearchableTests: XCTestCase {
+
+    func test_fulfillsSearch_whenSearchableContentIsEmpty_andSeachIsEmpty_returnsFalse() throws {
+        let sut = MockSearchable([])
+
+        XCTAssertFalse(sut.fulfillsSearch(query: ""))
+    }
+
+    func test_fulfillsSearch_whenSearchableContentIsEmpty_andSeachIsGiven_returnsFalse() throws {
+        let sut = MockSearchable([])
+
+        XCTAssertFalse(sut.fulfillsSearch(query: "search"))
+    }
+
+    func test_fulfillsSearch_whenSearchableContentIsGiven_andSearchIsEmpty_returnsFalse() throws {
+        let sut = MockSearchable(["abcd"])
+
+        XCTAssertFalse(sut.fulfillsSearch(query: ""))
+    }
+
+    func test_fulfillsSearch_whenSearchableContentIsGiven_andSearchIsMatchingCaseSensitive_returnsTrue() throws {
+        let sut = MockSearchable(["abcd"])
+
+        XCTAssertTrue(sut.fulfillsSearch(query: "a"))
+        XCTAssertTrue(sut.fulfillsSearch(query: "bc"))
+        XCTAssertTrue(sut.fulfillsSearch(query: "d"))
+        XCTAssertTrue(sut.fulfillsSearch(query: "abcd"))
+    }
+
+    func test_fulfillsSearch_whenSearchableContentIsGiven_andSearchIsMatchingCaseInensitive_returnsTrue() throws {
+        let sut = MockSearchable(["abcd"])
+
+        XCTAssertTrue(sut.fulfillsSearch(query: "A"))
+        XCTAssertTrue(sut.fulfillsSearch(query: "bC"))
+        XCTAssertTrue(sut.fulfillsSearch(query: "D"))
+        XCTAssertTrue(sut.fulfillsSearch(query: "aBcd"))
+    }
+
+    func test_fulfillsSearch_whenSearchableContentIsGiven_andSearchIsMatchingWithAdditionalCharacter_returnsFalse() throws {
+        let sut = MockSearchable(["abcd"])
+
+        XCTAssertFalse(sut.fulfillsSearch(query: "abcde"))
+    }
+
+    func test_fulfillsSearch_whenMultipleSearchableContentIsGiven_andSearchIsMatching_returnsTrue() throws {
+        let sut = MockSearchable([
+            "abcd",
+            "cdef",
+            nil,
+            "efgh"
+        ])
+
+        XCTAssertTrue(sut.fulfillsSearch(query: "cd"))
+        XCTAssertTrue(sut.fulfillsSearch(query: "efgh"))
+        XCTAssertTrue(sut.fulfillsSearch(query: "a"))
+    }
+
+    func test_fulfillsSearch_whenMultipleSearchableContentIsGiven_andSearchIsNotMatching_returnsFalse() throws {
+        let sut = MockSearchable([
+            "abcd",
+            "cdef",
+            "efgh",
+            nil
+        ])
+
+        XCTAssertFalse(sut.fulfillsSearch(query: "bcde"))
+        XCTAssertFalse(sut.fulfillsSearch(query: "z"))
+        XCTAssertFalse(sut.fulfillsSearch(query: "fe"))
+    }
+}
