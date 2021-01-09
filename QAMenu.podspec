@@ -21,10 +21,6 @@ Pod::Spec.new do |spec|
   
   spec.source_files  = "Sources/QAMenu/**/*.{h,swift}"
 
-  spec.test_spec 'UnitTests-iOS' do |test_spec|
-    test_spec.source_files = 'Tests/QAMenuTests/**/*.{swift}'
-  end  
-
   spec.dependency 'QAMenuUtils'
 
 end
