@@ -8,10 +8,10 @@
 
 Did you ever want to quickly:
 
-* access internal debug information when testing your app?
-* provide internal shortcuts in your app to e.g. reset usually not accessible states?
-* expose the available feature toggles and override them?
-* test if your crash reporter still works?
+* Access internal debug information when testing your app?
+* Provide internal shortcuts in your app to e.g. reset usually not accessible states?
+* Expose the available feature toggles and override them?
+* Test if your crash reporter still works?
 * ...
 
 Good, in that case you can stop worrying about the needed coding effort, UI code, view models and so forth. 
@@ -42,19 +42,19 @@ Derived from this vision it follows below principles.
 * [Be data (model) driven aka *stop worrying about UI*](Docs/Principles.md#1-be-data-model-driven-aka-stop-worrying-about-ui)
 * [Provide the infrastructure, not the content](Docs/Principles.md#2-provide-the-infrastructure-not-the-content)
 * [Items should be interactive](Docs/Principles.md#3-items-should-be-interactive)
-* [Allow extensive customization, but optimize for default usage](Docs/Principles.md#4-allow-extensive-customization-but-optimize-for-default-usage)
+* [Allow extensive customisation, but optimize for default usage](Docs/Principles.md#4-allow-extensive-customization-but-optimize-for-default-usage)
   * [Use composition whenever possible](Docs/Principles.md#41-use-composition-whenever-possible)
 * [Keep it focused on one purpose](Docs/Principles.md#5-keep-it-focused-on-one-purpose)
 
-See [Princples](Docs/Principles.md) for a detailed description of each principle.
+See [Principles](Docs/Principles.md) for a detailed description of each principle.
 
 ## Usage
 
 QAMenu is presented as standalone window. It can be either be opened by calling the method `show()` or by shaking the device.
 
-The configuration can be done during the app start. To be able to create a QA menu, you need to pass the menu structure as well. Instead of working with delegates, most data model types are boxed as `Dynamic<T>` which is able to hold either the plain value, a closure or key path. QAMenu and its UI renderer unbox the content only once it's needed. This enables real time behavior.
+The configuration can be done during the app start. To be able to create a QA menu, you need to pass the menu structure as well. Instead of working with delegates, most data model types are boxed as `Dynamic<T>` which is able to hold either the plain value, a closure or key path. QAMenu and its UI renderer unbox the content only once it's needed. This enables real time behaviour.
 
-Typically QAMenu could be stored and initialized in the App Delegate:
+Typically QAMenu could be stored and initialised in the App Delegate:
 
 ```swift
 

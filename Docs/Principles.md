@@ -9,7 +9,7 @@ Therefore QAMenu provides data models as UI element abstractions. This results i
 
 ## #2 Provide the infrastructure, not the content
 
-Each app is unique and the possible QAMenu entries vary much. Instead of providing some specialized debug helper, the goal is to provide the starting framework which is used to access mostly your very unique entries which your app needs and if needed can be used to access other specialized libraries.
+Each app is unique and the possible QAMenu entries vary much. Instead of providing some specialized debug helper, the goal is to provide the starting framework which is used to access mostly your very unique entries which your app needs and if needed can be used to access other specialised libraries.
 
 A perhaps fitting description could be that QAMenu aims to be a design system for debug menus instead of a collection of debug features.
 

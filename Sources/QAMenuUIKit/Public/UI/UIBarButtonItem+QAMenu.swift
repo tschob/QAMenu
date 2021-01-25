@@ -31,11 +31,6 @@ import QAMenu
 
 public extension UIBarButtonItem {
 
-  class func dm_navigateToRootPane(in qaMenu: QAMenu) -> UIBarButtonItem {
-    let image = UIImage(named: "house_fill", in: .dm_resources, compatibleWith: nil)
-    return UIBarButtonItem(image: image, style: .plain, target: qaMenu, action: #selector(QAMenu.navigateToRootPane))
-  }
-
   class func dm_hideQAMenu(in qaMenu: QAMenu) -> UIBarButtonItem {
     let image = UIImage(named: "xmark", in: .dm_resources, compatibleWith: nil)
     return UIBarButtonItem(image: image, style: .done, target: qaMenu, action: #selector(QAMenu.hide))

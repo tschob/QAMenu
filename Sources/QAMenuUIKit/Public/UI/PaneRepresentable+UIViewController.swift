@@ -43,25 +43,8 @@ extension PaneRepresentable where Self: UIViewController {
             self.navigationItem.largeTitleDisplayMode = isRoot ? .always : .never
         }
 
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(
-            title: "",
-            style: .plain,
-            target: nil,
-            action: nil
-        )
-
-        if isRoot {
-            self.navigationItem.rightBarButtonItems = [
-                .dm_hideQAMenu(in: qaMenu)
-            ]
-        } else {
-            self.navigationItem.rightBarButtonItems = [
-                .dm_hideQAMenu(in: qaMenu)
-            ]
-            self.navigationItem.leftItemsSupplementBackButton = true
-            self.navigationItem.leftBarButtonItems = [
-                .dm_navigateToRootPane(in: qaMenu)
-            ]
-        }
+        self.navigationItem.rightBarButtonItems = [
+            .dm_hideQAMenu(in: qaMenu)
+        ]
     }
 }
