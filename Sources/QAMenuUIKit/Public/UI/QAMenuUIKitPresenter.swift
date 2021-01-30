@@ -133,6 +133,8 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
 
         self.animate(to: .open, completion: {
             self.state = .open
+            // Make sure that the status bar style is updated for QAMenu
+            self.visiblePresentationContext?.viewControllers.last?.setNeedsStatusBarAppearanceUpdate()
             completion()
         })
     }
