@@ -32,15 +32,11 @@ public struct Logger {
 
     // MARK: - Properties (Public)
 
-    public enum Level: Int, Comparable {
-        case verbose = 0
+    public enum Level: Comparable {
+        case verbose
         case warning
         case error
         case none
-
-        public static func < (lhs: Level, rhs: Level) -> Bool {
-            return lhs.rawValue < rhs.rawValue
-        }
     }
 
     public static var logLevel: Level = .error
