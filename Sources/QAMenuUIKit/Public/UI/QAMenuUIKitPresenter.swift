@@ -167,7 +167,7 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
     private func animate(to state: QAMenuState, completion: @escaping () -> Void) {
         let openedCenter = CGPoint(x: self.window.bounds.width / 2, y: self.window.bounds.height / 2)
         let closedCenter = openedCenter.applying(.init(translationX: 0, y: self.window.bounds.height))
-        // Apply the animation start postion first to make sure that e.g. the inital opening is animated
+        // Apply the animation start postion first to make sure that e.g. the initial opening is animated
         self.window.center = (state == .open) ? closedCenter: openedCenter
         self.window.isHidden = false
 
