@@ -56,8 +56,7 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
     internal lazy var window: UIWindow = {
         if #available(iOS 13.0, *) {
             let windowScene = UIApplication.shared.connectedScenes
-                .filter { $0.activationState == .foregroundActive }
-                .first
+                .first(where: { $0.activationState == .foregroundActive })
             if let windowScene = windowScene as? UIWindowScene {
                 return UIWindow(windowScene: windowScene)
             }
