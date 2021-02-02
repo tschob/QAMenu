@@ -31,7 +31,7 @@ import QAMenu
 
 public extension QAMenu.Catalog {
 
-    enum AppInfo: CatalogGroup {
+    enum AppInfo {
 
         public static var all: [Group] {
             return [

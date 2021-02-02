@@ -7,6 +7,7 @@
 * [QAMenu] Renamed parameter `isSearchable` to `isPaneSearchable` in `Item.asChildPaneItem()` (MR #6)
 * [QAMenu] Removed parameter `trigger` from `QAMenu()` in favor of `QAMenu.setTrigger()` (MR #7)
 * [QAMenu] Renamed `QAMenuDismissBehavior` to `QAMenu.DismissBehavior()` (MR #7)
+* [QAMenuCatalog] `QAMenu.Catalog.all()` requires now a `QAMenu` instance as parameter (MR #7)
 
 #### Enhancements
 
@@ -14,6 +15,7 @@
 * [QAMenu] Allow to pass the root pane after initializing `QAMenu` with `setRootPane()` (MR #7)
 * [QAMenu] `QAMenu.Trigger` configuration is now backed by NSUserDefaults  (MR #7)
 * [QAMenu] Exposed configuration option `QAMenu.DismissBehavior` (MR #7)
+* [QAMenuCatalog] Added group and items to be able to see and modify the QAMenu configuration (MR #7)
 
 #### Bug Fixes
 

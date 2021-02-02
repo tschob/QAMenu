@@ -29,20 +29,16 @@
 import Foundation
 import QAMenu
 
-public protocol CatalogGroup {
-
-    static var all: [Group] { get }
-}
-
 public extension QAMenu {
 
-    enum Catalog: CatalogGroup {
+    enum Catalog {
 
-        public static var all: [Group] {
+        public static func all(qaMenu: QAMenu?) -> [Group] {
             return [
                 AppInfo.all,
                 Preferences.all,
-                Device.all
+                Device.all,
+                QAMenuConfiguration.all(qaMenu: qaMenu)
             ].flatMap { $0 }
         }
     }

@@ -31,7 +31,7 @@ import QAMenu
 
 public extension QAMenu.Catalog {
 
-    enum Device: CatalogGroup {
+    enum Device {
 
         public static var all: [Group] {
             return [

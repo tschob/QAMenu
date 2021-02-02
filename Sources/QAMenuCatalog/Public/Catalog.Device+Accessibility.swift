@@ -34,7 +34,7 @@ import QAMenu
 
 public extension QAMenu.Catalog.Device {
 
-    enum Accessibility: CatalogGroup {
+    enum Accessibility {
 
         public static var all: [Group] {
             return [
