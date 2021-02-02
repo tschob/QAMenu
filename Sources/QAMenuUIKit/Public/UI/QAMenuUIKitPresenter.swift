@@ -132,6 +132,8 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
 
         self.animate(to: .open, completion: {
             self.state = .open
+            // Make sure that the status bar style is updated for QAMenu
+            self.visiblePresentationContext?.viewControllers.last?.setNeedsStatusBarAppearanceUpdate()
             completion()
         })
     }
@@ -162,10 +164,10 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
     // MARK: - Methods (Private)
 
     private func animate(to state: QAMenuState, completion: @escaping () -> Void) {
-        let openedFrame = UIScreen.main.bounds
-        let closedFrame = UIScreen.main.bounds.offsetBy(dx: 0, dy: UIScreen.main.bounds.height)
-
-        self.window.frame = (state == .open) ? closedFrame : openedFrame
+        let openedCenter = CGPoint(x: self.window.bounds.width / 2, y: self.window.bounds.height / 2)
+        let closedCenter = openedCenter.applying(.init(translationX: 0, y: self.window.bounds.height))
+        // Apply the animation start postion first to make sure that e.g. the initial opening is animated
+        self.window.center = (state == .open) ? closedCenter: openedCenter
         self.window.isHidden = false
 
         UIView.animateKeyframes(
@@ -173,7 +175,7 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
             delay: 0,
             options: [.beginFromCurrentState, .calculationModeCubicPaced],
             animations: {
-                self.window.frame = (state == .open) ? openedFrame : closedFrame
+                self.window.center = (state == .open) ? openedCenter : closedCenter
             },
             completion: { _ in
                 self.window.isHidden = (state == .closed)

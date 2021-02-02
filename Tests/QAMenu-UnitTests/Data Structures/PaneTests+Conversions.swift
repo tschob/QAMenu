@@ -33,50 +33,84 @@ extension PaneTests {
 
     // MARK: - asChildPaneItem
 
-    func test_asChildPaneItem_returnsChildPaneItem() throws {
-        let sut = Pane(title: .static("abc"), groups: [], isSearchable: true)
+    func test_pane_asChildPaneItem_whenPassingOnlyMandatoryParameters_returnsExpectedChildPaneItem() throws {
+        let pane = MockPane(title: "abc", groups: [])
 
-        let childPaneItem = sut.asChildPaneItem()
+        let childPaneItem = pane.asChildPaneItem()
 
-        childPaneItem.assert_pane_equals(sut)
-        XCTAssertNil(childPaneItem.footerText)
+        ChildPaneItem._assertInitProperties(
+            childPaneItem,
+            pane: pane,
+            title: "abc"
+        )
     }
 
-    func test_asChildPaneItem_whenGivenFooterText_returnsChildPaneItem() throws {
-        let sut = Pane(title: .static("abc"), groups: [])
+    func test_pane_asChildPaneItem_whenPassingAllParameters_returnsExpectedChildPaneItem() throws {
+        let pane = MockPane(title: "abc", groups: [])
 
-        let childPaneItem = sut.asChildPaneItem(footerText: .static("footer"))
+        let childPaneItem = pane.asChildPaneItem(
+            value: .static("value"),
+            footerText: .static("footer"),
+            layoutType: .static(.vertical(.singleLine)),
+            fallbackString: "fallback"
+        )
 
-        childPaneItem.assert_pane_equals(sut)
-        XCTAssertEqual(childPaneItem.footerText?(), "footer")
+        ChildPaneItem._assertInitProperties(
+            childPaneItem,
+            pane: pane,
+            title: "abc",
+            value: "value",
+            footerText: "footer",
+            layoutType: .vertical(.singleLine),
+            fallbackString: "fallback"
+        )
     }
 
-    // MARK: - asChildPaneItems
+    // MARK: - asChildPaneItems (Array)
 
-    func test_asChildPaneItems_returnsChildPaneItems() throws {
-        let sut = [
-            Pane(title: .static("def"), groups: [], isSearchable: true)
+    func test_panes_asChildPaneItems_whenPassingOnlyMandatoryParameters_returnsExpectedChildPaneItems() throws {
+        let panes = [
+            MockPane(title: "abc", groups: [])
         ]
 
-        let childPaneItems = sut.asChildPaneItems()
+        let childPaneItems = panes.asChildPaneItems()
 
         XCTAssertEqual(childPaneItems.count, 1)
-        childPaneItems[0].assert_pane_equals(sut[0])
-        XCTAssertNil(childPaneItems[0].footerText)
+        ChildPaneItem._assertInitProperties(
+            childPaneItems[0],
+            pane: panes[0],
+            title: "abc"
+        )
     }
 
-    func test_asChildPaneItems_whenGivenFooterText_returnsChildPaneItems() throws {
-        let sut = [
-            Pane(title: .static("abc"), groups: [], isSearchable: true),
-            Pane(title: .static("def"), groups: [], isSearchable: true)
+    func test_panes_asChildPaneItems_whenPassingAllParameters_returnsExpectedChildPaneItems() throws {
+        let panes = [
+            MockPane(title: "abc", groups: []),
+            MockPane(title: "def", groups: [])
         ]
 
-        let childPaneItems = sut.asChildPaneItems(footerText: .static("footer"))
+        let childPaneItems = panes.asChildPaneItems(
+            footerText: .static("footer")
+        )
 
         XCTAssertEqual(childPaneItems.count, 2)
-        childPaneItems[0].assert_pane_equals(sut[0])
-        XCTAssertEqual(childPaneItems[0].footerText?(), "footer")
-        childPaneItems[1].assert_pane_equals(sut[1])
-        XCTAssertEqual(childPaneItems[1].footerText?(), "footer")
+        ChildPaneItem._assertInitProperties(
+            childPaneItems[0],
+            pane: panes[0],
+            title: "abc",
+            value: nil,
+            footerText: "footer",
+            layoutType: .horizontal(.singleLine),
+            fallbackString: ""
+        )
+        ChildPaneItem._assertInitProperties(
+            childPaneItems[1],
+            pane: panes[1],
+            title: "def",
+            value: nil,
+            footerText: "footer",
+            layoutType: .horizontal(.singleLine),
+            fallbackString: ""
+        )
     }
 }

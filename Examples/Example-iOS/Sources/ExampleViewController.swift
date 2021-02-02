@@ -77,6 +77,8 @@ class ExampleViewController: UITableViewController {
             return self.openCatalogButton.isEnabled
         case (3, 2):
             return self.openSimpleProjectButton.isEnabled
+        case (4, 0):
+            return true
         default:
             break
         }
@@ -97,6 +99,10 @@ class ExampleViewController: UITableViewController {
             self.setupSimpleProjectQAMenu()
         case (3, 2):
             self.simpleProjectQAMenu?.show()
+        case (4, 0):
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "ExampleViewController")
+            self.present(viewController, animated: true, completion: nil)
         default:
             break
         }

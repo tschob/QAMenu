@@ -67,166 +67,76 @@ class ChildPaneItemTests: XCTestCase {
 
     // MARK: - init (pane)
 
-    func test_initWithPane_whenOnlyPassingPane() throws {
-        let mockPane = MockPane()
-        let sut = ChildPaneItem(pane: { mockPane })
-
-        sut.assert_pane_equals(mockPane)
-        XCTAssertNil(sut.value?.unboxed)
-        XCTAssertNil(sut.footerText?.unboxed)
-        XCTAssertNil(sut.footerText?.unboxed)
-        XCTAssertEqual(sut.layoutType.unboxed, .horizontal(.singleLine))
-        XCTAssertEqual(sut.valueFallbackString, "")
-    }
-
-    func test_initWithPane_whenPassingPaneAndValue() throws {
+    func test_initWithPane_whenPassingOnlyMandatoryParameters() throws {
         let mockPane = MockPane()
         let sut = ChildPaneItem(
-            pane: { mockPane },
-            value: .static("value")
+            pane: { mockPane }
         )
 
-        sut.assert_pane_equals(mockPane)
-        XCTAssertEqual(sut.value?.unboxed, "value")
-        XCTAssertNil(sut.footerText?.unboxed)
-        XCTAssertEqual(sut.layoutType.unboxed, .horizontal(.singleLine))
-        XCTAssertEqual(sut.valueFallbackString, "")
-    }
-
-    func test_initWithPane_whenPassingPaneValueAndFooter() throws {
-        let mockPane = MockPane()
-        let sut = ChildPaneItem(
-            pane: { mockPane },
-            value: .static("value"),
-            footerText: .static("footer")
+        ChildPaneItem._assertInitProperties(
+            sut,
+            pane: mockPane,
+            title: mockPane.title()
         )
-
-        sut.assert_pane_equals(mockPane)
-        XCTAssertEqual(sut.value?.unboxed, "value")
-        XCTAssertEqual(sut.footerText?.unboxed, "footer")
-        XCTAssertEqual(sut.layoutType.unboxed, .horizontal(.singleLine))
-        XCTAssertEqual(sut.valueFallbackString, "")
     }
 
-    func test_initWithPane_whenPassingPaneValueFooterAndLayoutTye() throws {
+    func test_initWithPane_whenPassingAllParameters() throws {
         let mockPane = MockPane()
         let sut = ChildPaneItem(
             pane: { mockPane },
             value: .static("value"),
             footerText: .static("footer"),
-            layoutType: .static(.vertical(.autoGrow))
-        )
-
-        sut.assert_pane_equals(mockPane)
-        XCTAssertEqual(sut.value?.unboxed, "value")
-        XCTAssertEqual(sut.footerText?.unboxed, "footer")
-        XCTAssertEqual(sut.layoutType.unboxed, .vertical(.autoGrow))
-        XCTAssertEqual(sut.valueFallbackString, "")
-    }
-
-    func test_initWithPane_whenPassingPaneValueFooterLayoutTyeAndFallbackString() throws {
-        let mockPane = MockPane()
-        let sut = ChildPaneItem(
-            pane: { mockPane },
-            value: .static("value"),
-            footerText: .static("footer"),
-            layoutType: .static(.vertical(.singleLine)),
+            layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback"
         )
 
-        sut.assert_pane_equals(mockPane)
-        XCTAssertEqual(sut.value?.unboxed, "value")
-        XCTAssertEqual(sut.footerText?.unboxed, "footer")
-        XCTAssertEqual(sut.layoutType.unboxed, .vertical(.singleLine))
-        XCTAssertEqual(sut.valueFallbackString, "fallback")
+        ChildPaneItem._assertInitProperties(
+            sut,
+            pane: mockPane,
+            title: mockPane.title(),
+            value: "value",
+            footerText: "footer",
+            layoutType: .vertical(.autoGrow),
+            fallbackString: "fallback"
+        )
     }
 
     // MARK: - init (paneRepresentable)
 
-    func test_initWithPaneRepresentable_whenOnlyPassingPaneRepresentable() throws {
+    func test_initWithPaneRepresentable_whenPassingOnlyMandatoryParameters() throws {
         let mockPaneRepresentable = MockPaneRepresentable()
         let sut = ChildPaneItem(
             title: .static("title"),
             paneRepresentable: { mockPaneRepresentable }
         )
 
-        sut.assert_paneRepresentation_equals(mockPaneRepresentable)
-        XCTAssertEqual(sut.title?.unboxed, "title")
-        XCTAssertNil(sut.value?.unboxed)
-        XCTAssertNil(sut.footerText?.unboxed)
-        XCTAssertNil(sut.footerText?.unboxed)
-        XCTAssertEqual(sut.layoutType.unboxed, .horizontal(.singleLine))
-        XCTAssertEqual(sut.valueFallbackString, "")
-    }
-
-    func test_initWithPaneRepresentable_whenPassingPaneRepresentableAndValue() throws {
-        let mockPaneRepresentable = MockPaneRepresentable()
-        let sut = ChildPaneItem(
-            title: .static("title"),
-            paneRepresentable: { mockPaneRepresentable },
-            value: .static("value")
+        ChildPaneItem._assertInitProperties(
+            sut,
+            paneRepresentable: mockPaneRepresentable,
+            title: "title"
         )
-
-        sut.assert_paneRepresentation_equals(mockPaneRepresentable)
-        XCTAssertEqual(sut.title?.unboxed, "title")
-        XCTAssertEqual(sut.value?.unboxed, "value")
-        XCTAssertNil(sut.footerText?.unboxed)
-        XCTAssertEqual(sut.layoutType.unboxed, .horizontal(.singleLine))
-        XCTAssertEqual(sut.valueFallbackString, "")
     }
 
-    func test_initWithPaneRepresentable_whenPassingPaneRepresentableValueAndFooter() throws {
-        let mockPaneRepresentable = MockPaneRepresentable()
-        let sut = ChildPaneItem(
-            title: .static("title"),
-            paneRepresentable: { mockPaneRepresentable },
-            value: .static("value"),
-            footerText: .static("footer")
-        )
-
-        sut.assert_paneRepresentation_equals(mockPaneRepresentable)
-        XCTAssertEqual(sut.title?.unboxed, "title")
-        XCTAssertEqual(sut.value?.unboxed, "value")
-        XCTAssertEqual(sut.footerText?.unboxed, "footer")
-        XCTAssertEqual(sut.layoutType.unboxed, .horizontal(.singleLine))
-        XCTAssertEqual(sut.valueFallbackString, "")
-    }
-
-    func test_initWithPaneRepresentable_whenPassingRepresentablePaneValueFooterAndLayoutTye() throws {
+    func test_initWithPaneRepresentable_whenPassingAllParameters() throws {
         let mockPaneRepresentable = MockPaneRepresentable()
         let sut = ChildPaneItem(
             title: .static("title"),
             paneRepresentable: { mockPaneRepresentable },
             value: .static("value"),
             footerText: .static("footer"),
-            layoutType: .static(.vertical(.autoGrow))
-        )
-
-        sut.assert_paneRepresentation_equals(mockPaneRepresentable)
-        XCTAssertEqual(sut.title?.unboxed, "title")
-        XCTAssertEqual(sut.value?.unboxed, "value")
-        XCTAssertEqual(sut.footerText?.unboxed, "footer")
-        XCTAssertEqual(sut.layoutType.unboxed, .vertical(.autoGrow))
-        XCTAssertEqual(sut.valueFallbackString, "")
-    }
-
-    func test_initWithPaneRepresentable_whenPassingPaneRepresentableValueFooterLayoutTyeAndFallbackString() throws {
-        let mockPaneRepresentable = MockPaneRepresentable()
-        let sut = ChildPaneItem(
-            title: .static("title"),
-            paneRepresentable: { mockPaneRepresentable },
-            value: .static("value"),
-            footerText: .static("footer"),
-            layoutType: .static(.vertical(.singleLine)),
+            layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback"
         )
 
-        sut.assert_paneRepresentation_equals(mockPaneRepresentable)
-        XCTAssertEqual(sut.title?.unboxed, "title")
-        XCTAssertEqual(sut.value?.unboxed, "value")
-        XCTAssertEqual(sut.footerText?.unboxed, "footer")
-        XCTAssertEqual(sut.layoutType.unboxed, .vertical(.singleLine))
-        XCTAssertEqual(sut.valueFallbackString, "fallback")
+        ChildPaneItem._assertInitProperties(
+            sut,
+            paneRepresentable: mockPaneRepresentable,
+            title: "title",
+            value: "value",
+            footerText: "footer",
+            layoutType: .vertical(.autoGrow),
+            fallbackString: "fallback"
+        )
     }
 
     // MARK: - Searchable

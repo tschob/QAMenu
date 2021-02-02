@@ -75,56 +75,22 @@ class PickableStringItemTests: XCTestCase {
 
     // MARK: - init
 
-    func test_init_whenPassingIdentifierAndTitle() throws {
-        let sut = PickableStringItem(
-            identifier: .static("id"),
-            title: .static("title"),
-            isSelected: .static(false)
-        )
-
-        assert_pickableStringItem(
-            sut,
-            identifier: "id",
-            title: "title",
-            footerText: nil,
-            isSelected: false
-        )
-    }
-
-    func test_init_whenPassingIdentifierAndTitleAndFooter() throws {
-        let sut = PickableStringItem(
-            identifier: .static("id"),
-            title: .static("title"),
-            footerText: .static("footer"),
-            isSelected: .static(false)
-        )
-
-        assert_pickableStringItem(
-            sut,
-            identifier: "id",
-            title: "title",
-            footerText: "footer",
-            isSelected: false
-        )
-    }
-
-    func test_init_whenPassingIdentifierAndTitleAndIsSelected() throws {
+    func test_init_whenPassingOnlyMandatoryParameters() throws {
         let sut = PickableStringItem(
             identifier: .static("id"),
             title: .static("title"),
             isSelected: .static(true)
         )
 
-        assert_pickableStringItem(
+        PickableStringItem._assertInitProperties(
             sut,
             identifier: "id",
             title: "title",
-            footerText: nil,
             isSelected: true
         )
     }
 
-    func test_init_whenPassingIdentifierAndTitleAndFooterAndIsSelected() throws {
+    func test_init_whenPassingAllParameters() throws {
         let sut = PickableStringItem(
             identifier: .static("id"),
             title: .static("title"),
@@ -132,7 +98,7 @@ class PickableStringItemTests: XCTestCase {
             isSelected: .static(false)
         )
 
-        assert_pickableStringItem(
+        PickableStringItem._assertInitProperties(
             sut,
             identifier: "id",
             title: "title",
@@ -209,22 +175,5 @@ class PickableStringItemTests: XCTestCase {
         )
 
         XCTAssertEqual(sut.shareContent, "")
-    }
-
-    // MARK: - Helper
-
-    private func assert_pickableStringItem(
-        _ sut: PickableStringItem,
-        identifier: String,
-        title: String,
-        footerText: String?,
-        isSelected: Bool,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        XCTAssertEqual(sut.identifier.unboxed, identifier, file: file, line: line)
-        XCTAssertEqual(sut.title.unboxed, title, file: file, line: line)
-        XCTAssertEqual(sut.footerText?.unboxed, footerText, file: file, line: line)
-        XCTAssertEqual(sut.isSelected.unboxed, isSelected, file: file, line: line)
     }
 }
