@@ -33,617 +33,245 @@ extension PickerGroupTests {
 
     // MARK: - asPane
 
-    func test_pickerGroup_asPane_whenHavingNoItems_returnsEmptyPane() throws {
+    func test_pickerGroup_asPane_whenPassingOnlyMandatoryParameters_returnsExpectedPane() throws {
         let options: [MockPickableItem] = []
-        let sut = PickerGroup(
-            title: .static(nil),
+        let group = PickerGroup(
+            title: .static("groupTitle"),
             options: options,
-            onPickedOption: { _, _ in }
+            onPickedOption: { _, result in
+                result(.failure("failure"))
+            }
         )
 
-        let pane = sut.asPane(title: .static("Pane"))
+        let pane = group.asPane()
 
-        assert_pane(
+        Pane._assertInitProperties(
             pane,
-            matches: [sut],
-            title: "Pane",
-            groupTitles: [nil],
-            isSearchable: nil
+            title: "groupTitle",
+            pickerGroups: [group],
+            onPickedOptionFailure: "failure",
+            testCase: self
         )
     }
 
-    func test_pickerGroup_asPane_whenUsingNilTitle_returnsPaneWithNilTitle() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem()
-        ]
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        let pane = sut.asPane(title: .static(nil))
-
-        assert_pane(
-            pane,
-            matches: [sut],
-            title: nil,
-            groupTitles: ["ItemGroup"],
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroup_asPane_whenUsingNoTitle_returnsPaneWithGroupTitle() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem()
-        ]
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        let pane = sut.asPane()
-
-        assert_pane(
-            pane,
-            matches: [sut],
-            title: "ItemGroup",
-            groupTitles: [nil],
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroup_asPane_whenUsingNoTitleAndGroupTitleIsNil_returnsPaneWithEmptyTitle() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem()
-        ]
-        let sut = PickerGroup(
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        let pane = sut.asPane()
-
-        assert_pane(
-            pane,
-            matches: [sut],
-            title: "",
-            groupTitles: [nil],
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroup_asPane_whenProvidingTitle_returnsPane() throws {
+    func test_pickerGroup_asPane_whenPassingAllParameters_returnsExpectedPane() throws {
         let options: [MockPickableItem] = [
             MockPickableItem(),
             MockPickableItem()
         ]
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
+        let group = PickerGroup(
+            title: .static("groupTitle"),
             options: options,
-            onPickedOption: { _, _ in }
+            onPickedOption: { _, result in
+                result(.failure("failure"))
+            }
         )
 
-        let pane = sut.asPane(title: .static("Pane"))
-
-        assert_pane(
-            pane,
-            matches: [sut],
-            title: "Pane",
-            groupTitles: ["ItemGroup"],
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroup_asPane_whenUsingNoTitleAndProvidingIsSearchable_returnsPane() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem()
-        ]
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        let pane = sut.asPane(isSearchable: true)
-
-        assert_pane(
-            pane,
-            matches: [sut],
-            title: "ItemGroup",
-            groupTitles: [nil],
+        let pane = group.asPane(
+            title: .static("title"),
             isSearchable: true
         )
-    }
 
-    func test_pickerGroup_asPane_whenUsingNilTitleAndProvidingIsSearchable_returnsPane() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem()
-        ]
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        let pane = sut.asPane(title: .static(nil), isSearchable: true)
-
-        assert_pane(
+        Pane._assertInitProperties(
             pane,
-            matches: [sut],
-            title: nil,
-            groupTitles: ["ItemGroup"],
-            isSearchable: true
-        )
-    }
-
-    func test_pickerGroup_asPane_whenProvidingTitleAndIsSearchable_returnsPane() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem()
-        ]
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        let pane = sut.asPane(title: .static("Pane"), isSearchable: true)
-
-        assert_pane(
-            pane,
-            matches: [sut],
-            title: "Pane",
-            groupTitles: ["ItemGroup"],
-            isSearchable: true
+            title: "title",
+            pickerGroups: [group],
+            footerText: "footer",
+            onPickedOptionFailure: "failure",
+            isSearchable: true,
+            testCase: self
         )
     }
 
     // MARK: - asPane (Array)
 
-    func test_pickerGroups_asPane_whenHavingNoItems_returnsEmptyPane() throws {
+    func test_pickerGroups_asPane_whenPassingOnlyMandatoryParameters_returnsExpectedPane() throws {
         let options: [MockPickableItem] = []
-        let sut = [
+        let groups = [
             PickerGroup(
-                title: .static("ItemGroup1"),
+                title: .static("groupTitle"),
                 options: options,
-                onPickedOption: { _, _ in }
+                onPickedOption: { _, result in
+                    result(.failure("failure"))
+                }
             )
         ]
 
-        let pane = sut.asPane(title: .static("Pane"))
+        let pane = groups.asPane(
+            title: .static("title")
+        )
 
-        assert_pane(
+        Pane._assertInitProperties(
             pane,
-            matches: sut,
-            title: "Pane",
-            groupTitles: ["ItemGroup1"],
-            isSearchable: nil
+            title: "title",
+            pickerGroups: groups,
+            onPickedOptionFailure: "failure",
+            testCase: self
         )
     }
 
-    func test_pickerGroups_asPane_whenUsingNilTitle_returnsPaneWithNilTitle() throws {
+    func test_pickerGroups_asPane_whenPassingAllParameters_returnsExpectedPane() throws {
         let options: [MockPickableItem] = [
             MockPickableItem(),
             MockPickableItem()
         ]
-        let sut = [
+        let groups = [
             PickerGroup(
-                title: .static("ItemGroup1"),
+                title: .static("groupTitle1"),
                 options: options,
-                onPickedOption: { _, _ in }
+                onPickedOption: { _, result in
+                    result(.failure("failure"))
+                }
             ),
             PickerGroup(
                 options: [],
-                onPickedOption: { _, _ in }
+                onPickedOption: { _, result in
+                    result(.failure("failure"))
+                }
             )
         ]
 
-        let pane = sut.asPane(title: .static(nil))
-
-        assert_pane(
-            pane,
-            matches: sut,
-            title: nil,
-            groupTitles: ["ItemGroup1", nil],
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroups_asPane_whenProvidingTitle_returnsPane() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem(),
-            MockPickableItem()
-        ]
-        let sut = [
-            PickerGroup(
-                title: .static("ItemGroup1"),
-                options: options,
-                onPickedOption: { _, _ in }
-            ),
-            PickerGroup(
-                title: .static(nil),
-                options: [],
-                onPickedOption: { _, _ in }
-            )
-        ]
-
-        let pane = sut.asPane(title: .static("Pane"))
-
-        assert_pane(
-            pane,
-            matches: sut,
-            title: "Pane",
-            groupTitles: ["ItemGroup1", nil],
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroups_asPane_whenUsingNilTitleAndProvidingIsSearchable_returnsPane() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem(),
-            MockPickableItem()
-        ]
-        let sut = [
-            PickerGroup(
-                title: .static("ItemGroup1"),
-                options: options,
-                onPickedOption: { _, _ in }
-            ),
-            PickerGroup(
-                options: [],
-                onPickedOption: { _, _ in }
-            )
-        ]
-
-        let pane = sut.asPane(title: .static(nil), isSearchable: true)
-
-        assert_pane(
-            pane,
-            matches: sut,
-            title: nil,
-            groupTitles: ["ItemGroup1", nil],
+        let pane = groups.asPane(
+            title: .static("title"),
             isSearchable: true
         )
-    }
 
-    func test_pickerGroups_asPane_whenProvidingTitleAndIsSearchable_returnsPane() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem(),
-            MockPickableItem()
-        ]
-        let sut = [
-            PickerGroup(
-                title: .static("ItemGroup1"),
-                options: options,
-                onPickedOption: { _, _ in }
-            ),
-            PickerGroup(
-                options: [],
-                onPickedOption: { _, _ in }
-            )
-        ]
-
-        let pane = sut.asPane(title: .static("Pane"), isSearchable: true)
-
-        assert_pane(
+        Pane._assertInitProperties(
             pane,
-            matches: sut,
-            title: "Pane",
-            groupTitles: ["ItemGroup1", nil],
-            isSearchable: true
+            title: "title",
+            pickerGroups: groups,
+            footerText: "footer",
+            onPickedOptionFailure: "failure",
+            isSearchable: true,
+            testCase: self
         )
     }
 
     // MARK: - asChildPaneItem
 
-    func test_pickerGroup_asChildPaneItem_whenHavingNoItems_returnsEmptyChildPaneItem() throws {
-        let options: [MockPickableItem] = []
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        let childPaneItem = sut.asChildPaneItem(title: .static("Pane"))
-
-        assert_childPaneItem(
-            childPaneItem,
-            matches: [sut],
-            title: "Pane",
-            groupTitles: ["ItemGroup"],
-            footerText: nil,
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroup_asChildPaneItem_whenUsingNoTitle_returnsChildPaneItemWitGroupTitle() throws {
+    func test_pickerGroup_asChildPaneItem_whenPassingOnlyMandatoryParameters_returnsExpectedChildPaneItem() throws {
         let options: [MockPickableItem] = [
             MockPickableItem()
         ]
         let sut = PickerGroup(
-            title: .static("ItemGroup"),
             options: options,
-            onPickedOption: { _, _ in }
+            onPickedOption: { _, result in
+                result(.failure("failure"))
+            }
         )
 
         let childPaneItem = sut.asChildPaneItem()
 
-        assert_childPaneItem(
+        ChildPaneItem._assertInitProperties(
             childPaneItem,
-            matches: [sut],
-            title: "ItemGroup",
-            groupTitles: [nil],
-            footerText: nil,
-            isSearchable: nil
+            pickerGroups: [sut],
+            title: "",
+            onPickedOptionFailure: "failure",
+            testCase: self
         )
     }
 
-    func test_pickerGroup_asChildPaneItem_whenUsingNilTitle_returnsChildPaneItem() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem()
-        ]
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
-            options: options,
-            onPickedOption: { _, _ in }
+    func test_pickerGroup_asChildPaneItem_whenPassingAllParameters_returnsExpectedChildPaneItem() throws {
+        let pickerGroup = PickerGroup(
+            title: .static("groupTitle"),
+            options: [
+                MockPickableItem()
+            ],
+            footerText: .static("groupFooter"),
+            onPickedOption: { _, result in
+                result(.failure("failure"))
+            }
         )
 
-        let childPaneItem = sut.asChildPaneItem(title: .static(nil))
-
-        assert_childPaneItem(
-            childPaneItem,
-            matches: [sut],
-            title: nil,
-            groupTitles: ["ItemGroup"],
-            footerText: nil,
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroup_asChildPaneItem_whenProvidingTitle_returnsChildPaneItem() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem()
-        ]
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        let childPaneItem = sut.asChildPaneItem(title: .static("Pane"))
-
-        assert_childPaneItem(
-            childPaneItem,
-            matches: [sut],
-            title: "Pane",
-            groupTitles: ["ItemGroup"],
-            footerText: nil,
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroup_asChildPaneItem_whenProvidingTitleAndFooterAndIsSearchable_returnsChildPaneItem() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem()
-        ]
-        let sut = PickerGroup(
-            title: .static("ItemGroup"),
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        let childPaneItem = sut.asChildPaneItem(
-            title: .static("Pane"),
+        let childPaneItem = pickerGroup.asChildPaneItem(
+            title: .static("title"),
+            value: .static("value"),
             footerText: .static("footer"),
-            isSearchable: true
+            layoutType: .static(.vertical(.autoGrow)),
+            fallbackString: "fallback",
+            isPaneSearchable: true
         )
 
-        assert_childPaneItem(
+        ChildPaneItem._assertInitProperties(
             childPaneItem,
-            matches: [sut],
-            title: "Pane",
-            groupTitles: ["ItemGroup"],
+            pickerGroups: [pickerGroup],
+            title: "title",
+            value: "value",
             footerText: "footer",
-            isSearchable: true
+            layoutType: .vertical(.autoGrow),
+            fallbackString: "fallback",
+            onPickedOptionFailure: "failure",
+            testCase: self
         )
     }
 
     // MARK: - asChildPaneItem (Array)
 
-    func test_pickerGroups_asChildPaneItem_whenHavingNoItems_returnsEmptyChildPaneItem() throws {
-        let sut = [
+    func test_pickerGroups_asChildPaneItem_whenPassingOnlyMandatoryParameters_returnsExpectedChildPaneItem() throws {
+        let options: [MockPickableItem] = [
+            MockPickableItem()
+        ]
+        let groups = [
             PickerGroup(
-                title: .static("ItemGroup1"),
-                options: [],
-                onPickedOption: { _, _ in }
+                options: options,
+                onPickedOption: { _, result in
+                    result(.failure("failure"))
+                }
             )
         ]
-        let childPaneItem = sut.asChildPaneItem(title: .static("Pane"))
 
-        assert_childPaneItem(
+        let childPaneItem = groups.asChildPaneItem(
+            title: .static("title")
+        )
+
+        ChildPaneItem._assertInitProperties(
             childPaneItem,
-            matches: sut,
-            title: "Pane",
-            groupTitles: ["ItemGroup1"],
-            footerText: nil,
-            isSearchable: nil
+            pickerGroups: groups,
+            title: "title",
+            onPickedOptionFailure: "failure",
+            testCase: self
         )
     }
 
-    func test_pickerGroups_asChildPaneItem_whenUsingNilTitle_returnsChildPaneItem() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem(),
-            MockPickableItem()
-        ]
-        let sut = [
-            PickerGroup(
-                title: .static("ItemGroup1"),
-                options: options,
-                onPickedOption: { _, _ in }
-            ),
+    func test_pickerGroups_asChildPaneItem_whenPassingAllParameters_returnsExpectedChildPaneItem() throws {
+        let groups = [
             PickerGroup(
                 options: [],
-                onPickedOption: { _, _ in }
+                onPickedOption: { _, result in
+                    result(.failure("failure"))
+                }
+            ),
+            PickerGroup(
+                title: .static("groupTitle"),
+                options: [
+                    MockPickableItem()
+                ],
+                footerText: .static("groupFooter"),
+                onPickedOption: { _, result in
+                    result(.failure("failure"))
+                }
             )
         ]
 
-        let childPaneItem = sut.asChildPaneItem(title: .static(nil))
-
-        assert_childPaneItem(
-            childPaneItem,
-            matches: sut,
-            title: nil,
-            groupTitles: ["ItemGroup1", nil],
-            footerText: nil,
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroups_asChildPaneItem_whenProvidingTitle_returnsChildPaneItem() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem(),
-            MockPickableItem()
-        ]
-        let sut = [
-            PickerGroup(
-                title: .static("ItemGroup1"),
-                options: options,
-                onPickedOption: { _, _ in }
-            ),
-            PickerGroup(
-                options: [],
-                onPickedOption: { _, _ in }
-            )
-        ]
-
-        let childPaneItem = sut.asChildPaneItem(title: .static("Pane"))
-
-        assert_childPaneItem(
-            childPaneItem,
-            matches: sut,
-            title: "Pane",
-            groupTitles: ["ItemGroup1", nil],
-            footerText: nil,
-            isSearchable: nil
-        )
-    }
-
-    func test_pickerGroups_asChildPaneItem_whenProvidingTitleAndFooterAndIsSearchable_returnsChildPaneItem() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem(),
-            MockPickableItem()
-        ]
-        let sut = [
-            PickerGroup(
-                title: .static("ItemGroup1"),
-                options: options,
-                onPickedOption: { _, _ in }
-            ),
-            PickerGroup(
-                options: [],
-                onPickedOption: { _, _ in }
-            )
-        ]
-
-        let childPaneItem = sut.asChildPaneItem(
-            title: .static("Pane"),
+        let childPaneItem = groups.asChildPaneItem(
+            title: .static("title"),
+            value: .static("value"),
             footerText: .static("footer"),
-            isSearchable: true
+            layoutType: .static(.vertical(.autoGrow)),
+            fallbackString: "fallback",
+            isPaneSearchable: true
         )
 
-        assert_childPaneItem(
+        ChildPaneItem._assertInitProperties(
             childPaneItem,
-            matches: sut,
-            title: "Pane",
-            groupTitles: ["ItemGroup1", nil],
+            pickerGroups: groups,
+            title: "title",
+            value: "value",
             footerText: "footer",
-            isSearchable: true
+            layoutType: .vertical(.autoGrow),
+            fallbackString: "fallback",
+            onPickedOptionFailure: "failure",
+            testCase: self
         )
-    }
-
-    // MARK: - Helper
-
-    private func assert_pane(
-        _ pane: Pane,
-        matches suts: [PickerGroup],
-        title: String?,
-        groupTitles: [String?],
-        isSearchable: Bool?,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        if let title = title {
-            XCTAssertEqual(pane.title.unboxed, title, file: file, line: line)
-        } else {
-            XCTAssertEqual(pane.title.unboxed, nil, file: file, line: line)
-        }
-        if let isSearchable = isSearchable {
-            XCTAssertEqual(pane.isSearchable, isSearchable, file: file, line: line)
-        } else {
-            XCTAssertEqual(pane.isSearchable, false, file: file, line: line)
-        }
-        XCTAssertEqual(pane.groups.count, suts.count, file: file, line: line)
-        var groupIndex = 0
-        suts.forEach { sut in
-            let group = pane.groups[groupIndex]
-            XCTAssertEqual(group.title?.unboxed, groupTitles[groupIndex], file: file, line: line)
-            XCTAssertEqual(group.items.count, sut.items.count, file: file, line: line)
-            var itemIndex = 0
-            sut.items.forEach { item in
-                XCTAssertEqual(group.items[itemIndex] as! MockPickableItem, item as! MockPickableItem, file: file, line: line)
-                itemIndex += 1
-            }
-            groupIndex += 1
-        }
-    }
-
-    private func assert_childPaneItem(
-        _ childPaneItem: ChildPaneItem,
-        matches suts: [PickerGroup],
-        title: String?,
-        groupTitles: [String?],
-        footerText: String?,
-        isSearchable: Bool?,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        let pane: Pane! = {
-            if case .pane(let paneClosure) = childPaneItem.childType {
-                return paneClosure()
-            } else {
-                XCTFail("childPane should be of type .pane(...)")
-                return nil
-            }
-        }()
-
-        if let title = title {
-            XCTAssertEqual(pane.title.unboxed, title, file: file, line: line)
-        } else {
-            XCTAssertEqual(pane.title.unboxed, nil, file: file, line: line)
-        }
-        if let footerText = footerText {
-            XCTAssertEqual(childPaneItem.footerText?.unboxed, footerText, file: file, line: line)
-        } else {
-            XCTAssertNil(childPaneItem.footerText, file: file, line: line)
-        }
-        if let isSearchable = isSearchable {
-            XCTAssertEqual(pane.isSearchable, isSearchable, file: file, line: line)
-        } else {
-            XCTAssertEqual(pane.isSearchable, false, file: file, line: line)
-        }
-        XCTAssertEqual(pane.groups.count, suts.count, file: file, line: line)
-        var groupIndex = 0
-        suts.forEach { sut in
-            let group = pane.groups[groupIndex]
-            XCTAssertEqual(group.title?.unboxed, groupTitles[groupIndex], file: file, line: line)
-            XCTAssertEqual(group.items.count, sut.items.count, file: file, line: line)
-            var itemIndex = 0
-            sut.items.forEach { item in
-                XCTAssertEqual(group.items[itemIndex] as! MockPickableItem, item as! MockPickableItem, file: file, line: line)
-                itemIndex += 1
-            }
-            groupIndex += 1
-        }
     }
 }

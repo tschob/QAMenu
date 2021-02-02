@@ -71,7 +71,7 @@ public extension QAMenu.Catalog {
                 guard let stringItems = Bundle.main.infoDictionary?.dm_toStringItems() else {
                     return nil
                 }
-                return stringItems.asChildPaneItem(title: title, isSearchable: true)
+                return stringItems.asChildPaneItem(title: title, isPaneSearchable: true)
             }
         }
     }

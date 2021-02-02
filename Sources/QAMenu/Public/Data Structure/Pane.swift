@@ -77,8 +77,19 @@ open class Pane: NSObject, Invalidatable {
 
 extension Pane {
 
-    open func asChildPaneItem(footerText: Dynamic<String?>? = nil) -> ChildPaneItem {
-        return ChildPaneItem(pane: { self }, footerText: footerText)
+    open func asChildPaneItem(
+        value: Dynamic<String?>? = nil,
+        footerText: Dynamic<String?>? = nil,
+        layoutType: Dynamic<StringItem.LayoutType> = .static(.horizontal(.singleLine)),
+        fallbackString: String = ""
+    ) -> ChildPaneItem {
+        return ChildPaneItem(
+            pane: { self },
+            value: value,
+            footerText: footerText,
+            layoutType: layoutType,
+            fallbackString: fallbackString
+        )
     }
 }
 
@@ -86,7 +97,13 @@ extension Pane {
 
 extension Array where Element: Pane {
 
-    public func asChildPaneItems(footerText: Dynamic<String?>? = nil) -> [ChildPaneItem] {
-        return self.map { $0.asChildPaneItem(footerText: footerText) }
+    public func asChildPaneItems(
+        footerText: Dynamic<String?>? = nil
+    ) -> [ChildPaneItem] {
+        return self.map {
+            $0.asChildPaneItem(
+                footerText: footerText
+            )
+        }
     }
 }

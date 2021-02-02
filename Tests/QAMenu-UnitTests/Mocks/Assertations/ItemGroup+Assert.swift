@@ -1,12 +1,12 @@
 //
-//  MockGroup.swift
+//  Group+Assert.swift
 //
-//  Created by Hans Seiffert on 08.11.20.
+//  Created by Hans Seiffert on 31.01.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,20 +24,34 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//
+// 
 
+import Foundation
 import XCTest
-@testable import QAMenu
+import QAMenu
 
-class MockGroup: ItemGroup, Equatable {
+extension ItemGroup {
 
-    let id = UUID()
-
-    init(title: String = "mockTitle", items: [Item] = []) {
-        super.init(title: .static(title), items: items)
-    }
-
-    static func == (lhs: MockGroup, rhs: MockGroup) -> Bool {
-        return lhs.id == rhs.id
+    internal static func _assertInitProperties(
+        _ _sut: ItemGroup,
+        title: String? = nil,
+        items: [MockItem] = [],
+        footerText: String? = nil,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+        XCTAssertEqual(_sut.title?.unboxed, title, file: file, line: line)
+        XCTAssertEqual(_sut.items.count, items.count, file: file, line: line)
+        var itemIndex = 0
+        items.forEach { item in
+            XCTAssertEqual(
+                _sut.items[itemIndex] as! MockItem,
+                item,
+                file: file,
+                line: line
+            )
+            itemIndex += 1
+        }
+        XCTAssertEqual(_sut.footerText?.unboxed, footerText, file: file, line: line)
     }
 }

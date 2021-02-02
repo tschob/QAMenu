@@ -74,58 +74,41 @@ class BoolItemTests: XCTestCase {
 
     // MARK: - init
 
-    func test_init_whenPassingTitleAndValue() throws {
-        let sut = BoolItem(
-            title: .static("title"),
-            value: .static(true),
-            onValueChange: { _, _, result in
-                result(.failure("test1"))
-            }
-        )
-
-        assert_boolItem(
-            sut,
-            title: "title",
-            value: true,
-            footerText: nil,
-            onValueChangeFailure: "test1"
-        )
-    }
-
-    func test_init_whenPassingTitleAndValueAndFooter() throws {
+    func test_init_whenPassingOnlyMandatoryParameters() throws {
         let sut = BoolItem(
             title: .static("title"),
             value: .static(false),
             onValueChange: { _, _, result in
-                result(.failure("test2"))
+                result(.failure("failure"))
             }
         )
 
-        assert_boolItem(
+        BoolItem._assertInitProperties(
             sut,
             title: "title",
             value: false,
-            footerText: nil,
-            onValueChangeFailure: "test2"
+            onValueChangeFailure: "failure",
+            testCase: self
         )
     }
 
-    func test_init_whenPassingTitleNilValueAndNilFooter() throws {
+    func test_init_whenPassingAllParameters() throws {
         let sut = BoolItem(
             title: .static("title"),
             value: .static(true),
             footerText: .static("footer"),
             onValueChange: { _, _, result in
-                result(.failure("test3"))
+                result(.failure("failure"))
             }
         )
 
-        assert_boolItem(
+        BoolItem._assertInitProperties(
             sut,
             title: "title",
             value: true,
             footerText: "footer",
-            onValueChangeFailure: "test3"
+            onValueChangeFailure: "failure",
+            testCase: self
         )
     }
 
@@ -157,31 +140,5 @@ class BoolItemTests: XCTestCase {
         XCTAssertTrue(searchableContent.contains("title"))
         XCTAssertTrue(searchableContent.contains("false"))
         XCTAssertTrue(searchableContent.contains("footer"))
-    }
-
-    // MARK: - Helper
-
-    private func assert_boolItem(
-        _ sut: BoolItem,
-        title: String,
-        value: Bool,
-        footerText: String?,
-        onValueChangeFailure: String,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        XCTAssertEqual(sut.title.unboxed, title, file: file, line: line)
-        XCTAssertEqual(sut.value.unboxed, value, file: file, line: line)
-        XCTAssertEqual(sut.footerText?.unboxed, footerText, file: file, line: line)
-        let resultExpectation = expectation(description: "")
-        resultExpectation.assertForOverFulfill = true
-        sut.onValueChange(true, sut) { result in
-            if case .failure(let message) = result, message == onValueChangeFailure {
-                resultExpectation.fulfill()
-            } else {
-                XCTFail("\(result) doesn't match .failure(\"\(onValueChangeFailure)\"")
-            }
-        }
-        wait(for: [resultExpectation], timeout: 0.01)
     }
 }

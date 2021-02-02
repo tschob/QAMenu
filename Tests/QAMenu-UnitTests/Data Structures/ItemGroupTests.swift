@@ -43,50 +43,33 @@ class ItemGroupTests: XCTestCase {
 
     // MARK: - Init
 
-    func test_init_whenOnlyProvidingEmptyArray() throws {
+    func test_init_whenPassingOnlyMandatoryParameters() throws {
         let sut = ItemGroup(items: [])
 
-        assert_group(sut, matches: [], title: nil, footerText: nil)
+        ItemGroup._assertInitProperties(
+            sut,
+            items: []
+        )
     }
 
-    func test_init_whenProvidingItems() throws {
+    func test_init_whenPassingAllParameters() throws {
         let items = [
             MockItem(),
             MockItem()
         ]
-        let sut = ItemGroup(items: items)
 
-        assert_group(sut, matches: items, title: nil, footerText: nil)
-    }
+        let sut = ItemGroup(
+            title: .static("title"),
+            items: items,
+            footerText: .static("footer")
+        )
 
-    func test_init_whenProvidingTitleAndItems() throws {
-        let items = [
-            MockItem(),
-            MockItem()
-        ]
-        let sut = ItemGroup(title: .static("title"), items: items)
-
-        assert_group(sut, matches: items, title: "title", footerText: nil)
-    }
-
-    func test_init_whenProvidingItemsAndFooter() throws {
-        let items = [
-            MockItem(),
-            MockItem()
-        ]
-        let sut = ItemGroup(items: items, footerText: .static("footer"))
-
-        assert_group(sut, matches: items, title: nil, footerText: "footer")
-    }
-
-    func test_init_whenProvidingTitleAndItemsAndFooter() throws {
-        let items = [
-            MockItem(),
-            MockItem()
-        ]
-        let sut = ItemGroup(title: .static("title"), items: items, footerText: .static("footer"))
-
-        assert_group(sut, matches: items, title: "title", footerText: "footer")
+        ItemGroup._assertInitProperties(
+            sut,
+            title: "title",
+            items: items,
+            footerText: "footer"
+        )
     }
 
     func test_init_whenProvidingItems_referencesTheGroupAsParent() throws {
@@ -235,33 +218,5 @@ class ItemGroupTests: XCTestCase {
         }
 
         wait(for: [groupReferencedExpectation], timeout: 0.01)
-    }
-
-    // MARK: - Helper
-
-    private func assert_group(
-        _ group: ItemGroup,
-        matches sut: [MockItem],
-        title: String?,
-        footerText: String?,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        if let title = title {
-            XCTAssertEqual(group.title?.unboxed, title, file: file, line: line)
-        } else {
-            XCTAssertNil(group.title, file: file, line: line)
-        }
-        if let footerText = footerText {
-            XCTAssertEqual(group.footerText?.unboxed, footerText, file: file, line: line)
-        } else {
-            XCTAssertNil(group.footerText, file: file, line: line)
-        }
-        XCTAssertEqual(group.items.count, sut.count, file: file, line: line)
-        var index = 0
-        sut.forEach { item in
-            XCTAssertEqual(group.items[index] as! MockItem, item, file: file, line: line)
-            index += 1
-        }
     }
 }

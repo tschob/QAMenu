@@ -1,12 +1,12 @@
 //
-//  MockChildPaneItem.swift
+//  ButtonItem+Assert.swift
 //
-//  Created by Hans Seiffert on 05.12.20.
+//  Created by Hans Seiffert on 01.02.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -30,29 +30,21 @@ import Foundation
 import XCTest
 import QAMenu
 
-extension ChildPaneItem {
+extension ButtonItem {
 
-    func assert_pane_equals(
-        _ pane: Pane,
+    internal static func _assertInitProperties(
+        _ _sut: ButtonItem,
+        title: String,
+        footerText: String? = nil,
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        if case .pane(let _pane) = self.childType {
-            XCTAssertEqual(_pane(), pane, file: file, line: line)
-        } else {
-            XCTFail("ChildPane case should be .pane(...)", file: file, line: line)
-        }
-    }
-
-    func assert_paneRepresentation_equals(
-        _ paneRepresentable: MockPaneRepresentable,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        if case .paneRepresentable(let _paneRepresentable) = self.childType {
-            XCTAssertEqual((_paneRepresentable() as! MockPaneRepresentable), paneRepresentable, file: file, line: line)
-        } else {
-            XCTFail("ChildPane case should be .paneRepresentable(...)", file: file, line: line)
-        }
+        XCTAssertEqual(_sut.title.unboxed, title, file: file, line: line)
+        let qaMenu = QAMenu(
+            pane: RootPane(items: []),
+            presenterType: MockQAMenuPresenter.self
+        )
+        _sut.action(_sut, qaMenu)
+        XCTAssertEqual(_sut.footerText?.unboxed, footerText, file: file, line: line)
     }
 }

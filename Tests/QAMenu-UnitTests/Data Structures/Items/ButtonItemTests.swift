@@ -33,11 +33,8 @@ class ButtonItemTests: XCTestCase {
 
     var disposeBag = DisposeBag()
 
-    var actionOutcome = ""
-
     override func setUpWithError() throws {
         self.disposeBag = DisposeBag()
-        self.actionOutcome = ""
     }
 
     func test_typeId() throws {
@@ -75,53 +72,29 @@ class ButtonItemTests: XCTestCase {
 
     // MARK: - init
 
-    func test_init_whenPassingTitleAndAction() throws {
+    func test_init_whenPassingOnlyMandatoryParameters() throws {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { [weak self] _, _ in
-                self?.actionOutcome = "test1"
-            }
+            action: { _, _ in }
         )
 
-        assert_buttonItem(
+        ButtonItem._assertInitProperties(
             sut,
-            title: "title",
-            actionOutcome: "test1",
-            footerText: nil
+            title: "title"
         )
     }
 
-    func test_init_whenPassingTitleAndValueAndFooter() throws {
+    func test_init_whenPassingAllParameters() throws {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { [weak self] _, _ in
-                self?.actionOutcome = "test2"
-            },
+            action: { _, _ in },
             footerText: .static("footer")
         )
 
-        assert_buttonItem(
+        ButtonItem._assertInitProperties(
             sut,
             title: "title",
-            actionOutcome: "test2",
             footerText: "footer"
-        )
-    }
-
-    func test_init_whenPassingTitleNilValueAndNilFooter() throws {
-        let sut = ButtonItem(
-            title: .static("title"),
-            action: { [weak self] _, _ in
-                self?.actionOutcome = "test3"
-            },
-            footerText: .static(nil)
-        )
-
-        assert_buttonItem(
-            sut,
-            title: "title",
-            actionOutcome: "test3",
-            footerText: nil
         )
     }
 
@@ -326,25 +299,5 @@ class ButtonItemTests: XCTestCase {
         } else {
             XCTFail("\(sut!.selectionOutcome) is not an action")
         }
-    }
-
-    // MARK: - Helper
-
-    private func assert_buttonItem(
-        _ sut: ButtonItem,
-        title: String,
-        actionOutcome: String,
-        footerText: String?,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        XCTAssertEqual(sut.title.unboxed, title, file: file, line: line)
-        let qaMenu = QAMenu(
-            pane: RootPane(items: []),
-            presenterType: MockQAMenuPresenter.self
-        )
-        sut.action(sut, qaMenu)
-        XCTAssertEqual(self.actionOutcome, actionOutcome)
-        XCTAssertEqual(sut.footerText?.unboxed, footerText, file: file, line: line)
     }
 }

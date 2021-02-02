@@ -21,6 +21,45 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		A2172D0625C9DF43009DC774 /* MockQAMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CD525C9DF43009DC774 /* MockQAMenuPresenter.swift */; };
+		A2172D0725C9DF43009DC774 /* PickerGroup+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CD725C9DF43009DC774 /* PickerGroup+Assert.swift */; };
+		A2172D0825C9DF43009DC774 /* ItemGroup+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CD825C9DF43009DC774 /* ItemGroup+Assert.swift */; };
+		A2172D0925C9DF43009DC774 /* Pane+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CD925C9DF43009DC774 /* Pane+Assert.swift */; };
+		A2172D0A25C9DF43009DC774 /* PickableStringItem+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CDB25C9DF43009DC774 /* PickableStringItem+Assert.swift */; };
+		A2172D0B25C9DF43009DC774 /* StringItem+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CDC25C9DF43009DC774 /* StringItem+Assert.swift */; };
+		A2172D0C25C9DF43009DC774 /* BoolItem+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CDD25C9DF43009DC774 /* BoolItem+Assert.swift */; };
+		A2172D0D25C9DF43009DC774 /* ButtonItem+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CDE25C9DF43009DC774 /* ButtonItem+Assert.swift */; };
+		A2172D0E25C9DF43009DC774 /* ChildPaneItem+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CDF25C9DF43009DC774 /* ChildPaneItem+Assert.swift */; };
+		A2172D0F25C9DF43009DC774 /* MockPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CE025C9DF43009DC774 /* MockPane.swift */; };
+		A2172D1025C9DF43009DC774 /* MockSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CE125C9DF43009DC774 /* MockSearchable.swift */; };
+		A2172D1125C9DF43009DC774 /* MockGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CE225C9DF43009DC774 /* MockGroup.swift */; };
+		A2172D1225C9DF43009DC774 /* MockPickableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CE325C9DF43009DC774 /* MockPickableItem.swift */; };
+		A2172D1325C9DF43009DC774 /* MockPaneRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CE425C9DF43009DC774 /* MockPaneRepresentable.swift */; };
+		A2172D1425C9DF43009DC774 /* MockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CE525C9DF43009DC774 /* MockItem.swift */; };
+		A2172D1525C9DF43009DC774 /* SearchableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CE825C9DF43009DC774 /* SearchableTests.swift */; };
+		A2172D1625C9DF43009DC774 /* PickerGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CE925C9DF43009DC774 /* PickerGroupTests.swift */; };
+		A2172D1725C9DF43009DC774 /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CEA25C9DF43009DC774 /* ItemTests.swift */; };
+		A2172D1825C9DF43009DC774 /* RootPaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CEB25C9DF43009DC774 /* RootPaneTests.swift */; };
+		A2172D1925C9DF43009DC774 /* ItemGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CEC25C9DF43009DC774 /* ItemGroupTests.swift */; };
+		A2172D1A25C9DF43009DC774 /* ItemTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CED25C9DF43009DC774 /* ItemTests+Conversions.swift */; };
+		A2172D1B25C9DF43009DC774 /* PickableItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CEE25C9DF43009DC774 /* PickableItemTests.swift */; };
+		A2172D1C25C9DF43009DC774 /* PaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CEF25C9DF43009DC774 /* PaneTests.swift */; };
+		A2172D1D25C9DF43009DC774 /* ItemGroupTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF025C9DF43009DC774 /* ItemGroupTests+Conversions.swift */; };
+		A2172D1E25C9DF43009DC774 /* PickerGroupTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF125C9DF43009DC774 /* PickerGroupTests+Conversions.swift */; };
+		A2172D1F25C9DF43009DC774 /* PickableStringItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF325C9DF43009DC774 /* PickableStringItemTests.swift */; };
+		A2172D2025C9DF43009DC774 /* ButtonItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF425C9DF43009DC774 /* ButtonItemTests.swift */; };
+		A2172D2125C9DF43009DC774 /* ChildPaneItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF525C9DF43009DC774 /* ChildPaneItemTests.swift */; };
+		A2172D2225C9DF43009DC774 /* BoolItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF625C9DF43009DC774 /* BoolItemTests.swift */; };
+		A2172D2325C9DF43009DC774 /* StringItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF725C9DF43009DC774 /* StringItemTests.swift */; };
+		A2172D2425C9DF43009DC774 /* PaneTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF825C9DF43009DC774 /* PaneTests+Conversions.swift */; };
+		A2172D2525C9DF43009DC774 /* Dictionary+QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF925C9DF43009DC774 /* Dictionary+QAMenuTests.swift */; };
+		A2172D2625C9DF43009DC774 /* DynamicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CFC25C9DF43009DC774 /* DynamicTests.swift */; };
+		A2172D2825C9DF43009DC774 /* QAMenu+LogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CFE25C9DF43009DC774 /* QAMenu+LogTests.swift */; };
+		A2172D2A25C9DF43009DC774 /* QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0025C9DF43009DC774 /* QAMenuTests.swift */; };
+		A2172D2B25C9DF43009DC774 /* ObservableEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */; };
+		A2172D2C25C9DF43009DC774 /* DisposableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0325C9DF43009DC774 /* DisposableTests.swift */; };
+		A2172D2D25C9DF43009DC774 /* DisposeBagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0425C9DF43009DC774 /* DisposeBagTests.swift */; };
+		A2172D7B25C9E4F0009DC774 /* RootPaneTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D7A25C9E4F0009DC774 /* RootPaneTests+Conversions.swift */; };
 		A2326E292558621500CB39E7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2326E202558621500CB39E7 /* Logger.swift */; };
 		A2326E2A2558621500CB39E7 /* SwiftPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2326E212558621500CB39E7 /* SwiftPrinter.swift */; };
 		A2326E2B2558621500CB39E7 /* SwiftDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2326E222558621500CB39E7 /* SwiftDateProvider.swift */; };
@@ -34,36 +73,9 @@
 		A249DE46258E5CAD002AEC41 /* PickableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249DE45258E5CAD002AEC41 /* PickableItem.swift */; };
 		A249DE60258FA0E2002AEC41 /* DialogTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249DE5F258FA0E2002AEC41 /* DialogTrigger.swift */; };
 		A249DE66258FA7A9002AEC41 /* NavigationTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249DE65258FA7A9002AEC41 /* NavigationTrigger.swift */; };
-		A25EE38225A8F4A700932C65 /* ObservableEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE37F25A8F4A700932C65 /* ObservableEventTests.swift */; };
-		A25EE38325A8F4A700932C65 /* DisposableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE38025A8F4A700932C65 /* DisposableTests.swift */; };
-		A25EE38425A8F4A700932C65 /* DisposeBagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE38125A8F4A700932C65 /* DisposeBagTests.swift */; };
 		A25EE39325A8F4C300932C65 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE39025A8F4C300932C65 /* DisposeBag.swift */; };
 		A25EE39425A8F4C300932C65 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE39125A8F4C300932C65 /* Disposable.swift */; };
 		A25EE39525A8F4C300932C65 /* ObservableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE39225A8F4C300932C65 /* ObservableEvent.swift */; };
-		A25EE3AF25A8F5DF00932C65 /* DynamicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE3AE25A8F5DF00932C65 /* DynamicTests.swift */; };
-		A275A072256190A7006F9027 /* ItemGroupTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A071256190A7006F9027 /* ItemGroupTests+Conversions.swift */; };
-		A275A07A256197EB006F9027 /* ChildPaneItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A079256197EB006F9027 /* ChildPaneItemTests.swift */; };
-		A275A08225619F08006F9027 /* PaneTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A08125619F08006F9027 /* PaneTests+Conversions.swift */; };
-		A275A08725619F43006F9027 /* ItemTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A08625619F43006F9027 /* ItemTests+Conversions.swift */; };
-		A275A08F25619F91006F9027 /* StringItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A08E25619F91006F9027 /* StringItemTests.swift */; };
-		A275A0972561A9CB006F9027 /* BoolItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A0962561A9CB006F9027 /* BoolItemTests.swift */; };
-		A275A09C2561AD5A006F9027 /* ButtonItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A09B2561AD5A006F9027 /* ButtonItemTests.swift */; };
-		A275A0A42561B8B4006F9027 /* QAMenu+LogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A0A32561B8B4006F9027 /* QAMenu+LogTests.swift */; };
-		A275A0A92561B9F7006F9027 /* Dictionary+QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A0A82561B9F7006F9027 /* Dictionary+QAMenuTests.swift */; };
-		A275A0AE2561CD9C006F9027 /* QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A0AD2561CD9C006F9027 /* QAMenuTests.swift */; };
-		A275A0B82561DE3D006F9027 /* MockQAMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A0B32561DE3C006F9027 /* MockQAMenuPresenter.swift */; };
-		A275A0B92561DE3D006F9027 /* MockPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A0B42561DE3D006F9027 /* MockPane.swift */; };
-		A275A0BA2561DE3D006F9027 /* MockSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A0B52561DE3D006F9027 /* MockSearchable.swift */; };
-		A275A0BB2561DE3D006F9027 /* MockGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A0B62561DE3D006F9027 /* MockGroup.swift */; };
-		A275A0BC2561DE3D006F9027 /* MockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275A0B72561DE3D006F9027 /* MockItem.swift */; };
-		A279F9382558904C006E5A8F /* PaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279F9372558904C006E5A8F /* PaneTests.swift */; };
-		A279F9412558B71D006E5A8F /* SearchableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279F9402558B71D006E5A8F /* SearchableTests.swift */; };
-		A279F959255AE528006E5A8F /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279F94B2558BC33006E5A8F /* ItemTests.swift */; };
-		A279F95E255AE5FC006E5A8F /* RootPaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279F95D255AE5FC006E5A8F /* RootPaneTests.swift */; };
-		A279F966255AEA12006E5A8F /* ItemGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279F965255AEA12006E5A8F /* ItemGroupTests.swift */; };
-		A27C735825A0AEA10075C10E /* PickerGroupTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27C735725A0AEA10075C10E /* PickerGroupTests+Conversions.swift */; };
-		A27C737325A0C8960075C10E /* PickableStringItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27C737225A0C8950075C10E /* PickableStringItemTests.swift */; };
-		A27C737F25A0CE300075C10E /* PickableItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27C737E25A0CE300075C10E /* PickableItemTests.swift */; };
 		A28873E62516822A003528E5 /* QAMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A28873CE2516822A003528E5 /* QAMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A28873E72516822A003528E5 /* Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28873D12516822A003528E5 /* Pane.swift */; };
 		A28873E82516822A003528E5 /* Invalidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28873D32516822A003528E5 /* Invalidatable.swift */; };
@@ -127,8 +139,6 @@
 		A2969E6E25167D8600EA54D5 /* QAMenu+Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E6625167D8600EA54D5 /* QAMenu+Catalog.swift */; };
 		A2969EAE25167EBA00EA54D5 /* QAMenuUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A2969EA225167EBA00EA54D5 /* QAMenuUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2B897092598D4480016A373 /* PaneRepresentableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B897082598D4480016A373 /* PaneRepresentableMock.swift */; };
-		A2B968DA259E28AD004CC383 /* PickerGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B968D9259E28AC004CC383 /* PickerGroupTests.swift */; };
-		A2B968E6259E29E9004CC383 /* MockPickableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B968E5259E29E9004CC383 /* MockPickableItem.swift */; };
 		A2B968FD259E40B3004CC383 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B968F1259E40B0004CC383 /* Group.swift */; };
 		A2B98733256AC46B0059C5EA /* Bundle+QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B98732256AC46B0059C5EA /* Bundle+QAMenuTests.swift */; };
 		A2B98739256AC6590059C5EA /* QAMenuLifecycleManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B98738256AC6590059C5EA /* QAMenuLifecycleManagerTests.swift */; };
@@ -153,8 +163,6 @@
 		A2B98A73256DAA7A0059C5EA /* CustomShareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B98A69256DAA790059C5EA /* CustomShareable.swift */; };
 		A2BEC0D3257BF8E20005EFDF /* RootPaneUIRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEC0D2257BF8E20005EFDF /* RootPaneUIRepresentable.swift */; };
 		A2BEC0E4257BFD5B0005EFDF /* PaneRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEC0E1257BFD5B0005EFDF /* PaneRepresentable.swift */; };
-		A2BEC154257C29C30005EFDF /* ChildPaneItem+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEC153257C29C30005EFDF /* ChildPaneItem+Mock.swift */; };
-		A2BEC15E257C32860005EFDF /* MockPaneRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEC15D257C32860005EFDF /* MockPaneRepresentable.swift */; };
 		A2E0856F2517C56B00706D23 /* QAMenuLifecycleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E0856E2517C56B00706D23 /* QAMenuLifecycleManager.swift */; };
 		A2E30574256704990049D88D /* QAMenuUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2969CA5251679F800EA54D5 /* QAMenuUIKit.framework */; };
 		A2E30585256705190049D88D /* QAMenuPresenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E30583256705190049D88D /* QAMenuPresenterUITests.swift */; };
@@ -247,6 +255,46 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A2172CD525C9DF43009DC774 /* MockQAMenuPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockQAMenuPresenter.swift; sourceTree = "<group>"; };
+		A2172CD725C9DF43009DC774 /* PickerGroup+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PickerGroup+Assert.swift"; sourceTree = "<group>"; };
+		A2172CD825C9DF43009DC774 /* ItemGroup+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemGroup+Assert.swift"; sourceTree = "<group>"; };
+		A2172CD925C9DF43009DC774 /* Pane+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pane+Assert.swift"; sourceTree = "<group>"; };
+		A2172CDB25C9DF43009DC774 /* PickableStringItem+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PickableStringItem+Assert.swift"; sourceTree = "<group>"; };
+		A2172CDC25C9DF43009DC774 /* StringItem+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StringItem+Assert.swift"; sourceTree = "<group>"; };
+		A2172CDD25C9DF43009DC774 /* BoolItem+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BoolItem+Assert.swift"; sourceTree = "<group>"; };
+		A2172CDE25C9DF43009DC774 /* ButtonItem+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ButtonItem+Assert.swift"; sourceTree = "<group>"; };
+		A2172CDF25C9DF43009DC774 /* ChildPaneItem+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChildPaneItem+Assert.swift"; sourceTree = "<group>"; };
+		A2172CE025C9DF43009DC774 /* MockPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPane.swift; sourceTree = "<group>"; };
+		A2172CE125C9DF43009DC774 /* MockSearchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSearchable.swift; sourceTree = "<group>"; };
+		A2172CE225C9DF43009DC774 /* MockGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGroup.swift; sourceTree = "<group>"; };
+		A2172CE325C9DF43009DC774 /* MockPickableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPickableItem.swift; sourceTree = "<group>"; };
+		A2172CE425C9DF43009DC774 /* MockPaneRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPaneRepresentable.swift; sourceTree = "<group>"; };
+		A2172CE525C9DF43009DC774 /* MockItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockItem.swift; sourceTree = "<group>"; };
+		A2172CE825C9DF43009DC774 /* SearchableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableTests.swift; sourceTree = "<group>"; };
+		A2172CE925C9DF43009DC774 /* PickerGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroupTests.swift; sourceTree = "<group>"; };
+		A2172CEA25C9DF43009DC774 /* ItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
+		A2172CEB25C9DF43009DC774 /* RootPaneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootPaneTests.swift; sourceTree = "<group>"; };
+		A2172CEC25C9DF43009DC774 /* ItemGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGroupTests.swift; sourceTree = "<group>"; };
+		A2172CED25C9DF43009DC774 /* ItemTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemTests+Conversions.swift"; sourceTree = "<group>"; };
+		A2172CEE25C9DF43009DC774 /* PickableItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickableItemTests.swift; sourceTree = "<group>"; };
+		A2172CEF25C9DF43009DC774 /* PaneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaneTests.swift; sourceTree = "<group>"; };
+		A2172CF025C9DF43009DC774 /* ItemGroupTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemGroupTests+Conversions.swift"; sourceTree = "<group>"; };
+		A2172CF125C9DF43009DC774 /* PickerGroupTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PickerGroupTests+Conversions.swift"; sourceTree = "<group>"; };
+		A2172CF325C9DF43009DC774 /* PickableStringItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickableStringItemTests.swift; sourceTree = "<group>"; };
+		A2172CF425C9DF43009DC774 /* ButtonItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonItemTests.swift; sourceTree = "<group>"; };
+		A2172CF525C9DF43009DC774 /* ChildPaneItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildPaneItemTests.swift; sourceTree = "<group>"; };
+		A2172CF625C9DF43009DC774 /* BoolItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolItemTests.swift; sourceTree = "<group>"; };
+		A2172CF725C9DF43009DC774 /* StringItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringItemTests.swift; sourceTree = "<group>"; };
+		A2172CF825C9DF43009DC774 /* PaneTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaneTests+Conversions.swift"; sourceTree = "<group>"; };
+		A2172CF925C9DF43009DC774 /* Dictionary+QAMenuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+QAMenuTests.swift"; sourceTree = "<group>"; };
+		A2172CFC25C9DF43009DC774 /* DynamicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTests.swift; sourceTree = "<group>"; };
+		A2172CFE25C9DF43009DC774 /* QAMenu+LogTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QAMenu+LogTests.swift"; sourceTree = "<group>"; };
+		A2172D0025C9DF43009DC774 /* QAMenuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuTests.swift; sourceTree = "<group>"; };
+		A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableEventTests.swift; sourceTree = "<group>"; };
+		A2172D0325C9DF43009DC774 /* DisposableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposableTests.swift; sourceTree = "<group>"; };
+		A2172D0425C9DF43009DC774 /* DisposeBagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposeBagTests.swift; sourceTree = "<group>"; };
+		A2172D0525C9DF43009DC774 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2172D7A25C9E4F0009DC774 /* RootPaneTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RootPaneTests+Conversions.swift"; sourceTree = "<group>"; };
 		A2217BB7255806ED0070FC68 /* QAMenuUtils-UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QAMenuUtils-UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2217BEF2558081E0070FC68 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2326E202558621500CB39E7 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -262,36 +310,9 @@
 		A249DE45258E5CAD002AEC41 /* PickableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickableItem.swift; sourceTree = "<group>"; };
 		A249DE5F258FA0E2002AEC41 /* DialogTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogTrigger.swift; sourceTree = "<group>"; };
 		A249DE65258FA7A9002AEC41 /* NavigationTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTrigger.swift; sourceTree = "<group>"; };
-		A25EE37F25A8F4A700932C65 /* ObservableEventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableEventTests.swift; sourceTree = "<group>"; };
-		A25EE38025A8F4A700932C65 /* DisposableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposableTests.swift; sourceTree = "<group>"; };
-		A25EE38125A8F4A700932C65 /* DisposeBagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposeBagTests.swift; sourceTree = "<group>"; };
 		A25EE39025A8F4C300932C65 /* DisposeBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
 		A25EE39125A8F4C300932C65 /* Disposable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		A25EE39225A8F4C300932C65 /* ObservableEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableEvent.swift; sourceTree = "<group>"; };
-		A25EE3AE25A8F5DF00932C65 /* DynamicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTests.swift; sourceTree = "<group>"; };
-		A275A071256190A7006F9027 /* ItemGroupTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemGroupTests+Conversions.swift"; sourceTree = "<group>"; };
-		A275A079256197EB006F9027 /* ChildPaneItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildPaneItemTests.swift; sourceTree = "<group>"; };
-		A275A08125619F08006F9027 /* PaneTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaneTests+Conversions.swift"; sourceTree = "<group>"; };
-		A275A08625619F43006F9027 /* ItemTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemTests+Conversions.swift"; sourceTree = "<group>"; };
-		A275A08E25619F91006F9027 /* StringItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringItemTests.swift; sourceTree = "<group>"; };
-		A275A0962561A9CB006F9027 /* BoolItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolItemTests.swift; sourceTree = "<group>"; };
-		A275A09B2561AD5A006F9027 /* ButtonItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonItemTests.swift; sourceTree = "<group>"; };
-		A275A0A32561B8B4006F9027 /* QAMenu+LogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QAMenu+LogTests.swift"; sourceTree = "<group>"; };
-		A275A0A82561B9F7006F9027 /* Dictionary+QAMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+QAMenuTests.swift"; sourceTree = "<group>"; };
-		A275A0AD2561CD9C006F9027 /* QAMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAMenuTests.swift; sourceTree = "<group>"; };
-		A275A0B32561DE3C006F9027 /* MockQAMenuPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockQAMenuPresenter.swift; sourceTree = "<group>"; };
-		A275A0B42561DE3D006F9027 /* MockPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPane.swift; sourceTree = "<group>"; };
-		A275A0B52561DE3D006F9027 /* MockSearchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSearchable.swift; sourceTree = "<group>"; };
-		A275A0B62561DE3D006F9027 /* MockGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGroup.swift; sourceTree = "<group>"; };
-		A275A0B72561DE3D006F9027 /* MockItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockItem.swift; sourceTree = "<group>"; };
-		A279F9372558904C006E5A8F /* PaneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneTests.swift; sourceTree = "<group>"; };
-		A279F9402558B71D006E5A8F /* SearchableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableTests.swift; sourceTree = "<group>"; };
-		A279F94B2558BC33006E5A8F /* ItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
-		A279F95D255AE5FC006E5A8F /* RootPaneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootPaneTests.swift; sourceTree = "<group>"; };
-		A279F965255AEA12006E5A8F /* ItemGroupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemGroupTests.swift; sourceTree = "<group>"; };
-		A27C735725A0AEA10075C10E /* PickerGroupTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PickerGroupTests+Conversions.swift"; sourceTree = "<group>"; };
-		A27C737225A0C8950075C10E /* PickableStringItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickableStringItemTests.swift; sourceTree = "<group>"; };
-		A27C737E25A0CE300075C10E /* PickableItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickableItemTests.swift; sourceTree = "<group>"; };
 		A28873C525168215003528E5 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28873CE2516822A003528E5 /* QAMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAMenu.h; sourceTree = "<group>"; };
 		A28873D12516822A003528E5 /* Pane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pane.swift; sourceTree = "<group>"; };
@@ -357,10 +378,7 @@
 		A2969E6725167D8600EA54D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2969EA225167EBA00EA54D5 /* QAMenuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAMenuUtils.h; sourceTree = "<group>"; };
 		A2969EAD25167EBA00EA54D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2969EB925167ED100EA54D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B897082598D4480016A373 /* PaneRepresentableMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaneRepresentableMock.swift; sourceTree = "<group>"; };
-		A2B968D9259E28AC004CC383 /* PickerGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroupTests.swift; sourceTree = "<group>"; };
-		A2B968E5259E29E9004CC383 /* MockPickableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPickableItem.swift; sourceTree = "<group>"; };
 		A2B968F1259E40B0004CC383 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A2B98732256AC46B0059C5EA /* Bundle+QAMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+QAMenuTests.swift"; sourceTree = "<group>"; };
 		A2B98738256AC6590059C5EA /* QAMenuLifecycleManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAMenuLifecycleManagerTests.swift; sourceTree = "<group>"; };
@@ -385,8 +403,6 @@
 		A2B98A69256DAA790059C5EA /* CustomShareable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomShareable.swift; sourceTree = "<group>"; };
 		A2BEC0D2257BF8E20005EFDF /* RootPaneUIRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootPaneUIRepresentable.swift; sourceTree = "<group>"; };
 		A2BEC0E1257BFD5B0005EFDF /* PaneRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaneRepresentable.swift; sourceTree = "<group>"; };
-		A2BEC153257C29C30005EFDF /* ChildPaneItem+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChildPaneItem+Mock.swift"; sourceTree = "<group>"; };
-		A2BEC15D257C32860005EFDF /* MockPaneRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPaneRepresentable.swift; sourceTree = "<group>"; };
 		A2E0856E2517C56B00706D23 /* QAMenuLifecycleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuLifecycleManager.swift; sourceTree = "<group>"; };
 		A2E3056F256704980049D88D /* QAMenuUIKit-UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QAMenuUIKit-UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E30583256705190049D88D /* QAMenuPresenterUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuPresenterUITests.swift; sourceTree = "<group>"; };
@@ -455,6 +471,126 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2172CD325C9DF43009DC774 /* QAMenu-UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				A2172CD425C9DF43009DC774 /* Mocks */,
+				A2172CE625C9DF43009DC774 /* Data Structures */,
+				A2172CF925C9DF43009DC774 /* Dictionary+QAMenuTests.swift */,
+				A2172CFA25C9DF43009DC774 /* Utils */,
+				A2172CFE25C9DF43009DC774 /* QAMenu+LogTests.swift */,
+				A2172D0025C9DF43009DC774 /* QAMenuTests.swift */,
+				A2172D0125C9DF43009DC774 /* Observable */,
+				A2172D0525C9DF43009DC774 /* Info.plist */,
+			);
+			name = "QAMenu-UnitTests";
+			path = "Tests/QAMenu-UnitTests";
+			sourceTree = "<group>";
+		};
+		A2172CD425C9DF43009DC774 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A2172CD525C9DF43009DC774 /* MockQAMenuPresenter.swift */,
+				A2172CD625C9DF43009DC774 /* Assertations */,
+				A2172CE025C9DF43009DC774 /* MockPane.swift */,
+				A2172CE125C9DF43009DC774 /* MockSearchable.swift */,
+				A2172CE225C9DF43009DC774 /* MockGroup.swift */,
+				A2172CE325C9DF43009DC774 /* MockPickableItem.swift */,
+				A2172CE425C9DF43009DC774 /* MockPaneRepresentable.swift */,
+				A2172CE525C9DF43009DC774 /* MockItem.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A2172CD625C9DF43009DC774 /* Assertations */ = {
+			isa = PBXGroup;
+			children = (
+				A2172CD725C9DF43009DC774 /* PickerGroup+Assert.swift */,
+				A2172CD825C9DF43009DC774 /* ItemGroup+Assert.swift */,
+				A2172CD925C9DF43009DC774 /* Pane+Assert.swift */,
+				A2172CDA25C9DF43009DC774 /* Items */,
+			);
+			path = Assertations;
+			sourceTree = "<group>";
+		};
+		A2172CDA25C9DF43009DC774 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				A2172CDB25C9DF43009DC774 /* PickableStringItem+Assert.swift */,
+				A2172CDC25C9DF43009DC774 /* StringItem+Assert.swift */,
+				A2172CDD25C9DF43009DC774 /* BoolItem+Assert.swift */,
+				A2172CDE25C9DF43009DC774 /* ButtonItem+Assert.swift */,
+				A2172CDF25C9DF43009DC774 /* ChildPaneItem+Assert.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		A2172CE625C9DF43009DC774 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				A2172CE725C9DF43009DC774 /* Capabilities */,
+				A2172CE925C9DF43009DC774 /* PickerGroupTests.swift */,
+				A2172CEA25C9DF43009DC774 /* ItemTests.swift */,
+				A2172CEB25C9DF43009DC774 /* RootPaneTests.swift */,
+				A2172D7A25C9E4F0009DC774 /* RootPaneTests+Conversions.swift */,
+				A2172CEC25C9DF43009DC774 /* ItemGroupTests.swift */,
+				A2172CED25C9DF43009DC774 /* ItemTests+Conversions.swift */,
+				A2172CEE25C9DF43009DC774 /* PickableItemTests.swift */,
+				A2172CEF25C9DF43009DC774 /* PaneTests.swift */,
+				A2172CF025C9DF43009DC774 /* ItemGroupTests+Conversions.swift */,
+				A2172CF125C9DF43009DC774 /* PickerGroupTests+Conversions.swift */,
+				A2172CF225C9DF43009DC774 /* Items */,
+				A2172CF825C9DF43009DC774 /* PaneTests+Conversions.swift */,
+			);
+			path = "Data Structures";
+			sourceTree = "<group>";
+		};
+		A2172CE725C9DF43009DC774 /* Capabilities */ = {
+			isa = PBXGroup;
+			children = (
+				A2172CE825C9DF43009DC774 /* SearchableTests.swift */,
+			);
+			path = Capabilities;
+			sourceTree = "<group>";
+		};
+		A2172CF225C9DF43009DC774 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				A2172CF325C9DF43009DC774 /* PickableStringItemTests.swift */,
+				A2172CF425C9DF43009DC774 /* ButtonItemTests.swift */,
+				A2172CF525C9DF43009DC774 /* ChildPaneItemTests.swift */,
+				A2172CF625C9DF43009DC774 /* BoolItemTests.swift */,
+				A2172CF725C9DF43009DC774 /* StringItemTests.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		A2172CFA25C9DF43009DC774 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A2172CFB25C9DF43009DC774 /* Dynamic */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A2172CFB25C9DF43009DC774 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				A2172CFC25C9DF43009DC774 /* DynamicTests.swift */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		A2172D0125C9DF43009DC774 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */,
+				A2172D0325C9DF43009DC774 /* DisposableTests.swift */,
+				A2172D0425C9DF43009DC774 /* DisposeBagTests.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
 		A2217BEC2558081E0070FC68 /* QAMenuUtils-UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,16 +640,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		A25EE37E25A8F4A700932C65 /* Observable */ = {
-			isa = PBXGroup;
-			children = (
-				A25EE37F25A8F4A700932C65 /* ObservableEventTests.swift */,
-				A25EE38025A8F4A700932C65 /* DisposableTests.swift */,
-				A25EE38125A8F4A700932C65 /* DisposeBagTests.swift */,
-			);
-			path = Observable;
-			sourceTree = "<group>";
-		};
 		A25EE38F25A8F4C300932C65 /* Observable */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,76 +648,6 @@
 				A25EE39225A8F4C300932C65 /* ObservableEvent.swift */,
 			);
 			path = Observable;
-			sourceTree = "<group>";
-		};
-		A25EE39B25A8F52900932C65 /* Data Structures */ = {
-			isa = PBXGroup;
-			children = (
-				A279F93F2558B71D006E5A8F /* Capabilities */,
-				A279F93625589020006E5A8F /* Items */,
-				A279F94B2558BC33006E5A8F /* ItemTests.swift */,
-				A275A08625619F43006F9027 /* ItemTests+Conversions.swift */,
-				A279F9372558904C006E5A8F /* PaneTests.swift */,
-				A275A08125619F08006F9027 /* PaneTests+Conversions.swift */,
-				A279F95D255AE5FC006E5A8F /* RootPaneTests.swift */,
-				A279F965255AEA12006E5A8F /* ItemGroupTests.swift */,
-				A275A071256190A7006F9027 /* ItemGroupTests+Conversions.swift */,
-				A27C737E25A0CE300075C10E /* PickableItemTests.swift */,
-				A2B968D9259E28AC004CC383 /* PickerGroupTests.swift */,
-				A27C735725A0AEA10075C10E /* PickerGroupTests+Conversions.swift */,
-			);
-			path = "Data Structures";
-			sourceTree = "<group>";
-		};
-		A25EE3AC25A8F5DF00932C65 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				A25EE3AD25A8F5DF00932C65 /* Dynamic */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		A25EE3AD25A8F5DF00932C65 /* Dynamic */ = {
-			isa = PBXGroup;
-			children = (
-				A25EE3AE25A8F5DF00932C65 /* DynamicTests.swift */,
-			);
-			path = Dynamic;
-			sourceTree = "<group>";
-		};
-		A275A0B22561DE3C006F9027 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				A275A0B32561DE3C006F9027 /* MockQAMenuPresenter.swift */,
-				A275A0B42561DE3D006F9027 /* MockPane.swift */,
-				A275A0B52561DE3D006F9027 /* MockSearchable.swift */,
-				A275A0B62561DE3D006F9027 /* MockGroup.swift */,
-				A275A0B72561DE3D006F9027 /* MockItem.swift */,
-				A2B968E5259E29E9004CC383 /* MockPickableItem.swift */,
-				A2BEC153257C29C30005EFDF /* ChildPaneItem+Mock.swift */,
-				A2BEC15D257C32860005EFDF /* MockPaneRepresentable.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
-		A279F93625589020006E5A8F /* Items */ = {
-			isa = PBXGroup;
-			children = (
-				A275A0962561A9CB006F9027 /* BoolItemTests.swift */,
-				A275A09B2561AD5A006F9027 /* ButtonItemTests.swift */,
-				A275A079256197EB006F9027 /* ChildPaneItemTests.swift */,
-				A275A08E25619F91006F9027 /* StringItemTests.swift */,
-				A27C737225A0C8950075C10E /* PickableStringItemTests.swift */,
-			);
-			path = Items;
-			sourceTree = "<group>";
-		};
-		A279F93F2558B71D006E5A8F /* Capabilities */ = {
-			isa = PBXGroup;
-			children = (
-				A279F9402558B71D006E5A8F /* SearchableTests.swift */,
-			);
-			path = Capabilities;
 			sourceTree = "<group>";
 		};
 		A28873CD2516822A003528E5 /* QAMenu */ = {
@@ -687,7 +743,7 @@
 			isa = PBXGroup;
 			children = (
 				A28873CD2516822A003528E5 /* QAMenu */,
-				A2969EB725167ED100EA54D5 /* QAMenu-UnitTests */,
+				A2172CD325C9DF43009DC774 /* QAMenu-UnitTests */,
 				A2969E0E25167D7900EA54D5 /* QAMenuUIKit */,
 				A2E30582256705190049D88D /* QAMenuUIKit-UnitTests */,
 				A2969E5E25167D8600EA54D5 /* QAMenuCatalog */,
@@ -895,22 +951,6 @@
 			);
 			name = QAMenuUtils;
 			path = Sources/QAMenuUtils;
-			sourceTree = "<group>";
-		};
-		A2969EB725167ED100EA54D5 /* QAMenu-UnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				A25EE39B25A8F52900932C65 /* Data Structures */,
-				A275A0B22561DE3C006F9027 /* Mocks */,
-				A25EE37E25A8F4A700932C65 /* Observable */,
-				A25EE3AC25A8F5DF00932C65 /* Utils */,
-				A275A0A32561B8B4006F9027 /* QAMenu+LogTests.swift */,
-				A275A0AD2561CD9C006F9027 /* QAMenuTests.swift */,
-				A275A0A82561B9F7006F9027 /* Dictionary+QAMenuTests.swift */,
-				A2969EB925167ED100EA54D5 /* Info.plist */,
-			);
-			name = "QAMenu-UnitTests";
-			path = "Tests/QAMenu-UnitTests";
 			sourceTree = "<group>";
 		};
 		A2B9898A256D72560059C5EA /* ItemViews */ = {
@@ -1482,37 +1522,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A275A0BC2561DE3D006F9027 /* MockItem.swift in Sources */,
-				A275A0972561A9CB006F9027 /* BoolItemTests.swift in Sources */,
-				A275A0A42561B8B4006F9027 /* QAMenu+LogTests.swift in Sources */,
-				A27C735825A0AEA10075C10E /* PickerGroupTests+Conversions.swift in Sources */,
-				A275A072256190A7006F9027 /* ItemGroupTests+Conversions.swift in Sources */,
-				A25EE3AF25A8F5DF00932C65 /* DynamicTests.swift in Sources */,
-				A25EE38425A8F4A700932C65 /* DisposeBagTests.swift in Sources */,
-				A275A08225619F08006F9027 /* PaneTests+Conversions.swift in Sources */,
-				A279F959255AE528006E5A8F /* ItemTests.swift in Sources */,
-				A279F966255AEA12006E5A8F /* ItemGroupTests.swift in Sources */,
-				A2B968DA259E28AD004CC383 /* PickerGroupTests.swift in Sources */,
-				A275A0AE2561CD9C006F9027 /* QAMenuTests.swift in Sources */,
-				A275A0B92561DE3D006F9027 /* MockPane.swift in Sources */,
-				A27C737F25A0CE300075C10E /* PickableItemTests.swift in Sources */,
-				A2B968E6259E29E9004CC383 /* MockPickableItem.swift in Sources */,
-				A275A0BA2561DE3D006F9027 /* MockSearchable.swift in Sources */,
-				A275A0BB2561DE3D006F9027 /* MockGroup.swift in Sources */,
-				A2BEC154257C29C30005EFDF /* ChildPaneItem+Mock.swift in Sources */,
-				A279F9412558B71D006E5A8F /* SearchableTests.swift in Sources */,
-				A25EE38225A8F4A700932C65 /* ObservableEventTests.swift in Sources */,
-				A25EE38325A8F4A700932C65 /* DisposableTests.swift in Sources */,
-				A2BEC15E257C32860005EFDF /* MockPaneRepresentable.swift in Sources */,
-				A275A0B82561DE3D006F9027 /* MockQAMenuPresenter.swift in Sources */,
-				A275A09C2561AD5A006F9027 /* ButtonItemTests.swift in Sources */,
-				A275A07A256197EB006F9027 /* ChildPaneItemTests.swift in Sources */,
-				A279F95E255AE5FC006E5A8F /* RootPaneTests.swift in Sources */,
-				A27C737325A0C8960075C10E /* PickableStringItemTests.swift in Sources */,
-				A275A08F25619F91006F9027 /* StringItemTests.swift in Sources */,
-				A275A08725619F43006F9027 /* ItemTests+Conversions.swift in Sources */,
-				A275A0A92561B9F7006F9027 /* Dictionary+QAMenuTests.swift in Sources */,
-				A279F9382558904C006E5A8F /* PaneTests.swift in Sources */,
+				A2172D1325C9DF43009DC774 /* MockPaneRepresentable.swift in Sources */,
+				A2172D1A25C9DF43009DC774 /* ItemTests+Conversions.swift in Sources */,
+				A2172D2625C9DF43009DC774 /* DynamicTests.swift in Sources */,
+				A2172D0925C9DF43009DC774 /* Pane+Assert.swift in Sources */,
+				A2172D2C25C9DF43009DC774 /* DisposableTests.swift in Sources */,
+				A2172D2325C9DF43009DC774 /* StringItemTests.swift in Sources */,
+				A2172D2025C9DF43009DC774 /* ButtonItemTests.swift in Sources */,
+				A2172D1725C9DF43009DC774 /* ItemTests.swift in Sources */,
+				A2172D0A25C9DF43009DC774 /* PickableStringItem+Assert.swift in Sources */,
+				A2172D1125C9DF43009DC774 /* MockGroup.swift in Sources */,
+				A2172D1C25C9DF43009DC774 /* PaneTests.swift in Sources */,
+				A2172D2525C9DF43009DC774 /* Dictionary+QAMenuTests.swift in Sources */,
+				A2172D2D25C9DF43009DC774 /* DisposeBagTests.swift in Sources */,
+				A2172D0B25C9DF43009DC774 /* StringItem+Assert.swift in Sources */,
+				A2172D2825C9DF43009DC774 /* QAMenu+LogTests.swift in Sources */,
+				A2172D1D25C9DF43009DC774 /* ItemGroupTests+Conversions.swift in Sources */,
+				A2172D0F25C9DF43009DC774 /* MockPane.swift in Sources */,
+				A2172D1F25C9DF43009DC774 /* PickableStringItemTests.swift in Sources */,
+				A2172D2225C9DF43009DC774 /* BoolItemTests.swift in Sources */,
+				A2172D1525C9DF43009DC774 /* SearchableTests.swift in Sources */,
+				A2172D1825C9DF43009DC774 /* RootPaneTests.swift in Sources */,
+				A2172D1225C9DF43009DC774 /* MockPickableItem.swift in Sources */,
+				A2172D0825C9DF43009DC774 /* ItemGroup+Assert.swift in Sources */,
+				A2172D2B25C9DF43009DC774 /* ObservableEventTests.swift in Sources */,
+				A2172D2425C9DF43009DC774 /* PaneTests+Conversions.swift in Sources */,
+				A2172D1925C9DF43009DC774 /* ItemGroupTests.swift in Sources */,
+				A2172D0725C9DF43009DC774 /* PickerGroup+Assert.swift in Sources */,
+				A2172D7B25C9E4F0009DC774 /* RootPaneTests+Conversions.swift in Sources */,
+				A2172D2A25C9DF43009DC774 /* QAMenuTests.swift in Sources */,
+				A2172D1625C9DF43009DC774 /* PickerGroupTests.swift in Sources */,
+				A2172D1B25C9DF43009DC774 /* PickableItemTests.swift in Sources */,
+				A2172D1E25C9DF43009DC774 /* PickerGroupTests+Conversions.swift in Sources */,
+				A2172D1425C9DF43009DC774 /* MockItem.swift in Sources */,
+				A2172D2125C9DF43009DC774 /* ChildPaneItemTests.swift in Sources */,
+				A2172D0C25C9DF43009DC774 /* BoolItem+Assert.swift in Sources */,
+				A2172D0E25C9DF43009DC774 /* ChildPaneItem+Assert.swift in Sources */,
+				A2172D0625C9DF43009DC774 /* MockQAMenuPresenter.swift in Sources */,
+				A2172D0D25C9DF43009DC774 /* ButtonItem+Assert.swift in Sources */,
+				A2172D1025C9DF43009DC774 /* MockSearchable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
