@@ -1,12 +1,12 @@
 //
-//  QAMenu+Trigger.swift
+//  QAMenuConfigurationItemStorable.swift
 //
-//  Created by Hans Seiffert on 30.05.20.
+//  Created by Hans Seiffert on 30.01.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,40 +27,11 @@
 //
 
 import Foundation
+import QAMenuUtils
 
-public extension QAMenu {
+public protocol QAMenuConfigurationItemStorable {
 
-    enum Trigger: CaseIterable {
-        case shake
+    init?(stringValue: String)
 
-        public init?(stringValue: String) {
-            guard let instance = Self.allCases.first(where: { $0.key == stringValue }) else {
-                return nil
-            }
-            self = instance
-        }
-
-        public var key: String {
-            switch self {
-            case .shake:
-                return "shake"
-            }
-        }
-    }
-}
-
-// MARK: Array<Trigger> + QAMenuConfigurationItemStorable
-
-extension Array: QAMenuConfigurationItemStorable where Element == QAMenu.Trigger {
-
-    public init?(stringValue: String) {
-        let components = stringValue.components(separatedBy: ",")
-        self = components.compactMap { QAMenu.Trigger(stringValue: $0) }
-    }
-
-    public var toString: String {
-        return self
-            .map { $0.key }
-            .joined(separator: ",")
-    }
+    var toString: String { get }
 }

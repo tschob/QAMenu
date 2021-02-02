@@ -28,14 +28,6 @@
 
 import Foundation
 
-// MARK: - QAMenuDismissBehavior
-
-public enum QAMenuDismissBehavior: Equatable {
-    case resetImmediately
-    case resetAfter(TimeInterval)
-    case neverReset
-}
-
 // MARK: - QAMenuState
 
 public enum QAMenuState {
@@ -47,9 +39,9 @@ public enum QAMenuState {
 
 public protocol QAMenuPresenter: AnyObject {
 
-    var dismissBehavior: QAMenuDismissBehavior { get }
+    var dismissBehavior: QAMenu.DismissBehavior { get set }
 
-    init(qaMenu: QAMenu)
+    init(qaMenu: QAMenu, dismissBehavior: QAMenu.DismissBehavior)
 
     func toggleVisibility(completion: @escaping (_ newState: QAMenuState) -> Void)
     func show(completion: @escaping () -> Void)

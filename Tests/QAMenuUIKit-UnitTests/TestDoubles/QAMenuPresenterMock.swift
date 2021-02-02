@@ -34,12 +34,15 @@ class QAMenuPresenterMock: QAMenuPresenter {
 
     var _resetRootViewControllerCount = 0
 
-    var dismissBehavior: QAMenuDismissBehavior
+    var dismissBehavior: QAMenu.DismissBehavior
 
     // MARK: - Initialization
 
-    required init(qaMenu: QAMenu) {
-        dismissBehavior = .neverReset
+    required init(
+        qaMenu: QAMenu,
+        dismissBehavior: QAMenu.DismissBehavior = .neverReset
+    ) {
+        self.dismissBehavior = dismissBehavior
     }
 
     // MARK: - Methods

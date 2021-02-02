@@ -127,6 +127,8 @@ class ExampleViewController: UITableViewController {
             identifier: "Catalog QAMenu",
             presenterType: QAMenuUIKitPresenter.self
         )
+        self.catalogQAMenu?.setTrigger([], mode: .initialValue)
+        self.catalogQAMenu?.setDismissBehavior(.resetImmediately, mode: .initialValue)
         self.catalogQAMenu?.setRootPane(
             RootPane(
                 title: .static("QA Menu Catalog"),

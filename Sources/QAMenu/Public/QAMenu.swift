@@ -35,14 +35,21 @@ open class QAMenu {
 
     public let identifier: String
 
-    open var trigger: Trigger
+    @QAMenuConfigurationItem(key: "qamenu.trigger", defaultValue: [.shake])
+    open private(set) var trigger: [Trigger]
+
+    @QAMenuConfigurationItem(key: "qamenu.dismiss_behavior", defaultValue: .resetAfter(30))
+    open private(set) var dismissBehavior: DismissBehavior
 
     open var onDidAppear: (() -> Void)?
     open var onDidDisappear: (() -> Void)?
 
     private var presenterType: QAMenuPresenter.Type
     open lazy var presenter: QAMenuPresenter = {
-        return self.presenterType.init(qaMenu: self)
+        return self.presenterType.init(
+            qaMenu: self,
+            dismissBehavior: self.dismissBehavior
+        )
     }()
 
     // MARK: - Properties (Internal)
@@ -56,16 +63,17 @@ open class QAMenu {
     public init(
         identifier: String = "QAMenu",
         pane: RootPane? = nil,
-        trigger: Trigger = .shake,
         presenterType: QAMenuPresenter.Type
     ) {
-        self.trigger = trigger
         self.identifier = identifier
         self.presenterType = presenterType
         Self.instances.append(WeakBox(self))
         if let pane = pane {
             self.setRootPane(pane)
         }
+        // Complete the configuration items setup
+        self._trigger.setup(for: self)
+        self._dismissBehavior.setup(for: self)
     }
 
     deinit {
@@ -76,6 +84,21 @@ open class QAMenu {
 
     public func setRootPane(_ pane: RootPane) {
         self.pane = pane
+    }
+
+    public func setTrigger(
+        _ newValue: [Trigger],
+        mode: QAMenuConfigurationItemSetterMode
+    ) {
+        self._trigger.updateValue(with: newValue, mode: mode)
+    }
+
+    public func setDismissBehavior(
+        _ newValue: DismissBehavior,
+        mode: QAMenuConfigurationItemSetterMode
+    ) {
+        self._dismissBehavior.updateValue(with: newValue, mode: mode)
+        self.presenter.dismissBehavior = newValue
     }
 
     // MARK: -

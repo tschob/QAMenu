@@ -39,10 +39,10 @@ class MockQAMenuPresenter: QAMenuPresenter {
     let _show = ObservableEvent<Void>()
     let _hide = ObservableEvent<Void>()
 
-    var dismissBehavior: QAMenuDismissBehavior
+    var dismissBehavior: QAMenu.DismissBehavior
 
-    required init(qaMenu: QAMenu) {
-        self.dismissBehavior = .neverReset
+    required init(qaMenu: QAMenu, dismissBehavior: QAMenu.DismissBehavior = .neverReset) {
+        self.dismissBehavior = dismissBehavior
     }
 
     func toggleVisibility(completion: @escaping (QAMenuState) -> Void) {

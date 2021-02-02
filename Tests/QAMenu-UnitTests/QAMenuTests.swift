@@ -33,11 +33,17 @@ class QAMenuTests: XCTestCase {
 
     var disposeBag = DisposeBag()
 
+    var configurationStorage: QAMenuConfigurationStorageProvider!
+
     override func setUpWithError() throws {
-        QAMenu.instances.removeAll()
+        self.configurationStorage = UserDefaults(suiteName: "unittest configuration")!
     }
 
     override func tearDownWithError() throws {
+        UserDefaults().removePersistentDomain(forName: "unittest configuration")
+        UserDefaults().removePersistentDomain(forName: "QAMenu configuration")
+        configurationStorage = nil
+        QAMenu.instances.removeAll()
         self.disposeBag = DisposeBag()
     }
 
@@ -101,6 +107,32 @@ class QAMenuTests: XCTestCase {
         XCTAssert(QAMenu.instances.last?.unbox === sut)
     }
 
+    func test_init_completesTriggerPropertyWrapperSetup() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        // Test that the setup was completed by making sure that the configuration provider is used
+        XCTAssertNil(self.configurationStorage.string(forKey: "qamenu.trigger"))
+
+        sut.setTrigger([], mode: .forceReplace)
+
+        XCTAssertNotNil(self.configurationStorage.string(forKey: "qamenu.trigger"))
+    }
+
+    func test_init_completesDismissBehaviorPropertyWrapperSetup() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        // Test that the setup was completed by making sure that the configuration provider is used
+        XCTAssertNil(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"))
+
+        sut.setDismissBehavior(.neverReset, mode: .forceReplace)
+
+        XCTAssertNotNil(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"))
+    }
+
     // MARK: - setRootPane
 
     func test_setRootPane_whenPaneWasNil_setsGivenPane() {
@@ -125,6 +157,122 @@ class QAMenuTests: XCTestCase {
         sut.setRootPane(secondMockPane)
 
         XCTAssertEqual(sut.pane, secondMockPane)
+    }
+
+    // MARK: - setTrigger
+
+    func test_setTrigger_whenModeIsInitialValueAndValueWasNotYetSet_setsTheGivenValue() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        XCTAssertNil(self.configurationStorage.string(forKey: "qamenu.trigger"))
+
+        sut.setTrigger([], mode: .initialValue)
+
+        XCTAssertEqual(self.configurationStorage.string(forKey: "qamenu.trigger"), "")
+    }
+
+    func test_setTrigger_whenModeIsInitialValueAndValueWasAlreadySet_doesNotReplaceTheValue() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        sut.setTrigger([.shake], mode: .forceReplace)
+        XCTAssertNotNil(self.configurationStorage.string(forKey: "qamenu.trigger"))
+
+        sut.setTrigger([], mode: .initialValue)
+
+        XCTAssertEqual(self.configurationStorage.string(forKey: "qamenu.trigger"), "shake")
+    }
+
+    func test_setTrigger_whenModeIsForceReplaceAndValueWasNotYetSet_doesSetTheGivenValue() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        XCTAssertNil(self.configurationStorage.string(forKey: "qamenu.trigger"))
+
+        sut.setTrigger([], mode: .forceReplace)
+
+        XCTAssertEqual(self.configurationStorage.string(forKey: "qamenu.trigger"), "")
+    }
+
+    func test_setTrigger_whenModeIsForceReplaceAndValueWasAlreadySet_doesReplaceTheValue() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        sut.setTrigger([], mode: .forceReplace)
+        XCTAssertNotNil(self.configurationStorage.string(forKey: "qamenu.trigger"))
+
+        sut.setTrigger([.shake], mode: .forceReplace)
+
+        XCTAssertEqual(self.configurationStorage.string(forKey: "qamenu.trigger"), "shake")
+    }
+
+    // MARK: - setDismissBehavior
+
+    func test_setDismissBehavior_whenModeIsInitialValueAndValueWasNotYetSet_setsTheGivenValue() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        XCTAssertNil(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"))
+
+        sut.setDismissBehavior(.neverReset, mode: .initialValue)
+
+        XCTAssertEqual(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"), "-1.0")
+    }
+
+    func test_setDismissBehavior_whenModeIsInitialValueAndValueWasAlreadySet_doesNotReplaceTheValue() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        sut.setDismissBehavior(.resetImmediately, mode: .forceReplace)
+        XCTAssertNotNil(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"))
+
+        sut.setDismissBehavior(.resetAfter(30), mode: .initialValue)
+
+        XCTAssertEqual(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"), "0.0")
+    }
+
+    func test_setDismissBehavior_whenModeIsForceReplaceAndValueWasNotYetSet_doesSetTheGivenValue() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        XCTAssertNil(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"))
+
+        sut.setDismissBehavior(.resetAfter(5), mode: .forceReplace)
+
+        XCTAssertEqual(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"), "5.0")
+    }
+
+    func test_setDismissBehavior_whenModeIsForceReplaceAndValueWasAlreadySet_doesReplaceTheValue() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        sut.setDismissBehavior(.resetAfter(5), mode: .forceReplace)
+        XCTAssertNotNil(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"))
+
+        sut.setDismissBehavior(.neverReset, mode: .forceReplace)
+
+        XCTAssertEqual(self.configurationStorage.string(forKey: "qamenu.dismiss_behavior"), "-1.0")
+    }
+
+    func test_setDismissBehavior_forwardDissmissBehaviorToPresent() {
+        let sut = QAMenu(
+            identifier: "unittest",
+            presenterType: MockQAMenuPresenter.self
+        )
+        XCTAssertEqual(sut.presenter.dismissBehavior, .resetAfter(30))
+
+        sut.setDismissBehavior(.neverReset, mode: .forceReplace)
+
+        XCTAssertEqual(sut.presenter.dismissBehavior, .neverReset)
     }
 
     // MARK: - onShakeRecognized

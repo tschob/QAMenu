@@ -1,12 +1,12 @@
 //
-//  QAMenu+Trigger.swift
+//  QAMenu+DismissBehavior.swift
 //
-//  Created by Hans Seiffert on 30.05.20.
+//  Created by Hans Seiffert on 31.12.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -28,39 +28,49 @@
 
 import Foundation
 
-public extension QAMenu {
+// MARK: - QAMenu + DismissBehavior
 
-    enum Trigger: CaseIterable {
-        case shake
+extension QAMenu {
 
-        public init?(stringValue: String) {
-            guard let instance = Self.allCases.first(where: { $0.key == stringValue }) else {
-                return nil
-            }
-            self = instance
-        }
-
-        public var key: String {
-            switch self {
-            case .shake:
-                return "shake"
-            }
-        }
+    public enum DismissBehavior: Equatable {
+        case resetImmediately
+        case resetAfter(TimeInterval)
+        case neverReset
     }
 }
 
-// MARK: Array<Trigger> + QAMenuConfigurationItemStorable
+// MARK: - DismissBehavior + QAMenuConfigurationItemStorable
 
-extension Array: QAMenuConfigurationItemStorable where Element == QAMenu.Trigger {
+extension QAMenu.DismissBehavior: QAMenuConfigurationItemStorable {
 
     public init?(stringValue: String) {
-        let components = stringValue.components(separatedBy: ",")
-        self = components.compactMap { QAMenu.Trigger(stringValue: $0) }
+        guard let timerInterval = TimeInterval(stringValue) else {
+            return nil
+        }
+        switch timerInterval {
+        case -1:
+            self = .neverReset
+        case 0:
+            self = .resetImmediately
+        case 1...:
+            self = .resetAfter(timerInterval)
+        default:
+            return nil
+        }
+    }
+
+    public var timerInterval: TimeInterval {
+        switch self {
+        case .resetImmediately:
+            return 0
+        case .resetAfter(let timeInterval):
+            return timeInterval
+        case .neverReset:
+            return -1
+        }
     }
 
     public var toString: String {
-        return self
-            .map { $0.key }
-            .joined(separator: ",")
+        return String(self.timerInterval)
     }
 }

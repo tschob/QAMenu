@@ -42,7 +42,7 @@ class QAMenuUIKitPresenterTests: XCTestCase {
             pane: RootPane(title: .static(""), items: []),
             presenterType: QAMenuUIKitPresenter.self
         )
-        self.sut = QAMenuUIKitPresenter(qaMenu: self.menu)
+        self.sut = QAMenuUIKitPresenter(qaMenu: self.menu, dismissBehavior: .resetAfter(30))
         self.sut.ui.register(RootPaneUIRepresentableMock.self, for: RootPane.self)
     }
 
@@ -60,7 +60,7 @@ class QAMenuUIKitPresenterTests: XCTestCase {
 
     func test_init_registersPaneViewController_forRootPane() throws {
         // Recreate sut to only use default elements
-        self.sut = QAMenuUIKitPresenter(qaMenu: self.menu)
+        self.sut = QAMenuUIKitPresenter(qaMenu: self.menu, dismissBehavior: .neverReset)
         XCTAssert(self.sut.ui.retrieve(for: RootPane.self) is PaneViewController.Type)
     }
 

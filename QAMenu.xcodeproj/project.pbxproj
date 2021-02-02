@@ -60,6 +60,13 @@
 		A2172D2C25C9DF43009DC774 /* DisposableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0325C9DF43009DC774 /* DisposableTests.swift */; };
 		A2172D2D25C9DF43009DC774 /* DisposeBagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0425C9DF43009DC774 /* DisposeBagTests.swift */; };
 		A2172D7B25C9E4F0009DC774 /* RootPaneTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D7A25C9E4F0009DC774 /* RootPaneTests+Conversions.swift */; };
+		A2172D9725C9EAD1009DC774 /* QAMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D9525C9EAD1009DC774 /* QAMenuConfiguration.swift */; };
+		A2172D9825C9EAD1009DC774 /* QAMenuConfigurationStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D9625C9EAD1009DC774 /* QAMenuConfigurationStorable.swift */; };
+		A2172D9F25C9EAEC009DC774 /* Catalog+QAMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D9E25C9EAEC009DC774 /* Catalog+QAMenuConfiguration.swift */; };
+		A2172DA725C9EB2D009DC774 /* QAMenuConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172DA525C9EB2D009DC774 /* QAMenuConfigurationTests.swift */; };
+		A2172DA825C9EB2D009DC774 /* QAMenu+DismissBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172DA625C9EB2D009DC774 /* QAMenu+DismissBehaviorTests.swift */; };
+		A2172DB925C9EE07009DC774 /* QAMenu+DismissBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172DB825C9EE07009DC774 /* QAMenu+DismissBehavior.swift */; };
+		A2172DC025C9F38D009DC774 /* QAMenu+TriggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172DBF25C9F38D009DC774 /* QAMenu+TriggerTests.swift */; };
 		A2326E292558621500CB39E7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2326E202558621500CB39E7 /* Logger.swift */; };
 		A2326E2A2558621500CB39E7 /* SwiftPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2326E212558621500CB39E7 /* SwiftPrinter.swift */; };
 		A2326E2B2558621500CB39E7 /* SwiftDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2326E222558621500CB39E7 /* SwiftDateProvider.swift */; };
@@ -295,6 +302,13 @@
 		A2172D0425C9DF43009DC774 /* DisposeBagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposeBagTests.swift; sourceTree = "<group>"; };
 		A2172D0525C9DF43009DC774 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2172D7A25C9E4F0009DC774 /* RootPaneTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RootPaneTests+Conversions.swift"; sourceTree = "<group>"; };
+		A2172D9525C9EAD1009DC774 /* QAMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuConfiguration.swift; sourceTree = "<group>"; };
+		A2172D9625C9EAD1009DC774 /* QAMenuConfigurationStorable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuConfigurationStorable.swift; sourceTree = "<group>"; };
+		A2172D9E25C9EAEC009DC774 /* Catalog+QAMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Catalog+QAMenuConfiguration.swift"; sourceTree = "<group>"; };
+		A2172DA525C9EB2D009DC774 /* QAMenuConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuConfigurationTests.swift; sourceTree = "<group>"; };
+		A2172DA625C9EB2D009DC774 /* QAMenu+DismissBehaviorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QAMenu+DismissBehaviorTests.swift"; sourceTree = "<group>"; };
+		A2172DB825C9EE07009DC774 /* QAMenu+DismissBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QAMenu+DismissBehavior.swift"; sourceTree = "<group>"; };
+		A2172DBF25C9F38D009DC774 /* QAMenu+TriggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QAMenu+TriggerTests.swift"; sourceTree = "<group>"; };
 		A2217BB7255806ED0070FC68 /* QAMenuUtils-UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QAMenuUtils-UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2217BEF2558081E0070FC68 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2326E202558621500CB39E7 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -478,7 +492,10 @@
 				A2172CE625C9DF43009DC774 /* Data Structures */,
 				A2172CF925C9DF43009DC774 /* Dictionary+QAMenuTests.swift */,
 				A2172CFA25C9DF43009DC774 /* Utils */,
+				A2172DA625C9EB2D009DC774 /* QAMenu+DismissBehaviorTests.swift */,
+				A2172DBF25C9F38D009DC774 /* QAMenu+TriggerTests.swift */,
 				A2172CFE25C9DF43009DC774 /* QAMenu+LogTests.swift */,
+				A2172DA525C9EB2D009DC774 /* QAMenuConfigurationTests.swift */,
 				A2172D0025C9DF43009DC774 /* QAMenuTests.swift */,
 				A2172D0125C9DF43009DC774 /* Observable */,
 				A2172D0525C9DF43009DC774 /* Info.plist */,
@@ -668,8 +685,11 @@
 				A238A06B253C71AB0016BBD7 /* Utils */,
 				A28873E42516822A003528E5 /* Dictionary+QAMenu.swift */,
 				A28873E12516822A003528E5 /* QAMenu.swift */,
+				A2172DB825C9EE07009DC774 /* QAMenu+DismissBehavior.swift */,
 				A28873E22516822A003528E5 /* QAMenu+Log.swift */,
 				A28873E02516822A003528E5 /* QAMenu+Trigger.swift */,
+				A2172D9525C9EAD1009DC774 /* QAMenuConfiguration.swift */,
+				A2172D9625C9EAD1009DC774 /* QAMenuConfigurationStorable.swift */,
 				A28873E32516822A003528E5 /* QAMenuPresenter.swift */,
 			);
 			path = Public;
@@ -932,11 +952,12 @@
 		A2969E6025167D8600EA54D5 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				A2969E6125167D8600EA54D5 /* Catalog+AppInfo.swift */,
 				A2969E6225167D8600EA54D5 /* Catalog.Device+Accessibility.swift */,
 				A2969E6525167D8600EA54D5 /* Catalog.Device+Locale.swift */,
+				A2969E6125167D8600EA54D5 /* Catalog+AppInfo.swift */,
 				A2969E6325167D8600EA54D5 /* Catalog+Device.swift */,
 				A2969E6425167D8600EA54D5 /* Catalog+Preferences.swift */,
+				A2172D9E25C9EAEC009DC774 /* Catalog+QAMenuConfiguration.swift */,
 				A2969E6625167D8600EA54D5 /* QAMenu+Catalog.swift */,
 			);
 			path = Public;
@@ -1503,8 +1524,11 @@
 				A249DE60258FA0E2002AEC41 /* DialogTrigger.swift in Sources */,
 				A28873E92516822A003528E5 /* Searchable.swift in Sources */,
 				A238A06D253C71AC0016BBD7 /* Dynamic.swift in Sources */,
+				A2172D9825C9EAD1009DC774 /* QAMenuConfigurationStorable.swift in Sources */,
 				A249DE66258FA7A9002AEC41 /* NavigationTrigger.swift in Sources */,
 				A249DE46258E5CAD002AEC41 /* PickableItem.swift in Sources */,
+				A2172D9725C9EAD1009DC774 /* QAMenuConfiguration.swift in Sources */,
+				A2172DB925C9EE07009DC774 /* QAMenu+DismissBehavior.swift in Sources */,
 				A2BEC0E4257BFD5B0005EFDF /* PaneRepresentable.swift in Sources */,
 				A2EA8C9825867E25008F18DF /* PickerGroup.swift in Sources */,
 				A28873F22516822A003528E5 /* BoolItem.swift in Sources */,
@@ -1541,6 +1565,8 @@
 				A2172D0F25C9DF43009DC774 /* MockPane.swift in Sources */,
 				A2172D1F25C9DF43009DC774 /* PickableStringItemTests.swift in Sources */,
 				A2172D2225C9DF43009DC774 /* BoolItemTests.swift in Sources */,
+				A2172DA725C9EB2D009DC774 /* QAMenuConfigurationTests.swift in Sources */,
+				A2172DA825C9EB2D009DC774 /* QAMenu+DismissBehaviorTests.swift in Sources */,
 				A2172D1525C9DF43009DC774 /* SearchableTests.swift in Sources */,
 				A2172D1825C9DF43009DC774 /* RootPaneTests.swift in Sources */,
 				A2172D1225C9DF43009DC774 /* MockPickableItem.swift in Sources */,
@@ -1553,6 +1579,7 @@
 				A2172D2A25C9DF43009DC774 /* QAMenuTests.swift in Sources */,
 				A2172D1625C9DF43009DC774 /* PickerGroupTests.swift in Sources */,
 				A2172D1B25C9DF43009DC774 /* PickableItemTests.swift in Sources */,
+				A2172DC025C9F38D009DC774 /* QAMenu+TriggerTests.swift in Sources */,
 				A2172D1E25C9DF43009DC774 /* PickerGroupTests+Conversions.swift in Sources */,
 				A2172D1425C9DF43009DC774 /* MockItem.swift in Sources */,
 				A2172D2125C9DF43009DC774 /* ChildPaneItemTests.swift in Sources */,
@@ -1607,6 +1634,7 @@
 				A2969E6D25167D8600EA54D5 /* Catalog.Device+Locale.swift in Sources */,
 				A2969E6A25167D8600EA54D5 /* Catalog.Device+Accessibility.swift in Sources */,
 				A2969E6925167D8600EA54D5 /* Catalog+AppInfo.swift in Sources */,
+				A2172D9F25C9EAEC009DC774 /* Catalog+QAMenuConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

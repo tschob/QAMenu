@@ -34,7 +34,7 @@ internal class QAMenuLifecycleManager {
 
     // MARK: - Properties (Internal)
 
-    internal var dismissBehavior: QAMenuDismissBehavior
+    internal var dismissBehavior: QAMenu.DismissBehavior
 
     internal private(set) weak var presenter: QAMenuPresenter?
 
@@ -46,7 +46,7 @@ internal class QAMenuLifecycleManager {
 
     internal init(
         presenter: QAMenuPresenter,
-        dismissBehavior: QAMenuDismissBehavior
+        dismissBehavior: QAMenu.DismissBehavior
     ) {
         self.presenter = presenter
         self.dismissBehavior = dismissBehavior
@@ -60,7 +60,10 @@ internal class QAMenuLifecycleManager {
             DispatchQueue.main.async(execute: self.makeResetWorkItem(forId: self.lifecycleId))
         case .resetAfter(let duration):
             let targetLifecycleId = self.lifecycleId
-            DispatchQueue.main.asyncAfter(deadline: .now() + duration, execute: self.makeResetWorkItem(forId: targetLifecycleId))
+            DispatchQueue.main.asyncAfter(
+                deadline: .now() + duration,
+                execute: self.makeResetWorkItem(forId: targetLifecycleId)
+            )
         case .neverReset:
             break
         }

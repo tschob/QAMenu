@@ -40,7 +40,7 @@ class QAMenuLifecycleManagerTests: XCTestCase {
     }
     var lastPresenter: QAMenuPresenterMock!
 
-    func makeSut(dismissBehavior: QAMenuDismissBehavior) -> QAMenuLifecycleManager {
+    func makeSut(dismissBehavior: QAMenu.DismissBehavior) -> QAMenuLifecycleManager {
         self.lastPresenter = QAMenuPresenterMock(qaMenu: self.menu)
         return QAMenuLifecycleManager(
             presenter: self.lastPresenter,

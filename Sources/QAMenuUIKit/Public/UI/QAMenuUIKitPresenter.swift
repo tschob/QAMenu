@@ -35,7 +35,7 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
 
     // MARK: - Properties (Public)
 
-    open var dismissBehavior: QAMenuDismissBehavior {
+    open var dismissBehavior: QAMenu.DismissBehavior {
         didSet {
             self.lifecycleManager.dismissBehavior = dismissBehavior
         }
@@ -71,9 +71,12 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
 
     // MARK: - Initialization
 
-    public required init(qaMenu: QAMenu) {
+    public required init(
+        qaMenu: QAMenu,
+        dismissBehavior: QAMenu.DismissBehavior
+    ) {
         self.qaMenu = qaMenu
-        self.dismissBehavior = .resetAfter(30)
+        self.dismissBehavior = dismissBehavior
         self.lifecycleManager.dismissBehavior = self.dismissBehavior
         self.registerDefaultElements()
     }
