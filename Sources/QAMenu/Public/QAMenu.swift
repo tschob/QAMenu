@@ -33,6 +33,8 @@ open class QAMenu {
 
     // MARK: - Properties (Public)
 
+    public let identifier: String
+
     open var trigger: Trigger
 
     open var onDidAppear: (() -> Void)?
@@ -47,23 +49,33 @@ open class QAMenu {
 
     public static var instances = [WeakBox<QAMenu>]()
 
-    open private(set) var pane: RootPane
+    open private(set) var pane: RootPane?
 
     // MARK: - Initialization
 
     public init(
-        pane: RootPane,
+        identifier: String = "QAMenu",
+        pane: RootPane? = nil,
         trigger: Trigger = .shake,
         presenterType: QAMenuPresenter.Type
     ) {
-        self.pane = pane
         self.trigger = trigger
+        self.identifier = identifier
         self.presenterType = presenterType
         Self.instances.append(WeakBox(self))
+        if let pane = pane {
+            self.setRootPane(pane)
+        }
     }
 
     deinit {
         Logger.verbose("deinit")
+    }
+
+    // MARK: - Setter
+
+    public func setRootPane(_ pane: RootPane) {
+        self.pane = pane
     }
 
     // MARK: -

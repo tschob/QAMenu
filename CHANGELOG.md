@@ -9,6 +9,8 @@
 #### Enhancements
 
 * [QAMenu] Added missing `asChildPaneItem()` options to create items with values (MR #6)
+* [QAMenu] Allow to pass the root pane after initializing `QAMenu` with `setRootPane()` (MR #7)
+
 
 #### Bug Fixes
 

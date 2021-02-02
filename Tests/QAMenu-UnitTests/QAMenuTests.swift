@@ -54,16 +54,77 @@ class QAMenuTests: XCTestCase {
 
     // MARK: - Init
 
-    func test_init_whenGivenRootPaneAndPresenter() throws {
-        let mockPane = RootPane(items: [])
-        let sut = QAMenu(pane: mockPane, presenterType: MockQAMenuPresenter.self)
+    func test_init_whenGivenPresenter() throws {
+        let sut = QAMenu(
+            presenterType: MockQAMenuPresenter.self
+        )
 
-        XCTAssertEqual(sut.pane, mockPane)
-        XCTAssertEqual(sut.trigger, .shake)
+        XCTAssertEqual(sut.identifier, "QAMenu")
+        XCTAssertNil(sut.pane)
+        XCTAssertEqual(sut.trigger, [.shake])
         XCTAssert(sut.presenter.self is MockQAMenuPresenter)
 
         XCTAssertEqual(QAMenu.instances.count, 1)
         XCTAssert(QAMenu.instances.last?.unbox === sut)
+    }
+
+    func test_init_whenGivenPaneAndPresenter() throws {
+        let mockPane = RootPane(items: [])
+        let sut = QAMenu(
+            pane: mockPane,
+            presenterType: MockQAMenuPresenter.self
+        )
+
+        XCTAssertEqual(sut.identifier, "QAMenu")
+        XCTAssertEqual(sut.pane, mockPane)
+        XCTAssertEqual(sut.trigger, [.shake])
+        XCTAssert(sut.presenter.self is MockQAMenuPresenter)
+
+        XCTAssertEqual(QAMenu.instances.count, 1)
+        XCTAssert(QAMenu.instances.last?.unbox === sut)
+    }
+
+    func test_init_whenGivenIdentifierAndPaneAndPresenter() throws {
+        let mockPane = RootPane(items: [])
+        let sut = QAMenu(
+            identifier: "unittest",
+            pane: mockPane,
+            presenterType: MockQAMenuPresenter.self
+        )
+
+        XCTAssertEqual(sut.identifier, "unittest")
+        XCTAssertEqual(sut.pane, mockPane)
+        XCTAssertEqual(sut.trigger, [.shake])
+        XCTAssert(sut.presenter.self is MockQAMenuPresenter)
+
+        XCTAssertEqual(QAMenu.instances.count, 1)
+        XCTAssert(QAMenu.instances.last?.unbox === sut)
+    }
+
+    // MARK: - setRootPane
+
+    func test_setRootPane_whenPaneWasNil_setsGivenPane() {
+        let sut = QAMenu(
+            presenterType: MockQAMenuPresenter.self
+        )
+
+        let mockPane = RootPane(items: [])
+        sut.setRootPane(mockPane)
+
+        XCTAssertEqual(sut.pane, mockPane)
+    }
+
+    func test_setRootPane_whenPaneWasNotNil_replacesExistingPane() {
+        let initalMockPane = RootPane(items: [])
+        let sut = QAMenu(
+            pane: initalMockPane,
+            presenterType: MockQAMenuPresenter.self
+        )
+
+        let secondMockPane = RootPane(items: [])
+        sut.setRootPane(secondMockPane)
+
+        XCTAssertEqual(sut.pane, secondMockPane)
     }
 
     // MARK: - onShakeRecognized

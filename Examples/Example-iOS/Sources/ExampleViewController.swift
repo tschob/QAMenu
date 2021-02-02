@@ -112,7 +112,11 @@ class ExampleViewController: UITableViewController {
     }
 
     private func setupShowcaseQAMenu() {
-        self.showcaseQAMenu = QAMenu(pane: ShowcaseItemsFactory.makeRootPane(), presenterType: QAMenuUIKitPresenter.self)
+        self.showcaseQAMenu = QAMenu(
+            identifier: "Simple QAMenu",
+            pane: ShowcaseItemsFactory.makeRootPane(),
+            presenterType: QAMenuUIKitPresenter.self
+        )
         if let presenter = self.showcaseQAMenu?.presenter as? QAMenuUIKitPresenter {
             presenter.ui.register(CustomPaneViewController.self, for: CustomPane.self)
         }
@@ -120,8 +124,14 @@ class ExampleViewController: UITableViewController {
 
     private func setupCatalogQAMenu() {
         self.catalogQAMenu = QAMenu(
-            pane: RootPane(title: .static("QA Menu Catalog"), groups: QAMenu.Catalog.all),
+            identifier: "Catalog QAMenu",
             presenterType: QAMenuUIKitPresenter.self
+        )
+        self.catalogQAMenu?.setRootPane(
+            RootPane(
+                title: .static("QA Menu Catalog"),
+                groups: QAMenu.Catalog.all(qaMenu: self.catalogQAMenu)
+            )
         )
     }
 
@@ -166,14 +176,18 @@ class ExampleViewController: UITableViewController {
                 }
             )
         ])
+        self.simpleProjectQAMenu = QAMenu(
+            identifier: "Simple QAMenu",
+            presenterType: QAMenuUIKitPresenter.self
+        )
         let groups: [Group] = [
             QAMenu.Catalog.AppInfo.group(),
             cacheGroup,
-            QAMenu.Catalog.Preferences.group()
+            QAMenu.Catalog.Preferences.group(),
+            QAMenu.Catalog.QAMenuConfiguration.group(qaMenu: self.simpleProjectQAMenu)
         ]
-        self.simpleProjectQAMenu = QAMenu(
-            pane: RootPane(title: .static("Simple Project"), groups: groups),
-            presenterType: QAMenuUIKitPresenter.self
+        self.simpleProjectQAMenu?.setRootPane(
+            RootPane(title: .static("Simple Project"), groups: groups)
         )
     }
 }

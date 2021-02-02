@@ -39,6 +39,10 @@ class QAMenuMock: QAMenu {
     }
 
     init() {
-        super.init(pane: RootPane(groups: []), presenterType: QAMenuUIKitPresenter.self)
+        super.init(
+            identifier: UUID().uuidString,
+            pane: RootPane(groups: []),
+            presenterType: QAMenuUIKitPresenter.self
+        )
     }
 }
