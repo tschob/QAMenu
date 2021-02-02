@@ -67,139 +67,34 @@ class StringItemTests: XCTestCase {
 
     // MARK: - init
 
-    func test_init_whenPassingTitleAndNilValue() throws {
+    func test_init_whenPassingOnlyMandatoryParameters() throws {
         let sut = StringItem(
             title: .static("key"),
             value: .static(nil)
         )
 
-        assert_stringItem(
+        StringItem._assertInitProperties(
             sut,
             title: "key",
-            value: nil,
-            footerText: nil,
-            layoutType: .horizontal(.singleLine),
-            fallbackString: "<nil>"
+            value: nil
         )
     }
 
-    func test_init_whenPassingTitleAndValue() throws {
+    func test_init_whenPassingAllParameters() throws {
         let sut = StringItem(
-            title: .static("key"),
-            value: .static("value")
-        )
-
-        assert_stringItem(
-            sut,
-            title: "key",
-            value: "value",
-            footerText: nil,
-            layoutType: .horizontal(.singleLine),
-            fallbackString: "<nil>"
-        )
-    }
-
-    func test_init_whenPassingTitleNilValueAndFooter() throws {
-        let sut = StringItem(
-            title: .static("key"),
-            value: .static(nil),
-            footerText: .static("footer")
-        )
-
-        assert_stringItem(
-            sut,
-            title: "key",
-            value: nil,
-            footerText: "footer",
-            layoutType: .horizontal(.singleLine),
-            fallbackString: "<nil>"
-        )
-    }
-
-    func test_init_whenPassingTitleAndValueAndFooter() throws {
-        let sut = StringItem(
-            title: .static("key"),
+            title: .static("title"),
             value: .static("value"),
-            footerText: .static("footer")
+            footerText: .static("footer"),
+            layoutType: .static(.vertical(.autoGrow)),
+            fallbackString: "fallback"
         )
 
-        assert_stringItem(
+        StringItem._assertInitProperties(
             sut,
-            title: "key",
+            title: "title",
             value: "value",
             footerText: "footer",
-            layoutType: .horizontal(.singleLine),
-            fallbackString: "<nil>"
-        )
-    }
-
-    func test_init_whenPassingTitleAndValueAndVerticalLayoutType() throws {
-        let sut = StringItem(
-            title: .static("key"),
-            value: .static("value"),
-            layoutType: .static(.vertical(.autoGrow))
-        )
-
-        assert_stringItem(
-            sut,
-            title: "key",
-            value: "value",
-            footerText: nil,
             layoutType: .vertical(.autoGrow),
-            fallbackString: "<nil>"
-        )
-    }
-
-    func test_init_whenPassingTitleAndValueAndFallbackString() throws {
-        let sut = StringItem(
-            title: .static("key"),
-            value: .static("value"),
-            fallbackString: "fallback"
-        )
-
-        assert_stringItem(
-            sut,
-            title: "key",
-            value: "value",
-            footerText: nil,
-            layoutType: .horizontal(.singleLine),
-            fallbackString: "fallback"
-        )
-    }
-
-    func test_init_whenPassingTitleAndValueAndFooterAndVerticalLayoutType() throws {
-        let sut = StringItem(
-            title: .static("key"),
-            value: .static("value"),
-            footerText: .static("footer"),
-            layoutType: .static(.horizontal(.autoGrow))
-        )
-
-        assert_stringItem(
-            sut,
-            title: "key",
-            value: "value",
-            footerText: "footer",
-            layoutType: .horizontal(.autoGrow),
-            fallbackString: "<nil>"
-        )
-    }
-
-    func test_init_whenPassingTitleAndValueAndFooterAndVerticalLayoutTypeAndFallbackString() throws {
-        let sut = StringItem(
-            title: .static("key"),
-            value: .static("value"),
-            footerText: .static("footer"),
-            layoutType: .static(.vertical(.singleLine)),
-            fallbackString: "fallback"
-        )
-
-        assert_stringItem(
-            sut,
-            title: "key",
-            value: "value",
-            footerText: "footer",
-            layoutType: .vertical(.singleLine),
             fallbackString: "fallback"
         )
     }
@@ -291,24 +186,5 @@ class StringItemTests: XCTestCase {
         )
 
         XCTAssertEqual(sut.shareContent, "")
-    }
-
-    // MARK: - Helper
-
-    private func assert_stringItem(
-        _ sut: StringItem,
-        title: String,
-        value: String?,
-        footerText: String?,
-        layoutType: StringItem.LayoutType,
-        fallbackString: String,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        XCTAssertEqual(sut.title?.unboxed, title, file: file, line: line)
-        XCTAssertEqual(sut.value?.unboxed, value, file: file, line: line)
-        XCTAssertEqual(sut.footerText?.unboxed, footerText, file: file, line: line)
-        XCTAssertEqual(sut.layoutType.unboxed, layoutType, file: file, line: line)
-        XCTAssertEqual(sut.valueFallbackString, fallbackString, file: file, line: line)
     }
 }

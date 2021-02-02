@@ -43,22 +43,22 @@ class PickerGroupTests: XCTestCase {
 
     // MARK: - Init
 
-    func test_init_whenOnlyProvidingEmptyArray() throws {
-        let options: [MockPickableItem] = []
+    func test_init_whenPassingOnlyMandatoryParameters() throws {
         let sut = PickerGroup(
-            options: options,
-            onPickedOption: { _, _ in }
+            options: [],
+            onPickedOption: { _, result in
+                result(.failure("failure"))
+            }
         )
 
-        assert_pickerGroup(
+        PickerGroup._assertInitProperties(
             sut,
-            contains: options,
-            title: nil,
-            footerText: nil
+            onPickedOptionFailure: "failure",
+            testCase: self
         )
     }
 
-    func test_init_whenProvidingItems() throws {
+    func test_init_whenPassingAllParameters() throws {
         let options: [MockPickableItem] = [
             MockPickableItem(isSelected: false),
             MockPickableItem(isSelected: true)
@@ -66,97 +66,20 @@ class PickerGroupTests: XCTestCase {
         let sut = PickerGroup(
             title: .static(nil),
             options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        assert_pickerGroup(
-            sut,
-            contains: options,
-            title: nil,
-            footerText: nil
-        )
-    }
-
-    func test_init_whenProvidingTitleAndItems() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem(isSelected: false),
-            MockPickableItem(isSelected: true)
-        ]
-        let sut = PickerGroup(
-            title: .static("Title"),
-            options: options,
-            onPickedOption: { _, _ in }
-        )
-
-        assert_pickerGroup(
-            sut,
-            contains: options,
-            title: "Title",
-            footerText: nil
-        )
-    }
-
-    func test_init_whenProvidingItemsAndFooter() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem(isSelected: false),
-            MockPickableItem(isSelected: true)
-        ]
-        let sut = PickerGroup(
-            options: options,
             footerText: .static("footer"),
-            onPickedOption: { _, _ in }
-        )
-
-        assert_pickerGroup(
-            sut,
-            contains: options,
-            title: nil,
-            footerText: "footer"
-        )
-    }
-
-    func test_init_whenProvidingTitleAndItemsAndFooter() throws {
-        let options: [MockPickableItem] = [
-            MockPickableItem(isSelected: false),
-            MockPickableItem(isSelected: true)
-        ]
-        let sut = PickerGroup(
-            title: .static("title"),
-            options: options,
-            footerText: .static("footer"),
-            onPickedOption: { _, _ in }
-        )
-
-        assert_pickerGroup(
-            sut,
-            contains: options,
-            title: "title",
-            footerText: "footer"
-        )
-    }
-
-    func test_init_storesOnPickedItemClosure() throws {
-        let options: [MockPickableItem] = []
-        let onPickedOptionExpectation = expectation(description: "onPickedOption should be stored as `onPickedOption`")
-        onPickedOptionExpectation.assertForOverFulfill = true
-        let sut = PickerGroup(
-            title: .static("title"),
-            options: options,
-            footerText: .static("footer"),
-            onPickedOption: { _, _ in
-                onPickedOptionExpectation.fulfill()
+            onPickedOption: { _, result in
+                result(.failure("failure"))
             }
         )
 
-        assert_pickerGroup(
+        PickerGroup._assertInitProperties(
             sut,
-            contains: options,
-            title: "title",
-            footerText: "footer"
+            title: nil,
+            options: options,
+            footerText: "footer",
+            onPickedOptionFailure: "failure",
+            testCase: self
         )
-        sut.onPickedOption?(MockPickableItem(isSelected: false), { _ in })
-
-        wait(for: [onPickedOptionExpectation], timeout: 0.01)
     }
 
     func test_init_whenProvidingItems_observesPickableItem() throws {
@@ -519,30 +442,5 @@ class PickerGroupTests: XCTestCase {
         wait(for: [delay], timeout: 0.02)
 
         XCTAssert(true, "picking an item did not crash when onPresentDialog is nil")
-    }
-
-    // MARK: - Helper
-
-    private func assert_pickerGroup(
-        _ sut: PickerGroup,
-        contains options: [MockPickableItem],
-        title: String?,
-        footerText: String?,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        XCTAssertEqual(sut.title?.unboxed, title, file: file, line: line)
-        if let footerText = footerText {
-            XCTAssertEqual(sut.footerText?.unboxed, footerText, file: file, line: line)
-        } else {
-            XCTAssertNil(sut.footerText, file: file, line: line)
-        }
-        XCTAssertEqual(sut.options.count, options.count, file: file, line: line)
-        var index = 0
-        options.forEach { item in
-            XCTAssertEqual(sut.options[index] as! MockPickableItem, item, file: file, line: line)
-            index += 1
-        }
-        XCTAssertNotNil(sut.onPickedOption)
     }
 }

@@ -76,7 +76,7 @@ class SearcherTests: XCTestCase {
 
         let resultGroups = Searcher.filter(given, with: nil)
 
-        assert_groups(resultGroups, matches: expected)
+        assert_groups_equal(resultGroups, matches: expected)
     }
 
     func test_filter_whenMultipleGroupsHaveNoMatchingItem_withNilQuery_returnsOriginalGroups() throws {
@@ -95,7 +95,7 @@ class SearcherTests: XCTestCase {
 
         let resultGroups = Searcher.filter(given, with: nil)
 
-        assert_groups(resultGroups, matches: expected)
+        assert_groups_equal(resultGroups, matches: expected)
     }
 
     func test_filter_whenGroupHasNoMatchingItem_withQuery_returnsEmptyGroup() throws {
@@ -111,7 +111,7 @@ class SearcherTests: XCTestCase {
 
         let resultGroups = Searcher.filter(given, with: "query")
 
-        assert_groups(resultGroups, matches: expected)
+        assert_groups_equal(resultGroups, matches: expected)
     }
 
     func test_filter_whenGroupHasOneMatchingItem_withQuery_returnsGroup() throws {
@@ -127,7 +127,7 @@ class SearcherTests: XCTestCase {
 
         let resultGroups = Searcher.filter(given, with: "query")
 
-        assert_groups(resultGroups, matches: expected)
+        assert_groups_equal(resultGroups, matches: expected)
     }
 
     func test_filter_whenGroupHasOneMatchingItemInMany_withQuery_returnsGroup() throws {
@@ -144,7 +144,7 @@ class SearcherTests: XCTestCase {
 
         let resultGroups = Searcher.filter(given, with: "query")
 
-        assert_groups(resultGroups, matches: expected)
+        assert_groups_equal(resultGroups, matches: expected)
     }
 
     func test_filter_whenGroupHasMultipleMatchingItems_withQuery_returnsGroup() throws {
@@ -161,7 +161,7 @@ class SearcherTests: XCTestCase {
 
         let resultGroups = Searcher.filter(given, with: "query")
 
-        assert_groups(resultGroups, matches: expected)
+        assert_groups_equal(resultGroups, matches: expected)
     }
 
     func test_filter_whenMultipleGroupsWithOneHavingMultipleMatchingItems_withQuery_returnsGroup() throws {
@@ -182,7 +182,7 @@ class SearcherTests: XCTestCase {
 
         let resultGroups = Searcher.filter(given, with: "query")
 
-        assert_groups(resultGroups, matches: expected)
+        assert_groups_equal(resultGroups, matches: expected)
     }
 
     func test_filter_whenMultipleGroupsHaveMultipleMatchingItems_withQuery_returnsGroups() throws {
@@ -204,12 +204,12 @@ class SearcherTests: XCTestCase {
 
         let resultGroups = Searcher.filter(given, with: "query")
 
-        assert_groups(resultGroups, matches: expected)
+        assert_groups_equal(resultGroups, matches: expected)
     }
 
     // MARK: - Helper
 
-    private func assert_groups(
+    private func assert_groups_equal(
         _ groups: [Group],
         matches expectedGroup: [Group],
         file: StaticString = #file,

@@ -57,10 +57,21 @@ extension Group {
     }
 
     public func asChildPaneItem(
+        value: Dynamic<String?>? = nil,
         footerText: Dynamic<String?>? = nil,
+        layoutType: Dynamic<StringItem.LayoutType> = .static(.horizontal(.singleLine)),
+        fallbackString: String = "",
         isSearchable: Bool = false
     ) -> ChildPaneItem {
-        return self.asPane(isSearchable: isSearchable).asChildPaneItem(footerText: footerText)
+        return self.asPane(
+            isSearchable: isSearchable
+        )
+        .asChildPaneItem(
+            value: value,
+            footerText: footerText,
+            layoutType: layoutType,
+            fallbackString: fallbackString
+        )
     }
 
     // MARK: Title is received as parameter
@@ -69,15 +80,31 @@ extension Group {
         title: Dynamic<String?>,
         isSearchable: Bool = false
     ) -> Pane {
-        return [self].asPane(title: title, isSearchable: isSearchable)
+        return [self].asPane(
+            title: title,
+            isSearchable: isSearchable
+        )
     }
 
     public func asChildPaneItem(
         title: Dynamic<String?>,
+        value: Dynamic<String?>? = nil,
         footerText: Dynamic<String?>? = nil,
-        isSearchable: Bool = false
+        layoutType: Dynamic<StringItem.LayoutType> = .static(.horizontal(.singleLine)),
+        fallbackString: String = "",
+        isPaneSearchable: Bool = false
     ) -> ChildPaneItem {
-        return self.asPane(title: title, isSearchable: isSearchable).asChildPaneItem(footerText: footerText)
+        return Pane(
+            title: title,
+            groups: [self],
+            isSearchable: isPaneSearchable
+        )
+        .asChildPaneItem(
+            value: value,
+            footerText: footerText,
+            layoutType: layoutType,
+            fallbackString: fallbackString
+        )
     }
 }
 
@@ -98,13 +125,21 @@ extension Array where Element: Group {
 
     public func asChildPaneItem(
         title: Dynamic<String?>,
+        value: Dynamic<String?>? = nil,
         footerText: Dynamic<String?>? = nil,
-        isSearchable: Bool = false
+        layoutType: Dynamic<StringItem.LayoutType> = .static(.horizontal(.singleLine)),
+        fallbackString: String = "",
+        isPaneSearchable: Bool = false
     ) -> ChildPaneItem {
         let pane = self.asPane(
             title: title,
-            isSearchable: isSearchable
+            isSearchable: isPaneSearchable
         )
-        return pane.asChildPaneItem(footerText: footerText)
+        return pane.asChildPaneItem(
+            value: value,
+            footerText: footerText,
+            layoutType: layoutType,
+            fallbackString: fallbackString
+        )
     }
 }

@@ -31,340 +31,216 @@ import XCTest
 
 extension ItemTests {
 
-    // MARK: - asGroup
+    // MARK: - asItemGroup
 
-    func test_item_asGroup_whenOnlyUsingDefaultParameters_returnsGroup() throws {
-        let sut = MockItem()
+    func test_item_asItemGroup_whenPassingOnlyMandatoryParameters_returnsExpectedGroup() throws {
+        let item = MockItem()
 
-        let group = sut.asItemGroup()
+        let pane = item.asItemGroup()
 
-        assert_group(group, matches: [sut], title: nil, footerText: nil)
+        ItemGroup._assertInitProperties(
+            pane,
+            items: [item]
+        )
     }
 
-    func test_item_asGroup_whenProvidingTitle_returnsGroup() throws {
-        let sut = MockItem()
+    func test_item_asItemGroup_whenPassingAllParameters_returnsExpectedGroup() throws {
+        let item = MockItem()
 
-        let group = sut.asItemGroup(title: .static("title"))
-
-        assert_group(group, matches: [sut], title: "title", footerText: nil)
-    }
-
-    func test_item_asGroup_whenProvidingFooter_returnsGroup() throws {
-        let sut = MockItem()
-
-        let group = sut.asItemGroup(footerText: .static("footer"))
-
-        assert_group(group, matches: [sut], title: nil, footerText: "footer")
-    }
-
-    func test_item_asGroup_whenProvidingTitleAndFooter_returnsGroup() throws {
-        let sut = MockItem()
-
-        let group = sut.asItemGroup(
+        let pane = item.asItemGroup(
             title: .static("title"),
             footerText: .static("footer")
         )
 
-        assert_group(group, matches: [sut], title: "title", footerText: "footer")
+        ItemGroup._assertInitProperties(
+            pane,
+            title: "title",
+            items: [item],
+            footerText: "footer"
+        )
     }
 
-    // MARK: - asGroup (Array)
+    // MARK: - asItemGroup (Array)
 
-    func test_items_asGroup_whenHavingNoItems_returnsEmptyGroup() throws {
-        let sut = [MockItem]()
+    func test_items_asItemGroup_whenPassingOnlyMandatoryParameters_returnsExpectedGroup() throws {
+        let items: [MockItem] = []
 
-        let group = sut.asItemGroup()
+        let pane = items.asItemGroup()
 
-        assert_group(group, matches: sut, title: nil, footerText: nil)
+        ItemGroup._assertInitProperties(
+            pane,
+            items: items
+        )
     }
 
-    func test_items_asGroup_whenOnlyUsingDefaultParameters_returnsGroup() throws {
-        let sut = [
+    func test_items_asItemGroup_whenPassingAllParameters_returnsExpectedGroup() throws {
+        let items = [
             MockItem(),
             MockItem()
         ]
 
-        let group = sut.asItemGroup()
-
-        assert_group(group, matches: sut, title: nil, footerText: nil)
-    }
-
-    func test_items_asGroup_whenProvidingTitle_returnsGroup() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let group = sut.asItemGroup(title: .static("title"))
-
-        assert_group(group, matches: sut, title: "title", footerText: nil)
-    }
-
-    func test_items_asGroup_whenProvidingFooter_returnsGroup() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let group = sut.asItemGroup(footerText: .static("footer"))
-
-        assert_group(group, matches: sut, title: nil, footerText: "footer")
-    }
-
-    func test_items_asGroup_whenProvidingTitleAndFooter_returnsGroup() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let group = sut.asItemGroup(
+        let pane = items.asItemGroup(
             title: .static("title"),
             footerText: .static("footer")
         )
 
-        assert_group(group, matches: sut, title: "title", footerText: "footer")
+        ItemGroup._assertInitProperties(
+            pane,
+            title: "title",
+            items: items,
+            footerText: "footer"
+        )
+    }
+
+    // MARK: - asPane
+
+    func test_item_asPane_whenPassingOnlyMandatoryParameters_returnsExpectedPane() throws {
+        let item = MockItem()
+
+        let pane = item.asPane(
+            title: .static("title")
+        )
+
+        Pane._assertInitProperties(
+            pane,
+            title: "title",
+            items: [item]
+        )
+    }
+
+    func test_item_asPane_whenPassingAllParameters_returnsExpectedPane() throws {
+        let item = MockItem()
+
+        let pane = item.asPane(
+            title: .static("title"),
+            isSearchable: true
+        )
+
+        Pane._assertInitProperties(
+            pane,
+            title: "title",
+            items: [item],
+            isSearchable: true
+        )
     }
 
     // MARK: - asPane (Array)
 
-    func test_items_asPane_whenHavingNoItems_returnsEmptyPane() throws {
-        let sut = [MockItem]()
+    func test_items_asPane_whenPassingOnlyMandatoryParameters_returnsExpectedPane() throws {
+        let items: [MockItem] = []
 
-        let pane = sut.asPane(title: .static("empty"))
-
-        assert_pane(pane, matches: sut, title: "empty", isSearchable: nil)
-    }
-
-    func test_items_asPane_whenUsingNilTitle_returnsPane() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let pane = sut.asPane(title: .static(nil))
-
-        assert_pane(pane, matches: sut, title: nil, isSearchable: nil)
-    }
-
-    func test_items_asPane_whenProvidingTitle_returnsPane() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let pane = sut.asPane(title: .static("title"))
-
-        assert_pane(pane, matches: sut, title: "title", isSearchable: nil)
-    }
-
-    func test_items_asPane_whenUsingNilTitleAndProvidingIsSearchable_returnsPane() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let pane = sut.asPane(title: .static(nil), isSearchable: true)
-
-        assert_pane(pane, matches: sut, title: nil, isSearchable: true)
-    }
-
-    func test_items_asPane_whenProvidingTitleAndIsSearchable_returnsPane() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let pane = sut.asPane(
-            title: .static("title"),
-            isSearchable: false
+        let pane = items.asPane(
+            title: .static("title")
         )
 
-        assert_pane(pane, matches: sut, title: "title", isSearchable: false)
+        Pane._assertInitProperties(
+            pane,
+            title: "title",
+            items: items
+        )
+    }
+
+    func test_items_asPane_whenPassingAllParameters_returnsExpectedPane() throws {
+        let items = [
+            MockItem(),
+            MockItem()
+        ]
+
+        let pane = items.asPane(
+            title: .static("title"),
+            isSearchable: true
+        )
+
+        Pane._assertInitProperties(
+            pane,
+            title: "title",
+            items: items,
+            isSearchable: true
+        )
+    }
+
+    // MARK: - asChildPaneItem
+
+    func test_item_asChildPaneItem_whenPassingOnlyMandatoryParameters_returnsExpectedChildPaneItem() throws {
+        let item = MockItem()
+
+        let childPaneItem = item.asChildPaneItem(
+            title: .static("title")
+        )
+
+        ChildPaneItem._assertInitProperties(
+            childPaneItem,
+            items: [item],
+            title: "title"
+        )
+    }
+
+    func test_item_asChildPaneItem_whenPassingAllParameters_returnsExpectedChildPaneItem() throws {
+        let item = MockItem()
+
+        let childPaneItem = item.asChildPaneItem(
+            title: .static("title"),
+            value: .static("value"),
+            footerText: .static("footer"),
+            layoutType: .static(.vertical(.autoGrow)),
+            fallbackString: "fallback",
+            isPaneSearchable: true
+        )
+
+        ChildPaneItem._assertInitProperties(
+            childPaneItem,
+            items: [item],
+            title: "title",
+            value: "value",
+            footerText: "footer",
+            layoutType: .vertical(.autoGrow),
+            fallbackString: "fallback",
+            isPaneSearchable: true
+        )
     }
 
     // MARK: - asChildPaneItem (Array)
 
-    func test_items_asChildPaneItem_whenHavingNoItems_returnsEmptyChildPaneItem() throws {
-        let sut = [MockItem]()
+    func test_items_asChildPaneItem_whenPassingOnlyMandatoryParameters_returnsExpectedChildPaneItem() throws {
+        let items = [
+            MockItem
+        ]()
 
-        let childPaneItem = sut.asChildPaneItem(title: .static("empty"))
+        let childPaneItem = items.asChildPaneItem(
+            title: .static("title")
+        )
 
-        assert_childPaneItem(
+        ChildPaneItem._assertInitProperties(
             childPaneItem,
-            matches: sut,
-            title: "empty",
-            footerText: nil,
-            isSearchable: nil
+            items: items,
+            title: "title"
         )
     }
 
-    func test_items_asChildPaneItem_whenUsingNilTitle_returnsChildPaneItem() throws {
-        let sut = [
+    func test_items_asChildPaneItem_whenPassingAllParameters_returnsExpectedChildPaneItem() throws {
+        let items = [
             MockItem(),
             MockItem()
         ]
 
-        let childPaneItem = sut.asChildPaneItem(title: .static(nil))
-
-        assert_childPaneItem(
-            childPaneItem,
-            matches: sut,
-            title: nil,
-            footerText: nil,
-            isSearchable: nil
-        )
-    }
-
-    func test_items_asChildPaneItem_whenProvidingTitle_returnsChildPaneItem() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let childPaneItem = sut.asChildPaneItem(title: .static("title"))
-
-        assert_childPaneItem(
-            childPaneItem,
-            matches: sut,
-            title: "title",
-            footerText: nil,
-            isSearchable: nil
-        )
-    }
-
-    func test_items_asChildPaneItem_whenUsingNilTitleAndFooter_returnsChildPaneItem() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let childPaneItem = sut.asChildPaneItem(title: .static(nil), footerText: .static("footer"))
-
-        assert_childPaneItem(
-            childPaneItem,
-            matches: sut,
-            title: nil,
-            footerText: "footer",
-            isSearchable: false
-        )
-    }
-
-    func test_items_asChildPaneItem_whenProvidingTitleAndFooterAndIsSearchable_returnsChildPaneItem() throws {
-        let sut = [
-            MockItem(),
-            MockItem()
-        ]
-
-        let childPaneItem = sut.asChildPaneItem(
+        let childPaneItem = items.asChildPaneItem(
             title: .static("title"),
+            value: .static("value"),
             footerText: .static("footer"),
-            isSearchable: true
+            layoutType: .static(.vertical(.autoGrow)),
+            fallbackString: "fallback",
+            isPaneSearchable: true
         )
 
-        assert_childPaneItem(
+        ChildPaneItem._assertInitProperties(
             childPaneItem,
-            matches: sut,
+            items: items,
             title: "title",
+            value: "value",
             footerText: "footer",
-            isSearchable: true
+            layoutType: .vertical(.autoGrow),
+            fallbackString: "fallback",
+            isPaneSearchable: true
         )
-    }
-
-    // MARK: - Helper
-
-    private func assert_group(
-        _ group: ItemGroup,
-        matches sut: [MockItem],
-        title: String?,
-        footerText: String?,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        if let title = title {
-            XCTAssertEqual(group.title?.unboxed, title, file: file, line: line)
-        } else {
-            XCTAssertNil(group.title, file: file, line: line)
-        }
-        if let footerText = footerText {
-            XCTAssertEqual(group.footerText?.unboxed, footerText, file: file, line: line)
-        } else {
-            XCTAssertNil(group.footerText, file: file, line: line)
-        }
-        XCTAssertEqual(group.items.count, sut.count, file: file, line: line)
-        var index = 0
-        sut.forEach { item in
-            XCTAssertEqual(group.items[index] as! MockItem, item, file: file, line: line)
-            index += 1
-        }
-    }
-
-    private func assert_pane(
-        _ pane: Pane,
-        matches sut: [MockItem],
-        title: String?,
-        isSearchable: Bool?,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        if let title = title {
-            XCTAssertEqual(pane.title.unboxed, title, file: file, line: line)
-        } else {
-            XCTAssertEqual(pane.title.unboxed, nil, file: file, line: line)
-        }
-        if let isSearchable = isSearchable {
-            XCTAssertEqual(pane.isSearchable, isSearchable, file: file, line: line)
-        } else {
-            XCTAssertEqual(pane.isSearchable, false, file: file, line: line)
-        }
-        XCTAssertEqual(pane.groups.count, 1, file: file, line: line)
-        XCTAssertEqual(pane.groups[0].items.count, sut.count, file: file, line: line)
-        var index = 0
-        let group = pane.groups[0]
-        sut.forEach { item in
-            XCTAssertEqual(group.items[index] as! MockItem, item, file: file, line: line)
-            index += 1
-        }
-    }
-
-    private func assert_childPaneItem(
-        _ childPaneItem: ChildPaneItem,
-        matches sut: [MockItem],
-        title: String?,
-        footerText: String?,
-        isSearchable: Bool?,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        let pane: Pane! = {
-            if case .pane(let paneClosure) = childPaneItem.childType {
-                return paneClosure()
-            } else {
-                XCTFail("childPane should be of type .pane(...)")
-                return nil
-            }
-        }()
-        if let title = title {
-            XCTAssertEqual(pane.title.unboxed, title, file: file, line: line)
-        } else {
-            XCTAssertEqual(pane.title.unboxed, nil, file: file, line: line)
-        }
-        if let footerText = footerText {
-            XCTAssertEqual(childPaneItem.footerText?.unboxed, footerText, file: file, line: line)
-        } else {
-            XCTAssertNil(childPaneItem.footerText, file: file, line: line)
-        }
-        if let isSearchable = isSearchable {
-            XCTAssertEqual(pane.isSearchable, isSearchable, file: file, line: line)
-        } else {
-            XCTAssertEqual(pane.isSearchable, false, file: file, line: line)
-        }
-        XCTAssertEqual(pane.groups.count, 1, file: file, line: line)
-        XCTAssertEqual(pane.groups[0].items.count, sut.count, file: file, line: line)
-        var index = 0
-        let group = pane.groups[0]
-        sut.forEach { item in
-            XCTAssertEqual(group.items[index] as! MockItem, item, file: file, line: line)
-            index += 1
-        }
     }
 }
