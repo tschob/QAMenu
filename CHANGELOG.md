@@ -4,6 +4,20 @@
 
 #### Breaking Changes
 
+* None
+
+#### Enhancements
+
+* None
+
+#### Bug Fixes
+
+* None
+
+## 0.3.0
+
+#### Breaking Changes
+
 * [QAMenu] Renamed parameter `isSearchable` to `isPaneSearchable` in `Item.asChildPaneItem()` (PR #6)
 * [QAMenu] Removed parameter `trigger` from `QAMenu()` in favor of `QAMenu.setTrigger()` (PR #7)
 * [QAMenu] Renamed `QAMenuDismissBehavior` to `QAMenu.DismissBehavior()` (PR #7)
