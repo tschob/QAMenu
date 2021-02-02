@@ -185,7 +185,7 @@ class ExampleViewController: UITableViewController {
         let groups: [Group] = [
             QAMenu.Catalog.AppInfo.group(),
             cacheGroup,
-            QAMenu.Catalog.Preferences.group(),
+            QAMenu.Catalog.Preferences.group(customPreferencesVisibility: .show(asChildPane: false)),
             QAMenu.Catalog.QAMenuConfiguration.group(qaMenu: self.simpleProjectQAMenu)
         ]
         self.simpleProjectQAMenu?.setRootPane(
