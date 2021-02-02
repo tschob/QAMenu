@@ -70,7 +70,7 @@ class FooterViewSupportingTests: XCTestCase {
         self.sut.setupFooterView()
         self.sut.updateFooterView()
 
-        let label = self.sut.footerContainer.arrangedSubviews.filter { $0 is UILabel }.first
+        let label = self.sut.footerContainer.arrangedSubviews.first(where: { $0 is UILabel })
         XCTAssertTrue(label!.isHidden)
     }
 
@@ -79,7 +79,7 @@ class FooterViewSupportingTests: XCTestCase {
         self.sut.setupFooterView()
         self.sut.updateFooterView()
 
-        let label = self.sut.footerContainer.arrangedSubviews.filter { $0 is UILabel }.first
+        let label = self.sut.footerContainer.arrangedSubviews.first(where: { $0 is UILabel })
         XCTAssertFalse(label!.isHidden)
     }
 
@@ -98,7 +98,7 @@ class FooterViewSupportingTests: XCTestCase {
         self.sut._footerText = "Footer"
         self.sut.updateFooterView()
 
-        let label = self.sut.footerContainer.arrangedSubviews.filter { $0 is UILabel }.first
+        let label = self.sut.footerContainer.arrangedSubviews.first(where: { $0 is UILabel })
         XCTAssertFalse(label!.isHidden)
     }
 }
