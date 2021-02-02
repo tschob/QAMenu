@@ -33,6 +33,11 @@ public extension QAMenu.Catalog {
 
     enum Preferences {
 
+        public enum CustomPreferencesVisibility {
+            case show(asChildPane: Bool)
+            case hide
+        }
+
         public static var all: [Group] {
             return [
                 group()
@@ -40,15 +45,29 @@ public extension QAMenu.Catalog {
         }
 
         public static func group(
-            title: Dynamic<String?> = .static("Preferences")
+            title: Dynamic<String?> = .static("Preferences"),
+            customPreferencesVisibility: CustomPreferencesVisibility = .show(asChildPane: true)
         ) -> ItemGroup {
-            let userDefaultsChildPaneItem = Items.standardUserDefaultsChildPaneItem()
-            let customPreferencesItems = Items.customPreferencesPListsChildPaneItems()
-
-            let items: [ChildPaneItem] = [userDefaultsChildPaneItem] + customPreferencesItems
+            var items = [
+                Items.standardUserDefaultsChildPaneItem()
+            ]
+            if case CustomPreferencesVisibility.show(let asChildPane) = customPreferencesVisibility {
+                let customPreferencesChildPaneItems = Items.customPreferencesPListsChildPaneItems()
+                if asChildPane {
+                    let childPaneItem = customPreferencesChildPaneItems
+                        .asItemGroup(
+                            footerText: .static("Note: Preferences are not yet reloaded during the app runtime.")
+                        )
+                        .asChildPaneItem(title: .static("Custom"))
+                    items.append(childPaneItem)
+                } else {
+                    items.append(contentsOf: customPreferencesChildPaneItems)
+                }
+            }
             return ItemGroup(
                 title: title,
-                items: items
+                items: items,
+                footerText: .static("Note: Preferences are not yet reloaded during the app runtime.")
             )
         }
 
