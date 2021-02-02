@@ -18,7 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.qaMenu = QAMenu(pane: RootPane(groups: QAMenu.Catalog.all), presenterType: QAMenuUIKitPresenter.self)
+        self.qaMenu = QAMenu(presenterType: QAMenuUIKitPresenter.self)
+        self.qaMenu?.setRootPane(RootPane(groups: QAMenu.Catalog.all(qaMenu: self.qaMenu)))
     }
 
     @IBAction private func showQAMenu(_ sender: Any) {

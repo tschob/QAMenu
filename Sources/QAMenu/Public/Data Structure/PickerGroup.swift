@@ -68,7 +68,7 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
         title: Dynamic<String?>? = nil,
         options: [PickableItem],
         footerText: Dynamic<String?>? = nil,
-        onPickedOption: @escaping ((_ item: PickableItem, _ result: ((PickResult) -> Void)) -> Void)
+        onPickedOption: @escaping (_ item: PickableItem, _ result: ((PickResult) -> Void)) -> Void
     ) {
         self.title = title
         self.options = options

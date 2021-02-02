@@ -40,7 +40,7 @@ class QAMenuLifecycleManagerTests: XCTestCase {
     }
     var lastPresenter: QAMenuPresenterMock!
 
-    func makeSut(dismissBehavior: QAMenuDismissBehavior) -> QAMenuLifecycleManager {
+    func makeSut(dismissBehavior: QAMenu.DismissBehavior) -> QAMenuLifecycleManager {
         self.lastPresenter = QAMenuPresenterMock(qaMenu: self.menu)
         return QAMenuLifecycleManager(
             presenter: self.lastPresenter,
@@ -137,22 +137,21 @@ class QAMenuLifecycleManagerTests: XCTestCase {
         XCTAssertEqual(self.lastPresenter._resetRootViewControllerCount, 0)
         // Verify that reset is not called too early
         let notCalledTooEarlyExpectation = expectation(description: "reset is not called too early")
-        notCalledTooEarlyExpectation.isInverted = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
             XCTAssertEqual(self.lastPresenter._resetRootViewControllerCount, 0)
             notCalledTooEarlyExpectation.fulfill()
         }
 
         sut.onQAMenuWasClosed()
 
-        wait(for: [notCalledTooEarlyExpectation], timeout: 0.99)
+        wait(for: [notCalledTooEarlyExpectation], timeout: 1)
 
         // Verify that reset is called afterwards
         let delay = expectation(description: "execution is delayed")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             delay.fulfill()
         }
-        wait(for: [delay], timeout: 0.02)
+        wait(for: [delay], timeout: 0.2)
 
         XCTAssertEqual(self.lastPresenter._resetRootViewControllerCount, 1)
     }

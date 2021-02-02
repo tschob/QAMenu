@@ -37,7 +37,7 @@ class UIWindowShakeGestureTests: XCTestCase {
 
     func test_motionEnded_whenMotionIsShake_andQAMenuShakeEnabled_forwardsEvent() throws {
         let menu = QAMenuMock()
-        menu.trigger = .shake
+        menu.setTrigger([.shake], mode: .forceReplace)
         QAMenu.instances.append(WeakBox(menu))
         let sut = UIWindow()
 
@@ -50,7 +50,7 @@ class UIWindowShakeGestureTests: XCTestCase {
 
     func test_motionEnded_whenMotionIsNotShake_andQAMenuShakeEnabled_forwardsEvent() throws {
         let menu = QAMenuMock()
-        menu.trigger = .shake
+        menu.setTrigger([.shake], mode: .forceReplace)
         QAMenu.instances.append(WeakBox(menu))
         let sut = UIWindow()
 
@@ -63,7 +63,7 @@ class UIWindowShakeGestureTests: XCTestCase {
 
     func test_motionEnded_whenMotionIsShake_andQAMenuShakeDisabled_doesNotForwardsEvent() throws {
         let menu = QAMenuMock()
-        menu.trigger = []
+        menu.setTrigger([], mode: .forceReplace)
         QAMenu.instances.append(WeakBox(menu))
         let sut = UIWindow()
 
@@ -76,7 +76,7 @@ class UIWindowShakeGestureTests: XCTestCase {
 
     func test_motionEnded_whenMotionIsNotShake_andQAMenuShakeDisabled_doesNotForwardsEvent() throws {
         let menu = QAMenuMock()
-        menu.trigger = []
+        menu.setTrigger([], mode: .forceReplace)
         QAMenu.instances.append(WeakBox(menu))
         let sut = UIWindow()
 
@@ -89,9 +89,9 @@ class UIWindowShakeGestureTests: XCTestCase {
 
     func test_motionEnded_whenHavingMultipleMenus_forwardsOnlyToLastAddedInstance() throws {
         let menu1 = QAMenuMock()
-        menu1.trigger = .shake
+        menu1.setTrigger([.shake], mode: .forceReplace)
         let menu2 = QAMenuMock()
-        menu2.trigger = .shake
+        menu2.setTrigger([.shake], mode: .forceReplace)
         QAMenu.instances.append(WeakBox(menu2))
         QAMenu.instances.append(WeakBox(menu1))
         let sut = UIWindow()
@@ -107,9 +107,9 @@ class UIWindowShakeGestureTests: XCTestCase {
 
     func test_motionEnded_whenHavingMultipleMenus_butOnlyWithShakeEnavled_forwardsToEnabledMenu() throws {
         let menu1 = QAMenuMock()
-        menu1.trigger = []
+        menu1.setTrigger([], mode: .forceReplace)
         let menu2 = QAMenuMock()
-        menu2.trigger = .shake
+        menu2.setTrigger([.shake], mode: .forceReplace)
         QAMenu.instances.append(WeakBox(menu2))
         QAMenu.instances.append(WeakBox(menu1))
         let sut = UIWindow()
@@ -125,9 +125,9 @@ class UIWindowShakeGestureTests: XCTestCase {
 
     func test_motionEnded_whenHavingMultipleMenus_butMotionIsNotAShake_doesNotForwardsEvent() throws {
         let menu1 = QAMenuMock()
-        menu1.trigger = .shake
+        menu1.setTrigger([.shake], mode: .forceReplace)
         let menu2 = QAMenuMock()
-        menu2.trigger = .shake
+        menu2.setTrigger([.shake], mode: .forceReplace)
         QAMenu.instances.append(WeakBox(menu2))
         QAMenu.instances.append(WeakBox(menu1))
         let sut = UIWindow()

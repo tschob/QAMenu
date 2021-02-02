@@ -35,7 +35,7 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
 
     // MARK: - Properties (Public)
 
-    open var dismissBehavior: QAMenuDismissBehavior {
+    open var dismissBehavior: QAMenu.DismissBehavior {
         didSet {
             self.lifecycleManager.dismissBehavior = dismissBehavior
         }
@@ -70,9 +70,12 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
 
     // MARK: - Initialization
 
-    public required init(qaMenu: QAMenu) {
+    public required init(
+        qaMenu: QAMenu,
+        dismissBehavior: QAMenu.DismissBehavior
+    ) {
         self.qaMenu = qaMenu
-        self.dismissBehavior = .resetAfter(30)
+        self.dismissBehavior = dismissBehavior
         self.lifecycleManager.dismissBehavior = self.dismissBehavior
         self.registerDefaultElements()
     }
@@ -82,8 +85,12 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
             Logger.verbose("Trying to setup the qa menu window, but the qa menu object is nil")
             return
         }
-        let paneRepresentable = self.ui.retrieve(for: type(of: qaMenu.pane))
-        let uiRepresentation = paneRepresentable.make(for: qaMenu.pane, in: qaMenu)
+        guard let rootPane = qaMenu.pane else {
+            Logger.error("You need to set a root pane before using qa menu!")
+            return
+        }
+        let paneRepresentable = self.ui.retrieve(for: type(of: rootPane))
+        let uiRepresentation = paneRepresentable.make(for: rootPane, in: qaMenu)
 
         let navigationController = UINavigationController(rootViewController: uiRepresentation)
 

@@ -1,12 +1,12 @@
 //
-//  QAMenuMock.swift
+//  QAMenuConfigurationItemStorable.swift
 //
-//  Created by Hans Seiffert on 19.11.20.
+//  Created by Hans Seiffert on 30.01.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,23 +26,12 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import XCTest
-import QAMenu
-@testable import QAMenuUIKit
+import Foundation
+import QAMenuUtils
 
-class QAMenuMock: QAMenu {
+public protocol QAMenuConfigurationItemStorable {
 
-    var _onShakeRecognizedCount = 0
+    init?(stringValue: String)
 
-    override func onShakeRecognized() {
-        self._onShakeRecognizedCount += 1
-    }
-
-    init() {
-        super.init(
-            identifier: UUID().uuidString,
-            pane: RootPane(groups: []),
-            presenterType: QAMenuUIKitPresenter.self
-        )
-    }
+    var toString: String { get }
 }

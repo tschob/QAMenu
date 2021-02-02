@@ -31,7 +31,7 @@ import QAMenu
 
 public extension QAMenu.Catalog {
 
-    enum Preferences: CatalogGroup {
+    enum Preferences {
 
         public static var all: [Group] {
             return [

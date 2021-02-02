@@ -33,37 +33,72 @@ open class QAMenu {
 
     // MARK: - Properties (Public)
 
-    open var trigger: Trigger
+    public let identifier: String
+
+    @QAMenuConfigurationItem(key: "qamenu.trigger", defaultValue: [.shake])
+    open private(set) var trigger: [Trigger]
+
+    @QAMenuConfigurationItem(key: "qamenu.dismiss_behavior", defaultValue: .resetAfter(30))
+    open private(set) var dismissBehavior: DismissBehavior
 
     open var onDidAppear: (() -> Void)?
     open var onDidDisappear: (() -> Void)?
 
     private var presenterType: QAMenuPresenter.Type
     open lazy var presenter: QAMenuPresenter = {
-        return self.presenterType.init(qaMenu: self)
+        return self.presenterType.init(
+            qaMenu: self,
+            dismissBehavior: self.dismissBehavior
+        )
     }()
 
     // MARK: - Properties (Internal)
 
     public static var instances = [WeakBox<QAMenu>]()
 
-    open private(set) var pane: RootPane
+    open private(set) var pane: RootPane?
 
     // MARK: - Initialization
 
     public init(
-        pane: RootPane,
-        trigger: Trigger = .shake,
+        identifier: String = "QAMenu",
+        pane: RootPane? = nil,
         presenterType: QAMenuPresenter.Type
     ) {
-        self.pane = pane
-        self.trigger = trigger
+        self.identifier = identifier
         self.presenterType = presenterType
         Self.instances.append(WeakBox(self))
+        if let pane = pane {
+            self.setRootPane(pane)
+        }
+        // Complete the configuration items setup
+        self._trigger.setup(for: self)
+        self._dismissBehavior.setup(for: self)
     }
 
     deinit {
         Logger.verbose("deinit")
+    }
+
+    // MARK: - Setter
+
+    public func setRootPane(_ pane: RootPane) {
+        self.pane = pane
+    }
+
+    public func setTrigger(
+        _ newValue: [Trigger],
+        mode: QAMenuConfigurationItemSetterMode
+    ) {
+        self._trigger.updateValue(with: newValue, mode: mode)
+    }
+
+    public func setDismissBehavior(
+        _ newValue: DismissBehavior,
+        mode: QAMenuConfigurationItemSetterMode
+    ) {
+        self._dismissBehavior.updateValue(with: newValue, mode: mode)
+        self.presenter.dismissBehavior = newValue
     }
 
     // MARK: -
