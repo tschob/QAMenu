@@ -118,10 +118,11 @@ class ShareInteractionHandlerTests: XCTestCase {
         let sut = ShareInteractionHandler(shareable: shareable, view: UIView(), present: { present in
             present(viewController)
         })
-        XCTAssertEqual(viewController._presentCount, 0)
+        XCTAssert(viewController._present.isEmpty)
 
         sut.share()
 
-        XCTAssertEqual(viewController._presentCount, 1)
+        XCTAssertEqual(viewController._present.count, 1)
+        XCTAssert(viewController._present[0].viewController is UIActivityViewController)
     }
 }

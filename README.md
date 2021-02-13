@@ -74,9 +74,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ]
     self.qaMenu = QAMenu(
       pane: RootPane(title: .static("Simple Project"), groups: groups),
-      trigger = .shake,
       presenterType: QAMenuUIKitPresenter.self
     )
+    self.qaMenu?.setTrigger([.shake], mode: .initialValue)
   }
   
   private var cacheGroup: [Group] {
@@ -135,11 +135,11 @@ Supported Data types - Layout:
 
 Supported Data types - Items:
 
-- [x] Strings
+- [x] Strings (editable)
 - [x] Buttons
-- [x] Booleans
+- [x] Booleans (editable)
 - [x] Footers
-- [x] PickeableStrings
+- [x] PickableStrings
 
 Capabilities:
  
@@ -147,7 +147,8 @@ Capabilities:
 - [x] Search in panes
 - [x] Invalidation (reloading) of items, groups and panes
 - [x] Add / remove items dynamically in groups
-- [ ] Edit strings
+- [x] Edit strings (single line)
+- [ ] Edit strings (multiline)
 - [ ] Async loading operation (decoupled)
 
 See [DataStructure](Docs/DataStructure.md) for more details.

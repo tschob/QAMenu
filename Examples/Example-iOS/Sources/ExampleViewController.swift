@@ -140,6 +140,9 @@ class ExampleViewController: UITableViewController {
     private var simpleProjectCacheEnabled = true
     private var simpleProjectCachedImagesCount = 50
 
+    private var simpleProjectAPIHost = "https://fancy.api.com"
+
+    // swiftlint:disable:next function_body_length
     private func setupSimpleProjectQAMenu() {
         let customUserDefaults = UserDefaults(suiteName: "Custom User Defaults")
         customUserDefaults?.set(true, forKey: "Example Key")
@@ -178,6 +181,22 @@ class ExampleViewController: UITableViewController {
                 }
             )
         ])
+        let backendGroup = ItemGroup(title: .static("Backend"), items: [
+            EditableStringItem(
+                title: .static("Host"),
+                value: .computed({ [weak self] in
+                    return self?.simpleProjectAPIHost
+                }),
+                onValueChange: { [weak self] (newValue, _, result) in
+                    if newValue.hasPrefix("https://") {
+                        self?.simpleProjectAPIHost = newValue
+                        result(.success)
+                    } else {
+                        result(.failure("The host is invalid"))
+                    }
+                }
+            )
+        ])
         self.simpleProjectQAMenu = QAMenu(
             identifier: "Simple QAMenu",
             presenterType: QAMenuUIKitPresenter.self
@@ -185,6 +204,7 @@ class ExampleViewController: UITableViewController {
         let groups: [Group] = [
             QAMenu.Catalog.AppInfo.group(),
             cacheGroup,
+            backendGroup,
             QAMenu.Catalog.Preferences.group(customPreferencesVisibility: .show(asChildPane: false)),
             QAMenu.Catalog.QAMenuConfiguration.group(qaMenu: self.simpleProjectQAMenu)
         ]

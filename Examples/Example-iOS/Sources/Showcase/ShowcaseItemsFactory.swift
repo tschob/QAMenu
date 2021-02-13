@@ -37,7 +37,8 @@ class ShowcaseItemsFactory {
 
     class Storage {
         var storedBoolean = true
-        var simpleStringTitle: String? = "Simple String"
+        var multilineStringTitle: String? = "Multiline String"
+        var editableString: String? = "Value"
     }
 
     class func makeRootPane() -> RootPane {
@@ -50,13 +51,24 @@ class ShowcaseItemsFactory {
         let simpleCatalogGroup = ItemGroup(
             title: .static("Simple Catalog"),
             items: [
-                StringItem(
-                    title: .keyPath(\Storage.simpleStringTitle, for: ShowcaseItemsFactory.storage),
-                    value: .static("Value"),
-                    layoutType: .static(.horizontal(.singleLine))
+                EditableStringItem(
+                    title: .static("Editable String"),
+                    value: .computed({
+                        self.storage.editableString
+                    }),
+                    layoutType: .static(.horizontal(.singleLine)),
+                    isEditable: .static(true),
+                    onValueChange: { newValue, _, result in
+                        if newValue.count <= 2 {
+                            result(.failure("You need to provide at least 3 character"))
+                        } else {
+                            self.storage.editableString = newValue
+                            result(.success)
+                        }
+                    }
                 ),
                 StringItem(
-                    title: .static("Multiline String"),
+                    title: .keyPath(\Storage.multilineStringTitle, for: ShowcaseItemsFactory.storage),
                     value: .static("Everything which is shown in the examples here is based on the (almost) UI-less data model structure 🚀"),
                     layoutType: .static(.vertical(.autoGrow))
                 ),
@@ -115,6 +127,7 @@ class ShowcaseItemsFactory {
             title: .static("Detailed item examples"),
             items: [
                 ChildPaneItem(pane: { StringItemAdvancedExamplesFactory.makePane() }),
+                ChildPaneItem(pane: { EditableStringItemAdvancedExamplesFactory.makePane() }),
                 ChildPaneItem(pane: { BoolItemAdvancedExamplesFactory().makePane() }),
                 ChildPaneItem(pane: { ButtonItemAdvancedExamplesFactory().makePane() }),
                 ChildPaneItem(pane: {

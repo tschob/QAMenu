@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A200F1A025D83BF100B309F4 /* EditableStringItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200F19F25D83BF100B309F4 /* EditableStringItemAdvancedExamplesFactory.swift */; };
 		A249DE3E258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249DE3D258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift */; };
 		A28878972517662A003528E5 /* QAMenuCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28878962517662A003528E5 /* QAMenuCatalog.framework */; };
 		A28878982517662A003528E5 /* QAMenuCatalog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A28878962517662A003528E5 /* QAMenuCatalog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		3ACCCDA32475BDAD00A15252 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A200F19F25D83BF100B309F4 /* EditableStringItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableStringItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
 		A249DE3D258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroupAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
 		A288789325176626003528E5 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28878962517662A003528E5 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 			children = (
 				A2DE478924FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift */,
 				A2DE478B24FBB60B00CE7F7A /* ButtonItemAdvancedExamplesFactory.swift */,
+				A200F19F25D83BF100B309F4 /* EditableStringItemAdvancedExamplesFactory.swift */,
 				A249DE3D258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift */,
 				A2DE478A24FBB60B00CE7F7A /* StringItemAdvancedExamplesFactory.swift */,
 			);
@@ -283,6 +286,7 @@
 				A2DE479B24FBB60B00CE7F7A /* ExampleViewController.swift in Sources */,
 				A2DE479F24FBB60B00CE7F7A /* ButtonItemAdvancedExamplesFactory.swift in Sources */,
 				A2DE479C24FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift in Sources */,
+				A200F1A025D83BF100B309F4 /* EditableStringItemAdvancedExamplesFactory.swift in Sources */,
 				A249DE3E258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift in Sources */,
 				A2DE47AC24FBB7D300CE7F7A /* SceneDelegate.swift in Sources */,
 				A2DE47A424FBB60B00CE7F7A /* ShowcaseItemsFactory.swift in Sources */,

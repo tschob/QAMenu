@@ -1,7 +1,7 @@
 //
-//  BoolItem+Assert.swift
+//  EditableStringItem+Assert.swift
 //
-//  Created by Hans Seiffert on 01.02.21.
+//  Created by Hans Seiffert on 13.02.21.
 //
 //  ---
 //  MIT License
@@ -30,24 +30,35 @@ import Foundation
 import XCTest
 import QAMenu
 
-extension BoolItem {
+extension EditableStringItem {
 
     internal static func _assertInitProperties(
-        _ _sut: BoolItem,
+        _ _sut: EditableStringItem,
         title: String? = nil,
-        value: Bool,
+        value: String? = nil,
         footerText: String? = nil,
+        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
+        fallbackString: String = "",
+        isEditable: Bool = true,
         onValueChangeFailure: String,
         testCase: XCTestCase,
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        XCTAssertEqual(_sut.title.unboxed, title, file: file, line: line)
-        XCTAssertEqual(_sut.value.unboxed, value, file: file, line: line)
+        if case .custom = _sut.selectionOutcome {
+            XCTAssert(true)
+        } else {
+            XCTFail("\(_sut.selectionOutcome) doesn't equal custom selection outcome")
+        }
+        XCTAssertEqual(_sut.title?.unboxed, title, file: file, line: line)
+        XCTAssertEqual(_sut.value?.unboxed, value, file: file, line: line)
         XCTAssertEqual(_sut.footerText?.unboxed, footerText, file: file, line: line)
-        let resultExpectation = testCase.expectation(description: "on value closure is called")
+        XCTAssertEqual(_sut.layoutType.unboxed, layoutType, file: file, line: line)
+        XCTAssertEqual(_sut.valueFallbackString, fallbackString, file: file, line: line)
+        XCTAssertEqual(_sut.isEditable.unboxed, isEditable, file: file, line: line)
+        let resultExpectation = testCase.expectation(description: "onValueChange closure is called")
         resultExpectation.assertForOverFulfill = true
-        _sut.onValueChange(true, _sut) { result in
+        _sut.onValueChange!("", _sut) { result in
             if case .failure(let message) = result, message == onValueChangeFailure {
                 resultExpectation.fulfill()
             } else {
