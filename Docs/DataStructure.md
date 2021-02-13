@@ -4,6 +4,8 @@
 
 ### StringItem
 
+### EditableStringItem
+
 ### BoolItem
 
 ### ButtonItem
@@ -12,7 +14,9 @@
 
 ## Other elements
 
-### Group
+### ItemGroup
+
+### PickerGroup (PickableStringItems)
 
 ### Pane
 

@@ -21,6 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		A200F16125D819BB00B309F4 /* TextEditorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200F16025D819BB00B309F4 /* TextEditorProtocol.swift */; };
+		A200F17725D823CB00B309F4 /* SingleLineTextEditorControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200F17625D823CB00B309F4 /* SingleLineTextEditorControllerMock.swift */; };
+		A200F18325D8317000B309F4 /* EditableStringItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200F18225D8317000B309F4 /* EditableStringItemTests.swift */; };
+		A200F18F25D8326900B309F4 /* EditableStringItem+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200F18E25D8326900B309F4 /* EditableStringItem+Assert.swift */; };
+		A20C2D8625D046B00061A158 /* SingleLineTextEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C2D8525D046B00061A158 /* SingleLineTextEditorController.swift */; };
 		A2172D0625C9DF43009DC774 /* MockQAMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CD525C9DF43009DC774 /* MockQAMenuPresenter.swift */; };
 		A2172D0725C9DF43009DC774 /* PickerGroup+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CD725C9DF43009DC774 /* PickerGroup+Assert.swift */; };
 		A2172D0825C9DF43009DC774 /* ItemGroup+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CD825C9DF43009DC774 /* ItemGroup+Assert.swift */; };
@@ -114,6 +119,7 @@
 		A28876D72516AB94003528E5 /* UnsupportedItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28876D12516AB94003528E5 /* UnsupportedItemView.xib */; };
 		A28C1D4A25863EDC00E43377 /* PickableStringItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C1D4925863EDC00E43377 /* PickableStringItemView.swift */; };
 		A28C1D50258641A000E43377 /* PickableStringItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28C1D4F258641A000E43377 /* PickableStringItemView.xib */; };
+		A28FE88625D7F9E500924A8F /* EditableStringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28FE88525D7F9E400924A8F /* EditableStringItem.swift */; };
 		A2969E3E25167D7A00EA54D5 /* QAMenuUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A2969E0F25167D7900EA54D5 /* QAMenuUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2969E4525167D7A00EA54D5 /* BooleanItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E1B25167D7900EA54D5 /* BooleanItemView.swift */; };
 		A2969E4725167D7A00EA54D5 /* StringItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E1F25167D7900EA54D5 /* StringItemView.swift */; };
@@ -262,6 +268,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A200F16025D819BB00B309F4 /* TextEditorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorProtocol.swift; sourceTree = "<group>"; };
+		A200F17625D823CB00B309F4 /* SingleLineTextEditorControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineTextEditorControllerMock.swift; sourceTree = "<group>"; };
+		A200F18225D8317000B309F4 /* EditableStringItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableStringItemTests.swift; sourceTree = "<group>"; };
+		A200F18E25D8326900B309F4 /* EditableStringItem+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EditableStringItem+Assert.swift"; sourceTree = "<group>"; };
+		A20C2D8525D046B00061A158 /* SingleLineTextEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineTextEditorController.swift; sourceTree = "<group>"; };
 		A2172CD525C9DF43009DC774 /* MockQAMenuPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockQAMenuPresenter.swift; sourceTree = "<group>"; };
 		A2172CD725C9DF43009DC774 /* PickerGroup+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PickerGroup+Assert.swift"; sourceTree = "<group>"; };
 		A2172CD825C9DF43009DC774 /* ItemGroup+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemGroup+Assert.swift"; sourceTree = "<group>"; };
@@ -354,6 +365,7 @@
 		A28876D12516AB94003528E5 /* UnsupportedItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnsupportedItemView.xib; sourceTree = "<group>"; };
 		A28C1D4925863EDC00E43377 /* PickableStringItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickableStringItemView.swift; sourceTree = "<group>"; };
 		A28C1D4F258641A000E43377 /* PickableStringItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickableStringItemView.xib; sourceTree = "<group>"; };
+		A28FE88525D7F9E400924A8F /* EditableStringItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableStringItem.swift; sourceTree = "<group>"; };
 		A2969C8F251679BF00EA54D5 /* QAMenu-UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QAMenu-UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2969CA5251679F800EA54D5 /* QAMenuUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QAMenuUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2969CB225167A0800EA54D5 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -533,11 +545,12 @@
 		A2172CDA25C9DF43009DC774 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				A2172CDB25C9DF43009DC774 /* PickableStringItem+Assert.swift */,
-				A2172CDC25C9DF43009DC774 /* StringItem+Assert.swift */,
 				A2172CDD25C9DF43009DC774 /* BoolItem+Assert.swift */,
 				A2172CDE25C9DF43009DC774 /* ButtonItem+Assert.swift */,
 				A2172CDF25C9DF43009DC774 /* ChildPaneItem+Assert.swift */,
+				A200F18E25D8326900B309F4 /* EditableStringItem+Assert.swift */,
+				A2172CDB25C9DF43009DC774 /* PickableStringItem+Assert.swift */,
+				A2172CDC25C9DF43009DC774 /* StringItem+Assert.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -576,6 +589,7 @@
 				A2172CF325C9DF43009DC774 /* PickableStringItemTests.swift */,
 				A2172CF425C9DF43009DC774 /* ButtonItemTests.swift */,
 				A2172CF525C9DF43009DC774 /* ChildPaneItemTests.swift */,
+				A200F18225D8317000B309F4 /* EditableStringItemTests.swift */,
 				A2172CF625C9DF43009DC774 /* BoolItemTests.swift */,
 				A2172CF725C9DF43009DC774 /* StringItemTests.swift */,
 			);
@@ -729,11 +743,12 @@
 		A28873DB2516822A003528E5 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				A2EA8C7B258661B1008F18DF /* ChildPaneItem.swift */,
-				A28873DD2516822A003528E5 /* StringItem.swift */,
-				A249DE3F258E5C61002AEC41 /* PickableStringItem.swift */,
 				A28873DE2516822A003528E5 /* BoolItem.swift */,
 				A28873DF2516822A003528E5 /* ButtonItem.swift */,
+				A2EA8C7B258661B1008F18DF /* ChildPaneItem.swift */,
+				A28FE88525D7F9E400924A8F /* EditableStringItem.swift */,
+				A249DE3F258E5C61002AEC41 /* PickableStringItem.swift */,
+				A28873DD2516822A003528E5 /* StringItem.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -885,6 +900,8 @@
 				A2969E2925167D7900EA54D5 /* UnsupportedItemView */,
 				A2EA8C712586434F008F18DF /* CheckboxView.swift */,
 				A2969E2B25167D7900EA54D5 /* DisclosureIndicatorView.swift */,
+				A200F16025D819BB00B309F4 /* TextEditorProtocol.swift */,
+				A20C2D8525D046B00061A158 /* SingleLineTextEditorController.swift */,
 				A2969E2C25167D7900EA54D5 /* ContainerTableViewCell.swift */,
 				A2969E2D25167D7900EA54D5 /* UnsupportedPaneViewController */,
 			);
@@ -1000,6 +1017,7 @@
 			children = (
 				A2B98A5E256DAA790059C5EA /* QAMenuMock.swift */,
 				A2B98A60256DAA790059C5EA /* ItemUIRepresentableDelegateSpy.swift */,
+				A200F17625D823CB00B309F4 /* SingleLineTextEditorControllerMock.swift */,
 				A2B897082598D4480016A373 /* PaneRepresentableMock.swift */,
 				A2B98A5F256DAA790059C5EA /* RootPaneUIRepresentableMock.swift */,
 				A2B98A61256DAA790059C5EA /* QAMenuPresenterMock.swift */,
@@ -1523,6 +1541,7 @@
 				A28873E82516822A003528E5 /* Invalidatable.swift in Sources */,
 				A249DE60258FA0E2002AEC41 /* DialogTrigger.swift in Sources */,
 				A28873E92516822A003528E5 /* Searchable.swift in Sources */,
+				A28FE88625D7F9E500924A8F /* EditableStringItem.swift in Sources */,
 				A238A06D253C71AC0016BBD7 /* Dynamic.swift in Sources */,
 				A2172D9825C9EAD1009DC774 /* QAMenuConfigurationStorable.swift in Sources */,
 				A249DE66258FA7A9002AEC41 /* NavigationTrigger.swift in Sources */,
@@ -1561,6 +1580,8 @@
 				A2172D2D25C9DF43009DC774 /* DisposeBagTests.swift in Sources */,
 				A2172D0B25C9DF43009DC774 /* StringItem+Assert.swift in Sources */,
 				A2172D2825C9DF43009DC774 /* QAMenu+LogTests.swift in Sources */,
+				A200F18F25D8326900B309F4 /* EditableStringItem+Assert.swift in Sources */,
+				A200F18325D8317000B309F4 /* EditableStringItemTests.swift in Sources */,
 				A2172D1D25C9DF43009DC774 /* ItemGroupTests+Conversions.swift in Sources */,
 				A2172D0F25C9DF43009DC774 /* MockPane.swift in Sources */,
 				A2172D1F25C9DF43009DC774 /* PickableStringItemTests.swift in Sources */,
@@ -1607,7 +1628,9 @@
 				A2969E4B25167D7A00EA54D5 /* ShareInteractionHandler.swift in Sources */,
 				A2969E4725167D7A00EA54D5 /* StringItemView.swift in Sources */,
 				A2969E4C25167D7A00EA54D5 /* ShareInteractionSupporting.swift in Sources */,
+				A200F16125D819BB00B309F4 /* TextEditorProtocol.swift in Sources */,
 				A2969E5C25167D7A00EA54D5 /* PaneUIKitRepresentable.swift in Sources */,
+				A20C2D8625D046B00061A158 /* SingleLineTextEditorController.swift in Sources */,
 				A2969E5425167D7A00EA54D5 /* Searcher.swift in Sources */,
 				A2969E5225167D7A00EA54D5 /* UIWindow+ShakeGesture.swift in Sources */,
 				A2969E4825167D7A00EA54D5 /* ButtonItemView.swift in Sources */,
@@ -1655,6 +1678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B897092598D4480016A373 /* PaneRepresentableMock.swift in Sources */,
+				A200F17725D823CB00B309F4 /* SingleLineTextEditorControllerMock.swift in Sources */,
 				A2B98A70256DAA7A0059C5EA /* MockItem.swift in Sources */,
 				A2B989CD256D9B9C0059C5EA /* ItemViewTests.swift in Sources */,
 				A2E30585256705190049D88D /* QAMenuPresenterUITests.swift in Sources */,

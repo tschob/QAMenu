@@ -1,12 +1,12 @@
 //
-//  ItemUIRepresentableDelegateSpy.swift
+//  TextEditorProtocol.swift
 //
-//  Created by Hans Seiffert on 24.11.20.
+//  Created by Hans Seiffert on 07.02.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,29 +24,13 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//
+// 
 
-import XCTest
-import QAMenu
-@testable import QAMenuUIKit
+import UIKit
 
-class ItemUIRepresentableDelegateSpy: UIViewController, ItemUIRepresentableDelegate {
+public protocol TextEditorProtocol {
 
-    var _present = [
-        (viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
-    ]()
+    func dismiss()
 
-    var _updateContainerHeightCount = 0
-
-    var presentationContext: UIViewController {
-        return self
-    }
-
-    func updateContainerHeight(for elementView: ItemUIRepresentable?) {
-        self._updateContainerHeightCount += 1
-    }
-
-    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
-        self._present.append((viewControllerToPresent, flag, completion))
-    }
+    var viewController: UIViewController { get }
 }

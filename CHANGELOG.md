@@ -8,7 +8,8 @@
 
 #### Enhancements
 
-* None
+* [QAMenu] Added new item type `EditableStringItem` which allows to edit Strings (PR #9)
+* [QAMenuUKit] `EditableStringItem`s can be edited with a simple UIAlertViewController (PR #9)
 
 #### Bug Fixes
 
@@ -57,3 +58,19 @@
 ## 0.1.0
 
 Initial release 🎉
+
+- - - 
+
+## Template
+
+#### Breaking Changes
+
+* None
+
+#### Enhancements
+
+* None
+
+#### Bug Fixes
+
+* None

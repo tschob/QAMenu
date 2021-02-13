@@ -35,11 +35,19 @@ class StringItemViewTests: XCTestCase {
     var sut: StringItemView!
 
     var delegateSpy: ItemUIRepresentableDelegateSpy!
+    var disposeBag: DisposeBag!
 
     override func setUpWithError() throws {
         self.sut = StringItemView()
         self.delegateSpy = ItemUIRepresentableDelegateSpy()
         self.sut.delegate = self.delegateSpy
+        self.disposeBag = DisposeBag()
+    }
+
+    override func tearDownWithError() throws {
+        self.sut = nil
+        self.delegateSpy = nil
+        self.disposeBag = nil
     }
 
     // MARK: - init
@@ -109,6 +117,38 @@ class StringItemViewTests: XCTestCase {
         XCTAssertTrue(self.sut.shareInteractionHandler?.shareable === mockItem2)
     }
 
+    // MARK: - setItem + EditableStringItem
+
+    func test_setItem_whenItemIsEditableStringItem_andIsEditable_addsOnShouldEditClosure() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(true),
+            onValueChange: { _, _, _ in }
+        )
+
+        XCTAssertNil(mockItem.onShouldEdit)
+
+        self.sut.setItem(mockItem)
+
+        XCTAssertNotNil(mockItem.onShouldEdit)
+    }
+
+    func test_setItem_whenItemIsEditableStringItem_andIsNotEditable_addsOnShouldEditClosure() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(false),
+            onValueChange: { _, _, _ in }
+        )
+
+        XCTAssertNil(mockItem.onShouldEdit)
+
+        self.sut.setItem(mockItem)
+
+        XCTAssertNotNil(mockItem.onShouldEdit)
+    }
+
     // MARK: whenNotStringItem
 
     func test_setItem_whenNotStringItem_doesNotCrash() throws {
@@ -160,10 +200,200 @@ class StringItemViewTests: XCTestCase {
         let mockItem = StringItem(title: .static("Key"), value: .static("Value"))
         self.sut.setItem(mockItem)
 
-        XCTAssertEqual((self.delegateSpy.presentationContext as! ItemUIRepresentableDelegateSpy)._presentCount, 0)
+        XCTAssert((self.delegateSpy.presentationContext as! ItemUIRepresentableDelegateSpy)._present.isEmpty)
 
         self.sut.shareInteractionHandler?.share()
 
-        XCTAssertEqual((self.delegateSpy.presentationContext as! ItemUIRepresentableDelegateSpy)._presentCount, 1)
+        XCTAssertEqual((self.delegateSpy.presentationContext as! ItemUIRepresentableDelegateSpy)._present.count, 1)
+        XCTAssert((self.delegateSpy.presentationContext as! ItemUIRepresentableDelegateSpy)._present[0].viewController is UIActivityViewController)
+    }
+
+    // MARK: - onShouldEdit
+
+    func test_whenItemShouldBeEdited_andIsEditable_presentsTextEditor() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(true),
+            onValueChange: { _, _, _ in }
+        )
+        self.sut.textEditorType = SingleLineTextEditorControllerMock.self
+        self.sut.setItem(mockItem)
+        let delegateSpy = ItemUIRepresentableDelegateSpy()
+        self.sut.delegate = delegateSpy
+
+        XCTAssert(delegateSpy._present.isEmpty)
+
+        mockItem.onShouldEdit?(mockItem)
+
+        XCTAssertEqual(delegateSpy._present.count, 1)
+        XCTAssert(delegateSpy._present[0].viewController is AlertControllerMock)
+    }
+
+    func test_whenItemShouldBeEdited_andIsNotEditable_doesNotPresentTextEditor() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(false),
+            onValueChange: { _, _, _ in }
+        )
+        self.sut.setItem(mockItem)
+        let delegateSpy = ItemUIRepresentableDelegateSpy()
+        self.sut.delegate = delegateSpy
+
+        XCTAssert(delegateSpy._present.isEmpty)
+
+        mockItem.onShouldEdit?(mockItem)
+
+        XCTAssert(delegateSpy._present.isEmpty)
+    }
+
+    func test_whenEditItemSucceeded_doesNotPresentsAlert() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(true),
+            onValueChange: { _, _, result in
+                result(.success)
+            }
+        )
+        self.sut.textEditorType = SingleLineTextEditorControllerMock.self
+        self.sut.setItem(mockItem)
+        let delegateSpy = ItemUIRepresentableDelegateSpy()
+        self.sut.delegate = delegateSpy
+        mockItem.onShouldEdit?(mockItem)
+
+        XCTAssertEqual(delegateSpy._present.count, 1)
+
+        let textEditorMock = self.sut.textEditor as! SingleLineTextEditorControllerMock
+        textEditorMock.onEndEditing("", textEditorMock)
+
+        XCTAssertEqual(delegateSpy._present.count, 1)
+    }
+
+    func test_whenEditItemSucceeded_invalidatesItem() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(true),
+            onValueChange: { _, _, result in
+                result(.success)
+            }
+        )
+        self.sut.textEditorType = SingleLineTextEditorControllerMock.self
+        self.sut.setItem(mockItem)
+        mockItem.onShouldEdit?(mockItem)
+        let textEditorMock = self.sut.textEditor as! SingleLineTextEditorControllerMock
+
+        let invalidationExpectation = expectation(description: "onInvalidation is fired")
+        invalidationExpectation.assertForOverFulfill = true
+        mockItem.onInvalidation
+            .observe {
+                invalidationExpectation.fulfill()
+            }
+            .disposeWith(self.disposeBag)
+
+        textEditorMock.onEndEditing("", textEditorMock)
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
+    }
+
+    func test_whenEditItemFailed_presentsErrorAlert() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(true),
+            onValueChange: { _, _, result in
+                result(.failure("invalid"))
+            }
+        )
+        self.sut.textEditorType = SingleLineTextEditorControllerMock.self
+        self.sut.setItem(mockItem)
+        let delegateSpy = ItemUIRepresentableDelegateSpy()
+        self.sut.delegate = delegateSpy
+        mockItem.onShouldEdit?(mockItem)
+
+        XCTAssertEqual(delegateSpy._present.count, 1)
+
+        let textEditorMock = self.sut.textEditor as! SingleLineTextEditorControllerMock
+        textEditorMock.onEndEditing("", textEditorMock)
+
+        XCTAssertEqual(delegateSpy._present.count, 2)
+        XCTAssert(delegateSpy._present[1].viewController is UIAlertController)
+        let alert = delegateSpy._present[1].viewController as! UIAlertController
+        XCTAssertEqual(alert.title, "Error")
+        XCTAssertEqual(alert.message, "invalid")
+    }
+
+    func test_whenEditItemFailed_doesNotInvalidatesItem() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(true),
+            onValueChange: { _, _, result in
+                result(.failure("invalid"))
+            }
+        )
+        self.sut.textEditorType = SingleLineTextEditorControllerMock.self
+        self.sut.setItem(mockItem)
+        mockItem.onShouldEdit?(mockItem)
+        let textEditorMock = self.sut.textEditor as! SingleLineTextEditorControllerMock
+
+        let invalidationExpectation = expectation(description: "onInvalidation is not fired")
+        invalidationExpectation.isInverted = true
+        mockItem.onInvalidation
+            .observe {
+                invalidationExpectation.fulfill()
+            }
+            .disposeWith(self.disposeBag)
+
+        textEditorMock.onEndEditing("", textEditorMock)
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
+    }
+
+    func test_whenCancelingEdit_dismissesTextEditor() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(true),
+            onValueChange: { _, _, _ in }
+        )
+        self.sut.textEditorType = SingleLineTextEditorControllerMock.self
+        self.sut.setItem(mockItem)
+        mockItem.onShouldEdit?(mockItem)
+        let textEditorMock = self.sut.textEditor as! SingleLineTextEditorControllerMock
+
+        XCTAssertEqual(textEditorMock._dismissCallCount, 0)
+
+        textEditorMock.onCancelEditing(textEditorMock)
+
+        XCTAssertEqual(textEditorMock._dismissCallCount, 1)
+        XCTAssertNil(self.sut.textEditor)
+    }
+
+    func test_whenEndingEdit_doesNotInvalidateItem() throws {
+        let mockItem = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            isEditable: .static(true),
+            onValueChange: { _, _, _ in }
+        )
+        self.sut.textEditorType = SingleLineTextEditorControllerMock.self
+        self.sut.setItem(mockItem)
+        mockItem.onShouldEdit?(mockItem)
+        let textEditorMock = self.sut.textEditor as! SingleLineTextEditorControllerMock
+
+        let invalidationExpectation = expectation(description: "onInvalidation is not fired")
+        invalidationExpectation.isInverted = true
+        mockItem.onInvalidation
+            .observe {
+                invalidationExpectation.fulfill()
+            }
+            .disposeWith(self.disposeBag)
+
+        textEditorMock.onEndEditing("", textEditorMock)
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
     }
 }

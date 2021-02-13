@@ -47,6 +47,10 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
         return self.stackView
     }
 
+    internal var textEditorType: SingleLineTextEditorControllerProtocol.Type = SingleLineTextEditorController.self
+
+    internal var textEditor: SingleLineTextEditorControllerProtocol?
+
     // MARK: - Properties (Private)
 
     @IBOutlet private weak var titleLabel: UILabel!
@@ -65,6 +69,11 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
                 }
                 .disposeWith(self.disposeBag)
             self.shareInteractionHandler?.shareable = self.item
+            if let editableStringItem = item as? EditableStringItem {
+                editableStringItem.onShouldEdit = { [weak self] item in
+                    self?.onShouldEdit(item)
+                }
+            }
             self.updateViewContent()
         }
     }
@@ -160,5 +169,49 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
         let numberOfLines = (lineCount == StringItem.LayoutType.LineCount.singleLine) ? 1 : 0
         self.titleLabel.numberOfLines = numberOfLines
         self.valueLabel.numberOfLines = numberOfLines
+    }
+
+    // MARK: - Methods (Private) - Edit
+
+    private func onShouldEdit(_ editableStringItem: EditableStringItem) {
+        guard editableStringItem.isEditable.unboxed else {
+            return
+        }
+        let textEditor = self.textEditorType.init(
+            title: "Edit \(editableStringItem.title?.unboxed ?? "")",
+            text: editableStringItem.value?.unboxed,
+            onCancelEditing: { [weak self] textEditor in
+                textEditor.dismiss()
+                self?.textEditor = nil
+            },
+            onEndEditing: { (newValue, inputController) in
+                editableStringItem.onValueChange?(newValue ?? "", editableStringItem) { [weak self] itemResult in
+                    switch itemResult {
+                    case .success:
+                        editableStringItem.invalidate()
+                    case .failure(let message):
+                        self?.showEditValidationError(message)
+                    }
+                    inputController.dismiss()
+                    self?.textEditor = nil
+                }
+            }
+        )
+        self.textEditor = textEditor
+        self.delegate?.presentationContext.present(textEditor.viewController, animated: true)
+    }
+
+    private func showEditValidationError(_ message: String) {
+        let errorAlert = UIAlertController(
+            title: "Error",
+            message: message,
+            preferredStyle: .alert
+        )
+        let okayAction = UIAlertAction(
+            title: "Ok",
+            style: .default
+        )
+        errorAlert.addAction(okayAction)
+        self.delegate?.presentationContext.present(errorAlert, animated: true)
     }
 }
