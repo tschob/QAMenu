@@ -42,14 +42,14 @@ public extension QAMenu.Catalog.Device {
         public static func group(title: String = "Locale (Current)") -> ItemGroup {
             return ItemGroup(
                 title: .computed({ title }),
-                items: [
+                items: .static([
                     Items.identifierStringItem(),
                     Items.languageCodeStringItem(),
                     Items.regionCodeStringItem(),
                     Items.calendarStringItem(),
                     Items.currencyCodeStringItem(),
                     Items.preferredLanguagesStringItem()
-                ]
+                ])
             )
         }
 

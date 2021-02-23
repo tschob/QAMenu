@@ -33,7 +33,7 @@ class ButtonItemAdvancedExamplesFactory {
 
     func makePane() -> Pane {
 
-        let group_1 = ItemGroup(items: [
+        let group_1 = ItemGroup(items: .static([
             ButtonItem(title: .static("Print to console"), action: { _, _  in
                 print("Printing to console")
             }),
@@ -48,9 +48,9 @@ class ButtonItemAdvancedExamplesFactory {
                 },
                 footerText: .static("Printing to the console is delayed for 2s. A progress is shown that indicates the background work.")
             )
-        ])
+        ]))
 
-        let group_2 = ItemGroup(title: .static("Dynamic height examples"), items: [
+        let group_2 = ItemGroup(title: .static("Dynamic height examples"), items: .static([
             ButtonItem(
                 title: .static("This button has a very long title. The reason is to demonstrate the multine behaviour."),
                 action: { _, _ in }
@@ -75,7 +75,7 @@ class ButtonItemAdvancedExamplesFactory {
                 },
                 footerText: .static("This example demonstrate a one line button title with a multiline progress message.")
             )
-        ])
+        ]))
 
         let pane = Pane(
             title: .static("ButtonItem"),

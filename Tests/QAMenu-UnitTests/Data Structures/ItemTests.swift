@@ -47,7 +47,7 @@ class ItemTests: XCTestCase {
         XCTAssertTrue(sut.searchableContent.isEmpty)
     }
 
-    // MARK: - Invalidatable
+    // MARK: - Invalidatable (static options)
 
     func test_invalidate_doesNotCrash_whenNoObserverIsAdded() {
         let sut = Item()

@@ -63,7 +63,7 @@ struct EditableStringItemAdvancedExamplesFactory {
     }
 
     private static func makeEditExampleGroup() -> ItemGroup {
-        return ItemGroup(items: [
+        return ItemGroup(items: .static([
             EditableStringItem(
                 title: .static("Freestyle"),
                 value: .computed({ Storage.example1String }),
@@ -85,14 +85,14 @@ struct EditableStringItemAdvancedExamplesFactory {
                     }
                 }
             )
-        ])
+        ]))
     }
 
     // swiftlint:disable:next function_body_length
     private static func makeLayoutExampleGroup(layoutType: StringItem.LayoutType, title: String) -> ItemGroup {
         let stringItems = ItemGroup(
             title: .computed({ title }),
-            items: [
+            items: .static([
                 EditableStringItem(
                     title: .static("Title (short)"),
                     value: .computed({ Storage.layoutExampleStringValues[0] }),
@@ -162,7 +162,7 @@ struct EditableStringItemAdvancedExamplesFactory {
                         result(.success)
                     }
                 )
-            ]
+            ])
         )
         return stringItems
     }

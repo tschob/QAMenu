@@ -42,7 +42,9 @@ open class ObservableEvent<T> {
 
     // MARK: -
 
-    open func observe(_ observer: @escaping (T) -> Void) -> Disposable {
+    open func observe(
+        _ observer: @escaping (T) -> Void
+    ) -> Disposable {
         self.lock.lock()
         defer {
             self.lock.unlock()

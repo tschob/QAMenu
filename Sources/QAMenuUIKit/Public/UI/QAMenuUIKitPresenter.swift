@@ -108,6 +108,7 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
         self.ui.register(StringItemView.self, for: StringItem.self)
         self.ui.register(StringItemView.self, for: EditableStringItem.self)
         self.ui.register(ButtonItemView.self, for: ButtonItem.self)
+        self.ui.register(ProgressItemView.self, for: ProgressItem.self)
         self.ui.register(PickableStringItemView.self, for: PickableStringItem.self)
     }
 

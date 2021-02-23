@@ -161,12 +161,17 @@ extension ChildPaneItem {
                 file: file,
                 line: line
             )
-            XCTAssertEqual(_itemGroup.items.count, itemGroup.items.count, file: file, line: line)
+            XCTAssertEqual(
+                _itemGroup.items.unboxed.count,
+                itemGroup.items.unboxed.count,
+                file: file,
+                line: line
+            )
             var itemIndex = 0
-            itemGroup.items.forEach { item in
+            itemGroup.items.unboxed.forEach { item in
                 XCTAssertEqual(
-                    _itemGroup.items[itemIndex] as! MockItem,
-                    item as! MockItem,
+                    _itemGroup.items.unboxed[safe: itemIndex] as? MockItem,
+                    item as? MockItem,
                     file: file,
                     line: line
                 )
@@ -215,7 +220,7 @@ extension ChildPaneItem {
             PickerGroup._assertInitProperties(
                 _pickerGroup,
                 title: pickerGroup.title?.unboxed,
-                options: pickerGroup.options as! [MockPickableItem],
+                options: pickerGroup.options.unboxedOptions as? [MockPickableItem] ?? [],
                 footerText: pickerGroup.footerText?.unboxed,
                 onPickedOptionFailure: onPickedOptionFailure,
                 testCase: testCase

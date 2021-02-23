@@ -35,11 +35,58 @@ class PickerGroupAdvancedExamplesFactory {
         let pane = Pane(
             title: .static("PickerGroup"),
             groups: [
-                ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.onlyOneSelection(),
-                ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.singleSelection(),
-                ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.multiSelection()
+                Pane(
+                    title: .static("Selection Examples"),
+                    groups: [
+                        ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.onlyOneSelection(),
+                        ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.singleSelection(),
+                        ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.multiSelection()
+                    ]
+                )
+                .asChildPaneItem()
+                .asItemGroup(),
+                ItemGroup(
+                    title: .static("Delayed Loading"),
+                    items: .static([
+                        makeDelayedLoadingExample(
+                            identifier: "#1",
+                            succeedsAfter: 0,
+                            allowRetry: false,
+                            shouldDismiss: false
+                        ),
+                        makeDelayedLoadingExample(
+                            identifier: "#2",
+                            succeedsAfter: 2,
+                            allowRetry: true,
+                            shouldDismiss: true
+                        ),
+                        makeDelayedLoadingExample(
+                            identifier: "#3",
+                            succeedsAfter: 1,
+                            allowRetry: false,
+                            shouldDismiss: true
+                        )
+                    ])
+                )
             ]
         )
         return pane
+    }
+
+    private func makeDelayedLoadingExample(
+        identifier: Swift.String,
+        succeedsAfter: Int,
+        allowRetry: Swift.Bool,
+        shouldDismiss: Swift.Bool
+    ) -> ChildPaneItem {
+        let footer = "Loading fails for \(succeedsAfter) time(s); Shows a retry button: \(allowRetry ? "yes" : "no"); Dismisses the picker after a selection: \(shouldDismiss ? "yes" : "no")"
+        return ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.delayedOptions(
+            identifier: identifier,
+            succeedsAfter: succeedsAfter,
+            allowRetry: allowRetry,
+            shouldDismiss: shouldDismiss,
+            footer: footer
+        )
+        .asChildPaneItem(footerText: .static(footer))
     }
 }

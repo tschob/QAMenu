@@ -37,9 +37,11 @@ public protocol Group: Invalidatable, FooterSupport {
     // MARK: - Properties (Internal)
 
     var title: Dynamic<String?>? { get }
-    var items: [Item] { get }
+    var items: GroupItems { get }
 
     func removeTitle()
+
+    func loadContent()
 }
 
 // MARK: - Group + Conversions

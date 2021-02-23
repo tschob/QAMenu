@@ -234,6 +234,6 @@ class QAMenuLifecycleManagerTests: XCTestCase {
         sut.onQAMenuWasClosed()
         sut.onQAMenuWillOpen()
 
-        wait(for: [notCalledTooEarlyExpectation], timeout: 1.2)
+        wait(for: [notCalledTooEarlyExpectation], timeout: 1.4)
     }
 }

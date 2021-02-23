@@ -41,7 +41,7 @@ internal struct Searcher {
     internal static func filter(_ groups: [Group], with query: String?) -> [Group] {
         if let items = self.items(for: query, in: groups) {
             // Create a search result group if items are matching
-            return [ItemGroup(items: items)]
+            return [ItemGroup(items: .static(items))]
         } else {
             // Return the original groups if the search failing (no or empty query)
             return groups
@@ -55,7 +55,7 @@ internal struct Searcher {
         }
         // Collect all matching items
         return groups.flatMap { group in
-            return group.items.compactMap { (item: Item) -> Item? in
+            return group.items.unboxed.compactMap { (item: Item) -> Item? in
                 return item.fulfillsSearch(query: validatedQuery) ? item : nil
             }
         }

@@ -147,56 +147,62 @@ class ExampleViewController: UITableViewController {
         let customUserDefaults = UserDefaults(suiteName: "Custom User Defaults")
         customUserDefaults?.set(true, forKey: "Example Key")
 
-        let cacheGroup = ItemGroup(title: .static("App Cache"), items: [
-            BoolItem(
-                title: .static("Enable cache"),
-                value: .computed({ [weak self] in
-                    return self?.simpleProjectCacheEnabled ?? false
-                }),
-                onValueChange: { [weak self] value, _, result in
-                    guard let self = self else {
-                        result(.failure("Object was released from memory"))
-                        return
-                    }
-                    self.simpleProjectCacheEnabled = value
-                    result(.success)
-                }
-            ),
-            StringItem(
-                title: .static("Cached images"),
-                value: .computed({ [weak self] in
-                    guard let self = self else { return nil }
-                    return String(describing: self.simpleProjectCachedImagesCount)
-                })
-            ),
-            ButtonItem(
-                title: .static("Reset image cache"),
-                action: { [weak self] (item: ButtonItem, _) in
-                    item.status = .progress("Deleting cache")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self?.simpleProjectCachedImagesCount = 0
-                        item.status = .idle
-                        item.parentGroup?.invalidate()
-                    }
-                }
-            )
-        ])
-        let backendGroup = ItemGroup(title: .static("Backend"), items: [
-            EditableStringItem(
-                title: .static("Host"),
-                value: .computed({ [weak self] in
-                    return self?.simpleProjectAPIHost
-                }),
-                onValueChange: { [weak self] (newValue, _, result) in
-                    if newValue.hasPrefix("https://") {
-                        self?.simpleProjectAPIHost = newValue
+        let cacheGroup = ItemGroup(
+            title: .static("App Cache"),
+            items: .static([
+                BoolItem(
+                    title: .static("Enable cache"),
+                    value: .computed({ [weak self] in
+                        return self?.simpleProjectCacheEnabled ?? false
+                    }),
+                    onValueChange: { [weak self] value, _, result in
+                        guard let self = self else {
+                            result(.failure("Object was released from memory"))
+                            return
+                        }
+                        self.simpleProjectCacheEnabled = value
                         result(.success)
-                    } else {
-                        result(.failure("The host is invalid"))
                     }
-                }
-            )
-        ])
+                ),
+                StringItem(
+                    title: .static("Cached images"),
+                    value: .computed({ [weak self] in
+                        guard let self = self else { return nil }
+                        return String(describing: self.simpleProjectCachedImagesCount)
+                    })
+                ),
+                ButtonItem(
+                    title: .static("Reset image cache"),
+                    action: { [weak self] (item: ButtonItem, _) in
+                        item.status = .progress("Deleting cache")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self?.simpleProjectCachedImagesCount = 0
+                            item.status = .idle
+                            item.parentGroup?.invalidate()
+                        }
+                    }
+                )
+            ])
+        )
+        let backendGroup = ItemGroup(
+            title: .static("Backend"),
+            items: .static([
+                EditableStringItem(
+                    title: .static("Host"),
+                    value: .computed({ [weak self] in
+                        return self?.simpleProjectAPIHost
+                    }),
+                    onValueChange: { [weak self] (newValue, _, result) in
+                        if newValue.hasPrefix("https://") {
+                            self?.simpleProjectAPIHost = newValue
+                            result(.success)
+                        } else {
+                            result(.failure("The host is invalid"))
+                        }
+                    }
+                )
+            ])
+        )
         self.simpleProjectQAMenu = QAMenu(
             identifier: "Simple QAMenu",
             presenterType: QAMenuUIKitPresenter.self

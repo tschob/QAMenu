@@ -51,7 +51,9 @@ open class Pane: NSObject, Invalidatable {
     ) {
         self.init(
             title: title,
-            groups: [ItemGroup(items: items)],
+            groups: [
+                ItemGroup(items: .static(items))
+            ],
             isSearchable: isSearchable
         )
     }
@@ -67,7 +69,11 @@ open class Pane: NSObject, Invalidatable {
         super.init()
     }
 
-    public func invalidate() {
+    open func onIsPresented() {
+      self.groups.forEach { $0.loadContent() }
+    }
+
+    open func invalidate() {
         self.groups.forEach { $0.invalidate() }
         self.onInvalidation.fire()
     }

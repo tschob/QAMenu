@@ -40,7 +40,7 @@ open class BoolItem: Item, FooterSupport, DialogTrigger {
     public let title: Dynamic<String>
     public let value: Dynamic<Bool>
     public let footerText: Dynamic<String?>?
-    public let onValueChange: (_ newValue: Bool, _ item: BoolItem, _ result: (ValueChangeResult) -> Void) -> Void?
+    public let onValueChange: (_ newValue: Bool, _ item: BoolItem, _ result: @escaping (ValueChangeResult) -> Void) -> Void?
 
     public let onPresentDialog = ObservableEvent<DialogContent>()
 
@@ -58,7 +58,7 @@ open class BoolItem: Item, FooterSupport, DialogTrigger {
         title: Dynamic<String>,
         value: Dynamic<Bool>,
         footerText: Dynamic<String?>? = nil,
-        onValueChange: @escaping (_ newValue: Bool, _ item: BoolItem, _ result: (ValueChangeResult) -> Void) -> Void
+        onValueChange: @escaping (_ newValue: Bool, _ item: BoolItem, _ result: @escaping (ValueChangeResult) -> Void) -> Void
     ) {
         self.title = title
         self.value = value

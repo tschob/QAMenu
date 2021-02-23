@@ -47,7 +47,7 @@ struct StringItemAdvancedExamplesFactory {
     private static func makeGroup(layoutType: StringItem.LayoutType, title: String) -> ItemGroup {
         let stringItems = ItemGroup(
             title: .computed({ title }),
-            items: [
+            items: .static([
                 StringItem(
                     title: .static("Title (short)"),
                     value: .static("Value"),
@@ -89,7 +89,7 @@ struct StringItemAdvancedExamplesFactory {
                     footerText: .static("A StringItem can be long pressed to share it's value"),
                     layoutType: .static(layoutType)
                 )
-            ]
+            ])
         )
         return stringItems
     }

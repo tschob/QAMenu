@@ -13,6 +13,7 @@
 		A28878982517662A003528E5 /* QAMenuCatalog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A28878962517662A003528E5 /* QAMenuCatalog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A288789A2517662D003528E5 /* QAMenuUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28878992517662D003528E5 /* QAMenuUIKit.framework */; };
 		A288789B2517662D003528E5 /* QAMenuUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A28878992517662D003528E5 /* QAMenuUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A289795425E1A11200EB7326 /* MultipleAsyncPickerGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289795325E1A11200EB7326 /* MultipleAsyncPickerGroups.swift */; };
 		A2A40882254EE33200ACA56B /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40880254EE33200ACA56B /* QAMenu.framework */; };
 		A2A40883254EE33200ACA56B /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40880254EE33200ACA56B /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2A40884254EE33200ACA56B /* QAMenuUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40881254EE33200ACA56B /* QAMenuUtils.framework */; };
@@ -35,6 +36,9 @@
 		A2DE47AA24FBB60B00CE7F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2DE479924FBB60B00CE7F7A /* Assets.xcassets */; };
 		A2DE47AC24FBB7D300CE7F7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE479824FBB60B00CE7F7A /* SceneDelegate.swift */; };
 		A2DE489624FC009C00CE7F7A /* CustomPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE489524FC009C00CE7F7A /* CustomPane.swift */; };
+		A2E6596525E453880013DEE0 /* MultipleAsyncItemGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6596425E453880013DEE0 /* MultipleAsyncItemGroups.swift */; };
+		A2E6596725E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6596625E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift */; };
+		A2E6645D25E563B20013DEE0 /* ProgressItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6645C25E563B20013DEE0 /* ProgressItemAdvancedExamplesFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +65,7 @@
 		A288789325176626003528E5 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28878962517662A003528E5 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28878992517662D003528E5 /* QAMenuUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A289795325E1A11200EB7326 /* MultipleAsyncPickerGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAsyncPickerGroups.swift; sourceTree = "<group>"; };
 		A2A40880254EE33200ACA56B /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A40881254EE33200ACA56B /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BEC14F257C23A80005EFDF /* CustomPaneRepresentableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPaneRepresentableViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +87,9 @@
 		A2DE479924FBB60B00CE7F7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2DE479A24FBB60B00CE7F7A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2DE489524FC009C00CE7F7A /* CustomPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPane.swift; sourceTree = "<group>"; };
+		A2E6596425E453880013DEE0 /* MultipleAsyncItemGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAsyncItemGroups.swift; sourceTree = "<group>"; };
+		A2E6596625E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGroupAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2E6645C25E563B20013DEE0 /* ProgressItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +170,12 @@
 				A2DE478924FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift */,
 				A2DE478B24FBB60B00CE7F7A /* ButtonItemAdvancedExamplesFactory.swift */,
 				A200F19F25D83BF100B309F4 /* EditableStringItemAdvancedExamplesFactory.swift */,
+				A2E6596625E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift */,
 				A249DE3D258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift */,
+				A2E6645C25E563B20013DEE0 /* ProgressItemAdvancedExamplesFactory.swift */,
 				A2DE478A24FBB60B00CE7F7A /* StringItemAdvancedExamplesFactory.swift */,
+				A2E6596425E453880013DEE0 /* MultipleAsyncItemGroups.swift */,
+				A289795325E1A11200EB7326 /* MultipleAsyncPickerGroups.swift */,
 			);
 			path = AdvancedExamples;
 			sourceTree = "<group>";
@@ -280,11 +292,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2BEC150257C23A80005EFDF /* CustomPaneRepresentableViewController.swift in Sources */,
+				A2E6596525E453880013DEE0 /* MultipleAsyncItemGroups.swift in Sources */,
+				A2E6596725E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift in Sources */,
 				A2DE47A124FBB60B00CE7F7A /* CustomStringItemView.swift in Sources */,
 				A2DE479D24FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift in Sources */,
+				A2E6645D25E563B20013DEE0 /* ProgressItemAdvancedExamplesFactory.swift in Sources */,
 				A2DE479E24FBB60B00CE7F7A /* StringItemAdvancedExamplesFactory.swift in Sources */,
 				A2DE479B24FBB60B00CE7F7A /* ExampleViewController.swift in Sources */,
 				A2DE479F24FBB60B00CE7F7A /* ButtonItemAdvancedExamplesFactory.swift in Sources */,
+				A289795425E1A11200EB7326 /* MultipleAsyncPickerGroups.swift in Sources */,
 				A2DE479C24FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift in Sources */,
 				A200F1A025D83BF100B309F4 /* EditableStringItemAdvancedExamplesFactory.swift in Sources */,
 				A249DE3E258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift in Sources */,

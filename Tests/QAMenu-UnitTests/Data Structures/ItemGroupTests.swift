@@ -44,7 +44,7 @@ class ItemGroupTests: XCTestCase {
     // MARK: - Init
 
     func test_init_whenPassingOnlyMandatoryParameters() throws {
-        let sut = ItemGroup(items: [])
+        let sut = ItemGroup(items: .static([]))
 
         ItemGroup._assertInitProperties(
             sut,
@@ -60,7 +60,7 @@ class ItemGroupTests: XCTestCase {
 
         let sut = ItemGroup(
             title: .static("title"),
-            items: items,
+            items: .static(items),
             footerText: .static("footer")
         )
 
@@ -73,11 +73,14 @@ class ItemGroupTests: XCTestCase {
     }
 
     func test_init_whenProvidingItems_referencesTheGroupAsParent() throws {
-        let sut = ItemGroup(items: [MockItem(), MockItem()])
+        let sut = ItemGroup(items: .static([
+            MockItem(),
+            MockItem()
+        ]))
 
         let groupReferencedExpectation = expectation(description: "")
         groupReferencedExpectation.expectedFulfillmentCount = 2
-        sut.items.forEach { item in
+        sut.items.unboxed.forEach { item in
             if item.parentGroup === sut {
                 groupReferencedExpectation.fulfill()
             }
@@ -89,14 +92,21 @@ class ItemGroupTests: XCTestCase {
     // MARK: - Searchable
 
     func test_searchableContent_whenHavingNotTitleAndFooter_containsNothing() throws {
-        let sut = ItemGroup(items: [MockItem()])
+        let sut = ItemGroup(items: .static([
+            MockItem()
+        ]))
 
         let searchableContent = sut.searchableContent.compactMap { $0 }
         XCTAssert(searchableContent.isEmpty)
     }
 
     func test_searchableContent_whenHavingTitle_containsThat() throws {
-        let sut = ItemGroup(title: .static("title"), items: [MockItem()])
+        let sut = ItemGroup(
+            title: .static("title"),
+            items: .static([
+                MockItem()
+            ])
+        )
 
         let searchableContent = sut.searchableContent.compactMap { $0 }
         XCTAssertEqual(searchableContent.count, 1)
@@ -104,7 +114,12 @@ class ItemGroupTests: XCTestCase {
     }
 
     func test_searchableContent_whenHavingFooter_containsThat() throws {
-        let sut = ItemGroup(items: [MockItem()], footerText: .static("footer"))
+        let sut = ItemGroup(
+            items: .static([
+                MockItem()
+            ]),
+            footerText: .static("footer")
+        )
 
         let searchableContent = sut.searchableContent.compactMap { $0 }
         XCTAssertEqual(searchableContent.count, 1)
@@ -112,7 +127,13 @@ class ItemGroupTests: XCTestCase {
     }
 
     func test_searchableContent_whenHavingTitleAndFooter_containsThose() throws {
-        let sut = ItemGroup(title: .static("title"), items: [MockItem()], footerText: .static("footer"))
+        let sut = ItemGroup(
+            title: .static("title"),
+            items: .static([
+                MockItem()
+            ]),
+            footerText: .static("footer")
+        )
 
         let searchableContent = sut.searchableContent.compactMap { $0 }
         XCTAssertEqual(searchableContent.count, 2)
@@ -123,7 +144,7 @@ class ItemGroupTests: XCTestCase {
     // MARK: - Invalidatable
 
     func test_invalidate_doesNotCrash_whenNoObserverIsAdded() {
-        let sut = ItemGroup(items: [])
+        let sut = ItemGroup(items: .static([]))
 
         sut.invalidate()
 
@@ -131,7 +152,7 @@ class ItemGroupTests: XCTestCase {
     }
 
     func test_invalidate_firesOnInvalidationEvent() {
-        let sut = ItemGroup(items: [])
+        let sut = ItemGroup(items: .static([]))
 
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
@@ -146,18 +167,23 @@ class ItemGroupTests: XCTestCase {
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
-    // MARK: - Invalidatable
+    // MARK: - Update (static options)
 
-    func test_update_whenGivenEmptyArray_replacesInstanceItems() throws {
-        let sut = ItemGroup(items: [MockItem()])
+    func test_update_whenGivenEmptyStaticArray_replacesInstanceItems() throws {
+        let sut = ItemGroup(items: .static([
+            MockItem()
+        ]))
 
-        sut.update(items: [])
+        sut.update(items: .static([]))
 
-        XCTAssertTrue(sut.items.isEmpty)
+        XCTAssertTrue(sut.items.unboxed.isEmpty)
     }
 
-    func test_update_whenGivenEmptyArray_invalidatesTheGroup() throws {
-        let sut = ItemGroup(items: [MockItem(), MockItem()])
+    func test_update_whenGivenEmptyStaticArray_invalidatesTheGroup() throws {
+        let sut = ItemGroup(items: .static([
+            MockItem(),
+            MockItem()
+        ]))
 
         let invalidationExpectation = expectation(description: "onInvalidation was called")
         invalidationExpectation.assertForOverFulfill = true
@@ -167,29 +193,39 @@ class ItemGroupTests: XCTestCase {
             }
             .disposeWith(self.disposeBag)
 
-        sut.update(items: [])
+        sut.update(items: .static([]))
 
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
-    func test_update_whenGivenItems_replacesEmptyInstanceItems() throws {
-        let sut = ItemGroup(items: [])
+    func test_update_whenGivenStaticItems_replacesEmptyInstanceItems() throws {
+        let sut = ItemGroup(items: .static([]))
 
-        sut.update(items: [MockItem()])
+        sut.update(items: .static([
+            MockItem()
+        ]))
 
-        XCTAssertEqual(sut.items.count, 1)
+        XCTAssertEqual(sut.items.unboxed.count, 1)
     }
 
-    func test_update_whenGivenItems_replacesInstanceItems() throws {
-        let sut = ItemGroup(items: [MockItem(), MockItem()])
+    func test_update_whenGivenStaticItems_replacesInstanceItems() throws {
+        let sut = ItemGroup(items: .static([
+            MockItem(),
+            MockItem()
+        ]))
 
-        sut.update(items: [MockItem()])
+        sut.update(items: .static([
+            MockItem()
+        ]))
 
-        XCTAssertEqual(sut.items.count, 1)
+        XCTAssertEqual(sut.items.unboxed.count, 1)
     }
 
-    func test_update_whenGivenItems_invalidatesTheGroup() throws {
-        let sut = ItemGroup(items: [MockItem(), MockItem()])
+    func test_update_whenGivenStaticItems_invalidatesTheGroup() throws {
+        let sut = ItemGroup(items: .static([
+            MockItem(),
+            MockItem()
+        ]))
 
         let invalidationExpectation = expectation(description: "onInvalidation was called")
         invalidationExpectation.assertForOverFulfill = true
@@ -199,19 +235,183 @@ class ItemGroupTests: XCTestCase {
             }
             .disposeWith(self.disposeBag)
 
-        sut.update(items: [MockItem()])
+        sut.update(items: .static([
+            MockItem()
+        ]))
 
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
-    func test_update_whenGivenItems_referencesTheGroupAsParent() throws {
-        let sut = ItemGroup(items: [MockItem()])
+    func test_update_whenGivenStaticItems_referencesTheGroupAsParent() throws {
+        let sut = ItemGroup(items: .static([
+            MockItem()
+        ]))
 
-        sut.update(items: [MockItem(), MockItem()])
+        sut.update(items: .static([
+            MockItem(),
+            MockItem()
+        ]))
 
         let groupReferencedExpectation = expectation(description: "")
         groupReferencedExpectation.expectedFulfillmentCount = 2
-        sut.items.forEach { item in
+        sut.items.unboxed.forEach { item in
+            if item.parentGroup === sut {
+                groupReferencedExpectation.fulfill()
+            }
+        }
+
+        wait(for: [groupReferencedExpectation], timeout: 0.01)
+    }
+
+    // MARK: - Invalidatable (async options)
+
+    func test_update_whenGivenEmptyAsyncArray_replacesInstanceItems() throws {
+        let sut = ItemGroup(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem()
+                ])
+            })
+        )
+        sut.loadContent()
+
+        sut.update(items: .static([]))
+
+        XCTAssertTrue(sut.items.unboxed.isEmpty)
+    }
+
+    func test_update_whenGivenEmptyAsyncArray_invalidatesTheGroup() throws {
+        let sut = ItemGroup(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem(),
+                    MockItem()
+                ])
+            })
+        )
+        sut.loadContent()
+
+        let invalidationExpectation = expectation(description: "onInvalidation was called")
+        // 2 invalidations are expected: Replacing the group, loading success
+        invalidationExpectation.expectedFulfillmentCount = 2
+        sut.onInvalidation
+            .observe {
+                invalidationExpectation.fulfill()
+            }
+            .disposeWith(self.disposeBag)
+
+        sut.update(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem(),
+                    MockItem(),
+                    MockItem()
+                ])
+            }),
+            loadDelayedContent: true
+        )
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
+    }
+
+    func test_update_whenGivenAsyncItems_replacesEmptyInstanceItems() throws {
+        let sut = ItemGroup(
+            items: .async({ instance in
+                instance.complete([])
+            })
+        )
+        sut.loadContent()
+
+        sut.update(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem()
+                ])
+            }),
+            loadDelayedContent: true
+        )
+
+        XCTAssertEqual(sut.items.unboxed.count, 1)
+    }
+
+    func test_update_whenGivenAsyncItems_replacesInstanceItems() throws {
+        let sut = ItemGroup(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem(),
+                    MockItem()
+                ])
+            })
+        )
+        sut.loadContent()
+
+        sut.update(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem()
+                ])
+            }),
+            loadDelayedContent: true
+        )
+
+        XCTAssertEqual(sut.items.unboxed.count, 1)
+    }
+
+    func test_update_whenGivenAsyncItems_invalidatesTheGroup() throws {
+        let sut = ItemGroup(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem(),
+                    MockItem()
+                ])
+            })
+        )
+        sut.loadContent()
+
+        let invalidationExpectation = expectation(description: "onInvalidation was called")
+        // 2 invalidations are expected: Replacing the group, loading success
+        invalidationExpectation.expectedFulfillmentCount = 2
+        sut.onInvalidation
+            .observe {
+                invalidationExpectation.fulfill()
+            }
+            .disposeWith(self.disposeBag)
+
+        sut.update(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem()
+                ])
+            }),
+            loadDelayedContent: true
+        )
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
+    }
+
+    func test_update_whenGivenAsyncItems_referencesTheGroupAsParent() throws {
+        let sut = ItemGroup(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem()
+                ])
+            })
+        )
+        sut.loadContent()
+
+        sut.update(
+            items: .async({ instance in
+                instance.complete([
+                    MockItem(),
+                    MockItem()
+                ])
+            }),
+            loadDelayedContent: true
+        )
+
+        let groupReferencedExpectation = expectation(description: "")
+        groupReferencedExpectation.expectedFulfillmentCount = 2
+        sut.items.unboxed.forEach { item in
             if item.parentGroup === sut {
                 groupReferencedExpectation.fulfill()
             }

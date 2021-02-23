@@ -66,7 +66,7 @@ public extension QAMenu.Catalog {
             }
             return ItemGroup(
                 title: title,
-                items: items,
+                items: .static(items),
                 footerText: .static("Note: Preferences are not yet reloaded during the app runtime.")
             )
         }
@@ -79,7 +79,7 @@ public extension QAMenu.Catalog {
                 let stringItems = Foundation.UserDefaults.standard.dictionaryRepresentation().dm_toStringItems()
                 let pane = Pane(
                     title: title,
-                    groups: [ItemGroup(items: stringItems)],
+                    groups: [ItemGroup(items: .static(stringItems))],
                     isSearchable: true
                 )
                 return ChildPaneItem(pane: { pane })
@@ -88,7 +88,7 @@ public extension QAMenu.Catalog {
             public static func customPreferencesPListsChildPaneItems() -> [ChildPaneItem] {
                 let customPreferenceItems: [ChildPaneItem] = self.customPreferencesPlistsNames.compactMap {
                     let title = $0.0
-                    let group = ItemGroup(items: $0.1.dm_toStringItems())
+                    let group = ItemGroup(items: .static($0.1.dm_toStringItems()))
                     let item = ChildPaneItem(
                         pane: { Pane(title: .static(title), groups: [group], isSearchable: true) }
                     )

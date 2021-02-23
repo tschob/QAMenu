@@ -27,6 +27,9 @@
 //
 
 import Foundation
+import QAMenuUtils
+
+// MARK: - PickerGroup
 
 open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
 
@@ -35,19 +38,17 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
         case failure(String)
     }
 
-    // MARK: - Properties
+    // MARK: - Properties (Public)
+
+    open var items: GroupItems {
+        let items = self.options.unboxedOptions ?? self.options.unboxedItems
+        return .static(items)
+    }
 
     open private(set) var title: Dynamic<String?>?
-    open var items: [Item] {
-        return options
-    }
-    open private(set) var options: [PickableItem] {
-        didSet {
-            self.linkCurrentItems()
-        }
-    }
+    open private(set) var options: PickerGroupOptions
     open private(set) var footerText: Dynamic<String?>?
-    open private(set) var onPickedOption: ((_ item: PickableItem, _ result: (PickResult) -> Void) -> Void?)?
+    open private(set) var onPickedOption: ((_ item: PickableItem, _ result: @escaping (PickResult) -> Void) -> Void?)?
 
     open var onPresentDialog = ObservableEvent<DialogContent>()
 
@@ -62,34 +63,69 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
 
     public let onInvalidation = InvalidationEvent()
 
+    // MARK: - Properties (Private / Internal)
+
+    private var disposeBag = DisposeBag()
+
     // MARK: - Initialization
 
     public init(
         title: Dynamic<String?>? = nil,
-        options: [PickableItem],
+        options: PickerGroupOptions,
         footerText: Dynamic<String?>? = nil,
-        onPickedOption: @escaping (_ item: PickableItem, _ result: ((PickResult) -> Void)) -> Void
+        onPickedOption: @escaping (_ item: PickableItem, _ result: @escaping ((PickResult) -> Void)) -> Void
     ) {
         self.title = title
         self.options = options
         self.footerText = footerText
         self.onPickedOption = onPickedOption
 
-        self.linkCurrentItems()
+        self.observeOptionsState()
+        self.bindOptions()
     }
 
-    // MARK: -
+    // MARK: - Methods (Public)
 
-    open func update(options: [PickableItem]) {
+    open func update(
+        options: PickerGroupOptions,
+        loadDelayedContent: Bool = false
+    ) {
         self.options = options
+        self.observeOptionsState()
+        if loadDelayedContent {
+            self.loadContent()
+        }
+    }
+
+    public func removeTitle() {
+        self.title = nil
+    }
+
+    public func loadContent() {
+        options.load()
+    }
+
+    // MARK: - Methods (Private)
+
+    private func reloadAfterDelayedStateChange() {
+        self.bindOptions()
         self.invalidate()
     }
 
-    private func linkCurrentItems() {
+    private func bindOptions() {
         // Reference the group as parent
-        self.items.forEach { $0.parentGroup = self }
+        self.items.unboxed.forEach { $0.parentGroup = self }
         // Observe the pick events
-        self.addObserver(for: options)
+        if let options = self.options.unboxedOptions {
+            self.addObserver(for: options)
+        }
+    }
+
+    private func observeOptionsState() {
+        self.options.state.observe({ [weak self] _ in
+            self?.reloadAfterDelayedStateChange()
+        })
+        .disposeWith(self.disposeBag)
     }
 
     private func addObserver(for options: [PickableItem]) {
@@ -101,8 +137,6 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
             }
         }
     }
-
-    // MARK: - Methods
 
     private func handlePickResult(_ result: PickResult) {
         switch result {
@@ -118,9 +152,5 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
             let dialogContent = DialogContent(title: "Error", message: message)
             self.onPresentDialog.fire(with: dialogContent)
         }
-    }
-
-    public func removeTitle() {
-        self.title = nil
     }
 }

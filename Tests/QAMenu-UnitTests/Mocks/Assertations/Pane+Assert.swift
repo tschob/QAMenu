@@ -72,7 +72,7 @@ extension Pane {
             ItemGroup._assertInitProperties(
                 _itemGroup as! ItemGroup,
                 title: itemGroup.title?(),
-                items: itemGroup.items as! [MockItem],
+                items: itemGroup.items.unboxed as! [MockItem],
                 footerText: itemGroup.footerText?()
             )
             groupIndex += 1
@@ -103,7 +103,7 @@ extension Pane {
             PickerGroup._assertInitProperties(
                 _pickerGroup,
                 title: pickerGroup.title?.unboxed,
-                options: pickerGroup.options as! [MockPickableItem],
+                options: pickerGroup.options.unboxedOptions as? [MockPickableItem] ?? [],
                 footerText: pickerGroup.footerText?.unboxed,
                 onPickedOptionFailure: onPickedOptionFailure,
                 testCase: testCase
