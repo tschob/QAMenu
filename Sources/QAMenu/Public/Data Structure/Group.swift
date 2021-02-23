@@ -51,11 +51,16 @@ extension Group {
     // MARK: Title is extracted from group
 
     public func asPane(
+        isReloadable: Bool = false,
         isSearchable: Bool = false
     ) -> Pane {
         let groupTitle = self.title ?? .static("")
         self.removeTitle()
-        return self.asPane(title: groupTitle, isSearchable: isSearchable)
+        return self.asPane(
+            title: groupTitle,
+            isReloadable: isReloadable,
+            isSearchable: isSearchable
+        )
     }
 
     public func asChildPaneItem(
@@ -63,10 +68,12 @@ extension Group {
         footerText: Dynamic<String?>? = nil,
         layoutType: Dynamic<StringItem.LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = "",
-        isSearchable: Bool = false
+        isPaneReloadable: Bool = false,
+        isPaneSearchable: Bool = false
     ) -> ChildPaneItem {
         return self.asPane(
-            isSearchable: isSearchable
+            isReloadable: isPaneReloadable,
+            isSearchable: isPaneSearchable
         )
         .asChildPaneItem(
             value: value,
@@ -80,10 +87,12 @@ extension Group {
 
     public func asPane(
         title: Dynamic<String?>,
+        isReloadable: Bool = false,
         isSearchable: Bool = false
     ) -> Pane {
         return [self].asPane(
             title: title,
+            isReloadable: isReloadable,
             isSearchable: isSearchable
         )
     }
@@ -94,11 +103,13 @@ extension Group {
         footerText: Dynamic<String?>? = nil,
         layoutType: Dynamic<StringItem.LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = "",
+        isPaneReloadable: Bool = false,
         isPaneSearchable: Bool = false
     ) -> ChildPaneItem {
         return Pane(
             title: title,
             groups: [self],
+            isReloadable: isPaneReloadable,
             isSearchable: isPaneSearchable
         )
         .asChildPaneItem(
@@ -116,11 +127,13 @@ extension Array where Element: Group {
 
     public func asPane(
         title: Dynamic<String?>,
+        isReloadable: Bool = false,
         isSearchable: Bool = false
     ) -> Pane {
         return Pane(
             title: title,
             groups: self,
+            isReloadable: isReloadable,
             isSearchable: isSearchable
         )
     }
@@ -131,10 +144,12 @@ extension Array where Element: Group {
         footerText: Dynamic<String?>? = nil,
         layoutType: Dynamic<StringItem.LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = "",
+        isPaneReloadable: Bool = false,
         isPaneSearchable: Bool = false
     ) -> ChildPaneItem {
         let pane = self.asPane(
             title: title,
+            isReloadable: isPaneReloadable,
             isSearchable: isPaneSearchable
         )
         return pane.asChildPaneItem(

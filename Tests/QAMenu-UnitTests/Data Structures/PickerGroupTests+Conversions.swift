@@ -69,6 +69,7 @@ extension PickerGroupTests {
 
         let pane = group.asPane(
             title: .static("title"),
+            isReloadable: true,
             isSearchable: true
         )
 
@@ -78,6 +79,7 @@ extension PickerGroupTests {
             pickerGroups: [group],
             footerText: "footer",
             onPickedOptionFailure: "failure",
+            isReloadable: true,
             isSearchable: true,
             testCase: self
         )
@@ -133,6 +135,7 @@ extension PickerGroupTests {
 
         let pane = groups.asPane(
             title: .static("title"),
+            isReloadable: true,
             isSearchable: true
         )
 
@@ -142,6 +145,7 @@ extension PickerGroupTests {
             pickerGroups: groups,
             footerText: "footer",
             onPickedOptionFailure: "failure",
+            isReloadable: true,
             isSearchable: true,
             testCase: self
         )
@@ -189,6 +193,7 @@ extension PickerGroupTests {
             footerText: .static("footer"),
             layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback",
+            isPaneReloadable: true,
             isPaneSearchable: true
         )
 
@@ -200,6 +205,8 @@ extension PickerGroupTests {
             footerText: "footer",
             layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
+            isPaneReloadable: true,
+            isPaneSearchable: true,
             onPickedOptionFailure: "failure",
             testCase: self
         )
@@ -259,6 +266,7 @@ extension PickerGroupTests {
             footerText: .static("footer"),
             layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback",
+            isPaneReloadable: true,
             isPaneSearchable: true
         )
 
@@ -270,6 +278,8 @@ extension PickerGroupTests {
             footerText: "footer",
             layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
+            isPaneReloadable: true,
+            isPaneSearchable: true,
             onPickedOptionFailure: "failure",
             testCase: self
         )

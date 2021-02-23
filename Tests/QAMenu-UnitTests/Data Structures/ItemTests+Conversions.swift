@@ -113,6 +113,7 @@ extension ItemTests {
 
         let pane = item.asPane(
             title: .static("title"),
+            isReloadable: true,
             isSearchable: true
         )
 
@@ -120,6 +121,7 @@ extension ItemTests {
             pane,
             title: "title",
             items: [item],
+            isReloadable: true,
             isSearchable: true
         )
     }
@@ -148,6 +150,7 @@ extension ItemTests {
 
         let pane = items.asPane(
             title: .static("title"),
+            isReloadable: true,
             isSearchable: true
         )
 
@@ -155,6 +158,7 @@ extension ItemTests {
             pane,
             title: "title",
             items: items,
+            isReloadable: true,
             isSearchable: true
         )
     }
@@ -184,6 +188,7 @@ extension ItemTests {
             footerText: .static("footer"),
             layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback",
+            isPaneReloadable: true,
             isPaneSearchable: true
         )
 
@@ -195,6 +200,7 @@ extension ItemTests {
             footerText: "footer",
             layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
+            isPaneReloadable: true,
             isPaneSearchable: true
         )
     }
@@ -229,6 +235,7 @@ extension ItemTests {
             footerText: .static("footer"),
             layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback",
+            isPaneReloadable: true,
             isPaneSearchable: true
         )
 
@@ -240,6 +247,7 @@ extension ItemTests {
             footerText: "footer",
             layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
+            isPaneReloadable: true,
             isPaneSearchable: true
         )
     }

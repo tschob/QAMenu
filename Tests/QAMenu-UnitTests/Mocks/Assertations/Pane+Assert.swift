@@ -38,6 +38,7 @@ extension Pane {
         _ _sut: Pane,
         title: String? = nil,
         items: [MockItem],
+        isReloadable: Bool = false,
         isSearchable: Bool = false,
         file: StaticString = #file,
         line: UInt = #line
@@ -52,6 +53,7 @@ extension Pane {
         self._assertInitProperties(
             _sut,
             title: title,
+            isReloadable: isReloadable,
             isSearchable: isSearchable
         )
     }
@@ -62,6 +64,7 @@ extension Pane {
         _ _sut: Pane,
         title: String? = nil,
         itemGroups: [ItemGroup],
+        isReloadable: Bool = false,
         isSearchable: Bool = false,
         file: StaticString = #file,
         line: UInt = #line
@@ -80,6 +83,7 @@ extension Pane {
         self._assertInitProperties(
             _sut,
             title: title,
+            isReloadable: isReloadable,
             isSearchable: isSearchable
         )
     }
@@ -92,6 +96,7 @@ extension Pane {
         pickerGroups: [PickerGroup],
         footerText: String? = nil,
         onPickedOptionFailure: String,
+        isReloadable: Bool = false,
         isSearchable: Bool = false,
         testCase: XCTestCase,
         file: StaticString = #file,
@@ -113,6 +118,7 @@ extension Pane {
         self._assertInitProperties(
             _sut,
             title: title,
+            isReloadable: isReloadable,
             isSearchable: isSearchable
         )
     }
@@ -122,11 +128,13 @@ extension Pane {
     private static func _assertInitProperties(
         _ _sut: Pane,
         title: String? = nil,
+        isReloadable: Bool = false,
         isSearchable: Bool = false,
         file: StaticString = #file,
         line: UInt = #line
     ) {
         XCTAssertEqual(_sut.title.unboxed, title, file: file, line: line)
+        XCTAssertEqual(_sut.isReloadable, isReloadable, file: file, line: line)
         XCTAssertEqual(_sut.isSearchable, isSearchable, file: file, line: line)
     }
 }

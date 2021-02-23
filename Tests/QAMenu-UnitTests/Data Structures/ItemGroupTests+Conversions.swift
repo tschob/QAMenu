@@ -59,6 +59,7 @@ extension ItemGroupTests {
 
         let pane = group.asPane(
             title: .static("title"),
+            isReloadable: true,
             isSearchable: true
         )
 
@@ -66,6 +67,7 @@ extension ItemGroupTests {
             pane,
             title: "title",
             itemGroups: [group],
+            isReloadable: true,
             isSearchable: true
         )
     }
@@ -116,6 +118,7 @@ extension ItemGroupTests {
 
         let pane = groups.asPane(
             title: .static("title"),
+            isReloadable: true,
             isSearchable: true
         )
 
@@ -123,6 +126,7 @@ extension ItemGroupTests {
             pane,
             title: "title",
             itemGroups: groups,
+            isReloadable: true,
             isSearchable: true
         )
     }
@@ -159,6 +163,7 @@ extension ItemGroupTests {
             footerText: .static("footer"),
             layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback",
+            isPaneReloadable: true,
             isPaneSearchable: true
         )
 
@@ -169,7 +174,9 @@ extension ItemGroupTests {
             value: "value",
             footerText: "footer",
             layoutType: .vertical(.autoGrow),
-            fallbackString: "fallback"
+            fallbackString: "fallback",
+            isPaneReloadable: true,
+            isPaneSearchable: true
         )
     }
 
@@ -221,6 +228,7 @@ extension ItemGroupTests {
             footerText: .static("footer"),
             layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback",
+            isPaneReloadable: true,
             isPaneSearchable: true
         )
 
@@ -231,7 +239,9 @@ extension ItemGroupTests {
             value: "value",
             footerText: "footer",
             layoutType: .vertical(.autoGrow),
-            fallbackString: "fallback"
+            fallbackString: "fallback",
+            isPaneReloadable: true,
+            isPaneSearchable: true
         )
     }
 }
