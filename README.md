@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   private var cacheGroup: [Group] {
-    let group = ItemGroup(title: .static("App Cache"), items: [
+    let group = ItemGroup(title: .static("App Cache"), items: .static([
       BoolItem(
         title: .static("Enable cache"),
         value: .computed({ [weak self] in
@@ -112,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
         }
       )
-    ])
+    ]))
     return group
   }
 }
@@ -140,6 +140,9 @@ Supported Data types - Items:
 - [x] Booleans (editable)
 - [x] Footers
 - [x] PickableStrings
+- [x] ProgressItem
+- [ ] StepperItem
+- [ ] SliderItem
 
 Capabilities:
  
@@ -149,7 +152,8 @@ Capabilities:
 - [x] Add / remove items dynamically in groups
 - [x] Edit strings (single line)
 - [ ] Edit strings (multiline)
-- [ ] Async loading operation (decoupled)
+- [x] Async loading operation (Items)
+- [ ] Async loading operation (Groups)
 
 See [DataStructure](Docs/DataStructure.md) for more details.
 

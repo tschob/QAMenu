@@ -26,6 +26,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
+// swiftlint:disable file_length
+
 import Foundation
 import QAMenu
 
@@ -41,31 +43,31 @@ extension ShowcaseItemsFactory {
                 }
 
                 static var group: ItemGroup {
-                    return ItemGroup(title: .static("Dynamic group"), items: .static([]))
-                }
-
-                static func update(group: ItemGroup?) {
-                    let originalItemsForGroup_2 = [
-                        BoolItem(
-                            title: .static("Dynamic group visibility"),
-                            value: .computed({ Storage.dynamicGroupExpanded }),
-                            footerText: .static("Using the switch will add / remove additional items in the group."),
-                            onValueChange: { newValue, item, result in
-                                Storage.dynamicGroupExpanded = newValue
-                                Self.update(group: item.parentGroup as? ItemGroup)
-                                result(.success)
+                    return ItemGroup(
+                        title: .static("Dynamic group"),
+                        items: .async({ delayed in
+                            var items: [Item] = [
+                                BoolItem(
+                                    title: .static("Dynamic group visibility"),
+                                    value: .computed({ Storage.dynamicGroupExpanded }),
+                                    footerText: .static("Using the switch will add / remove additional items in the group."),
+                                    onValueChange: { [weak delayed] newValue, _, result in
+                                        Storage.dynamicGroupExpanded = newValue
+                                        delayed?.load()
+                                        result(.success)
+                                    }
+                                )
+                            ]
+                            if Storage.dynamicGroupExpanded {
+                                let additionalItems = [
+                                    StringItem(title: .static("This item was added dynamically"), value: .static("")),
+                                    StringItem(title: .static("And this one as well"), value: .static(""))
+                                ]
+                                items.append(contentsOf: additionalItems)
                             }
-                        )
-                    ]
-                    if Storage.dynamicGroupExpanded {
-                        let additonalItems = [
-                            StringItem(title: .static("This item was added dynamically"), value: .static("")),
-                            StringItem(title: .static("And this one as well"), value: .static(""))
-                        ]
-                        group?.update(items: .static((originalItemsForGroup_2 + additonalItems)))
-                    } else {
-                        group?.update(items: .static(originalItemsForGroup_2))
-                    }
+                            delayed.complete(items)
+                        })
+                    )
                 }
             }
         }

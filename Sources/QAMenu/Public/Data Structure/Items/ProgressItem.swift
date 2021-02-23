@@ -62,7 +62,7 @@ open class ProgressItem: Item {
             return nil
         case .progress(let message),
              .success(let message),
-            .failure(let message):
+             .failure(let message):
             return message
         }
     }

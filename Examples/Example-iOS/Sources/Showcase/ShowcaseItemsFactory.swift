@@ -162,7 +162,6 @@ class ShowcaseItemsFactory {
                 MultipleAsyncPickerGroups.makePane().asChildPaneItem()
             ])
         )
-        DetailedItemExamples.Bool.DynamicGroup.update(group: dynamicGroup)
 
         return [simpleCatalogGroup, detailedCatalogGroup, advancedExamples]
     }

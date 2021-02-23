@@ -46,11 +46,11 @@ class DynamicTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        self.stringProperty.reset()
-        self.intProperty.reset()
-        self.boolProperty.reset()
-        self.dictionaryProperty.reset()
-        self.objectProperty.reset()
+        self.stringProperty = nil
+        self.intProperty = nil
+        self.boolProperty = nil
+        self.dictionaryProperty = nil
+        self.objectProperty = nil
     }
 
     // MARK: - Static

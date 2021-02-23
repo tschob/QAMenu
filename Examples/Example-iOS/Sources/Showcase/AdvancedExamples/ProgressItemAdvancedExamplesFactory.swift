@@ -26,14 +26,34 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
+// swiftlint:disable function_body_length
+
 import QAMenu
 
 struct ProgressItemAdvancedExamplesFactory {
+
+    static var loopedProgressItem: ProgressItem?
 
     static func makePane() -> Pane {
         let pane = Pane(
             title: .static("ProgressItem"),
             groups: [
+                ItemGroup(
+                    title: .computed({ "Updated state" }),
+                    items: .async({ delayed in
+                        let loopedProgressItem = self.loopedProgressItem ?? ProgressItem()
+                        delayed.complete([loopedProgressItem])
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            loopedProgressItem.state = .progress("Loading")
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                loopedProgressItem.state = .success("Loaded with a long description message")
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    loopedProgressItem.state = .failure("Failed")
+                                }
+                            }
+                        }
+                    })
+                ),
                 ItemGroup(
                     title: .computed({ "Short messages" }),
                     items: .static([

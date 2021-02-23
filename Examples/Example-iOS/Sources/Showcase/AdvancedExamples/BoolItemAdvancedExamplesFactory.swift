@@ -40,10 +40,6 @@ class BoolItemAdvancedExamplesFactory {
         static var bool_2_1 = false
     }
 
-    var group_2: ItemGroup?
-
-    var originalItemsForGroup_2 = [Item]()
-
     func makePane() -> Pane {
 
         let group_1 = ItemGroup(items: .static([
@@ -84,9 +80,6 @@ class BoolItemAdvancedExamplesFactory {
         ]))
 
         let group2 = ShowcaseItemsFactory.DetailedItemExamples.Bool.DynamicGroup.group
-        self.group_2 = group2
-
-        ShowcaseItemsFactory.DetailedItemExamples.Bool.DynamicGroup.update(group: group2)
 
         let pane = Pane(
             title: .static("BoolItem"),
