@@ -136,7 +136,8 @@ struct MultipleAsyncPickerGroups {
                 headerGroup,
                 productionGroup,
                 stagingGroup
-            ]
+            ],
+            isReloadable: true
         )
     }
 }

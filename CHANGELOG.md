@@ -5,14 +5,17 @@
 #### Breaking Changes
 
 * [QAMenu] `Group.items`, `ItemGroup.items` and `PickerGroup.options` are now wrapped in the new `Delayed` type (PR #10)
+* [QAMenu] The parameter `isSearchable` is renamed to `isPaneSearchable` in `Group.asChildPaneItem` (PR #11)
 
 #### Enhancements
 
 * [QAMenu] Added new item type `EditableStringItem` which allows to edit Strings (PR #9)
 * [QAMenu] `Group.items`, `ItemGroup.items` and `PickerGroup.options` loading can now be delayed until they are presented on the screen (PR #10)
 * [QAMenu] New item `ProgressItem` can be used to show a progress (and error message) (PR #10)
+* [QAMenu] `Pane`s can now be declared as reloadable (PR #11)
 * [QAMenuUIKit] `EditableStringItem`s can be edited with a simple UIAlertViewController (PR #9)
 * [QAMenuUIKit] Added view for new `ProgressItem` (PR #10)
+* [QAMenuUIKit] Reloadable panes can be reloaded with pull-to-refresh (PR #11)
 
 #### Bug Fixes
 

@@ -32,12 +32,17 @@ import QAMenu
 class MockPane: Pane {
 
     var _onIsPresentedCallCount = 0
+    var _onReloadCallCount = 0
 
-    init(title: String = "MockPane", groups: [Group] = []) {
-        super.init(title: .static(title), groups: groups)
+    init(title: String = "MockPane", groups: [Group] = [], isReloadable: Bool = false) {
+        super.init(title: .static(title), groups: groups, isReloadable: isReloadable)
     }
 
     override func onIsPresented() {
         self._onIsPresentedCallCount += 1
+    }
+
+    override func onReload() {
+        self._onReloadCallCount += 1
     }
 }

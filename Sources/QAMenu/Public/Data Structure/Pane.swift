@@ -38,6 +38,7 @@ open class Pane: NSObject, Invalidatable {
 
     public let title: Dynamic<String?>
     public let groups: [Group]
+    public let isReloadable: Bool
     public let isSearchable: Bool
 
     open var onInvalidation = InvalidationEvent()
@@ -47,6 +48,7 @@ open class Pane: NSObject, Invalidatable {
     public convenience init(
         title: Dynamic<String?>,
         items: [Item],
+        isReloadable: Bool = false,
         isSearchable: Bool = false
     ) {
         self.init(
@@ -61,16 +63,26 @@ open class Pane: NSObject, Invalidatable {
     public init(
         title: Dynamic<String?>,
         groups: [Group],
+        isReloadable: Bool = false,
         isSearchable: Bool = false
     ) {
         self.title = title
         self.groups = groups
+        self.isReloadable = isReloadable
         self.isSearchable = isSearchable
         super.init()
     }
 
     open func onIsPresented() {
-      self.groups.forEach { $0.loadContent() }
+        self.groups.forEach { $0.loadContent() }
+    }
+
+    open func onReload() {
+        guard self.isReloadable else {
+            return
+        }
+        self.invalidate()
+        self.groups.forEach { $0.loadContent() }
     }
 
     open func invalidate() {

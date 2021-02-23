@@ -100,6 +100,7 @@ extension ChildPaneItem {
         footerText: String? = nil,
         layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
+        isPaneReloadable: Bool = false,
         isPaneSearchable: Bool = false,
         file: StaticString = #file,
         line: UInt = #line
@@ -116,6 +117,7 @@ extension ChildPaneItem {
             pane,
             title: pane.title.unboxed,
             items: items,
+            isReloadable: isPaneReloadable,
             isSearchable: isPaneSearchable
         )
         self._assertInitProperties(
@@ -138,6 +140,7 @@ extension ChildPaneItem {
         footerText: String? = nil,
         layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
+        isPaneReloadable: Bool = false,
         isPaneSearchable: Bool = false,
         file: StaticString = #file,
         line: UInt = #line
@@ -199,6 +202,8 @@ extension ChildPaneItem {
         footerText: String? = nil,
         layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
+        isPaneReloadable: Bool = false,
+        isPaneSearchable: Bool = false,
         onPickedOptionFailure: String,
         testCase: XCTestCase,
         file: StaticString = #file,
@@ -214,6 +219,8 @@ extension ChildPaneItem {
         }()
 
         XCTAssertEqual(pane.groups.count, pickerGroups.count, file: file, line: line)
+        XCTAssertEqual(pane.isReloadable, isPaneReloadable, file: file, line: line)
+        XCTAssertEqual(pane.isSearchable, isPaneSearchable, file: file, line: line)
         var groupIndex = 0
         pickerGroups.forEach { pickerGroup in
             let _pickerGroup = pane.groups[groupIndex] as! PickerGroup

@@ -26,6 +26,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
+// swiftlint:disable file_length
+
 import UIKit
 import QAMenu
 import QAMenuUtils
@@ -70,6 +72,8 @@ internal class PaneViewController: UIViewController {
         }
     }
 
+    private let refreshControl = UIRefreshControl()
+
     private var searchQuery: String?
 
     // MARK: - Initialization
@@ -92,6 +96,7 @@ internal class PaneViewController: UIViewController {
         tableView.estimatedRowHeight = CGFloat(44)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
+
         self.view.addSubview(tableView)
 
         NSLayoutConstraint.activate([
@@ -104,6 +109,20 @@ internal class PaneViewController: UIViewController {
         tableView.register(ContainerTableViewCell.self, forCellReuseIdentifier: UnsupportedItemView(frame: .zero).reuseIdentifier)
 
         self.tableView = tableView
+    }
+
+    private func updateRefreshControl() {
+        if self.pane.isReloadable {
+            self.tableView?.refreshControl = self.refreshControl
+
+            self.refreshControl.addTarget(
+                self,
+                action: #selector(handleRefreshControl),
+                for: .valueChanged
+            )
+        } else {
+            tableView?.refreshControl = nil
+        }
     }
 
     private func setupSearch() {
@@ -135,8 +154,14 @@ internal class PaneViewController: UIViewController {
         }
 
         self.loadPane()
-
         self.pane.onIsPresented()
+    }
+
+    @objc internal func handleRefreshControl() {
+        DispatchQueue.main.async {
+            self.pane.onReload()
+            self.refreshControl.endRefreshing()
+        }
     }
 
     // MARK: - Loading
@@ -152,6 +177,7 @@ internal class PaneViewController: UIViewController {
 
         self.title = self.pane.title()
         self.tableView?.reloadData()
+        self.updateRefreshControl()
     }
 
     private func reloadItems(for search: String?) {

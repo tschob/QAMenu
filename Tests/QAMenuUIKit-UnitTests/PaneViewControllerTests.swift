@@ -63,6 +63,20 @@ class PaneViewControllerTests: XCTestCase {
         XCTAssertNotEqual(mockPane._onIsPresentedCallCount, 0)
     }
 
+    // MARK: - handleRefreshControl
+
+    func test_handleRefreshControl_callsOnOnReloadOnPane() throws {
+        let mockPane = MockPane(isReloadable: true)
+        let qaMenu = QAMenuMock()
+        let sut = PaneViewController(pane: mockPane, qaMenu: qaMenu)
+
+        XCTAssertEqual(mockPane._onReloadCallCount, 0)
+
+        sut.handleRefreshControl()
+
+        XCTAssertNotEqual(mockPane._onReloadCallCount, 1)
+    }
+
     // MARK: - presentationContext
 
     func test_presentationContext_returnsItself() throws {

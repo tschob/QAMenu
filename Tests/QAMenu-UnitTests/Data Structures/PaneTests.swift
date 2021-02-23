@@ -120,4 +120,26 @@ class PaneTests: XCTestCase {
 
         XCTAssertEqual(group._loadContentCallCount, 1)
     }
+
+    func test_onReload_whenPaneIsReloadable_callsLoadContentOnGroups() throws {
+        let group = MockGroup()
+        let sut = Pane(title: .static(""), groups: [group], isReloadable: true)
+
+        XCTAssertEqual(group._loadContentCallCount, 0)
+
+        sut.onReload()
+
+        XCTAssertEqual(group._loadContentCallCount, 1)
+    }
+
+    func test_onReload_whenPaneIsNotReloadable_callsNotLoadContentOnGroups() throws {
+        let group = MockGroup()
+        let sut = Pane(title: .static(""), groups: [group], isReloadable: false)
+
+        XCTAssertEqual(group._loadContentCallCount, 0)
+
+        sut.onReload()
+
+        XCTAssertEqual(group._loadContentCallCount, 0)
+    }
 }

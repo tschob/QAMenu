@@ -64,12 +64,14 @@ extension Item {
 
     public func asPane(
         title: Dynamic<String?>,
+        isReloadable: Bool = false,
         isSearchable: Bool = false
     ) -> Pane {
         return [self]
             .asItemGroup()
             .asPane(
                 title: title,
+                isReloadable: isReloadable,
                 isSearchable: isSearchable
             )
     }
@@ -80,11 +82,13 @@ extension Item {
         footerText: Dynamic<String?>? = nil,
         layoutType: Dynamic<StringItem.LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = "",
+        isPaneReloadable: Bool = false,
         isPaneSearchable: Bool = false
     ) -> ChildPaneItem {
         return [self]
             .asPane(
                 title: title,
+                isReloadable: isPaneReloadable,
                 isSearchable: isPaneSearchable
             )
             .asChildPaneItem(
@@ -113,12 +117,14 @@ extension Array where Element: Item {
 
     public func asPane(
         title: Dynamic<String?>,
+        isReloadable: Bool = false,
         isSearchable: Bool = false
     ) -> Pane {
         return self
             .asItemGroup()
             .asPane(
                 title: title,
+                isReloadable: isReloadable,
                 isSearchable: isSearchable
             )
     }
@@ -129,11 +135,13 @@ extension Array where Element: Item {
         footerText: Dynamic<String?>? = nil,
         layoutType: Dynamic<StringItem.LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = "",
+        isPaneReloadable: Bool = false,
         isPaneSearchable: Bool = false
     ) -> ChildPaneItem {
         return self
             .asPane(
                 title: title,
+                isReloadable: isPaneReloadable,
                 isSearchable: isPaneSearchable
             )
             .asChildPaneItem(
