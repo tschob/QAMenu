@@ -4,6 +4,20 @@
 
 #### Breaking Changes
 
+* None
+
+#### Enhancements
+
+* None
+
+#### Bug Fixes
+
+* None
+
+## 0.4.0
+
+#### Breaking Changes
+
 * [QAMenu] `Group.items`, `ItemGroup.items` and `PickerGroup.options` are now wrapped in the new `Delayed` type (PR #10)
 * [QAMenu] The parameter `isSearchable` is renamed to `isPaneSearchable` in `Group.asChildPaneItem` (PR #11)
 
