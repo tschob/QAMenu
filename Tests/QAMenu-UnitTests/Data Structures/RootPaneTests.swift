@@ -85,7 +85,7 @@ class RootPaneTests: XCTestCase {
 
         XCTAssertEqual(sut.title.unboxed, title.unboxed)
         XCTAssertEqual(sut.groups.count, 1)
-        XCTAssertEqual(sut.groups[0].items as! [MockItem], items)
+        XCTAssertEqual(sut.groups[0].items.unboxed as? [MockItem], items)
         XCTAssertEqual(sut.isSearchable, isSearchable)
     }
 

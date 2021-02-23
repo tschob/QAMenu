@@ -27,7 +27,6 @@
 //
 
 // swiftlint:disable function_body_length
-// swiftlint:disable line_length
 
 import UIKit
 import QAMenu
@@ -50,7 +49,7 @@ class ShowcaseItemsFactory {
     private class func makeGroups() -> [Group] {
         let simpleCatalogGroup = ItemGroup(
             title: .static("Simple Catalog"),
-            items: [
+            items: .static([
                 EditableStringItem(
                     title: .static("Editable String"),
                     value: .computed({
@@ -119,45 +118,49 @@ class ShowcaseItemsFactory {
                 ),
                 DetailedItemExamples.ChildPane.nestedChildren,
                 DetailedItemExamples.ChildPane.customScreen
-            ],
+            ]),
             footerText: .static("Tip: Perform a long touch on a StringItem to share its value 💯")
         )
 
         let detailedCatalogGroup = ItemGroup(
             title: .static("Detailed item examples"),
-            items: [
+            items: .static([
                 ChildPaneItem(pane: { StringItemAdvancedExamplesFactory.makePane() }),
                 ChildPaneItem(pane: { EditableStringItemAdvancedExamplesFactory.makePane() }),
                 ChildPaneItem(pane: { BoolItemAdvancedExamplesFactory().makePane() }),
                 ChildPaneItem(pane: { ButtonItemAdvancedExamplesFactory().makePane() }),
                 ChildPaneItem(pane: {
                     Pane(title: .static("ChildPaneItem"), groups: [
-                        ItemGroup(items: [
+                        ItemGroup(items: .static([
                             DetailedItemExamples.ChildPane.nestedChildren
-                        ]),
-                        ItemGroup(title: .static("Custom Panes"), items: [
+                        ])),
+                        ItemGroup(title: .static("Custom Panes"), items: .static([
                             DetailedItemExamples.ChildPane.simpleCustomScreen,
                             DetailedItemExamples.ChildPane.advancedCustomScreen
-                        ])
+                        ]))
                     ])
                 }),
+                ChildPaneItem(pane: { ProgressItemAdvancedExamplesFactory.makePane() }),
+                ChildPaneItem(pane: { ItemGroupAdvancedExamplesFactory().makePane() }),
                 ChildPaneItem(pane: { PickerGroupAdvancedExamplesFactory().makePane() })
-            ]
+            ])
         )
 
         let dynamicGroup = DetailedItemExamples.Bool.DynamicGroup.group
         let advancedExamples = ItemGroup(
             title: .static("Advanced examples"),
-            items: [
+            items: .static([
                 ChildPaneItem(pane: {
                     Pane(title: .computed({ "Dynamic Content" }), groups: [
                         dynamicGroup,
-                        ItemGroup(items: [
+                        ItemGroup(items: .static([
                             DetailedItemExamples.String.UpdatingTime.item
-                        ])
+                        ]))
                     ])
-                })
-            ]
+                }),
+                MultipleAsyncItemGroups.makePane().asChildPaneItem(),
+                MultipleAsyncPickerGroups.makePane().asChildPaneItem()
+            ])
         )
         DetailedItemExamples.Bool.DynamicGroup.update(group: dynamicGroup)
 

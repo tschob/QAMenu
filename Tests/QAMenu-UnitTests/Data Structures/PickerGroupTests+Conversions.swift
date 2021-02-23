@@ -37,7 +37,7 @@ extension PickerGroupTests {
         let options: [MockPickableItem] = []
         let group = PickerGroup(
             title: .static("groupTitle"),
-            options: options,
+            options: .static(options),
             onPickedOption: { _, result in
                 result(.failure("failure"))
             }
@@ -61,7 +61,7 @@ extension PickerGroupTests {
         ]
         let group = PickerGroup(
             title: .static("groupTitle"),
-            options: options,
+            options: .static(options),
             onPickedOption: { _, result in
                 result(.failure("failure"))
             }
@@ -90,7 +90,7 @@ extension PickerGroupTests {
         let groups = [
             PickerGroup(
                 title: .static("groupTitle"),
-                options: options,
+                options: .static(options),
                 onPickedOption: { _, result in
                     result(.failure("failure"))
                 }
@@ -118,13 +118,13 @@ extension PickerGroupTests {
         let groups = [
             PickerGroup(
                 title: .static("groupTitle1"),
-                options: options,
+                options: .static(options),
                 onPickedOption: { _, result in
                     result(.failure("failure"))
                 }
             ),
             PickerGroup(
-                options: [],
+                options: .static([]),
                 onPickedOption: { _, result in
                     result(.failure("failure"))
                 }
@@ -154,7 +154,7 @@ extension PickerGroupTests {
             MockPickableItem()
         ]
         let sut = PickerGroup(
-            options: options,
+            options: .static(options),
             onPickedOption: { _, result in
                 result(.failure("failure"))
             }
@@ -174,9 +174,9 @@ extension PickerGroupTests {
     func test_pickerGroup_asChildPaneItem_whenPassingAllParameters_returnsExpectedChildPaneItem() throws {
         let pickerGroup = PickerGroup(
             title: .static("groupTitle"),
-            options: [
+            options: .static([
                 MockPickableItem()
-            ],
+            ]),
             footerText: .static("groupFooter"),
             onPickedOption: { _, result in
                 result(.failure("failure"))
@@ -213,7 +213,7 @@ extension PickerGroupTests {
         ]
         let groups = [
             PickerGroup(
-                options: options,
+                options: .static(options),
                 onPickedOption: { _, result in
                     result(.failure("failure"))
                 }
@@ -236,16 +236,16 @@ extension PickerGroupTests {
     func test_pickerGroups_asChildPaneItem_whenPassingAllParameters_returnsExpectedChildPaneItem() throws {
         let groups = [
             PickerGroup(
-                options: [],
+                options: .static([]),
                 onPickedOption: { _, result in
                     result(.failure("failure"))
                 }
             ),
             PickerGroup(
                 title: .static("groupTitle"),
-                options: [
+                options: .static([
                     MockPickableItem()
-                ],
+                ]),
                 footerText: .static("groupFooter"),
                 onPickedOption: { _, result in
                     result(.failure("failure"))

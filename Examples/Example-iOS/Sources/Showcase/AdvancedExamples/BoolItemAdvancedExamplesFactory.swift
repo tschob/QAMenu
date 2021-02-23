@@ -46,7 +46,7 @@ class BoolItemAdvancedExamplesFactory {
 
     func makePane() -> Pane {
 
-        let group_1 = ItemGroup(items: [
+        let group_1 = ItemGroup(items: .static([
             BoolItem(
                 title: .static("Title (short)"),
                 value: .computed({ Self.Storage.bool_1_1 }),
@@ -81,7 +81,7 @@ class BoolItemAdvancedExamplesFactory {
                     result(.success)
                 }
             )
-        ])
+        ]))
 
         let group2 = ShowcaseItemsFactory.DetailedItemExamples.Bool.DynamicGroup.group
         self.group_2 = group2

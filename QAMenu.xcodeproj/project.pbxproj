@@ -58,7 +58,6 @@
 		A2172D2325C9DF43009DC774 /* StringItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF725C9DF43009DC774 /* StringItemTests.swift */; };
 		A2172D2425C9DF43009DC774 /* PaneTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF825C9DF43009DC774 /* PaneTests+Conversions.swift */; };
 		A2172D2525C9DF43009DC774 /* Dictionary+QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF925C9DF43009DC774 /* Dictionary+QAMenuTests.swift */; };
-		A2172D2625C9DF43009DC774 /* DynamicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CFC25C9DF43009DC774 /* DynamicTests.swift */; };
 		A2172D2825C9DF43009DC774 /* QAMenu+LogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CFE25C9DF43009DC774 /* QAMenu+LogTests.swift */; };
 		A2172D2A25C9DF43009DC774 /* QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0025C9DF43009DC774 /* QAMenuTests.swift */; };
 		A2172D2B25C9DF43009DC774 /* ObservableEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */; };
@@ -117,6 +116,17 @@
 		A28876D52516AB94003528E5 /* BooleanItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28876CF2516AB94003528E5 /* BooleanItemView.xib */; };
 		A28876D62516AB94003528E5 /* ButtonItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28876D02516AB94003528E5 /* ButtonItemView.xib */; };
 		A28876D72516AB94003528E5 /* UnsupportedItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28876D12516AB94003528E5 /* UnsupportedItemView.xib */; };
+		A28976A925E1723600EB7326 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28976A825E1723600EB7326 /* Observable.swift */; };
+		A28976B025E1724100EB7326 /* Delayed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28976AF25E1724100EB7326 /* Delayed.swift */; };
+		A28976B825E1764C00EB7326 /* ProgressItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28976B725E1764C00EB7326 /* ProgressItemView.swift */; };
+		A28976C925E1783D00EB7326 /* ProgressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28976C825E1783D00EB7326 /* ProgressItem.swift */; };
+		A289794825E194EC00EB7326 /* ProgressItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A289794725E194EC00EB7326 /* ProgressItemView.xib */; };
+		A289796025E1A9E900EB7326 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289795F25E1A9E900EB7326 /* ObservableTests.swift */; };
+		A289797625E29A4100EB7326 /* GroupItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289797525E29A4100EB7326 /* GroupItems.swift */; };
+		A289797D25E29A7D00EB7326 /* PickerGroupOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289797C25E29A7D00EB7326 /* PickerGroupOptions.swift */; };
+		A28979A725E2B35200EB7326 /* DelayedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28979A525E2B35200EB7326 /* DelayedTests.swift */; };
+		A28979A825E2B35200EB7326 /* DynamicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28979A625E2B35200EB7326 /* DynamicTests.swift */; };
+		A28979B925E2B64500EB7326 /* Delayed+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28979B825E2B64500EB7326 /* Delayed+Assert.swift */; };
 		A28C1D4A25863EDC00E43377 /* PickableStringItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C1D4925863EDC00E43377 /* PickableStringItemView.swift */; };
 		A28C1D50258641A000E43377 /* PickableStringItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28C1D4F258641A000E43377 /* PickableStringItemView.xib */; };
 		A28FE88625D7F9E500924A8F /* EditableStringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28FE88525D7F9E400924A8F /* EditableStringItem.swift */; };
@@ -181,6 +191,11 @@
 		A2E30585256705190049D88D /* QAMenuPresenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E30583256705190049D88D /* QAMenuPresenterUITests.swift */; };
 		A2E305A9256717730049D88D /* ItemUIRepresentableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E305A3256716D70049D88D /* ItemUIRepresentableTests.swift */; };
 		A2E305B3256719150049D88D /* QAMenuUIKitPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E305B2256719150049D88D /* QAMenuUIKitPresenterTests.swift */; };
+		A2E6592125E435A40013DEE0 /* Dynamic+Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6592025E435A40013DEE0 /* Dynamic+Assert.swift */; };
+		A2E6592825E4396E0013DEE0 /* GroupItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6592725E4396E0013DEE0 /* GroupItemsTests.swift */; };
+		A2E6592F25E4402C0013DEE0 /* PickerGroupOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6592E25E4402C0013DEE0 /* PickerGroupOptionsTests.swift */; };
+		A2E6595925E44D730013DEE0 /* MockPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6595825E44D730013DEE0 /* MockPane.swift */; };
+		A2E6596925E4596A0013DEE0 /* ProgressItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6596825E4596A0013DEE0 /* ProgressItemTests.swift */; };
 		A2EA8C722586434F008F18DF /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA8C712586434F008F18DF /* CheckboxView.swift */; };
 		A2EA8C7C258661B2008F18DF /* ChildPaneItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA8C7B258661B1008F18DF /* ChildPaneItem.swift */; };
 		A2EA8C9825867E25008F18DF /* PickerGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA8C9725867E25008F18DF /* PickerGroup.swift */; };
@@ -305,7 +320,6 @@
 		A2172CF725C9DF43009DC774 /* StringItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringItemTests.swift; sourceTree = "<group>"; };
 		A2172CF825C9DF43009DC774 /* PaneTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaneTests+Conversions.swift"; sourceTree = "<group>"; };
 		A2172CF925C9DF43009DC774 /* Dictionary+QAMenuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+QAMenuTests.swift"; sourceTree = "<group>"; };
-		A2172CFC25C9DF43009DC774 /* DynamicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTests.swift; sourceTree = "<group>"; };
 		A2172CFE25C9DF43009DC774 /* QAMenu+LogTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QAMenu+LogTests.swift"; sourceTree = "<group>"; };
 		A2172D0025C9DF43009DC774 /* QAMenuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuTests.swift; sourceTree = "<group>"; };
 		A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableEventTests.swift; sourceTree = "<group>"; };
@@ -363,6 +377,17 @@
 		A28876CF2516AB94003528E5 /* BooleanItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooleanItemView.xib; sourceTree = "<group>"; };
 		A28876D02516AB94003528E5 /* ButtonItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonItemView.xib; sourceTree = "<group>"; };
 		A28876D12516AB94003528E5 /* UnsupportedItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnsupportedItemView.xib; sourceTree = "<group>"; };
+		A28976A825E1723600EB7326 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		A28976AF25E1724100EB7326 /* Delayed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delayed.swift; sourceTree = "<group>"; };
+		A28976B725E1764C00EB7326 /* ProgressItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressItemView.swift; sourceTree = "<group>"; };
+		A28976C825E1783D00EB7326 /* ProgressItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressItem.swift; sourceTree = "<group>"; };
+		A289794725E194EC00EB7326 /* ProgressItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressItemView.xib; sourceTree = "<group>"; };
+		A289795F25E1A9E900EB7326 /* ObservableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
+		A289797525E29A4100EB7326 /* GroupItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupItems.swift; sourceTree = "<group>"; };
+		A289797C25E29A7D00EB7326 /* PickerGroupOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroupOptions.swift; sourceTree = "<group>"; };
+		A28979A525E2B35200EB7326 /* DelayedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayedTests.swift; sourceTree = "<group>"; };
+		A28979A625E2B35200EB7326 /* DynamicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicTests.swift; sourceTree = "<group>"; };
+		A28979B825E2B64500EB7326 /* Delayed+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Delayed+Assert.swift"; sourceTree = "<group>"; };
 		A28C1D4925863EDC00E43377 /* PickableStringItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickableStringItemView.swift; sourceTree = "<group>"; };
 		A28C1D4F258641A000E43377 /* PickableStringItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickableStringItemView.xib; sourceTree = "<group>"; };
 		A28FE88525D7F9E400924A8F /* EditableStringItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableStringItem.swift; sourceTree = "<group>"; };
@@ -435,6 +460,11 @@
 		A2E30584256705190049D88D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2E305A3256716D70049D88D /* ItemUIRepresentableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemUIRepresentableTests.swift; sourceTree = "<group>"; };
 		A2E305B2256719150049D88D /* QAMenuUIKitPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QAMenuUIKitPresenterTests.swift; sourceTree = "<group>"; };
+		A2E6592025E435A40013DEE0 /* Dynamic+Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dynamic+Assert.swift"; sourceTree = "<group>"; };
+		A2E6592725E4396E0013DEE0 /* GroupItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupItemsTests.swift; sourceTree = "<group>"; };
+		A2E6592E25E4402C0013DEE0 /* PickerGroupOptionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroupOptionsTests.swift; sourceTree = "<group>"; };
+		A2E6595825E44D730013DEE0 /* MockPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPane.swift; sourceTree = "<group>"; };
+		A2E6596825E4596A0013DEE0 /* ProgressItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressItemTests.swift; sourceTree = "<group>"; };
 		A2EA8C712586434F008F18DF /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		A2EA8C7B258661B1008F18DF /* ChildPaneItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildPaneItem.swift; sourceTree = "<group>"; };
 		A2EA8C9725867E25008F18DF /* PickerGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroup.swift; sourceTree = "<group>"; };
@@ -534,6 +564,8 @@
 		A2172CD625C9DF43009DC774 /* Assertations */ = {
 			isa = PBXGroup;
 			children = (
+				A28979B825E2B64500EB7326 /* Delayed+Assert.swift */,
+				A2E6592025E435A40013DEE0 /* Dynamic+Assert.swift */,
 				A2172CD725C9DF43009DC774 /* PickerGroup+Assert.swift */,
 				A2172CD825C9DF43009DC774 /* ItemGroup+Assert.swift */,
 				A2172CD925C9DF43009DC774 /* Pane+Assert.swift */,
@@ -561,6 +593,8 @@
 				A2172CE725C9DF43009DC774 /* Capabilities */,
 				A2172CE925C9DF43009DC774 /* PickerGroupTests.swift */,
 				A2172CEA25C9DF43009DC774 /* ItemTests.swift */,
+				A2E6592725E4396E0013DEE0 /* GroupItemsTests.swift */,
+				A2E6592E25E4402C0013DEE0 /* PickerGroupOptionsTests.swift */,
 				A2172CEB25C9DF43009DC774 /* RootPaneTests.swift */,
 				A2172D7A25C9E4F0009DC774 /* RootPaneTests+Conversions.swift */,
 				A2172CEC25C9DF43009DC774 /* ItemGroupTests.swift */,
@@ -586,6 +620,7 @@
 		A2172CF225C9DF43009DC774 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				A2E6596825E4596A0013DEE0 /* ProgressItemTests.swift */,
 				A2172CF325C9DF43009DC774 /* PickableStringItemTests.swift */,
 				A2172CF425C9DF43009DC774 /* ButtonItemTests.swift */,
 				A2172CF525C9DF43009DC774 /* ChildPaneItemTests.swift */,
@@ -599,25 +634,19 @@
 		A2172CFA25C9DF43009DC774 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A2172CFB25C9DF43009DC774 /* Dynamic */,
+				A28979A525E2B35200EB7326 /* DelayedTests.swift */,
+				A28979A625E2B35200EB7326 /* DynamicTests.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		A2172CFB25C9DF43009DC774 /* Dynamic */ = {
-			isa = PBXGroup;
-			children = (
-				A2172CFC25C9DF43009DC774 /* DynamicTests.swift */,
-			);
-			path = Dynamic;
 			sourceTree = "<group>";
 		};
 		A2172D0125C9DF43009DC774 /* Observable */ = {
 			isa = PBXGroup;
 			children = (
-				A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */,
 				A2172D0325C9DF43009DC774 /* DisposableTests.swift */,
 				A2172D0425C9DF43009DC774 /* DisposeBagTests.swift */,
+				A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */,
+				A289795F25E1A9E900EB7326 /* ObservableTests.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -666,6 +695,7 @@
 			isa = PBXGroup;
 			children = (
 				A25EE38F25A8F4C300932C65 /* Observable */,
+				A28976AF25E1724100EB7326 /* Delayed.swift */,
 				A238A06C253C71AB0016BBD7 /* Dynamic.swift */,
 			);
 			path = Utils;
@@ -676,6 +706,7 @@
 			children = (
 				A25EE39025A8F4C300932C65 /* DisposeBag.swift */,
 				A25EE39125A8F4C300932C65 /* Disposable.swift */,
+				A28976A825E1723600EB7326 /* Observable.swift */,
 				A25EE39225A8F4C300932C65 /* ObservableEvent.swift */,
 			);
 			path = Observable;
@@ -718,6 +749,8 @@
 				A2BEC0E1257BFD5B0005EFDF /* PaneRepresentable.swift */,
 				A28873D92516822A003528E5 /* RootPane.swift */,
 				A28873DA2516822A003528E5 /* ItemGroup.swift */,
+				A289797525E29A4100EB7326 /* GroupItems.swift */,
+				A289797C25E29A7D00EB7326 /* PickerGroupOptions.swift */,
 				A2B968F1259E40B0004CC383 /* Group.swift */,
 				A249DE45258E5CAD002AEC41 /* PickableItem.swift */,
 				A2EA8C9725867E25008F18DF /* PickerGroup.swift */,
@@ -745,6 +778,7 @@
 			children = (
 				A28873DE2516822A003528E5 /* BoolItem.swift */,
 				A28873DF2516822A003528E5 /* ButtonItem.swift */,
+				A28976C825E1783D00EB7326 /* ProgressItem.swift */,
 				A2EA8C7B258661B1008F18DF /* ChildPaneItem.swift */,
 				A28FE88525D7F9E400924A8F /* EditableStringItem.swift */,
 				A249DE3F258E5C61002AEC41 /* PickableStringItem.swift */,
@@ -756,14 +790,23 @@
 		A28876CC2516AB94003528E5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A28876CD2516AB94003528E5 /* StringItemView.xib */,
 				A28876CE2516AB94003528E5 /* Assets.xcassets */,
 				A28876CF2516AB94003528E5 /* BooleanItemView.xib */,
-				A28C1D4F258641A000E43377 /* PickableStringItemView.xib */,
 				A28876D02516AB94003528E5 /* ButtonItemView.xib */,
+				A28C1D4F258641A000E43377 /* PickableStringItemView.xib */,
+				A289794725E194EC00EB7326 /* ProgressItemView.xib */,
+				A28876CD2516AB94003528E5 /* StringItemView.xib */,
 				A28876D12516AB94003528E5 /* UnsupportedItemView.xib */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A28976B625E1764B00EB7326 /* ProgressItemView */ = {
+			isa = PBXGroup;
+			children = (
+				A28976B725E1764C00EB7326 /* ProgressItemView.swift */,
+			);
+			path = ProgressItemView;
 			sourceTree = "<group>";
 		};
 		A28C1D4825863EDC00E43377 /* PickableStringItemView */ = {
@@ -854,6 +897,7 @@
 				A2969E1E25167D7900EA54D5 /* StringItemView */,
 				A2969E2025167D7900EA54D5 /* ButtonItemView */,
 				A28C1D4825863EDC00E43377 /* PickableStringItemView */,
+				A28976B625E1764B00EB7326 /* ProgressItemView */,
 				A2969E2225167D7900EA54D5 /* Base */,
 			);
 			path = ItemViews;
@@ -1017,6 +1061,7 @@
 			children = (
 				A2B98A5E256DAA790059C5EA /* QAMenuMock.swift */,
 				A2B98A60256DAA790059C5EA /* ItemUIRepresentableDelegateSpy.swift */,
+				A2E6595825E44D730013DEE0 /* MockPane.swift */,
 				A200F17625D823CB00B309F4 /* SingleLineTextEditorControllerMock.swift */,
 				A2B897082598D4480016A373 /* PaneRepresentableMock.swift */,
 				A2B98A5F256DAA790059C5EA /* RootPaneUIRepresentableMock.swift */,
@@ -1336,6 +1381,7 @@
 				A28876D42516AB94003528E5 /* Assets.xcassets in Resources */,
 				A28876D52516AB94003528E5 /* BooleanItemView.xib in Resources */,
 				A28C1D50258641A000E43377 /* PickableStringItemView.xib in Resources */,
+				A289794825E194EC00EB7326 /* ProgressItemView.xib in Resources */,
 				A28876D62516AB94003528E5 /* ButtonItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1537,6 +1583,7 @@
 				A28873F72516822A003528E5 /* QAMenuPresenter.swift in Sources */,
 				A28873EC2516822A003528E5 /* Shareable.swift in Sources */,
 				A28873F62516822A003528E5 /* QAMenu+Log.swift in Sources */,
+				A28976A925E1723600EB7326 /* Observable.swift in Sources */,
 				A2EA8C7C258661B2008F18DF /* ChildPaneItem.swift in Sources */,
 				A28873E82516822A003528E5 /* Invalidatable.swift in Sources */,
 				A249DE60258FA0E2002AEC41 /* DialogTrigger.swift in Sources */,
@@ -1544,18 +1591,22 @@
 				A28FE88625D7F9E500924A8F /* EditableStringItem.swift in Sources */,
 				A238A06D253C71AC0016BBD7 /* Dynamic.swift in Sources */,
 				A2172D9825C9EAD1009DC774 /* QAMenuConfigurationStorable.swift in Sources */,
+				A28976B025E1724100EB7326 /* Delayed.swift in Sources */,
 				A249DE66258FA7A9002AEC41 /* NavigationTrigger.swift in Sources */,
 				A249DE46258E5CAD002AEC41 /* PickableItem.swift in Sources */,
 				A2172D9725C9EAD1009DC774 /* QAMenuConfiguration.swift in Sources */,
 				A2172DB925C9EE07009DC774 /* QAMenu+DismissBehavior.swift in Sources */,
 				A2BEC0E4257BFD5B0005EFDF /* PaneRepresentable.swift in Sources */,
 				A2EA8C9825867E25008F18DF /* PickerGroup.swift in Sources */,
+				A289797D25E29A7D00EB7326 /* PickerGroupOptions.swift in Sources */,
 				A28873F22516822A003528E5 /* BoolItem.swift in Sources */,
 				A28873F82516822A003528E5 /* Dictionary+QAMenu.swift in Sources */,
 				A28873ED2516822A003528E5 /* Item.swift in Sources */,
+				A289797625E29A4100EB7326 /* GroupItems.swift in Sources */,
 				A28873F52516822A003528E5 /* QAMenu.swift in Sources */,
 				A28873E72516822A003528E5 /* Pane.swift in Sources */,
 				A249DE40258E5C61002AEC41 /* PickableStringItem.swift in Sources */,
+				A28976C925E1783D00EB7326 /* ProgressItem.swift in Sources */,
 				A28873EA2516822A003528E5 /* Selectable.swift in Sources */,
 				A28873F42516822A003528E5 /* QAMenu+Trigger.swift in Sources */,
 			);
@@ -1567,12 +1618,12 @@
 			files = (
 				A2172D1325C9DF43009DC774 /* MockPaneRepresentable.swift in Sources */,
 				A2172D1A25C9DF43009DC774 /* ItemTests+Conversions.swift in Sources */,
-				A2172D2625C9DF43009DC774 /* DynamicTests.swift in Sources */,
 				A2172D0925C9DF43009DC774 /* Pane+Assert.swift in Sources */,
 				A2172D2C25C9DF43009DC774 /* DisposableTests.swift in Sources */,
 				A2172D2325C9DF43009DC774 /* StringItemTests.swift in Sources */,
 				A2172D2025C9DF43009DC774 /* ButtonItemTests.swift in Sources */,
 				A2172D1725C9DF43009DC774 /* ItemTests.swift in Sources */,
+				A28979B925E2B64500EB7326 /* Delayed+Assert.swift in Sources */,
 				A2172D0A25C9DF43009DC774 /* PickableStringItem+Assert.swift in Sources */,
 				A2172D1125C9DF43009DC774 /* MockGroup.swift in Sources */,
 				A2172D1C25C9DF43009DC774 /* PaneTests.swift in Sources */,
@@ -1581,6 +1632,7 @@
 				A2172D0B25C9DF43009DC774 /* StringItem+Assert.swift in Sources */,
 				A2172D2825C9DF43009DC774 /* QAMenu+LogTests.swift in Sources */,
 				A200F18F25D8326900B309F4 /* EditableStringItem+Assert.swift in Sources */,
+				A28979A825E2B35200EB7326 /* DynamicTests.swift in Sources */,
 				A200F18325D8317000B309F4 /* EditableStringItemTests.swift in Sources */,
 				A2172D1D25C9DF43009DC774 /* ItemGroupTests+Conversions.swift in Sources */,
 				A2172D0F25C9DF43009DC774 /* MockPane.swift in Sources */,
@@ -1591,17 +1643,22 @@
 				A2172D1525C9DF43009DC774 /* SearchableTests.swift in Sources */,
 				A2172D1825C9DF43009DC774 /* RootPaneTests.swift in Sources */,
 				A2172D1225C9DF43009DC774 /* MockPickableItem.swift in Sources */,
+				A2E6592F25E4402C0013DEE0 /* PickerGroupOptionsTests.swift in Sources */,
 				A2172D0825C9DF43009DC774 /* ItemGroup+Assert.swift in Sources */,
 				A2172D2B25C9DF43009DC774 /* ObservableEventTests.swift in Sources */,
+				A289796025E1A9E900EB7326 /* ObservableTests.swift in Sources */,
+				A2E6592825E4396E0013DEE0 /* GroupItemsTests.swift in Sources */,
 				A2172D2425C9DF43009DC774 /* PaneTests+Conversions.swift in Sources */,
 				A2172D1925C9DF43009DC774 /* ItemGroupTests.swift in Sources */,
 				A2172D0725C9DF43009DC774 /* PickerGroup+Assert.swift in Sources */,
+				A2E6592125E435A40013DEE0 /* Dynamic+Assert.swift in Sources */,
 				A2172D7B25C9E4F0009DC774 /* RootPaneTests+Conversions.swift in Sources */,
 				A2172D2A25C9DF43009DC774 /* QAMenuTests.swift in Sources */,
 				A2172D1625C9DF43009DC774 /* PickerGroupTests.swift in Sources */,
 				A2172D1B25C9DF43009DC774 /* PickableItemTests.swift in Sources */,
 				A2172DC025C9F38D009DC774 /* QAMenu+TriggerTests.swift in Sources */,
 				A2172D1E25C9DF43009DC774 /* PickerGroupTests+Conversions.swift in Sources */,
+				A28979A725E2B35200EB7326 /* DelayedTests.swift in Sources */,
 				A2172D1425C9DF43009DC774 /* MockItem.swift in Sources */,
 				A2172D2125C9DF43009DC774 /* ChildPaneItemTests.swift in Sources */,
 				A2172D0C25C9DF43009DC774 /* BoolItem+Assert.swift in Sources */,
@@ -1609,6 +1666,7 @@
 				A2172D0625C9DF43009DC774 /* MockQAMenuPresenter.swift in Sources */,
 				A2172D0D25C9DF43009DC774 /* ButtonItem+Assert.swift in Sources */,
 				A2172D1025C9DF43009DC774 /* MockSearchable.swift in Sources */,
+				A2E6596925E4596A0013DEE0 /* ProgressItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1622,6 +1680,7 @@
 				A2969E5025167D7A00EA54D5 /* ContainerTableViewCell.swift in Sources */,
 				A28C1D4A25863EDC00E43377 /* PickableStringItemView.swift in Sources */,
 				A2969E5525167D7A00EA54D5 /* QAMenuUIKitPresenter.swift in Sources */,
+				A28976B825E1764C00EB7326 /* ProgressItemView.swift in Sources */,
 				A2E0856F2517C56B00706D23 /* QAMenuLifecycleManager.swift in Sources */,
 				A2969E4F25167D7A00EA54D5 /* DisclosureIndicatorView.swift in Sources */,
 				A2969E5B25167D7A00EA54D5 /* ItemUIRepresentable.swift in Sources */,
@@ -1702,6 +1761,7 @@
 				A2B98A6E256DAA7A0059C5EA /* FooterViewSupportingMock.swift in Sources */,
 				A2B9898C256D72560059C5EA /* StringItemViewTests.swift in Sources */,
 				A2B98A73256DAA7A0059C5EA /* CustomShareable.swift in Sources */,
+				A2E6595925E44D730013DEE0 /* MockPane.swift in Sources */,
 				A2B989B9256D909F0059C5EA /* FooterViewSupportingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

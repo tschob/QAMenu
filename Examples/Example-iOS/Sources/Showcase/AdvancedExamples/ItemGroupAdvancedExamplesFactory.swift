@@ -1,12 +1,12 @@
 //
-//  PickerGroupAdvancedExamplesFactory.swift
+//  ItemGroupAdvancedExamplesFactory.swift
 //
-//  Created by Hans Seiffert on 19.12.20.
+//  Created by Hans Seiffert on 22.02.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -29,22 +29,12 @@
 import UIKit
 import QAMenu
 
-class PickerGroupAdvancedExamplesFactory {
+class ItemGroupAdvancedExamplesFactory {
 
     func makePane() -> Pane {
         let pane = Pane(
-            title: .static("PickerGroup"),
+            title: .static("ItemGroup"),
             groups: [
-                Pane(
-                    title: .static("Selection Examples"),
-                    groups: [
-                        ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.onlyOneSelection(),
-                        ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.singleSelection(),
-                        ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.multiSelection()
-                    ]
-                )
-                .asChildPaneItem()
-                .asItemGroup(),
                 ItemGroup(
                     title: .static("Delayed Loading"),
                     items: .static([
@@ -79,12 +69,11 @@ class PickerGroupAdvancedExamplesFactory {
         allowRetry: Swift.Bool,
         shouldDismiss: Swift.Bool
     ) -> ChildPaneItem {
-        let footer = "Loading fails for \(succeedsAfter) time(s); Shows a retry button: \(allowRetry ? "yes" : "no"); Dismisses the picker after a selection: \(shouldDismiss ? "yes" : "no")"
-        return ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.delayedOptions(
+        let footer = "Loading fails for \(succeedsAfter) time(s); Shows a retry button: \(allowRetry ? "yes" : "no")"
+        return ShowcaseItemsFactory.DetailedItemExamples.ItemGroups.delayedItems(
             identifier: identifier,
             succeedsAfter: succeedsAfter,
             allowRetry: allowRetry,
-            shouldDismiss: shouldDismiss,
             footer: footer
         )
         .asChildPaneItem(footerText: .static(footer))

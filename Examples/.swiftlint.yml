@@ -4,3 +4,5 @@ parent_config: ../.swiftlint.yml
 
 disabled_rules:
   - explicit_acl
+  - line_length
+  - type_body_length

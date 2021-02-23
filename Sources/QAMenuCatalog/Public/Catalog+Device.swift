@@ -46,7 +46,7 @@ public extension QAMenu.Catalog {
             #endif
             return ItemGroup(
                 title: .static(title),
-                items: items
+                items: .static(items)
             )
         }
     }

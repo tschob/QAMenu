@@ -31,10 +31,14 @@ import QAMenu
 
 class PickableStringItemTests: XCTestCase {
 
-    var disposeBag = DisposeBag()
+    var disposeBag: DisposeBag!
 
     override func setUpWithError() throws {
         self.disposeBag = DisposeBag()
+    }
+
+    override func tearDownWithError() throws {
+        self.disposeBag = nil
     }
 
     func test_typeId() throws {

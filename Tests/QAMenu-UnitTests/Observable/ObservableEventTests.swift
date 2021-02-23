@@ -43,7 +43,7 @@ class ObservableEventTests: XCTestCase {
         let disposable: Disposable = sut.observe { value in
             print(value)
         }
-        XCTAssert(true, "observing the event returns a disposable \(disposable)")
+        XCTAssert(true, "observing the event returns a disposable \(disposable) without crashing")
     }
 
     func test_observe_addsObserverToObserversList_whenListIsEmpty() throws {
@@ -93,7 +93,7 @@ class ObservableEventTests: XCTestCase {
     }
 
     func test_fire_callsAllObserversExactlyOnce_whenHaving2Observer_withInvertedExpectation() throws {
-        // Make sure that the expectation is actually comparing the string by having one inverted assertation
+        // Make sure that the expectation is actually comparing the string by having one inverted assertion
         let observation1Tuple = makeObservation(expectedEvent: "false")
         observation1Tuple.expectation.isInverted = true
         let observation2Tuple = makeObservation(expectedEvent: "true")

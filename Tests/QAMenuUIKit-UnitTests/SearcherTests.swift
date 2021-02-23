@@ -60,7 +60,7 @@ class SearcherTests: XCTestCase {
         let resultGroups = Searcher.filter([], with: "query")
 
         XCTAssertEqual(resultGroups.count, 1)
-        XCTAssertEqual(resultGroups[0].items.count, 0)
+        XCTAssertEqual(resultGroups[0].items.unboxed.count, 0)
     }
 
     func test_filter_whenGroupHasNoMatchingItem_withNilQuery_returnsOriginalGroup() throws {
@@ -106,7 +106,7 @@ class SearcherTests: XCTestCase {
             MockGroup(items: items)
         ]
         let expected: [Group] = [
-            ItemGroup(items: [])
+            ItemGroup(items: .static([]))
         ]
 
         let resultGroups = Searcher.filter(given, with: "query")
@@ -122,7 +122,7 @@ class SearcherTests: XCTestCase {
             MockGroup(items: items)
         ]
         let expected: [Group] = [
-            ItemGroup(items: items)
+            ItemGroup(items: .static(items))
         ]
 
         let resultGroups = Searcher.filter(given, with: "query")
@@ -139,7 +139,7 @@ class SearcherTests: XCTestCase {
             MockGroup(items: items)
         ]
         let expected: [Group] = [
-            ItemGroup(items: [items[0]])
+            ItemGroup(items: .static([items[0]]))
         ]
 
         let resultGroups = Searcher.filter(given, with: "query")
@@ -156,7 +156,7 @@ class SearcherTests: XCTestCase {
             MockGroup(items: items)
         ]
         let expected: [Group] = [
-            ItemGroup(items: items)
+            ItemGroup(items: .static(items))
         ]
 
         let resultGroups = Searcher.filter(given, with: "query")
@@ -177,7 +177,7 @@ class SearcherTests: XCTestCase {
             MockGroup(items: items2)
         ]
         let expected: [Group] = [
-            ItemGroup(items: items1)
+            ItemGroup(items: .static(items1))
         ]
 
         let resultGroups = Searcher.filter(given, with: "query")
@@ -199,7 +199,7 @@ class SearcherTests: XCTestCase {
             MockGroup(items: items2)
         ]
         let expected: [Group] = [
-            ItemGroup(items: items1 + items2)
+            ItemGroup(items: .static(items1 + items2))
         ]
 
         let resultGroups = Searcher.filter(given, with: "query")
@@ -219,10 +219,10 @@ class SearcherTests: XCTestCase {
         var groupIndex = 0
         expectedGroup.forEach { expectedGroup in
             let group = groups[groupIndex]
-            XCTAssertEqual(expectedGroup.items.count, group.items.count, file: file, line: line)
+            XCTAssertEqual(expectedGroup.items.unboxed.count, group.items.unboxed.count, file: file, line: line)
             var itemIndex = 0
-            expectedGroup.items.forEach { item in
-                XCTAssertTrue(item === group.items[itemIndex], file: file, line: line)
+            expectedGroup.items.unboxed.forEach { item in
+                XCTAssertTrue(item === group.items.unboxed[itemIndex], file: file, line: line)
                 itemIndex += 1
             }
             groupIndex += 1

@@ -4,16 +4,19 @@
 
 #### Breaking Changes
 
-* None
+* [QAMenu] Group items and picker options are now wrapped in the new `Delayed` type (MR TBA)
 
 #### Enhancements
 
 * [QAMenu] Added new item type `EditableStringItem` which allows to edit Strings (PR #9)
-* [QAMenuUKit] `EditableStringItem`s can be edited with a simple UIAlertViewController (PR #9)
+* [QAMenu] Group items and picker options loading can now be delayed until they are presented on the screen (PR TBA)
+* [QAMenu] New item `ProgressItem` can be used to show a progress (and error message) (PR TBA)
+* [QAMenuUIKit] `EditableStringItem`s can be edited with a simple UIAlertViewController (PR #9)
+* [QAMenuUIKit] New item `ProgressItemView` (MR TBA)
 
 #### Bug Fixes
 
-* None
+* [QAMenu] Marked some additional closure as escaping (PR TBA)
 
 ## 0.3.0
 

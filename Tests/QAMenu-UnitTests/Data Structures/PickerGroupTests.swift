@@ -45,7 +45,7 @@ class PickerGroupTests: XCTestCase {
 
     func test_init_whenPassingOnlyMandatoryParameters() throws {
         let sut = PickerGroup(
-            options: [],
+            options: .static([]),
             onPickedOption: { _, result in
                 result(.failure("failure"))
             }
@@ -65,7 +65,7 @@ class PickerGroupTests: XCTestCase {
         ]
         let sut = PickerGroup(
             title: .static(nil),
-            options: options,
+            options: .static(options),
             footerText: .static("footer"),
             onPickedOption: { _, result in
                 result(.failure("failure"))
@@ -93,7 +93,7 @@ class PickerGroupTests: XCTestCase {
 
         _ = PickerGroup(
             title: .static(nil),
-            options: options,
+            options: .static(options),
             footerText: .static("footer"),
             onPickedOption: { _, _ in }
         )
@@ -102,22 +102,22 @@ class PickerGroupTests: XCTestCase {
         XCTAssertNotNil(options[1].onPick)
     }
 
-    // MARK: - Invalidatable
+    // MARK: - Update (static options)
 
-    func test_update_whenGivenEmptyArray_replacesInstanceItems() throws {
+    func test_update_whenGivenEmptyStaticArray_replacesInstanceItems() throws {
         let sut = PickerGroup(
-            options: [MockPickableItem()],
+            options: .static([MockPickableItem()]),
             onPickedOption: { _, _ in }
         )
 
-        sut.update(options: [])
+        sut.update(options: .static([]))
 
-        XCTAssertTrue(sut.items.isEmpty)
+        XCTAssertTrue(sut.items.unboxed.isEmpty)
     }
 
-    func test_update_whenGivenEmptyArray_invalidatesTheGroup() throws {
+    func test_update_whenGivenEmptyStaticArray_invalidatesTheGroup() throws {
         let sut = PickerGroup(
-            options: [MockPickableItem()],
+            options: .static([MockPickableItem()]),
             onPickedOption: { _, _ in }
         )
 
@@ -129,36 +129,36 @@ class PickerGroupTests: XCTestCase {
             }
             .disposeWith(self.disposeBag)
 
-        sut.update(options: [])
+        sut.update(options: .static([]))
 
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
-    func test_update_whenGivenOptions_replacesEmptyInstanceItems() throws {
+    func test_update_whenGivenStaticOptions_replacesEmptyInstanceItems() throws {
         let sut = PickerGroup(
-            options: [],
+            options: .static([]),
             onPickedOption: { _, _ in }
         )
 
-        sut.update(options: [MockPickableItem()])
+        sut.update(options: .static([MockPickableItem()]))
 
-        XCTAssertEqual(sut.items.count, 1)
+        XCTAssertEqual(sut.items.unboxed.count, 1)
     }
 
-    func test_update_whenGivenOptions_replacesInstanceItems() throws {
+    func test_update_whenGivenStaticOptions_replacesInstanceItems() throws {
         let sut = PickerGroup(
-            options: [MockPickableItem(), MockPickableItem()],
+            options: .static([MockPickableItem(), MockPickableItem()]),
             onPickedOption: { _, _ in }
         )
 
-        sut.update(options: [MockPickableItem()])
+        sut.update(options: .static([MockPickableItem()]))
 
-        XCTAssertEqual(sut.items.count, 1)
+        XCTAssertEqual(sut.items.unboxed.count, 1)
     }
 
-    func test_update_whenGivenOptions_invalidatesTheGroup() throws {
+    func test_update_whenGivenStaticOptions_invalidatesTheGroup() throws {
         let sut = PickerGroup(
-            options: [MockPickableItem()],
+            options: .static([MockPickableItem()]),
             onPickedOption: { _, _ in }
         )
 
@@ -170,22 +170,22 @@ class PickerGroupTests: XCTestCase {
             }
             .disposeWith(self.disposeBag)
 
-        sut.update(options: [MockPickableItem()])
+        sut.update(options: .static([MockPickableItem()]))
 
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
-    func test_update_whenGivenOptions_referencesTheGroupAsParent() throws {
+    func test_update_whenGivenStaticOptions_referencesTheGroupAsParent() throws {
         let sut = PickerGroup(
-            options: [MockPickableItem()],
+            options: .static([MockPickableItem()]),
             onPickedOption: { _, _ in }
         )
 
-        sut.update(options: [MockPickableItem(), MockPickableItem()])
+        sut.update(options: .static([MockPickableItem(), MockPickableItem()]))
 
         let groupReferencedExpectation = expectation(description: "")
         groupReferencedExpectation.expectedFulfillmentCount = 2
-        sut.items.forEach { item in
+        sut.items.unboxed.forEach { item in
             if item.parentGroup === sut {
                 groupReferencedExpectation.fulfill()
             }
@@ -194,11 +194,250 @@ class PickerGroupTests: XCTestCase {
         wait(for: [groupReferencedExpectation], timeout: 0.01)
     }
 
+    // MARK: - Invalidatable (async options)
+
+    func test_update_whenGivenEmptyAsyncArray_replacesInstanceItems() throws {
+        let sut = PickerGroup(
+            options: .async({ instance in
+                instance.complete([
+                    MockPickableItem()
+                ])
+            }),
+            onPickedOption: { _, _ in }
+        )
+        sut.loadContent()
+
+        sut.update(options: .async({ instance in
+            instance.complete([])
+        }))
+
+        // After loading the delayed content
+        sut.loadContent()
+        XCTAssertTrue(sut.items.unboxed.isEmpty)
+    }
+
+    func test_update_whenGivenEmptyAsyncArray_invalidatesTheGroup() throws {
+        let sut = PickerGroup(
+            options: .async({ instance in
+                instance.complete([
+                    MockPickableItem()
+                ])
+            }),
+            onPickedOption: { _, _ in }
+        )
+        sut.loadContent()
+
+        let invalidationExpectation = expectation(description: "onInvalidation was called as expected")
+        // 2 invalidations are expected: Replacing the group, loading success
+        invalidationExpectation.expectedFulfillmentCount = 2
+        sut.onInvalidation
+            .observe {
+                invalidationExpectation.fulfill()
+            }
+            .disposeWith(self.disposeBag)
+
+        sut.update(options: .async({ instance in
+            instance.complete([
+                MockPickableItem(),
+                MockPickableItem(),
+                MockPickableItem()
+            ])
+        }))
+
+        sut.loadContent()
+
+        wait(for: [invalidationExpectation], timeout: 0.1)
+    }
+
+    func test_update_whenGivenAsyncOptions_replacesEmptyInstanceItems() throws {
+        let sut = PickerGroup(
+            options: .async({ instance in
+                instance.complete([])
+            }),
+            onPickedOption: { _, _ in }
+        )
+        sut.loadContent()
+
+        sut.update(options: .async({ instance in
+            instance.complete([MockPickableItem()])
+        }))
+        sut.loadContent()
+
+        XCTAssertEqual(sut.items.unboxed.count, 1)
+    }
+
+    func test_update_whenGivenAsyncOptions_replacesInstanceItems() throws {
+        let sut = PickerGroup(
+            options: .async({ instance in
+                instance.complete([
+                    MockPickableItem(),
+                    MockPickableItem()
+                ])
+            }),
+            onPickedOption: { _, _ in }
+        )
+        sut.loadContent()
+
+        sut.update(
+            options: .async({ instance in
+                instance.complete([MockPickableItem()])
+            }),
+            loadDelayedContent: true
+        )
+
+        XCTAssertEqual(sut.items.unboxed.count, 1)
+    }
+
+    func test_update_whenGivenAsyncOptions_invalidatesTheGroup() throws {
+        let sut = PickerGroup(
+            options: .async({ instance in
+                instance.complete([
+                    MockPickableItem()
+                ])
+            }),
+            onPickedOption: { _, _ in }
+        )
+        sut.loadContent()
+
+        let invalidationExpectation = expectation(description: "onInvalidation was called")
+        invalidationExpectation.assertForOverFulfill = true
+        sut.onInvalidation
+            .observe {
+                invalidationExpectation.fulfill()
+            }
+            .disposeWith(self.disposeBag)
+
+        sut.update(options: .async({ instance in
+            instance.complete([MockPickableItem()])
+        }))
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
+    }
+
+    func test_update_whenGivenAsyncOptions_andContentIsLoaded_referencesTheGroupAsParent() throws {
+        let sut = PickerGroup(
+            options: .async({ instance in
+                instance.complete([
+                    MockPickableItem()
+                ])
+            }),
+            onPickedOption: { _, _ in }
+        )
+        sut.loadContent()
+
+        sut.update(options: .async({ instance in
+            instance.complete([
+                MockPickableItem(),
+                MockPickableItem()
+            ])
+        }))
+        sut.loadContent()
+
+        let groupReferencedExpectation = expectation(description: "the group is referenced as parent")
+        groupReferencedExpectation.expectedFulfillmentCount = 2
+        sut.items.unboxed.forEach { item in
+            if item.parentGroup === sut {
+                groupReferencedExpectation.fulfill()
+            }
+        }
+
+        wait(for: [groupReferencedExpectation], timeout: 0.01)
+    }
+
+    func test_update_whenGivenAsyncOptions_andContentIsNotLoaded_doesNotReferencesTheGroupAsParent() throws {
+        let sut = PickerGroup(
+            options: .async({ instance in
+                instance.complete([
+                    MockPickableItem()
+                ])
+            }),
+            onPickedOption: { _, _ in }
+        )
+        sut.loadContent()
+
+        sut.update(options: .async({ instance in
+            instance.complete([
+                MockPickableItem(),
+                MockPickableItem()
+            ])
+        }))
+
+        let groupReferencedExpectation = expectation(description: "the group is not referenced as parent")
+        groupReferencedExpectation.isInverted = true
+        sut.items.unboxed.forEach { item in
+            if item.parentGroup === sut {
+                groupReferencedExpectation.fulfill()
+            }
+        }
+
+        wait(for: [groupReferencedExpectation], timeout: 0.01)
+    }
+
+    // MARK: - Invalidatable (static + async combinations)
+
+    func test_update_whenInitialOptionsAreStatic_andUpdateIsAsync_replacesInstanceItems() throws {
+        let sut = PickerGroup(
+            options: .static([
+                MockPickableItem(),
+                MockPickableItem()
+            ]),
+            onPickedOption: { _, _ in }
+        )
+        // Before loading the delayed content
+        XCTAssertEqual(sut.items.unboxed.count, 2)
+
+        // After loading the delayed content
+        sut.loadContent()
+        XCTAssertEqual(sut.items.unboxed.count, 2)
+
+        // After setting the async content
+        sut.update(options: .async({ instance in
+            instance.complete([
+                MockPickableItem()
+            ])
+        }))
+
+        // Before loading the delayed content
+        XCTAssertTrue(sut.items.unboxed.isEmpty)
+
+        // After loading the delayed content
+        sut.loadContent()
+        XCTAssertEqual(sut.items.unboxed.count, 1)
+    }
+
+    func test_update_whenInitialOptionsAreAsync_andUpdateIsStatic_replacesInstanceItems() throws {
+        let sut = PickerGroup(
+            options: .async({ instance in
+                instance.complete([MockPickableItem()])
+            }),
+            onPickedOption: { _, _ in }
+        )
+        // Before loading the delayed content
+        XCTAssertEqual(sut.items.unboxed.count, 0)
+
+        // After loading the delayed content
+        sut.loadContent()
+        XCTAssertEqual(sut.items.unboxed.count, 1)
+
+        // After setting the static content
+        sut.update(options: .static([
+            MockPickableItem(),
+            MockPickableItem()
+        ]))
+
+        // Before loading the delayed content
+        XCTAssertEqual(sut.items.unboxed.count, 2)
+
+        // After loading the delayed content
+        sut.loadContent()
+        XCTAssertEqual(sut.items.unboxed.count, 2)
+    }
+
     // MARK: - Searchable
 
     func test_searchableContent_whenHavingNotTitleAndFooter_containsNothing() throws {
         let sut = PickerGroup(
-            options: [],
+            options: .static([]),
             onPickedOption: { _, _ in }
         )
 
@@ -209,7 +448,7 @@ class PickerGroupTests: XCTestCase {
     func test_searchableContent_whenHavingTitle_containsThat() throws {
         let sut = PickerGroup(
             title: .static("title"),
-            options: [],
+            options: .static([]),
             onPickedOption: { _, _ in }
         )
 
@@ -220,7 +459,7 @@ class PickerGroupTests: XCTestCase {
 
     func test_searchableContent_whenHavingFooter_containsThat() throws {
         let sut = PickerGroup(
-            options: [],
+            options: .static([]),
             footerText: .static("footer"),
             onPickedOption: { _, _ in }
         )
@@ -233,7 +472,7 @@ class PickerGroupTests: XCTestCase {
     func test_searchableContent_whenHavingTitleAndFooter_containsThose() throws {
         let sut = PickerGroup(
             title: .static("title"),
-            options: [],
+            options: .static([]),
             footerText: .static("footer"),
             onPickedOption: { _, _ in }
         )
@@ -249,7 +488,7 @@ class PickerGroupTests: XCTestCase {
     func test_invalidate_doesNotCrash_whenNoObserverIsAdded() throws {
         let sut = PickerGroup(
             title: .static(nil),
-            options: [],
+            options: .static([]),
             onPickedOption: { _, _ in }
         )
 
@@ -261,7 +500,7 @@ class PickerGroupTests: XCTestCase {
     func test_invalidate_firesOnInvalidationEvent() throws {
         let sut = PickerGroup(
             title: .static(nil),
-            options: [],
+            options: .static([]),
             onPickedOption: { _, _ in }
         )
 
@@ -284,7 +523,7 @@ class PickerGroupTests: XCTestCase {
         let mockItem = MockPickableItem()
         let sut = PickerGroup(
             title: .static(nil),
-            options: [mockItem],
+            options: .static([mockItem]),
             onPickedOption: { _, result in
                 result(.success(shouldDismiss: false))
             }
@@ -307,7 +546,7 @@ class PickerGroupTests: XCTestCase {
         let mockItem = MockPickableItem()
         let sut = PickerGroup(
             title: .static(nil),
-            options: [mockItem],
+            options: .static([mockItem]),
             onPickedOption: { _, result in
                 result(.success(shouldDismiss: true))
             }
@@ -330,7 +569,7 @@ class PickerGroupTests: XCTestCase {
         let mockItem = MockPickableItem()
         let sut = PickerGroup(
             title: .static(nil),
-            options: [mockItem],
+            options: .static([mockItem]),
             onPickedOption: { _, result in
                 result(.success(shouldDismiss: true))
             }
@@ -358,7 +597,7 @@ class PickerGroupTests: XCTestCase {
         let mockItem = MockPickableItem()
         _ = PickerGroup(
             title: .static(nil),
-            options: [mockItem],
+            options: .static([mockItem]),
             onPickedOption: { _, result in
                 result(.success(shouldDismiss: true))
             }
@@ -379,7 +618,7 @@ class PickerGroupTests: XCTestCase {
         let mockItem = MockPickableItem()
         let sut = PickerGroup(
             title: .static(nil),
-            options: [mockItem],
+            options: .static([mockItem]),
             onPickedOption: { _, result in
                 result(.success(shouldDismiss: false))
             }
@@ -403,7 +642,7 @@ class PickerGroupTests: XCTestCase {
         let mockItem = MockPickableItem()
         let sut = PickerGroup(
             title: .static(nil),
-            options: [mockItem],
+            options: .static([mockItem]),
             onPickedOption: { _, result in
                 result(.failure("Failure"))
             }
@@ -427,7 +666,7 @@ class PickerGroupTests: XCTestCase {
         let mockItem = MockPickableItem()
         _ = PickerGroup(
             title: .static(nil),
-            options: [mockItem],
+            options: .static([mockItem]),
             onPickedOption: { _, result in
                 result(.failure("Failure"))
             }

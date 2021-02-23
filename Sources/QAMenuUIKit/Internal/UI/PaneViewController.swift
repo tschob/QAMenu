@@ -135,6 +135,8 @@ internal class PaneViewController: UIViewController {
         }
 
         self.loadPane()
+
+        self.pane.onIsPresented()
     }
 
     // MARK: - Loading
@@ -162,7 +164,7 @@ internal class PaneViewController: UIViewController {
         pane.groups.forEach { group in
             self.observeInvalidatable(group)
             self.observeDialogTriggerable(group as? DialogTrigger)
-            group.items.forEach { item in
+            group.items.unboxed.forEach { item in
                 self.observeDialogTriggerable(item as? DialogTrigger)
                 self.observeNavigationTrigger(item as? NavigationTrigger)
             }
@@ -222,7 +224,7 @@ internal class PaneViewController: UIViewController {
     // MARK: - Helper
 
     fileprivate func item(at indexPath: IndexPath) -> Item {
-        return self.data[indexPath.section].items[indexPath.row]
+        return self.data[indexPath.section].items.unboxed[indexPath.row]
     }
 
     internal func cellFor(item: Item, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -330,7 +332,7 @@ extension PaneViewController: UITableViewDataSource {
     }
 
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data[section].items.count
+        return self.data[section].items.unboxed.count
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

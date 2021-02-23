@@ -41,7 +41,7 @@ extension ShowcaseItemsFactory {
                 }
 
                 static var group: ItemGroup {
-                    return ItemGroup(title: .static("Dynamic group"), items: [])
+                    return ItemGroup(title: .static("Dynamic group"), items: .static([]))
                 }
 
                 static func update(group: ItemGroup?) {
@@ -62,9 +62,9 @@ extension ShowcaseItemsFactory {
                             StringItem(title: .static("This item was added dynamically"), value: .static("")),
                             StringItem(title: .static("And this one as well"), value: .static(""))
                         ]
-                        group?.update(items: (originalItemsForGroup_2 + additonalItems))
+                        group?.update(items: .static((originalItemsForGroup_2 + additonalItems)))
                     } else {
-                        group?.update(items: originalItemsForGroup_2)
+                        group?.update(items: .static(originalItemsForGroup_2))
                     }
                 }
             }
@@ -105,17 +105,17 @@ extension ShowcaseItemsFactory {
             static var nestedChildren: ChildPaneItem {
                 return ChildPaneItem(pane: {
                     Pane(title: .static("Inception 🔁 Go one level deeper"), groups: [
-                        ItemGroup(items: [
+                        ItemGroup(items: .static([
                             ChildPaneItem(pane: { Pane(title: .static("Inception 🔁 Go another level deeper"), groups: [
-                                ItemGroup(items: [
+                                ItemGroup(items: .static([
                                     StringItem(
                                         title: .static("End?"),
                                         value: .static("In theory you can do this forever"),
                                         layoutType: .static(.horizontal(.singleLine))
                                     )
-                                ])
+                                ]))
                             ])})
-                        ])
+                        ]))
                     ])
                 })
             }
@@ -151,13 +151,13 @@ extension ShowcaseItemsFactory {
 
             private static var customNestedScreenPane: Pane {
                 return Pane(title: .static("QA Menu UI again"), groups: [
-                    ItemGroup(items: [
+                    ItemGroup(items: .static([
                         StringItem(
                             title: .static("You are back in QA Menu UI"),
                             value: .static("👍"),
                             layoutType: .static(.horizontal(.singleLine))
                         )
-                    ])
+                    ]))
                 ])
             }
         }
@@ -213,6 +213,48 @@ extension ShowcaseItemsFactory {
             }
         }
 
+        struct ItemGroups {
+
+            static var remainingFailingLoadingCounts = [Swift.String: Int]()
+
+            static func delayedItems(
+                identifier: Swift.String,
+                succeedsAfter: Int,
+                allowRetry: Swift.Bool,
+                footer: Swift.String
+            ) -> ItemGroup {
+                remainingFailingLoadingCounts[identifier] = succeedsAfter
+                let group = ItemGroup(
+                    title: .static("Delayed Items \(identifier)"),
+                    items: .async({ instance in
+                        instance.updateProgress(ProgressItem(state: .progress("Loading Part I")))
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                            instance.updateProgress(ProgressItem(state: .progress("Loading Part II")))
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                                let remainingFailingLoadingCount = remainingFailingLoadingCounts[identifier] ?? 0
+                                if remainingFailingLoadingCount <= 0 {
+                                    instance.complete([StringItem(title: .static("Key"), value: .static("value"))])
+                                } else {
+                                    instance.fail(
+                                        ProgressItem(state: .failure("Error: Loading fails the first \(remainingFailingLoadingCount) time(s)")),
+                                        onFailureOption: ButtonItem(
+                                            title: .static("Try Again"),
+                                            action: { (_, _) in
+                                                instance.load()
+                                            }
+                                        )
+                                    )
+                                }
+                                remainingFailingLoadingCounts[identifier] = remainingFailingLoadingCount - 1
+                            })
+                        })
+                    }),
+                    footerText: .static(footer)
+                )
+                return group
+            }
+        }
+
         struct PickerGroups {
 
             static func onlyOneSelection(
@@ -221,7 +263,7 @@ extension ShowcaseItemsFactory {
             ) -> PickerGroup {
                 let group = PickerGroup(
                     title: .static(title),
-                    options: PickableString.onlyOneSelectionItems,
+                    options: .static(PickableString.onlyOneSelectionItems),
                     footerText: .static("Exactly one item can be selected. It's not possible to deselect all items."),
                     onPickedOption: { (item: PickableItem, result: ((PickerGroup.PickResult) -> Void)) in
                         guard let item = item as? PickableStringItem else {
@@ -248,7 +290,7 @@ extension ShowcaseItemsFactory {
             ) -> PickerGroup {
                 let group = PickerGroup(
                     title: .static(title),
-                    options: PickableString.singleSelectionItems,
+                    options: .static(PickableString.singleSelectionItems),
                     footerText: .static("Only up to one item can be selected. It's possible to deselect all items."),
                     onPickedOption: { (item: PickableItem, result: ((PickerGroup.PickResult) -> Void)) in
                         guard let item = item as? PickableStringItem else {
@@ -279,7 +321,7 @@ extension ShowcaseItemsFactory {
             ) -> PickerGroup {
                 let group = PickerGroup(
                     title: .static(title),
-                    options: PickableString.multiSelectionItems,
+                    options: .static(PickableString.multiSelectionItems),
                     footerText: .static("Multiple items can be picked. It's possible to deselect all items."),
                     onPickedOption: { (item: PickableItem, result: ((PickerGroup.PickResult) -> Void)) in
                         guard let item = item as? PickableStringItem else {
@@ -299,6 +341,57 @@ extension ShowcaseItemsFactory {
                         default:
                             result(.failure("Unknown option selected"))
                         }
+                    }
+                )
+                return group
+            }
+
+            static var remainingFailingLoadingCounts = [Swift.String: Int]()
+
+            static func delayedOptions(
+                identifier: Swift.String,
+                succeedsAfter: Int,
+                allowRetry: Swift.Bool,
+                shouldDismiss: Swift.Bool = false,
+                footer: Swift.String
+            ) -> PickerGroup {
+                remainingFailingLoadingCounts[identifier] = succeedsAfter
+                let group = PickerGroup(
+                    title: .static("Delayed Options \(identifier)"),
+                    options: .async({ instance in
+                        instance.updateProgress(ProgressItem(state: .progress("Loading Part I")))
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                            instance.updateProgress(ProgressItem(state: .progress("Loading Part II")))
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                                let remainingFailingLoadingCount = remainingFailingLoadingCounts[identifier] ?? 0
+                                if remainingFailingLoadingCount <= 0 {
+                                    instance.complete(PickableString.multiSelectionItems)
+                                } else {
+                                    instance.fail(
+                                        ProgressItem(state: .failure("Error: Loading fails the first \(remainingFailingLoadingCount) time(s)")),
+                                        onFailureOption: ButtonItem(
+                                            title: .static("Try Again"),
+                                            action: { (_, _) in
+                                                instance.load()
+                                            }
+                                        )
+                                    )
+                                }
+                                remainingFailingLoadingCounts[identifier] = remainingFailingLoadingCount - 1
+                            })
+                        })
+                    }),
+                    footerText: .static(footer),
+                    onPickedOption: { (item: PickableItem, result: ((PickerGroup.PickResult) -> Void)) in
+                        guard let item = item as? PickableStringItem else {
+                            return
+                        }
+                        if item.isSelected() || PickableString.Storage.multiSelection.contains(item.identifier()) {
+                            PickableString.Storage.multiSelection.removeAll(where: { $0 == item.identifier() })
+                        } else {
+                            PickableString.Storage.multiSelection.append(item.identifier())
+                        }
+                        result(.success(shouldDismiss: shouldDismiss))
                     }
                 )
                 return group

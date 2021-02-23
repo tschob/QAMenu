@@ -60,10 +60,10 @@ public extension QAMenu.Catalog {
 
             return ItemGroup(
                 title: .static(title),
-                items: [
+                items: .static([
                     Items.triggerBoolItem(qaMenu: qaMenu),
                     dismissBehaviorPicker
-                ]
+                ])
             )
         }
 
@@ -105,7 +105,7 @@ public extension QAMenu.Catalog {
                 ]
                 return PickerGroup(
                     title: .static("Close behavior"),
-                    options: options,
+                    options: .static(options),
                     footerText: .static("A reset navigates back to the root pane."),
                     onPickedOption: { (item, result) in
                         switch item.identifier() {

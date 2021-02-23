@@ -35,7 +35,7 @@ class MockGroup: ItemGroup, Equatable {
     let id = UUID()
 
     init(items: [MockItem]) {
-        super.init(items: items)
+        super.init(items: .static(items))
     }
 
     static func == (lhs: MockGroup, rhs: MockGroup) -> Bool {

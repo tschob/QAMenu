@@ -27,17 +27,14 @@
 //
 
 import Foundation
+import QAMenuUtils
 
 open class ItemGroup: Group, Searchable {
 
-    // MARK: - Properties
+    // MARK: - Properties (Public)
 
     open private(set) var title: Dynamic<String?>?
-    open private(set) var items: [Item] {
-        didSet {
-            self.referenceGroup()
-        }
-    }
+    open private(set) var items: GroupItems
     open private(set) var footerText: Dynamic<String?>?
 
     open var searchableContent: [String?] {
@@ -49,31 +46,61 @@ open class ItemGroup: Group, Searchable {
 
     public let onInvalidation = InvalidationEvent()
 
+    // MARK: - Properties (Private / Internal)
+
+    private var disposeBag = DisposeBag()
+
     // MARK: - Initialization
 
     public init(
         title: Dynamic<String?>? = nil,
-        items: [Item],
+        items: GroupItems,
         footerText: Dynamic<String?>? = nil
     ) {
         self.title = title
         self.items = items
         self.footerText = footerText
-        self.referenceGroup()
+
+        self.observeItemsState()
+        self.bindItems()
     }
 
-    open func update(items: [Item]) {
+    // MARK: - Methods (Public)
+
+    open func update(
+        items: GroupItems,
+        loadDelayedContent: Bool = false
+    ) {
         self.items = items
-        self.invalidate()
+        self.observeItemsState()
+        if loadDelayedContent {
+            self.loadContent()
+        }
     }
-
-    private func referenceGroup() {
-        self.items.forEach { $0.parentGroup = self }
-    }
-
-    // MARK: -
 
     public func removeTitle() {
         self.title = nil
+    }
+
+    public func loadContent() {
+        items.load()
+    }
+
+    // MARK: - Methods (Private)
+
+    private func reloadAfterDelayedStateChange() {
+        self.bindItems()
+        self.invalidate()
+    }
+
+    private func bindItems() {
+        self.items.unboxed.forEach { $0.parentGroup = self }
+    }
+
+    private func observeItemsState() {
+        self.items.state.observe({ [weak self] _ in
+            self?.reloadAfterDelayedStateChange()
+        })
+        .disposeWith(self.disposeBag)
     }
 }

@@ -41,11 +41,11 @@ extension ItemGroup {
         line: UInt = #line
     ) {
         XCTAssertEqual(_sut.title?.unboxed, title, file: file, line: line)
-        XCTAssertEqual(_sut.items.count, items.count, file: file, line: line)
+        XCTAssertEqual(_sut.items.unboxed.count, items.count, file: file, line: line)
         var itemIndex = 0
         items.forEach { item in
             XCTAssertEqual(
-                _sut.items[itemIndex] as! MockItem,
+                _sut.items.unboxed[itemIndex] as? MockItem,
                 item,
                 file: file,
                 line: line

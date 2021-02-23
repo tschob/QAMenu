@@ -1,12 +1,12 @@
 //
-//  ObservableEvent.swift
+//  Observable.swift
 //
-//  Created by Hans Seiffert on 21.05.20.
+//  Created by Hans Seiffert on 20.02.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,11 @@
 
 import Foundation
 
-open class ObservableEvent<T> {
+open class Observable<T> {
+
+    // MARK: - Properties (Public)
+
+    public private(set) var value: T
 
     // MARK: - Properties (Private)
 
@@ -38,11 +42,14 @@ open class ObservableEvent<T> {
 
     // MARK: - Initialization
 
-    public init() {}
+    public init(_ value: T) {
+        self.value = value
+    }
 
     // MARK: -
 
     open func observe(
+        skipInitialValue: Bool = false,
         _ observer: @escaping (T) -> Void
     ) -> Disposable {
         self.lock.lock()
@@ -52,23 +59,22 @@ open class ObservableEvent<T> {
         let uuid = UUID()
         observers[uuid] = observer
 
+        if !skipInitialValue {
+            callObservers()
+        }
         return Disposable({ [weak self] in
             self?.observers.removeValue(forKey: uuid)
         })
     }
 
-    open func fire(with value: T) {
+    open func update(with value: T) {
+        self.value = value
+        self.callObservers()
+    }
+
+    private func callObservers() {
         self.observers.values.forEach {
             $0(value)
         }
-    }
-}
-
-// MARK: - ObservableEvent + Void
-
-extension ObservableEvent where T == Void {
-
-    open func fire() {
-        self.fire(with: ())
     }
 }

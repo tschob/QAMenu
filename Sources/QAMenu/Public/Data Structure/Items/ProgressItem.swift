@@ -1,12 +1,12 @@
 //
-//  ObservableEvent.swift
+//  ProgressItem.swift
 //
-//  Created by Hans Seiffert on 21.05.20.
+//  Created by Hans Seiffert on 20.02.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -28,47 +28,52 @@
 
 import Foundation
 
-open class ObservableEvent<T> {
+open class ProgressItem: Item {
 
-    // MARK: - Properties (Private)
+    // MARK: - Properties (Public)
 
-    open private(set) var observers = [UUID: (T) -> Void]()
+    public enum State: Equatable {
+        case idle
+        case progress(String?)
+        case success(String?)
+        case failure(String?)
+    }
 
-    private let lock = NSRecursiveLock()
+    public let footerText: Dynamic<String?>?
+
+    open var state: State {
+        didSet {
+            self.invalidate()
+        }
+    }
+
+    override open var searchableContent: [String?] {
+        return [
+            self.message,
+            self.footerText?()
+        ]
+    }
+
+    // MARK: - Properties (Private / Internal)
+
+    private var message: String? {
+        switch self.state {
+        case .idle:
+            return nil
+        case .progress(let message),
+             .success(let message),
+            .failure(let message):
+            return message
+        }
+    }
 
     // MARK: - Initialization
 
-    public init() {}
-
-    // MARK: -
-
-    open func observe(
-        _ observer: @escaping (T) -> Void
-    ) -> Disposable {
-        self.lock.lock()
-        defer {
-            self.lock.unlock()
-        }
-        let uuid = UUID()
-        observers[uuid] = observer
-
-        return Disposable({ [weak self] in
-            self?.observers.removeValue(forKey: uuid)
-        })
-    }
-
-    open func fire(with value: T) {
-        self.observers.values.forEach {
-            $0(value)
-        }
-    }
-}
-
-// MARK: - ObservableEvent + Void
-
-extension ObservableEvent where T == Void {
-
-    open func fire() {
-        self.fire(with: ())
+    public init(
+        state: State = .idle,
+        footerText: Dynamic<String?>? = nil
+    ) {
+        self.state = state
+        self.footerText = footerText
     }
 }

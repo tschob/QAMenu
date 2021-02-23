@@ -28,7 +28,7 @@
 
 import Foundation
 
-public struct Dynamic<T> {
+public class Dynamic<T> {
 
     internal enum Value<T> {
         case `static`(T)
@@ -40,30 +40,30 @@ public struct Dynamic<T> {
 
     // MARK: - Initialization
 
-    public init(_ value: T) {
+    public required init(_ value: T) {
         self.value = .static(value)
     }
 
-    public init(_ closure: @escaping () -> T) {
+    public required init(_ closure: @escaping () -> T) {
         self.value = .closure(closure)
     }
 
-    public init<Model>(_ keyPath: KeyPath<Model, T>, for model: Model) {
+    public required init<Model>(_ keyPath: KeyPath<Model, T>, for model: Model) {
         self.value = .keyPath(model, keyPath)
     }
 
     // MARK: - Syntactic sugar
 
-    public static func `static`(_ value: T) -> Self {
-        return Self.init(value)
+    public class func `static`(_ value: T) -> Self {
+        return self.init(value)
     }
 
-    public static func computed(_ closure: @escaping () -> T) -> Self {
-        return Self.init(closure)
+    public class func computed(_ closure: @escaping () -> T) -> Self {
+        return self.init(closure)
     }
 
-    public static func keyPath<Model>(_ keyPath: KeyPath<Model, T>, for model: Model) -> Self {
-        return Self.init(keyPath, for: model)
+    public class func keyPath<Model>(_ keyPath: KeyPath<Model, T>, for model: Model) -> Self {
+        return self.init(keyPath, for: model)
     }
 
     // MARK: -

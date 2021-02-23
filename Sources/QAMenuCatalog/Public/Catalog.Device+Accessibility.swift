@@ -54,7 +54,7 @@ public extension QAMenu.Catalog.Device {
             }
             return ItemGroup(
                 title: title,
-                items: accessiblitySettings
+                items: .static(accessiblitySettings)
             )
         }
     }

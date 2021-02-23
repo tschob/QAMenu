@@ -49,6 +49,20 @@ class PaneViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.qaMenu === qaMenu)
     }
 
+    // MARK: - viewDidLoad
+
+    func test_viewDidLoad_callsOnIsPresentedOnPane() throws {
+        let mockPane = MockPane()
+        let qaMenu = QAMenuMock()
+        let sut = PaneViewController(pane: mockPane, qaMenu: qaMenu)
+
+        XCTAssertEqual(mockPane._onIsPresentedCallCount, 0)
+
+        sut.viewDidLoad()
+
+        XCTAssertNotEqual(mockPane._onIsPresentedCallCount, 0)
+    }
+
     // MARK: - presentationContext
 
     func test_presentationContext_returnsItself() throws {

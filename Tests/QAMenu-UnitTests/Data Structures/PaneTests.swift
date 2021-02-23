@@ -79,7 +79,7 @@ class PaneTests: XCTestCase {
 
         XCTAssertEqual(sut.title.unboxed, title.unboxed)
         XCTAssertEqual(sut.groups.count, 1)
-        XCTAssertEqual(sut.groups[0].items as! [MockItem], items)
+        XCTAssertEqual(sut.groups[0].items.unboxed as? [MockItem], items)
         XCTAssertEqual(sut.isSearchable, isSearchable)
     }
 
@@ -108,5 +108,16 @@ class PaneTests: XCTestCase {
         let sut = Pane(title: .static(""), groups: [])
 
         XCTAssertFalse(sut.isSearchable)
+    }
+
+    func test_onIsPresented_callsLoadContentOnGroups() throws {
+        let group = MockGroup()
+        let sut = Pane(title: .static(""), groups: [group])
+
+        XCTAssertEqual(group._loadContentCallCount, 0)
+
+        sut.onIsPresented()
+
+        XCTAssertEqual(group._loadContentCallCount, 1)
     }
 }

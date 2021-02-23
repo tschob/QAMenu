@@ -43,11 +43,11 @@ extension PickerGroup {
         line: UInt = #line
     ) {
         XCTAssertEqual(_sut.title?.unboxed, title, file: file, line: line)
-        XCTAssertEqual(_sut.options.count, options.count, file: file, line: line)
+        XCTAssertEqual(_sut.options.unboxedOptions?.count, options.count, file: file, line: line)
         var optionIndex = 0
         options.forEach { option in
             XCTAssertEqual(
-                _sut.options[optionIndex] as! MockPickableItem,
+                _sut.options.unboxedOptions?[optionIndex] as? MockPickableItem,
                 option,
                 file: file,
                 line: line

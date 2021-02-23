@@ -33,8 +33,14 @@ class MockGroup: ItemGroup, Equatable {
 
     let id = UUID()
 
+    var _loadContentCallCount = 0
+
     init(title: String = "mockTitle", items: [Item] = []) {
-        super.init(title: .static(title), items: items)
+        super.init(title: .static(title), items: .static(items))
+    }
+
+    override func loadContent() {
+        _loadContentCallCount += 1
     }
 
     static func == (lhs: MockGroup, rhs: MockGroup) -> Bool {

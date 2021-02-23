@@ -106,7 +106,7 @@ extension Array where Element: Item {
     ) -> ItemGroup {
         return ItemGroup(
             title: title,
-            items: self,
+            items: .static(self),
             footerText: footerText
         )
     }

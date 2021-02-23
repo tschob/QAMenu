@@ -1,12 +1,12 @@
 //
-//  ObservableEvent.swift
+//  GroupItems.swift
 //
-//  Created by Hans Seiffert on 21.05.20.
+//  Created by Hans Seiffert on 21.02.21.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -28,47 +28,27 @@
 
 import Foundation
 
-open class ObservableEvent<T> {
+// MARK: - GroupItems
 
-    // MARK: - Properties (Private)
+public typealias GroupItems = Delayed<[Item], ProgressItem?, ButtonItem?>
 
-    open private(set) var observers = [UUID: (T) -> Void]()
+extension GroupItems {
 
-    private let lock = NSRecursiveLock()
-
-    // MARK: - Initialization
-
-    public init() {}
-
-    // MARK: -
-
-    open func observe(
-        _ observer: @escaping (T) -> Void
-    ) -> Disposable {
-        self.lock.lock()
-        defer {
-            self.lock.unlock()
+    public var unboxed: [Item] {
+        switch self.state.value {
+        case .initialized:
+            return []
+        case .loading(let progress):
+            return [
+                progress
+            ].compactMap { $0 }
+        case .loaded(let value):
+            return value
+        case .failed(let progress, let retry):
+            return [
+                progress,
+                retry
+            ].compactMap { $0 }
         }
-        let uuid = UUID()
-        observers[uuid] = observer
-
-        return Disposable({ [weak self] in
-            self?.observers.removeValue(forKey: uuid)
-        })
-    }
-
-    open func fire(with value: T) {
-        self.observers.values.forEach {
-            $0(value)
-        }
-    }
-}
-
-// MARK: - ObservableEvent + Void
-
-extension ObservableEvent where T == Void {
-
-    open func fire() {
-        self.fire(with: ())
     }
 }

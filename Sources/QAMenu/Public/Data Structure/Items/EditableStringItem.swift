@@ -38,7 +38,7 @@ open class EditableStringItem: StringItem {
     }
 
     public let isEditable: Dynamic<Bool>
-    public let onValueChange: ((_ newValue: String, _ item: EditableStringItem, _ result: (ValueChangeResult) -> Void) -> Void?)?
+    public let onValueChange: ((_ newValue: String, _ item: EditableStringItem, _ result: @escaping (ValueChangeResult) -> Void) -> Void?)?
 
     public var onShouldEdit: ((_ item: EditableStringItem) -> Void)?
 
@@ -51,7 +51,7 @@ open class EditableStringItem: StringItem {
         layoutType: Dynamic<LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = "",
         isEditable: Dynamic<Bool> = .static(true),
-        onValueChange: @escaping (_ newValue: String, _ item: StringItem, _ result: (ValueChangeResult) -> Void) -> Void
+        onValueChange: @escaping (_ newValue: String, _ item: StringItem, _ result: @escaping (ValueChangeResult) -> Void) -> Void
     ) {
         self.isEditable = isEditable
         self.onValueChange = onValueChange

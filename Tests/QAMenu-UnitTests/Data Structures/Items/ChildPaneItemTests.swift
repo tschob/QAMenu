@@ -31,10 +31,14 @@ import QAMenu
 
 class ChildPaneItemTests: XCTestCase {
 
-    var disposeBag = DisposeBag()
+    var disposeBag: DisposeBag!
 
     override func setUpWithError() throws {
         self.disposeBag = DisposeBag()
+    }
+
+    override func tearDownWithError() throws {
+        self.disposeBag = nil
     }
 
     func test_typeId() throws {
@@ -179,7 +183,7 @@ class ChildPaneItemTests: XCTestCase {
     func test_onNavigateBack_isTriggeredWhenChildPaneIsTriggered() {
         let pickerGroup = PickerGroup(
             title: .static("PickerGroup"),
-            options: [],
+            options: .static([]),
             onPickedOption: { _, _ in }
         )
         let mockPane = MockPane(groups: [pickerGroup])
@@ -204,7 +208,7 @@ class ChildPaneItemTests: XCTestCase {
     func test_onNavigateBack_whenTriggered_invalidatesChildPaneItem() {
         let pickerGroup = PickerGroup(
             title: .static("PickerGroup"),
-            options: [],
+            options: .static([]),
             onPickedOption: { _, _ in }
         )
         let mockPane = MockPane(groups: [pickerGroup])
@@ -254,7 +258,7 @@ class ChildPaneItemTests: XCTestCase {
     func test_selectionOutcome_whenChildPaneIsPane_addsNavigationTriggerObserver() throws {
         let pickerGroup = PickerGroup(
             title: .static("PickerGroup"),
-            options: [],
+            options: .static([]),
             onPickedOption: { _, _ in }
         )
         let mockPane = MockPane(groups: [pickerGroup])

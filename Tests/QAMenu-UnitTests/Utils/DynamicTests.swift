@@ -31,15 +31,21 @@ import XCTest
 
 class DynamicTests: XCTestCase {
 
-    var stringProperty = AccessLogged("")
-    var intProperty = AccessLogged(9)
-    var boolProperty = AccessLogged(false)
-    var dictionaryProperty = AccessLogged(["key": "value"])
-    var objectProperty = AccessLogged(NSObject())
+    var stringProperty: AccessLogged<String>!
+    var intProperty: AccessLogged<Int>!
+    var boolProperty: AccessLogged<Bool>!
+    var dictionaryProperty: AccessLogged<[String: String]>!
+    var objectProperty: AccessLogged<NSObject>!
 
     override func setUpWithError() throws {
         self.stringProperty = AccessLogged("\(Date())")
+        self.intProperty = AccessLogged(9)
+        self.boolProperty = AccessLogged(false)
+        self.dictionaryProperty = AccessLogged(["key": "value"])
+        self.objectProperty = AccessLogged(NSObject())
+    }
 
+    override func tearDownWithError() throws {
         self.stringProperty.reset()
         self.intProperty.reset()
         self.boolProperty.reset()
@@ -53,14 +59,22 @@ class DynamicTests: XCTestCase {
         let expectedString = self.stringProperty._value
         let sut = Dynamic<String>(expectedString)
 
-        assert_static(expectedValue: expectedString, for: sut)
+        Dynamic<String>._assertStatic(
+            expectedValue: expectedString,
+            for: sut,
+            testCase: self
+        )
     }
 
     func test_staticMakeWithStringValue_whenValueIsString() throws {
         let expectedString = self.stringProperty._value
         let sut: Dynamic<String> = .static(expectedString)
 
-        assert_static(expectedValue: expectedString, for: sut)
+        Dynamic<String>._assertStatic(
+            expectedValue: expectedString,
+            for: sut,
+            testCase: self
+        )
     }
 
     func test_boxed_whenValueIsStaticString_returnsStringClosure() throws {
@@ -105,14 +119,22 @@ class DynamicTests: XCTestCase {
         let expectedString = self.stringProperty._value
         let sut = Dynamic<String>({ expectedString })
 
-        assert_closure(expectedValue: expectedString, for: sut)
+        Dynamic<String>._assertClosure(
+            expectedValue: expectedString,
+            for: sut,
+            testCase: self
+        )
     }
 
     func test_staticMakeWithStringClosure_whenValueIsString() throws {
         let expectedString = self.stringProperty._value
         let sut: Dynamic<String> = .computed({ expectedString })
 
-        assert_closure(expectedValue: expectedString, for: sut)
+        Dynamic<String>._assertClosure(
+            expectedValue: expectedString,
+            for: sut,
+            testCase: self
+        )
     }
 
     func test_boxed_whenValueIsComputedString_returnsStringClosure() throws {
@@ -160,14 +182,22 @@ class DynamicTests: XCTestCase {
         let expectedString = self.stringProperty._value
         let sut = Dynamic<String>(\DynamicTests.stringProperty.value, for: self)
 
-        assert_keyPath(expectedValue: expectedString, for: sut)
+        Dynamic<String>._assertKeyPath(
+            expectedValue: expectedString,
+            for: sut,
+            testCase: self
+        )
     }
 
     func test_staticMakeWithStringKeyPath_whenValueIsString() throws {
         let expectedString = self.stringProperty._value
         let sut: Dynamic<String> = .keyPath(\DynamicTests.stringProperty.value, for: self)
 
-        assert_keyPath(expectedValue: expectedString, for: sut)
+        Dynamic<String>._assertKeyPath(
+            expectedValue: expectedString,
+            for: sut,
+            testCase: self
+        )
     }
 
     func test_boxed_whenValueIsStringKeyPath_returnsStringClosure() throws {
@@ -310,57 +340,5 @@ class DynamicTests: XCTestCase {
         func reset() {
             self.accessCount = 0
         }
-    }
-
-    private func assert_static<T: Equatable>(expectedValue: T, for dynamic: Dynamic<T>) {
-        let typeExpectation = expectation(description: "stored value is of type `\(T.self)`")
-        let valueExpectation = expectation(description: "stored value equals `\(expectedValue)`")
-        if case .static(let value) = dynamic.value {
-            typeExpectation.fulfill()
-            if value == expectedValue {
-                valueExpectation.fulfill()
-            }
-        }
-
-        let expectations = [
-            typeExpectation,
-            valueExpectation
-        ]
-        wait(for: expectations, timeout: 0.01)
-    }
-
-    private func assert_closure<T: Equatable>(expectedValue: T, for dynamic: Dynamic<T>) {
-        let typeExpectation = expectation(description: "stored value is of type `closure<\(T.self)>`")
-        let valueExpectation = expectation(description: "stored value equals `\(expectedValue)`")
-        if case .closure(let valueClosure) = dynamic.value {
-            typeExpectation.fulfill()
-            if valueClosure() == expectedValue {
-                valueExpectation.fulfill()
-            }
-        }
-
-        let expectations = [
-            typeExpectation,
-            valueExpectation
-        ]
-        wait(for: expectations, timeout: 0.01)
-    }
-
-    private func assert_keyPath<T: Equatable>(expectedValue: T, for dynamic: Dynamic<T>) {
-        let typeExpectation = expectation(description: "stored value is of type `KeyPath<DynamicTests, \(T.self)>`")
-        let valueExpectation = expectation(description: "stored value equals `\(expectedValue)`")
-        if case .keyPath(let model, let keyPath) = dynamic.value {
-            typeExpectation.fulfill()
-            let value = model[keyPath: keyPath] as! T
-            if value == expectedValue {
-                valueExpectation.fulfill()
-            }
-        }
-
-        let expectations = [
-            typeExpectation,
-            valueExpectation
-        ]
-        wait(for: expectations, timeout: 0.01)
     }
 }
