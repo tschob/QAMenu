@@ -16,6 +16,7 @@
 * [QAMenuUIKit] `EditableStringItem`s can be edited with a simple UIAlertViewController (PR #9)
 * [QAMenuUIKit] Added view for new `ProgressItem` (PR #10)
 * [QAMenuUIKit] Reloadable panes can be reloaded with pull-to-refresh (PR #11)
+* [QAMenuUIKit] Toggling the visibility of the menu via a shake gesture executes a haptic feedback (PR #12)
 
 #### Bug Fixes
 

@@ -121,6 +121,7 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
     // MARK: - Methods (Public)
 
     open func toggleVisibility(completion: @escaping (_ newState: QAMenuState) -> Void) {
+        self.performHapticFeedback()
         if self.state == .open {
             self.hide(completion: {
                 completion(.closed)
@@ -191,5 +192,11 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
                 completion()
             }
         )
+    }
+
+    private func performHapticFeedback() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
     }
 }

@@ -35,7 +35,7 @@ extension UIWindow {
         super.motionEnded(motion, with: event)
 
         if motion == .motionShake {
-          let qaMenuWithShakeEnabled = QAMenu.instances.last(where: {
+            let qaMenuWithShakeEnabled = QAMenu.instances.last(where: {
                 $0.unbox?.trigger.contains(.shake) ?? false
             })
             qaMenuWithShakeEnabled?.unbox?.onShakeRecognized()
