@@ -1,0 +1,18 @@
+coverage:
+  status:
+    project:
+      qamenu:
+        paths:
+          - Sources/QAMenu
+        flags:
+          - QAMenu
+      qamenuuikit:
+        paths:
+          - Sources/QAMenuUIKit
+        flags:
+          - QAMenuUIKit
+      qamenuutils:
+        paths:
+          - Sources/QAMenuUtils
+        flags:
+          - QAMenuUtils
