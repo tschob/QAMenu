@@ -1,0 +1,14 @@
+coverage_service: cobertura_xml
+xcodeproj: QAMenu.xcodeproj
+workspace: QAMenu.xcworkspace
+scheme: AllUnitTests
+configuration: Debug
+source_directory: Sources
+output_directory: .build/tests
+binary_basename:
+  - QAMenu
+  - QAMenuUtils
+  - QAMenuUIKit
+ignore:
+  - Tests/*
+  - Sources/QAMenuCatalog/*

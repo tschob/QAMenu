@@ -1,13 +1,16 @@
 name: Unit-Tests
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_12.2.app/Contents/Developer
 
 jobs:
-  job-danger:
+  job-unit-tests:
     name: AllUnitTests
     runs-on: macOS-latest
     steps:
@@ -34,6 +37,9 @@ jobs:
           bundle install --without=documentation --jobs 4 --retry 3
 
       - name: Run AllUnitTests
-        env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bundle exec fastlane unit_tests
+
+      - run: |
+          bundle exec slather
+          bash <(curl -s https://codecov.io/bash) -f .build/tests/cobertura.xml -X coveragepy -X gcov -X xcode
+
