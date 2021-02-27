@@ -1,15 +1,3 @@
-flags:
-  QAMenu:
-    paths: 
-      - Sources/QAMenu/
-  QAMenuUIKit:
-    paths:
-      - Sources/QAMenuUIKit/
-  QAMenuUtils:
-    paths:
-      - Sources/QAMenuUtils/
-  
-# To see status checks based on flags
 coverage:
   status:
     project:
