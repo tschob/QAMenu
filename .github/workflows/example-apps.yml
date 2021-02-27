@@ -34,8 +34,6 @@ jobs:
           bundle install --without=documentation --jobs 4 --retry 3
 
       - name: Build Example-iOS
-        env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bundle exec fastlane build_ios_example_app
 
   job-build-pod-integration-example-app:
@@ -65,6 +63,4 @@ jobs:
           bundle install --without=documentation --jobs 4 --retry 3
 
       - name: Build Pod-Integration-iOS
-        env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bundle exec fastlane build_pods_integration_example_app
