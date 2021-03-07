@@ -71,6 +71,7 @@ internal final class ButtonItemView: NibView, ItemView {
 
     override internal func initFromNib() {
         super.initFromNib()
+        self.applyStyle()
         self.setupFooterView()
     }
 
@@ -92,6 +93,24 @@ internal final class ButtonItemView: NibView, ItemView {
     private func updateViewContent() {
         self.updateProgressViews(for: item?.status)
         self.updateFooterView()
+    }
+
+    private func applyStyle() {
+        self.progressLabel.numberOfLines = 0
+        self.progressLabel.textColor = .systemGray
+        self.progressLabel.font = .preferredFont(forTextStyle: .body)
+        self.titleLabel.numberOfLines = 0
+        if #available(iOS 13.0, *) {
+            self.titleLabel.textColor = .link
+        } else {
+            self.titleLabel.textColor = .systemBlue
+        }
+        self.titleLabel.font = .preferredFont(forTextStyle: .body)
+        if #available(iOS 13.0, *) {
+            self.indicator.style = .medium
+        } else {
+            self.indicator.style = .gray
+        }
     }
 
     private func reload() {

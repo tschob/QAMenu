@@ -69,6 +69,7 @@ internal final class BooleanItemView: NibView, ItemView {
 
     override internal func initFromNib() {
         super.initFromNib()
+        self.applyStyle()
         self.setupFooterView()
     }
 
@@ -93,6 +94,16 @@ internal final class BooleanItemView: NibView, ItemView {
         self.sizeToFit()
         self.switch.isOn = item?.value() ?? false
         self.updateFooterView()
+    }
+
+    private func applyStyle() {
+        self.titleLabel.numberOfLines = 0
+        if #available(iOS 13.0, *) {
+            self.titleLabel.textColor = .label
+        } else {
+            self.titleLabel.textColor = .black
+        }
+        self.titleLabel.font = .preferredFont(forTextStyle: .body)
     }
 
     private func reload() {
