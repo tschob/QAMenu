@@ -8,7 +8,7 @@
 
 #### Enhancements
 
-* None
+* [QAMenuUIKit] Improved dark mode and dynamic font support (PR #14)
 
 #### Bug Fixes
 
