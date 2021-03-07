@@ -48,8 +48,7 @@ public extension QAMenu.Catalog.Device {
                 return StringItem(
                     title: .static(title),
                     value: .computed({ setting.value ? "Yes" : "No" }),
-                    footerText: nil,
-                    layoutType: .static(.horizontal(.singleLine))
+                    footerText: nil
                 )
             }
             return ItemGroup(

@@ -96,72 +96,72 @@ struct EditableStringItemAdvancedExamplesFactory {
                 EditableStringItem(
                     title: .static("Title (short)"),
                     value: .computed({ Storage.layoutExampleStringValues[0] }),
-                    layoutType: .static(layoutType),
                     onValueChange: { newValue, _, result in
                         Storage.layoutExampleStringValues[0] = newValue
                         result(.success)
                     }
-                ),
+                )
+                .withLayoutType(.static(layoutType)),
                 EditableStringItem(
                     title: .static("Title (short)"),
                     value: .computed({ Storage.layoutExampleStringValues[1] }),
                     footerText: .static("A StringItem can be long pressed to share it's value"),
-                    layoutType: .static(layoutType),
                     onValueChange: { newValue, _, result in
                         Storage.layoutExampleStringValues[1] = newValue
                         result(.success)
                     }
-                ),
+                )
+                .withLayoutType(.static(layoutType)),
                 EditableStringItem(
                     title: .static("Title (short)"),
                     value: .computed({ Storage.layoutExampleStringValues[2] }),
                     footerText: .static("A StringItem can be long pressed to share it's value"),
-                    layoutType: .static(layoutType),
                     onValueChange: { newValue, _, result in
                         Storage.layoutExampleStringValues[2] = newValue
                         result(.success)
                     }
-                ),
+                )
+                .withLayoutType(.static(layoutType)),
                 EditableStringItem(
                     title: .static("Title (with a medium length)"),
                     value: .computed({ Storage.layoutExampleStringValues[3] }),
                     footerText: .static("A StringItem can be long pressed to share it's value"),
-                    layoutType: .static(layoutType),
                     onValueChange: { newValue, _, result in
                         Storage.layoutExampleStringValues[3] = newValue
                         result(.success)
                     }
-                ),
+                )
+                .withLayoutType(.static(layoutType)),
                 EditableStringItem(
                     title: .static("Title (with a medium length)"),
                     value: .computed({ Storage.layoutExampleStringValues[4] }),
                     footerText: .static("A StringItem can be long pressed to share it's value"),
-                    layoutType: .static(layoutType),
                     onValueChange: { newValue, _, result in
                         Storage.layoutExampleStringValues[4] = newValue
                         result(.success)
                     }
-                ),
+                )
+                .withLayoutType(.static(layoutType)),
                 EditableStringItem(
                     title: .static("Title (with a medium length)"),
                     value: .computed({ Storage.layoutExampleStringValues[5] }),
                     footerText: .static("A StringItem can be long pressed to share it's value"),
-                    layoutType: .static(layoutType),
                     onValueChange: { newValue, _, result in
                         Storage.layoutExampleStringValues[5] = newValue
                         result(.success)
                     }
-                ),
+                )
+                .withLayoutType(.static(layoutType)),
                 EditableStringItem(
                     title: .static("Title (with a very extensive and long length)"),
                     value: .computed({ Storage.layoutExampleStringValues[6] }),
                     footerText: .static("A StringItem can be long pressed to share it's value"),
-                    layoutType: .static(layoutType),
                     onValueChange: { newValue, _, result in
                         Storage.layoutExampleStringValues[6] = newValue
                         result(.success)
                     }
                 )
+                .withLayoutType(.static(layoutType))
             ])
         )
         return stringItems

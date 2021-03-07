@@ -37,15 +37,19 @@ extension StringItem {
         title: String? = nil,
         value: String? = nil,
         footerText: String? = nil,
-        layoutType: StringItem.LayoutType? = .horizontal(.singleLine),
         fallbackString: String? = "<nil>",
+        layoutType: StringItem.LayoutType? = .horizontal(.singleLine),
+        titleTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
+        valueTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
         file: StaticString = #file,
         line: UInt = #line
     ) {
         XCTAssertEqual(_sut.title?.unboxed, title, file: file, line: line)
         XCTAssertEqual(_sut.value?.unboxed, value, file: file, line: line)
         XCTAssertEqual(_sut.footerText?.unboxed, footerText, file: file, line: line)
-        XCTAssertEqual(_sut.layoutType.unboxed, layoutType, file: file, line: line)
         XCTAssertEqual(_sut.valueFallbackString, fallbackString, file: file, line: line)
+        XCTAssertEqual(_sut.layoutType.unboxed, layoutType, file: file, line: line)
+        XCTAssertEqual(_sut.titleTextAttributes.unboxed, titleTextAttributes, file: file, line: line)
+        XCTAssertEqual(_sut.valueTextAttributes.unboxed, valueTextAttributes, file: file, line: line)
     }
 }

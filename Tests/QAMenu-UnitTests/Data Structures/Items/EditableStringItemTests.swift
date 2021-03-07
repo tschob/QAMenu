@@ -102,22 +102,26 @@ class EditableStringItemTests: XCTestCase {
             title: .static("title"),
             value: .static("value"),
             footerText: .static("footer"),
-            layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback",
             isEditable: .static(false),
             onValueChange: { _, _, result in
                 result(.failure("failure"))
             }
         )
+        .withLayoutType(.static(.vertical(.autoGrow)))
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         EditableStringItem._assertInitProperties(
             sut,
             title: "title",
             value: "value",
             footerText: "footer",
-            layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
             isEditable: false,
+            layoutType: .vertical(.autoGrow),
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord),
             onValueChangeFailure: "failure",
             testCase: self
         )

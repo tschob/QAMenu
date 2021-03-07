@@ -49,7 +49,6 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
         pane: @escaping () -> Pane,
         value: Dynamic<String?>? = nil,
         footerText: Dynamic<String?>? = nil,
-        layoutType: Dynamic<LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = ""
     ) {
         self.childType = .pane(pane)
@@ -57,7 +56,6 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
             title: .computed({ pane().title() }),
             value: value,
             footerText: footerText,
-            layoutType: layoutType,
             fallbackString: fallbackString
         )
     }
@@ -67,7 +65,6 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
         paneRepresentable: @escaping () -> PaneRepresentable,
         value: Dynamic<String?>? = nil,
         footerText: Dynamic<String?>? = nil,
-        layoutType: Dynamic<LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = ""
     ) {
         self.childType = .paneRepresentable(paneRepresentable)
@@ -75,7 +72,6 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
             title: title,
             value: value,
             footerText: footerText,
-            layoutType: layoutType,
             fallbackString: fallbackString
         )
     }

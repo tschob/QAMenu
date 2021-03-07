@@ -191,6 +191,8 @@ extension ItemTests {
             isPaneReloadable: true,
             isPaneSearchable: true
         )
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             childPaneItem,
@@ -198,10 +200,12 @@ extension ItemTests {
             title: "title",
             value: "value",
             footerText: "footer",
-            layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
             isPaneReloadable: true,
-            isPaneSearchable: true
+            isPaneSearchable: true,
+            layoutType: .vertical(.autoGrow),
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)
         )
     }
 
@@ -238,6 +242,8 @@ extension ItemTests {
             isPaneReloadable: true,
             isPaneSearchable: true
         )
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             childPaneItem,
@@ -245,10 +251,12 @@ extension ItemTests {
             title: "title",
             value: "value",
             footerText: "footer",
-            layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
             isPaneReloadable: true,
-            isPaneSearchable: true
+            isPaneSearchable: true,
+            layoutType: .vertical(.autoGrow),
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)
         )
     }
 }

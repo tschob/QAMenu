@@ -58,49 +58,49 @@ public extension QAMenu.Catalog.Device {
             public static func identifierStringItem(title: String = "Identifier") -> StringItem {
                 return StringItem(
                     title: .static(title),
-                    value: .computed({ Foundation.Locale.current.identifier }),
-                    layoutType: .static(.horizontal(.autoGrow))
+                    value: .computed({ Foundation.Locale.current.identifier })
                 )
+                .withLayoutType(.static(.horizontal(.autoGrow)))
             }
 
             public static func languageCodeStringItem(title: String = "Language Code") -> StringItem {
                 return StringItem(
                     title: .static(title),
-                    value: .computed({ Foundation.Locale.current.languageCode }),
-                    layoutType: .static(.horizontal(.autoGrow))
+                    value: .computed({ Foundation.Locale.current.languageCode })
                 )
+                .withLayoutType(.static(.horizontal(.autoGrow)))
             }
 
             public static func regionCodeStringItem(title: String = "Region Code") -> StringItem {
                 return StringItem(
                     title: .static(title),
-                    value: .computed({ Foundation.Locale.current.regionCode }),
-                    layoutType: .static(.horizontal(.autoGrow))
+                    value: .computed({ Foundation.Locale.current.regionCode })
                 )
+                .withLayoutType(.static(.horizontal(.autoGrow)))
             }
 
             public static func calendarStringItem(title: String = "Calendar") -> StringItem {
                 return StringItem(
                     title: .static(title),
-                    value: .computed({ String(describing: Foundation.Locale.current.calendar) }),
-                    layoutType: .static(.horizontal(.autoGrow))
+                    value: .computed({ String(describing: Foundation.Locale.current.calendar) })
                 )
+                .withLayoutType(.static(.horizontal(.autoGrow)))
             }
 
             public static func currencyCodeStringItem(title: String = "Currency Code") -> StringItem {
                 return StringItem(
                     title: .static(title),
-                    value: .computed({ Foundation.Locale.current.currencyCode }),
-                    layoutType: .static(.horizontal(.autoGrow))
+                    value: .computed({ Foundation.Locale.current.currencyCode })
                 )
+                .withLayoutType(.static(.horizontal(.autoGrow)))
             }
 
             public static func preferredLanguagesStringItem(title: String = "Preferred Languages") -> StringItem {
                 return StringItem(
                     title: .static(title),
-                    value: .computed({ String(describing: Foundation.Locale.preferredLanguages) }),
-                    layoutType: .static(.vertical(.autoGrow))
+                    value: .computed({ String(describing: Foundation.Locale.preferredLanguages) })
                 )
+                .withLayoutType(.static(.horizontal(.autoGrow)))
             }
         }
     }

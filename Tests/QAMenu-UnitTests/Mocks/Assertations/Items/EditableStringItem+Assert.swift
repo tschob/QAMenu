@@ -37,9 +37,11 @@ extension EditableStringItem {
         title: String? = nil,
         value: String? = nil,
         footerText: String? = nil,
-        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
         isEditable: Bool = true,
+        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
+        titleTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
+        valueTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
         onValueChangeFailure: String,
         testCase: XCTestCase,
         file: StaticString = #file,
@@ -56,6 +58,8 @@ extension EditableStringItem {
         XCTAssertEqual(_sut.layoutType.unboxed, layoutType, file: file, line: line)
         XCTAssertEqual(_sut.valueFallbackString, fallbackString, file: file, line: line)
         XCTAssertEqual(_sut.isEditable.unboxed, isEditable, file: file, line: line)
+        XCTAssertEqual(_sut.titleTextAttributes.unboxed, titleTextAttributes, file: file, line: line)
+        XCTAssertEqual(_sut.valueTextAttributes.unboxed, valueTextAttributes, file: file, line: line)
         let resultExpectation = testCase.expectation(description: "onValueChange closure is called")
         resultExpectation.assertForOverFulfill = true
         _sut.onValueChange!("", _sut) { result in

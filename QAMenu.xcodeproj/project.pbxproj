@@ -199,6 +199,9 @@
 		A2EA8C722586434F008F18DF /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA8C712586434F008F18DF /* CheckboxView.swift */; };
 		A2EA8C7C258661B2008F18DF /* ChildPaneItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA8C7B258661B1008F18DF /* ChildPaneItem.swift */; };
 		A2EA8C9825867E25008F18DF /* PickerGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA8C9725867E25008F18DF /* PickerGroup.swift */; };
+		A2EC5CF225F539C100F2BAE1 /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EC5CF125F539C000F2BAE1 /* TextAttributes.swift */; };
+		A2EC5CF925F53A0E00F2BAE1 /* TextAttributes+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EC5CF825F53A0E00F2BAE1 /* TextAttributes+UIKit.swift */; };
+		A2EC5D0525F5603000F2BAE1 /* TextAttributesUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EC5D0425F5603000F2BAE1 /* TextAttributesUIKitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -468,6 +471,9 @@
 		A2EA8C712586434F008F18DF /* CheckboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		A2EA8C7B258661B1008F18DF /* ChildPaneItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildPaneItem.swift; sourceTree = "<group>"; };
 		A2EA8C9725867E25008F18DF /* PickerGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroup.swift; sourceTree = "<group>"; };
+		A2EC5CF125F539C000F2BAE1 /* TextAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
+		A2EC5CF825F53A0E00F2BAE1 /* TextAttributes+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TextAttributes+UIKit.swift"; path = "UI/TextAttributes+UIKit.swift"; sourceTree = "<group>"; };
+		A2EC5D0425F5603000F2BAE1 /* TextAttributesUIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesUIKitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -697,6 +703,7 @@
 				A25EE38F25A8F4C300932C65 /* Observable */,
 				A28976AF25E1724100EB7326 /* Delayed.swift */,
 				A238A06C253C71AB0016BBD7 /* Dynamic.swift */,
+				A2EC5CF125F539C000F2BAE1 /* TextAttributes.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -875,6 +882,7 @@
 				A2969E3025167D7900EA54D5 /* Bundle+QAMenu.swift */,
 				A2E0856E2517C56B00706D23 /* QAMenuLifecycleManager.swift */,
 				A2969E3125167D7900EA54D5 /* Searcher.swift */,
+				A2EC5CF825F53A0E00F2BAE1 /* TextAttributes+UIKit.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -1104,6 +1112,7 @@
 				A2B98732256AC46B0059C5EA /* Bundle+QAMenuTests.swift */,
 				A2B98738256AC6590059C5EA /* QAMenuLifecycleManagerTests.swift */,
 				A2B9873E256ACF430059C5EA /* SearcherTests.swift */,
+				A2EC5D0425F5603000F2BAE1 /* TextAttributesUIKitTests.swift */,
 				A2B989E0256DA1820059C5EA /* PaneViewControllerTests.swift */,
 				A2E30584256705190049D88D /* Info.plist */,
 			);
@@ -1609,6 +1618,7 @@
 				A28976C925E1783D00EB7326 /* ProgressItem.swift in Sources */,
 				A28873EA2516822A003528E5 /* Selectable.swift in Sources */,
 				A28873F42516822A003528E5 /* QAMenu+Trigger.swift in Sources */,
+				A2EC5CF225F539C100F2BAE1 /* TextAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1684,6 +1694,7 @@
 				A2E0856F2517C56B00706D23 /* QAMenuLifecycleManager.swift in Sources */,
 				A2969E4F25167D7A00EA54D5 /* DisclosureIndicatorView.swift in Sources */,
 				A2969E5B25167D7A00EA54D5 /* ItemUIRepresentable.swift in Sources */,
+				A2EC5CF925F53A0E00F2BAE1 /* TextAttributes+UIKit.swift in Sources */,
 				A2969E4B25167D7A00EA54D5 /* ShareInteractionHandler.swift in Sources */,
 				A2969E4725167D7A00EA54D5 /* StringItemView.swift in Sources */,
 				A2969E4C25167D7A00EA54D5 /* ShareInteractionSupporting.swift in Sources */,
@@ -1746,6 +1757,7 @@
 				A2B989C3256D967E0059C5EA /* ShareInteractionHandlerTests.swift in Sources */,
 				A2E305B3256719150049D88D /* QAMenuUIKitPresenterTests.swift in Sources */,
 				A2B9899A256D82B90059C5EA /* BooleanItemViewTests.swift in Sources */,
+				A2EC5D0525F5603000F2BAE1 /* TextAttributesUIKitTests.swift in Sources */,
 				A2B9873F256ACF430059C5EA /* SearcherTests.swift in Sources */,
 				A2B98739256AC6590059C5EA /* QAMenuLifecycleManagerTests.swift in Sources */,
 				A2B989A4256D8C510059C5EA /* ButtonItemViewTests.swift in Sources */,

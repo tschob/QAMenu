@@ -116,10 +116,14 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
 
         if let item = item {
             self.titleLabel.text = item.title?()
+            self.titleLabel.font = .preferredFont(forTextStyle: item.titleTextAttributes.unboxed.textStyle.asUIFontTextStyle)
             self.valueLabel.text = item.value?() ?? item.valueFallbackString
+            self.valueLabel.font = .preferredFont(forTextStyle: item.valueTextAttributes.unboxed.textStyle.asUIFontTextStyle)
         } else {
             self.titleLabel.text = nil
+            self.titleLabel.font = .preferredFont(forTextStyle: .body)
             self.valueLabel.text = nil
+            self.valueLabel.font = .preferredFont(forTextStyle: .body)
         }
 
         updateFooterView()
@@ -180,6 +184,13 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
         let numberOfLines = (lineCount == StringItem.LayoutType.LineCount.singleLine) ? 1 : 0
         self.titleLabel.numberOfLines = numberOfLines
         self.valueLabel.numberOfLines = numberOfLines
+        if let item = self.item, numberOfLines != 1 {
+            self.titleLabel.lineBreakMode = item.titleTextAttributes.unboxed.lineBreak.asNSLineBreakMode
+            self.valueLabel.lineBreakMode = item.valueTextAttributes.unboxed.lineBreak.asNSLineBreakMode
+        } else {
+            self.titleLabel.lineBreakMode = .byTruncatingTail
+            self.valueLabel.lineBreakMode = .byTruncatingTail
+        }
     }
 
     // MARK: - Methods (Private) - Edit

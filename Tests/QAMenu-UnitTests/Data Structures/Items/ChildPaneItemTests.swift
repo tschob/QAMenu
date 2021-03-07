@@ -90,9 +90,11 @@ class ChildPaneItemTests: XCTestCase {
             pane: { mockPane },
             value: .static("value"),
             footerText: .static("footer"),
-            layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback"
         )
+        .withLayoutType(.static(.vertical(.autoGrow)))
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             sut,
@@ -100,8 +102,10 @@ class ChildPaneItemTests: XCTestCase {
             title: mockPane.title(),
             value: "value",
             footerText: "footer",
+            fallbackString: "fallback",
             layoutType: .vertical(.autoGrow),
-            fallbackString: "fallback"
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)
         )
     }
 
@@ -128,9 +132,11 @@ class ChildPaneItemTests: XCTestCase {
             paneRepresentable: { mockPaneRepresentable },
             value: .static("value"),
             footerText: .static("footer"),
-            layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback"
         )
+        .withLayoutType(.static(.vertical(.autoGrow)))
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             sut,
@@ -138,8 +144,10 @@ class ChildPaneItemTests: XCTestCase {
             title: "title",
             value: "value",
             footerText: "footer",
+            fallbackString: "fallback",
             layoutType: .vertical(.autoGrow),
-            fallbackString: "fallback"
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)
         )
     }
 

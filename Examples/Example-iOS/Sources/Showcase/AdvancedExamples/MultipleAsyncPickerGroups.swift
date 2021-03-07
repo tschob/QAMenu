@@ -43,10 +43,12 @@ fileprivate struct BackendURL {
         PickableStringItem(
             identifier: .static(self.name),
             title: .static(self.name),
+            value: .static(self.urlString),
             isSelected: .computed({
                 BackendManager.current?.name == self.name
             })
         )
+        .withValueTextAttributes(.static(.init(textStyle: .subheadline, lineBreak: .wrapByCharacter)))
     }
 }
 
@@ -71,9 +73,10 @@ struct MultipleAsyncPickerGroups {
             title: .static("Current"),
             value: .computed({
                 BackendManager.current?.urlString
-            }),
-            layoutType: .static(.vertical(.autoGrow))
+            })
         )
+        .withLayoutType(.static(.vertical(.autoGrow)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .subheadline, lineBreak: .wrapByCharacter)))
         .asItemGroup()
         let productionGroup = PickerGroup(
             title: .static("Production"),
@@ -82,8 +85,8 @@ struct MultipleAsyncPickerGroups {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     self.productionURLs = [
                         BackendURL(name: "Prod-1", urlString: "http://prod1.example.com"),
-                        BackendURL(name: "Prod-2", urlString: "http://prod2.example.com"),
-                        BackendURL(name: "Prod-3", urlString: "http://prod3.example.com")
+                        BackendURL(name: "Prod-2", urlString: "http://prod2.with-a-very-long-subdomain.example.com"),
+                        BackendURL(name: "Prod-3", urlString: "http://prod3.subdomain.example.com")
                     ]
                     instance.complete(self.productionURLs.map({ $0.asPickableStringItem }))
                 }
