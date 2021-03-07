@@ -96,6 +96,11 @@ internal final class ProgressItemView: NibView, ItemView {
     private func applyStyle() {
         self.label.numberOfLines = 0
         self.label.font = .preferredFont(forTextStyle: .body)
+        if #available(iOS 13.0, *) {
+            self.activityIndicator.style = .medium
+        } else {
+            self.activityIndicator.style = .gray
+        }
     }
 
     private func reload() {
