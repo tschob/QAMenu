@@ -12,7 +12,7 @@
 
 #### Bug Fixes
 
-* None
+* [QAMenu] Fix duplicate back navigation if picker group is opened multiple times (PR #15)
 
 ## 0.4.0
 
