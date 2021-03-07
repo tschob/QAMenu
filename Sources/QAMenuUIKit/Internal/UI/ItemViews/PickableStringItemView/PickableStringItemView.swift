@@ -72,7 +72,7 @@ internal final class PickableStringItemView: NibView, ItemView, ShareInteraction
 
     override internal func initFromNib() {
         super.initFromNib()
-        self.titleLabel.numberOfLines = 0
+        self.applyStyle()
         self.setupFooterView()
 
         self.shareInteractionHandler = ShareInteractionHandler(
@@ -110,6 +110,16 @@ internal final class PickableStringItemView: NibView, ItemView, ShareInteraction
         self.checkboxView.isHidden = !(item?.isSelected() ?? false)
 
         updateFooterView()
+    }
+
+    private func applyStyle() {
+        self.titleLabel.numberOfLines = 0
+        if #available(iOS 13.0, *) {
+            self.titleLabel.textColor = .label
+        } else {
+            self.titleLabel.textColor = .black
+        }
+        self.titleLabel.font = .preferredFont(forTextStyle: .body)
     }
 
     private func reload() {

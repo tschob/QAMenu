@@ -82,6 +82,7 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
 
     override internal func initFromNib() {
         super.initFromNib()
+        self.applyStyle()
         self.setupFooterView()
 
         self.shareInteractionHandler = ShareInteractionHandler(
@@ -120,7 +121,6 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
             self.titleLabel.text = nil
             self.valueLabel.text = nil
         }
-        self.valueLabel.textColor = .darkGray
 
         updateFooterView()
     }
@@ -147,6 +147,17 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
             self.applyLineCountLayout(for: lineCount)
         }
         self.textStackView.setNeedsLayout()
+    }
+
+    private func applyStyle() {
+        if #available(iOS 13.0, *) {
+            self.titleLabel.textColor = .label
+        } else {
+            self.titleLabel.textColor = .black
+        }
+        self.titleLabel.font = .preferredFont(forTextStyle: .body)
+        self.valueLabel.textColor = .systemGray
+        self.valueLabel.font = .preferredFont(forTextStyle: .body)
     }
 
     private func applyHorizontalLayout() {

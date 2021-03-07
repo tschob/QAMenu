@@ -48,5 +48,8 @@ internal final class UnsupportedItemView: NibView, ItemUIRepresentable {
 
     internal func setItem(_ item: Item) {
         self.titleLabel.text = "Error: No UI representation is registered for item of type \(type(of: item))"
+        self.titleLabel.numberOfLines = 0
+        self.titleLabel.textColor = .systemRed
+        self.titleLabel.font = .preferredFont(forTextStyle: .body)
     }
 }

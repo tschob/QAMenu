@@ -80,7 +80,7 @@ extension FooterViewSupporting {
         let label = UILabel()
         label.tag = self.footerViewTag
         label.numberOfLines = 0
-        label.textColor = .darkGray
+        label.textColor = .systemGray
         label.font = .preferredFont(forTextStyle: .footnote)
         return label
     }

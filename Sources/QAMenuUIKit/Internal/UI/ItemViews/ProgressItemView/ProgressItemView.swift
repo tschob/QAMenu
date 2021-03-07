@@ -69,6 +69,7 @@ internal final class ProgressItemView: NibView, ItemView {
 
     override internal func initFromNib() {
         super.initFromNib()
+        self.applyStyle()
         self.setupFooterView()
     }
 
@@ -92,6 +93,11 @@ internal final class ProgressItemView: NibView, ItemView {
         self.updateFooterView()
     }
 
+    private func applyStyle() {
+        self.label.numberOfLines = 0
+        self.label.font = .preferredFont(forTextStyle: .body)
+    }
+
     private func reload() {
         self.updateViewContent()
         self.delegate?.updateContainerHeight(for: self)
@@ -99,7 +105,7 @@ internal final class ProgressItemView: NibView, ItemView {
 
     private func updateProgressViews(for status: ProgressItem.State?) {
         let status = status ?? .idle
-        self.label.textColor = .darkGray
+        self.label.textColor = .systemGray
         switch status {
         case .idle:
             self.label.text = nil
@@ -114,12 +120,17 @@ internal final class ProgressItemView: NibView, ItemView {
         case .success(let message):
             self.label.text = message
             self.label.isHidden = message?.isEmpty != false
+            if #available(iOS 13.0, *) {
+                self.label.textColor = .label
+            } else {
+                self.label.textColor = .black
+            }
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
         case .failure(let message):
             self.label.text = message
             self.label.isHidden = message?.isEmpty != false
-            self.label.textColor = .red
+            self.label.textColor = .systemRed
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
         }
