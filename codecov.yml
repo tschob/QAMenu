@@ -2,16 +2,22 @@ coverage:
   status:
     project:
       qamenu:
+        target: 70%
+        threshold: 3%
         paths:
           - Sources/QAMenu
         flags:
           - QAMenu
       qamenuuikit:
+        target: 50%
+        threshold: 5%
         paths:
           - Sources/QAMenuUIKit
         flags:
           - QAMenuUIKit
       qamenuutils:
+        target: 90%
+        threshold: 3%
         paths:
           - Sources/QAMenuUtils
         flags:
