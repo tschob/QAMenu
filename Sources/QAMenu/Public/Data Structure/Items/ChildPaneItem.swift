@@ -41,7 +41,7 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
 
     public let onNavigateBack = ObservableEvent<() -> Void>()
 
-    private var disposeBag = DisposeBag()
+    private var navigationDisposeBag = DisposeBag()
 
     // MARK: - Initialization
 
@@ -83,6 +83,7 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
     // MARK: - NavigationTrigger
 
     private func observeNavigationTriggerInChildPane(_ pane: Pane) {
+        navigationDisposeBag.dispose()
         let navigationTriggers = pane.groups.compactMap { $0 as? NavigationTrigger }
         navigationTriggers.forEach { navigationTrigger in
             navigationTrigger.onNavigateBack
@@ -92,7 +93,7 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
                         completion()
                     })
                 })
-                .disposeWith(self.disposeBag)
+                .disposeWith(self.navigationDisposeBag)
         }
     }
 }
