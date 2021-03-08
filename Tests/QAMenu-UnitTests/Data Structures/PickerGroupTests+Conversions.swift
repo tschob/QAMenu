@@ -196,6 +196,8 @@ extension PickerGroupTests {
             isPaneReloadable: true,
             isPaneSearchable: true
         )
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             childPaneItem,
@@ -203,10 +205,12 @@ extension PickerGroupTests {
             title: "title",
             value: "value",
             footerText: "footer",
-            layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
             isPaneReloadable: true,
             isPaneSearchable: true,
+            layoutType: .vertical(.autoGrow),
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord),
             onPickedOptionFailure: "failure",
             testCase: self
         )
@@ -269,6 +273,8 @@ extension PickerGroupTests {
             isPaneReloadable: true,
             isPaneSearchable: true
         )
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             childPaneItem,
@@ -276,10 +282,12 @@ extension PickerGroupTests {
             title: "title",
             value: "value",
             footerText: "footer",
-            layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
             isPaneReloadable: true,
             isPaneSearchable: true,
+            layoutType: .vertical(.autoGrow),
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord),
             onPickedOptionFailure: "failure",
             testCase: self
         )

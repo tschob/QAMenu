@@ -45,8 +45,12 @@ open class StringItem: Item, FooterSupport {
     public let title: Dynamic<String?>?
     public let value: Dynamic<String?>?
     public let footerText: Dynamic<String?>?
-    public let layoutType: Dynamic<LayoutType>
     public let valueFallbackString: String
+
+    public private (set) var layoutType: Dynamic<LayoutType>  = .static(.horizontal(.singleLine))
+
+    public private (set) var titleTextAttributes: Dynamic<TextAttributes> = .static(.init(textStyle: .body, lineBreak: .wrapByWord))
+    public private (set) var valueTextAttributes: Dynamic<TextAttributes> = .static(.init(textStyle: .body, lineBreak: .wrapByWord))
 
     override open var searchableContent: [String?] {
         return [
@@ -62,14 +66,32 @@ open class StringItem: Item, FooterSupport {
         title: Dynamic<String?>?,
         value: Dynamic<String?>?,
         footerText: Dynamic<String?>? = nil,
-        layoutType: Dynamic<LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = "<nil>"
     ) {
         self.title = title
         self.value = value
         self.footerText = footerText
-        self.layoutType = layoutType
         self.valueFallbackString = fallbackString
+    }
+
+    // MARK: - Modifications
+
+    @discardableResult
+    public func withLayoutType(_ layoutType: Dynamic<LayoutType>) -> Self {
+        self.layoutType = layoutType
+        return self
+    }
+
+    @discardableResult
+    public func withTitleTextAttributes(_ textAttributes: Dynamic<TextAttributes>) -> Self {
+        self.titleTextAttributes = textAttributes
+        return self
+    }
+
+    @discardableResult
+    public func withValueTextAttributes(_ textAttributes: Dynamic<TextAttributes>) -> Self {
+        self.valueTextAttributes = textAttributes
+        return self
     }
 }
 

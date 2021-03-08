@@ -112,9 +112,9 @@ extension ShowcaseItemsFactory {
                                 ItemGroup(items: .static([
                                     StringItem(
                                         title: .static("End?"),
-                                        value: .static("In theory you can do this forever"),
-                                        layoutType: .static(.horizontal(.singleLine))
+                                        value: .static("In theory you can do this forever")
                                     )
+                                    .withLayoutType(.static(.horizontal(.singleLine)))
                                 ]))
                             ])})
                         ]))
@@ -156,9 +156,9 @@ extension ShowcaseItemsFactory {
                     ItemGroup(items: .static([
                         StringItem(
                             title: .static("You are back in QA Menu UI"),
-                            value: .static("👍"),
-                            layoutType: .static(.horizontal(.singleLine))
+                            value: .static("👍")
                         )
+                        .withLayoutType(.static(.horizontal(.singleLine)))
                     ]))
                 ])
             }

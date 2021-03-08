@@ -1,7 +1,7 @@
 //
-//  PickableStringItem+Assert.swift
+//  TextAttributes.swift
 //
-//  Created by Hans Seiffert on 01.02.21.
+//  Created by Hans Seiffert on 07.03.21.
 //
 //  ---
 //  MIT License
@@ -24,30 +24,39 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// 
+//
 
 import Foundation
-import XCTest
-import QAMenu
 
-extension PickableStringItem {
+public struct TextAttributes: Equatable {
 
-    internal static func _assertInitProperties(
-        _ _sut: PickableStringItem,
-        identifier: String,
-        title: String,
-        footerText: String? = nil,
-        isSelected: Bool,
-        titleTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
-        valueTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
-        file: StaticString = #file,
-        line: UInt = #line
+    public enum TextStyle: String, CaseIterable {
+        case largeTitle
+        case title1
+        case title2
+        case title3
+        case headline
+        case subheadline
+        case body
+        case callout
+        case footnote
+        case caption1
+        case caption2
+    }
+
+    public enum LineBreak: String, CaseIterable {
+        case wrapByCharacter
+        case wrapByWord
+    }
+
+    public let textStyle: TextStyle
+    public let lineBreak: LineBreak
+
+    public init(
+        textStyle: TextAttributes.TextStyle,
+        lineBreak: TextAttributes.LineBreak
     ) {
-        XCTAssertEqual(_sut.identifier.unboxed, identifier, file: file, line: line)
-        XCTAssertEqual(_sut.title.unboxed, title, file: file, line: line)
-        XCTAssertEqual(_sut.footerText?.unboxed, footerText, file: file, line: line)
-        XCTAssertEqual(_sut.isSelected.unboxed, isSelected, file: file, line: line)
-        XCTAssertEqual(_sut.titleTextAttributes.unboxed, titleTextAttributes, file: file, line: line)
-        XCTAssertEqual(_sut.valueTextAttributes.unboxed, valueTextAttributes, file: file, line: line)
+        self.textStyle = textStyle
+        self.lineBreak = lineBreak
     }
 }

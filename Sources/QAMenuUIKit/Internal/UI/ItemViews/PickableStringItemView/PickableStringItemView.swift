@@ -50,6 +50,7 @@ internal final class PickableStringItemView: NibView, ItemView, ShareInteraction
     // MARK: - Properties (Private)
 
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var valueLabel: UILabel!
     @IBOutlet private weak var checkboxView: CheckboxView!
     @IBOutlet private weak var stackView: UIStackView!
 
@@ -104,8 +105,23 @@ internal final class PickableStringItemView: NibView, ItemView, ShareInteraction
     private func updateViewContent() {
         if let item = item {
             self.titleLabel.text = item.title()
+            self.titleLabel.font = .preferredFont(forTextStyle: item.titleTextAttributes.unboxed.textStyle.asUIFontTextStyle)
+            self.titleLabel.lineBreakMode = item.titleTextAttributes.unboxed.lineBreak.asNSLineBreakMode
+            self.valueLabel.font = .preferredFont(forTextStyle: item.valueTextAttributes.unboxed.textStyle.asUIFontTextStyle)
+            self.valueLabel.lineBreakMode = item.valueTextAttributes.unboxed.lineBreak.asNSLineBreakMode
         } else {
             self.titleLabel.text = nil
+            self.titleLabel.font = .preferredFont(forTextStyle: .body)
+            self.titleLabel.lineBreakMode = .byWordWrapping
+            self.valueLabel.font = .preferredFont(forTextStyle: .body)
+            self.valueLabel.lineBreakMode = .byWordWrapping
+        }
+        if let value = item?.value?.unboxed {
+            self.valueLabel.text = value
+            self.valueLabel.isHidden = false
+        } else {
+            self.valueLabel.text = nil
+            self.valueLabel.isHidden = true
         }
         self.checkboxView.isHidden = !(item?.isSelected() ?? false)
 
@@ -119,7 +135,8 @@ internal final class PickableStringItemView: NibView, ItemView, ShareInteraction
         } else {
             self.titleLabel.textColor = .black
         }
-        self.titleLabel.font = .preferredFont(forTextStyle: .body)
+        self.valueLabel.numberOfLines = 0
+        self.valueLabel.textColor = .systemGray
     }
 
     private func reload() {

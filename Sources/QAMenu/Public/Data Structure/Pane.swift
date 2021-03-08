@@ -105,9 +105,9 @@ extension Pane {
             pane: { self },
             value: value,
             footerText: footerText,
-            layoutType: layoutType,
             fallbackString: fallbackString
         )
+        .withLayoutType(layoutType)
     }
 }
 

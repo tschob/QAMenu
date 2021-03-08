@@ -98,16 +98,21 @@ class PickableStringItemTests: XCTestCase {
         let sut = PickableStringItem(
             identifier: .static("id"),
             title: .static("title"),
+            value: .static("value"),
             footerText: .static("footer"),
             isSelected: .static(false)
         )
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         PickableStringItem._assertInitProperties(
             sut,
             identifier: "id",
             title: "title",
             footerText: "footer",
-            isSelected: false
+            isSelected: false,
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)
         )
     }
 
@@ -125,6 +130,20 @@ class PickableStringItemTests: XCTestCase {
         XCTAssertTrue(searchableContent.contains("title"))
     }
 
+    func test_searchableContent_whenHavingTitleAndValue_containsTheTitle() throws {
+        let sut = PickableStringItem(
+            identifier: .static("id"),
+            title: .static("title"),
+            value: .static("value"),
+            isSelected: .static(false)
+        )
+
+        let searchableContent = sut.searchableContent.compactMap { $0 }
+        XCTAssertEqual(searchableContent.count, 2)
+        XCTAssertTrue(searchableContent.contains("title"))
+        XCTAssertTrue(searchableContent.contains("value"))
+    }
+
     func test_searchableContent_whenHavingTitleAndFooter_containsAllTwo() throws {
         let sut = PickableStringItem(
             identifier: .static("id"),
@@ -139,12 +158,39 @@ class PickableStringItemTests: XCTestCase {
         XCTAssertTrue(searchableContent.contains("footer"))
     }
 
+    func test_searchableContent_whenHavingTitleAndValueAndFooter_containsAllTwo() throws {
+        let sut = PickableStringItem(
+            identifier: .static("id"),
+            title: .static("title"),
+            value: .static("value"),
+            footerText: .static("footer"),
+            isSelected: .static(false)
+        )
+
+        let searchableContent = sut.searchableContent.compactMap { $0 }
+        XCTAssertEqual(searchableContent.count, 3)
+        XCTAssertTrue(searchableContent.contains("title"))
+        XCTAssertTrue(searchableContent.contains("value"))
+        XCTAssertTrue(searchableContent.contains("footer"))
+    }
+
     // MARK: - Shareable
+
+    func test_isSharingEnabled_whenHavingOnlyATitle_returnsTrue() throws {
+        let sut = PickableStringItem(
+            identifier: .static("id"),
+            title: .static("title"),
+            isSelected: .static(false)
+        )
+
+        XCTAssertTrue(sut.isSharingEnabled)
+    }
 
     func test_isSharingEnabled_whenHavingAValue_returnsTrue() throws {
         let sut = PickableStringItem(
             identifier: .static("id"),
-            title: .static("title"),
+            title: .static(""),
+            value: .static("value"),
             isSelected: .static(false)
         )
 
@@ -161,7 +207,7 @@ class PickableStringItemTests: XCTestCase {
         XCTAssertFalse(sut.isSharingEnabled)
     }
 
-    func test_shareContent_whenHavingAValue_returnsValue() throws {
+    func test_shareContent_whenHavingOnlyATitle_returnsTitle() throws {
         let sut = PickableStringItem(
             identifier: .static("id"),
             title: .static("title"),
@@ -171,7 +217,18 @@ class PickableStringItemTests: XCTestCase {
         XCTAssertEqual(sut.shareContent, "title")
     }
 
-    func test_shareContent_whenValueIsEmpty_returnsEmptyString() throws {
+    func test_shareContent_whenHavingAValue_returnsValue() throws {
+        let sut = PickableStringItem(
+            identifier: .static("id"),
+            title: .static("title"),
+            value: .static("value"),
+            isSelected: .static(false)
+        )
+
+        XCTAssertEqual(sut.shareContent, "value")
+    }
+
+    func test_shareContent_whenTitleAndValueIsEmpty_returnsEmptyString() throws {
         let sut = PickableStringItem(
             identifier: .static("id"),
             title: .static(""),

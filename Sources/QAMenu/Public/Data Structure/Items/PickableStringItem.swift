@@ -37,25 +37,48 @@ open class PickableStringItem: PickableItem, FooterSupport {
     override open var searchableContent: [String?] {
         return [
             self.toString,
+            self.value?.unboxed,
             self.footerText?.unboxed
         ]
     }
 
     public let title: Dynamic<String>
+    public let value: Dynamic<String?>?
+
+    public private (set) var titleTextAttributes: Dynamic<TextAttributes> = .static(.init(textStyle: .body, lineBreak: .wrapByWord))
+    public private (set) var valueTextAttributes: Dynamic<TextAttributes> = .static(.init(textStyle: .body, lineBreak: .wrapByWord))
+
     public let footerText: Dynamic<String?>?
 
     public init(
         identifier: Dynamic<String>,
         title: Dynamic<String>,
+        value: Dynamic<String?>? = nil,
         footerText: Dynamic<String?>? = nil,
         isSelected: Dynamic<Bool>
     ) {
         self.title = title
+        self.value = value
         self.footerText = footerText
+
         super.init(
             identifier: identifier,
             isSelected: isSelected
         )
+    }
+
+    // MARK: - Modifications
+
+    @discardableResult
+    public func withTitleTextAttributes(_ textAttributes: Dynamic<TextAttributes>) -> Self {
+        self.titleTextAttributes = textAttributes
+        return self
+    }
+
+    @discardableResult
+    public func withValueTextAttributes(_ textAttributes: Dynamic<TextAttributes>) -> Self {
+        self.valueTextAttributes = textAttributes
+        return self
     }
 }
 
@@ -71,6 +94,6 @@ extension PickableStringItem: Shareable {
     }
 
     open var shareContent: String? {
-        return self.title()
+        return self.value?() ?? self.title()
     }
 }

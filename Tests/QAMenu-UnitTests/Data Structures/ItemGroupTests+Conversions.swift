@@ -161,11 +161,13 @@ extension ItemGroupTests {
             title: .static("title"),
             value: .static("value"),
             footerText: .static("footer"),
-            layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback",
             isPaneReloadable: true,
             isPaneSearchable: true
         )
+        .withLayoutType(.static(.vertical(.autoGrow)))
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             childPaneItem,
@@ -173,10 +175,12 @@ extension ItemGroupTests {
             title: "title",
             value: "value",
             footerText: "footer",
-            layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
             isPaneReloadable: true,
-            isPaneSearchable: true
+            isPaneSearchable: true,
+            layoutType: .vertical(.autoGrow),
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)
         )
     }
 
@@ -231,6 +235,8 @@ extension ItemGroupTests {
             isPaneReloadable: true,
             isPaneSearchable: true
         )
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             childPaneItem,
@@ -238,10 +244,12 @@ extension ItemGroupTests {
             title: "title",
             value: "value",
             footerText: "footer",
-            layoutType: .vertical(.autoGrow),
             fallbackString: "fallback",
             isPaneReloadable: true,
-            isPaneSearchable: true
+            isPaneSearchable: true,
+            layoutType: .vertical(.autoGrow),
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)
         )
     }
 }

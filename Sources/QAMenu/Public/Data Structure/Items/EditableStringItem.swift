@@ -48,7 +48,6 @@ open class EditableStringItem: StringItem {
         title: Dynamic<String?>?,
         value: Dynamic<String?>?,
         footerText: Dynamic<String?>? = nil,
-        layoutType: Dynamic<LayoutType> = .static(.horizontal(.singleLine)),
         fallbackString: String = "",
         isEditable: Dynamic<Bool> = .static(true),
         onValueChange: @escaping (_ newValue: String, _ item: StringItem, _ result: @escaping (ValueChangeResult) -> Void) -> Void
@@ -59,7 +58,6 @@ open class EditableStringItem: StringItem {
             title: title,
             value: value,
             footerText: footerText,
-            layoutType: layoutType,
             fallbackString: fallbackString
         )
     }

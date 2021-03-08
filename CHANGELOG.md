@@ -4,11 +4,13 @@
 
 #### Breaking Changes
 
-* None
+* [QAMenu] Replaced init parameter `layoutType ` with function `withLayoutType(...)` (PR #16)
 
 #### Enhancements
 
 * [QAMenuUIKit] Improved dark mode and dynamic font support (PR #14)
+* [QAMenu] Added to option to specify `TextStyle` and `LineBreak` for `StringItem`, `EditableStringItem`, `PickableStringItem` and `ChildPaneItem` (PR #16)
+* [QAMenuUIKit] Support new `TextAttribute`s: `TextStyle` and `LineBreak` (PR #16)
 
 #### Bug Fixes
 

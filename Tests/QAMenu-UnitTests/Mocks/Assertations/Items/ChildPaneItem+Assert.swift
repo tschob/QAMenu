@@ -40,8 +40,10 @@ extension ChildPaneItem {
         title: String? = nil,
         value: String? = nil,
         footerText: String? = nil,
-        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
+        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
+        titleTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
+        valueTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
         file: StaticString = #file,
         line: UInt = #line
     ) {
@@ -56,8 +58,10 @@ extension ChildPaneItem {
             title: title,
             value: value,
             footerText: footerText,
+            fallbackString: fallbackString,
             layoutType: layoutType,
-            fallbackString: fallbackString
+            titleTextAttributes: titleTextAttributes,
+            valueTextAttributes: valueTextAttributes
         )
     }
 
@@ -69,8 +73,10 @@ extension ChildPaneItem {
         title: String? = nil,
         value: String? = nil,
         footerText: String? = nil,
-        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
+        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
+        titleTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
+        valueTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
         file: StaticString = #file,
         line: UInt = #line
     ) {
@@ -85,8 +91,10 @@ extension ChildPaneItem {
             title: title,
             value: value,
             footerText: footerText,
+            fallbackString: fallbackString,
             layoutType: layoutType,
-            fallbackString: fallbackString
+            titleTextAttributes: titleTextAttributes,
+            valueTextAttributes: valueTextAttributes
         )
     }
 
@@ -98,10 +106,12 @@ extension ChildPaneItem {
         title: String? = nil,
         value: String? = nil,
         footerText: String? = nil,
-        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
         isPaneReloadable: Bool = false,
         isPaneSearchable: Bool = false,
+        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
+        titleTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
+        valueTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
         file: StaticString = #file,
         line: UInt = #line
     ) {
@@ -125,8 +135,10 @@ extension ChildPaneItem {
             title: title,
             value: value,
             footerText: footerText,
+            fallbackString: fallbackString,
             layoutType: layoutType,
-            fallbackString: fallbackString
+            titleTextAttributes: titleTextAttributes,
+            valueTextAttributes: valueTextAttributes
         )
     }
 
@@ -138,10 +150,12 @@ extension ChildPaneItem {
         title: String? = nil,
         value: String? = nil,
         footerText: String? = nil,
-        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
         isPaneReloadable: Bool = false,
         isPaneSearchable: Bool = false,
+        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
+        titleTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
+        valueTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
         file: StaticString = #file,
         line: UInt = #line
     ) {
@@ -187,8 +201,10 @@ extension ChildPaneItem {
             title: title,
             value: value,
             footerText: footerText,
+            fallbackString: fallbackString,
             layoutType: layoutType,
-            fallbackString: fallbackString
+            titleTextAttributes: titleTextAttributes,
+            valueTextAttributes: valueTextAttributes
         )
     }
 
@@ -200,10 +216,12 @@ extension ChildPaneItem {
         title: String? = nil,
         value: String? = nil,
         footerText: String? = nil,
-        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
         isPaneReloadable: Bool = false,
         isPaneSearchable: Bool = false,
+        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
+        titleTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
+        valueTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
         onPickedOptionFailure: String,
         testCase: XCTestCase,
         file: StaticString = #file,
@@ -239,8 +257,10 @@ extension ChildPaneItem {
             title: title,
             value: value,
             footerText: footerText,
+            fallbackString: fallbackString,
             layoutType: layoutType,
-            fallbackString: fallbackString
+            titleTextAttributes: titleTextAttributes,
+            valueTextAttributes: valueTextAttributes
         )
     }
 
@@ -251,15 +271,19 @@ extension ChildPaneItem {
         title: String? = nil,
         value: String? = nil,
         footerText: String? = nil,
-        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
         fallbackString: String = "",
+        layoutType: StringItem.LayoutType = .horizontal(.singleLine),
+        titleTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
+        valueTextAttributes: TextAttributes = TextAttributes(textStyle: .body, lineBreak: .wrapByWord),
         file: StaticString = #file,
         line: UInt = #line
     ) {
         XCTAssertEqual(_sut.title?.unboxed, title, file: file, line: line)
         XCTAssertEqual(_sut.value?.unboxed, value, file: file, line: line)
         XCTAssertEqual(_sut.footerText?.unboxed, footerText, file: file, line: line)
-        XCTAssertEqual(_sut.layoutType.unboxed, layoutType, file: file, line: line)
         XCTAssertEqual(_sut.valueFallbackString, fallbackString, file: file, line: line)
+        XCTAssertEqual(_sut.layoutType.unboxed, layoutType, file: file, line: line)
+        XCTAssertEqual(_sut.titleTextAttributes.unboxed, titleTextAttributes, file: file, line: line)
+        XCTAssertEqual(_sut.valueTextAttributes.unboxed, valueTextAttributes, file: file, line: line)
     }
 }

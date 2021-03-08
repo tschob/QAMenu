@@ -55,7 +55,6 @@ class ShowcaseItemsFactory {
                     value: .computed({
                         self.storage.editableString
                     }),
-                    layoutType: .static(.horizontal(.singleLine)),
                     isEditable: .static(true),
                     onValueChange: { newValue, _, result in
                         if newValue.count <= 2 {
@@ -68,9 +67,9 @@ class ShowcaseItemsFactory {
                 ),
                 StringItem(
                     title: .keyPath(\Storage.multilineStringTitle, for: ShowcaseItemsFactory.storage),
-                    value: .static("Everything which is shown in the examples here is based on the (almost) UI-less data model structure 🚀"),
-                    layoutType: .static(.vertical(.autoGrow))
-                ),
+                    value: .static("Everything which is shown in the examples here is based on the (almost) UI-less data model structure 🚀")
+                )
+                .withLayoutType(.static(.vertical(.autoGrow))),
                 BoolItem(
                     title: .static("Editable boolean"),
                     value: .keyPath(\Storage.storedBoolean, for: ShowcaseItemsFactory.storage),

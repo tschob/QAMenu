@@ -61,6 +61,8 @@ extension RootPaneTests {
             layoutType: .static(.vertical(.autoGrow)),
             fallbackString: "fallback"
         )
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             childPaneItem,
@@ -68,8 +70,10 @@ extension RootPaneTests {
             title: "rootPaneTitle",
             value: "value",
             footerText: "footer",
+            fallbackString: "fallback",
             layoutType: .vertical(.autoGrow),
-            fallbackString: "fallback"
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)
         )
     }
 

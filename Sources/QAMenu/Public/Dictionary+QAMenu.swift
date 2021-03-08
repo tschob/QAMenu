@@ -45,9 +45,9 @@ public extension Dictionary where Key == String {
                 )
                 return StringItem(
                     title: .static(element.key),
-                    value: .static(value),
-                    layoutType: layoutType
+                    value: .static(value)
                 )
+                .withLayoutType(layoutType)
             }
         return items
     }

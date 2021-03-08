@@ -54,6 +54,8 @@ extension PaneTests {
             layoutType: .static(.vertical(.singleLine)),
             fallbackString: "fallback"
         )
+        .withTitleTextAttributes(.static(TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter)))
+        .withValueTextAttributes(.static(TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)))
 
         ChildPaneItem._assertInitProperties(
             childPaneItem,
@@ -61,8 +63,10 @@ extension PaneTests {
             title: "abc",
             value: "value",
             footerText: "footer",
+            fallbackString: "fallback",
             layoutType: .vertical(.singleLine),
-            fallbackString: "fallback"
+            titleTextAttributes: TextAttributes(textStyle: .caption1, lineBreak: .wrapByCharacter),
+            valueTextAttributes: TextAttributes(textStyle: .footnote, lineBreak: .wrapByWord)
         )
     }
 
@@ -100,8 +104,8 @@ extension PaneTests {
             title: "abc",
             value: nil,
             footerText: "footer",
-            layoutType: .horizontal(.singleLine),
-            fallbackString: ""
+            fallbackString: "",
+            layoutType: .horizontal(.singleLine)
         )
         ChildPaneItem._assertInitProperties(
             childPaneItems[1],
@@ -109,8 +113,8 @@ extension PaneTests {
             title: "def",
             value: nil,
             footerText: "footer",
-            layoutType: .horizontal(.singleLine),
-            fallbackString: ""
+            fallbackString: "",
+            layoutType: .horizontal(.singleLine)
         )
     }
 }
