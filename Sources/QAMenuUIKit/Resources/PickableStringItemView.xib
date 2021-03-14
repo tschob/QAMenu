@@ -20,44 +20,50 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rQ8-Be-LmF">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c8k-UU-YtT">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suP-sd-BSz">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="20.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rQ8-Be-LmF">
+                            <rect key="frame" x="0.0" y="29.5" width="50" height="41"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suP-sd-BSz">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="20.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="cL0-9R-XTQ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APx-g2-QxH">
+                                    <rect key="frame" x="0.0" y="20.5" width="50" height="20.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="J61-AW-Hjp"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LF6-Ua-gTE" customClass="CheckboxView" customModule="QAMenuUIKit">
+                            <rect key="frame" x="386" y="36" width="28" height="28"/>
                             <constraints>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="cL0-9R-XTQ"/>
+                                <constraint firstAttribute="height" constant="28" id="9de-wU-Gb2"/>
+                                <constraint firstAttribute="width" constant="28" id="IQn-58-bbw"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APx-g2-QxH">
-                            <rect key="frame" x="0.0" y="79.5" width="393" height="20.5"/>
-                            <constraints>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="J61-AW-Hjp"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        </view>
                     </subviews>
-                </stackView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LF6-Ua-gTE" customClass="CheckboxView" customModule="QAMenuUIKit">
-                    <rect key="frame" x="393" y="36" width="28" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="9de-wU-Gb2"/>
-                        <constraint firstAttribute="width" constant="28" id="IQn-58-bbw"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="6Tc-P3-c9j"/>
                     </constraints>
-                </view>
+                </stackView>
             </subviews>
             <constraints>
-                <constraint firstItem="LF6-Ua-gTE" firstAttribute="centerY" secondItem="RIp-IU-gfN" secondAttribute="centerY" id="7Kt-f1-lvA"/>
-                <constraint firstItem="LF6-Ua-gTE" firstAttribute="leading" secondItem="rQ8-Be-LmF" secondAttribute="trailing" id="bTV-7G-e0v"/>
-                <constraint firstItem="rQ8-Be-LmF" firstAttribute="leading" secondItem="RIp-IU-gfN" secondAttribute="leading" id="ha7-wI-64p"/>
-                <constraint firstAttribute="trailing" secondItem="LF6-Ua-gTE" secondAttribute="trailing" constant="-7" id="kd8-Pn-32f"/>
-                <constraint firstItem="rQ8-Be-LmF" firstAttribute="top" secondItem="RIp-IU-gfN" secondAttribute="top" id="pr3-I2-8rO"/>
-                <constraint firstAttribute="bottom" secondItem="rQ8-Be-LmF" secondAttribute="bottom" id="r79-uO-Yal"/>
+                <constraint firstAttribute="bottom" secondItem="c8k-UU-YtT" secondAttribute="bottom" id="1EG-OB-k8N"/>
+                <constraint firstItem="c8k-UU-YtT" firstAttribute="leading" secondItem="RIp-IU-gfN" secondAttribute="leading" id="HOF-3a-UN0"/>
+                <constraint firstAttribute="trailing" secondItem="c8k-UU-YtT" secondAttribute="trailing" id="ahI-Mb-b6Z"/>
+                <constraint firstItem="c8k-UU-YtT" firstAttribute="top" secondItem="RIp-IU-gfN" secondAttribute="top" id="yqh-9N-47M"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

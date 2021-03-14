@@ -35,15 +35,24 @@ class PickerGroupAdvancedExamplesFactory {
         let pane = Pane(
             title: .static("PickerGroup"),
             groups: [
-                Pane(
-                    title: .static("Selection Examples"),
-                    groups: [
-                        ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.onlyOneSelection(),
-                        ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.singleSelection(),
-                        ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.multiSelection()
-                    ]
-                )
-                .asChildPaneItem()
+                [
+                    Pane(
+                        title: .static("Selection Examples"),
+                        groups: [
+                            ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.onlyOneSelection(),
+                            ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.singleSelection(),
+                            ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.multiSelection()
+                        ]
+                    )
+                    .asChildPaneItem(),
+                    Pane(
+                        title: .static("Layout Examples"),
+                        groups: [
+                            ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.layoutExamples()
+                        ]
+                    )
+                    .asChildPaneItem()
+                ]
                 .asItemGroup(),
                 ItemGroup(
                     title: .static("Delayed Loading"),
