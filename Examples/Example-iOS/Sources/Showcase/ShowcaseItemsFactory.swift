@@ -92,7 +92,7 @@ class ShowcaseItemsFactory {
                         return ShowcaseItemsFactory.DetailedItemExamples.PickerGroups.onlyOneSelection(title: nil, shouldDismiss: true).asPane(title: .static("Picker"))
                     }, value: .computed({
                         let selected = ShowcaseItemsFactory.DetailedItemExamples.PickableString.Storage.onlyOneSelection
-                        return ShowcaseItemsFactory.DetailedItemExamples.PickableString.Storage.options[selected]
+                        return ShowcaseItemsFactory.DetailedItemExamples.PickableString.Storage.selectionExamplesOptions[selected]
                     })
                 ),
                 ButtonItem(

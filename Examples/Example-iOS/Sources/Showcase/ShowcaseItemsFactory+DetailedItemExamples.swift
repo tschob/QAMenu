@@ -170,8 +170,9 @@ extension ShowcaseItemsFactory {
                 static var onlyOneSelection: Swift.String = "1"
                 static var singleSelection: Swift.String?
                 static var multiSelection = [Swift.String]()
+                static var layoutExamplesSelection = [Swift.String]()
 
-                static let options: [Swift.String: Swift.String] = [
+                static let selectionExamplesOptions: [Swift.String: Swift.String] = [
                     "1": "Alpha",
                     "2": "Beta (invalid)",
                     "3": "Production"
@@ -179,7 +180,7 @@ extension ShowcaseItemsFactory {
             }
 
             static var onlyOneSelectionItems: [PickableStringItem] {
-                return self.Storage.options.sorted(by: { $0.key < $1.key }).map { (key, value) in
+                return self.Storage.selectionExamplesOptions.sorted(by: { $0.key < $1.key }).map { (key, value) in
                     PickableStringItem(
                         identifier: .static(key),
                         title: .static(value),
@@ -191,7 +192,7 @@ extension ShowcaseItemsFactory {
             }
 
             static var singleSelectionItems: [PickableStringItem] {
-                return self.Storage.options.sorted(by: { $0.key < $1.key }).map { (key, value) in
+                return self.Storage.selectionExamplesOptions.sorted(by: { $0.key < $1.key }).map { (key, value) in
                     PickableStringItem(
                         identifier: .static(key),
                         title: .static(value),
@@ -203,7 +204,7 @@ extension ShowcaseItemsFactory {
             }
 
             static var multiSelectionItems: [PickableStringItem] {
-                return self.Storage.options.sorted(by: { $0.key < $1.key }).map { (key, value) in
+                return self.Storage.selectionExamplesOptions.sorted(by: { $0.key < $1.key }).map { (key, value) in
                     PickableStringItem(
                         identifier: .static(key),
                         title: .static(value),
@@ -212,6 +213,48 @@ extension ShowcaseItemsFactory {
                         })
                     )
                 }
+            }
+
+            static var layoutExampleItems: [PickableStringItem] {
+                return [
+                    PickableStringItem(
+                        identifier: .static("1"),
+                        title: .static("Title (short)"),
+                        isSelected: .computed({ self.Storage.layoutExamplesSelection.contains("1") })
+                    ),
+                    PickableStringItem(
+                        identifier: .static("2"),
+                        title: .static("Title (short)"),
+                        value: .static("With a value text"),
+                        isSelected: .computed({ self.Storage.layoutExamplesSelection.contains("2") })
+                    ),
+                    PickableStringItem(
+                        identifier: .static("3"),
+                        title: .static("Title (with a medium length)"),
+                        isSelected: .computed({ self.Storage.layoutExamplesSelection.contains("3") })
+                    ),
+                    PickableStringItem(
+                        identifier: .static("4"),
+                        title: .static("Title (with a medium length)"),
+                        value: .static("With a very extensive and long value text"),
+                        footerText: .static("And footer text."),
+                        isSelected: .computed({ self.Storage.layoutExamplesSelection.contains("4") })
+                    )
+                    .withValueTextAttributes(.static(TextAttributes(textStyle: .subheadline, lineBreak: .wrapByCharacter))),
+                    PickableStringItem(
+                        identifier: .static("5"),
+                        title: .static("Title (with a very extensive and long length)"),
+                        footerText: .static("With a long and multiline footer text."),
+                        isSelected: .computed({ self.Storage.layoutExamplesSelection.contains("5") })
+                    ),
+                    PickableStringItem(
+                        identifier: .static("6"),
+                        title: .static("Title (with a very extensive and long length)"),
+                        footerText: .static("This examples uses character wrapping instead of word line wrapping for the title."),
+                        isSelected: .computed({ self.Storage.layoutExamplesSelection.contains("6") })
+                    )
+                    .withTitleTextAttributes(.static(TextAttributes(textStyle: .subheadline, lineBreak: .wrapByCharacter)))
+                ]
             }
         }
 
@@ -343,6 +386,29 @@ extension ShowcaseItemsFactory {
                         default:
                             result(.failure("Unknown option selected"))
                         }
+                    }
+                )
+                return group
+            }
+
+            static func layoutExamples(
+                title: Swift.String? = "Layout Examples",
+                shouldDismiss: Swift.Bool = false
+            ) -> PickerGroup {
+                let group = PickerGroup(
+                    title: .static(title),
+                    options: .static(PickableString.layoutExampleItems),
+                    footerText: .static("Showcases the different layout and string length combinations"),
+                    onPickedOption: { (item: PickableItem, result: ((PickerGroup.PickResult) -> Void)) in
+                        guard let item = item as? PickableStringItem else {
+                            return
+                        }
+                        if item.isSelected() {
+                            PickableString.Storage.layoutExamplesSelection.removeAll(where: { $0 == item.identifier() })
+                        } else {
+                            PickableString.Storage.layoutExamplesSelection.append(item.identifier())
+                        }
+                        result(.success(shouldDismiss: shouldDismiss))
                     }
                 )
                 return group
