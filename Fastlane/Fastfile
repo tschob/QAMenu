@@ -36,23 +36,17 @@ platform :ios do
 
   desc "Ships Pods for the current version"
   lane :ship_pods do
+    add_git_tag(
+      tag: File.read('VERSION')
+    )
+    push_git_tags
+
     podspecs = [
       "QAMenuUtils.podspec",
       "QAMenu.podspec",
       "QAMenuUIKit.podspec",
       "QAMenuCatalog.podspec"
     ]
-    podspecs.each { |podspec|
-      pod_lib_lint(
-        podspec: podspec,
-        use_bundle_exec: true
-      )
-    }
-
-    add_git_tag(
-      tag: File.read('VERSION')
-    )
-    push_git_tags
 
     podspecs.each { |podspec|
       pod_push(
