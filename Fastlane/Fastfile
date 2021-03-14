@@ -37,7 +37,7 @@ platform :ios do
   desc "Ships Pods for the current version"
   lane :ship_pods do
     add_git_tag(
-      tag: File.read('VERSION')
+      tag: File.read('../VERSION')
     )
     push_git_tags
 
@@ -50,7 +50,7 @@ platform :ios do
 
     podspecs.each { |podspec|
       pod_push(
-        podspec: podspec,
+        path: podspec,
         use_bundle_exec: true,
         synchronous: true
       )
