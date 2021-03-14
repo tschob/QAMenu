@@ -4,6 +4,20 @@
 
 #### Breaking Changes
 
+* None
+
+#### Enhancements
+
+* None
+
+#### Bug Fixes
+
+* None
+
+## 0.5.0
+
+#### Breaking Changes
+
 * [QAMenu] Replaced init parameter `layoutType ` with function `withLayoutType(...)` (PR #16)
 
 #### Enhancements
