@@ -141,6 +141,13 @@ extension ShowcaseItemsFactory {
                 })
             }
 
+            static var customStringView: CustomStringItem {
+                return CustomStringItem(
+                    title: .static("Your own"),
+                    value: .static("custom view")
+                )
+            }
+
             static var customScreen: ChildPaneItem {
                 return ChildPaneItem(pane: {
                     CustomPane(

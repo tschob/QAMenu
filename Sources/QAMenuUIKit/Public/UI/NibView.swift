@@ -34,11 +34,11 @@ open class NibView: UIView {
 
     // MARK: - Properties (Private)
 
-    private static var nibName: String {
+    public static var nibName: String {
         return String(describing: Self.self)
     }
 
-    private static var nib: UINib {
+    open var nib: UINib {
         return UINib(nibName: Self.nibName, bundle: Bundle.dm_resources)
     }
 
@@ -57,7 +57,7 @@ open class NibView: UIView {
     // MARK: - 
 
     open func initFromNib() {
-        guard let view = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else {
+        guard let view = self.nib.instantiate(withOwner: self, options: nil).first as? UIView else {
             return
         }
         self.addSubview(view)

@@ -385,7 +385,7 @@ extension PaneViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         guard let item = self.item(at: indexPath) as? Selectable else {
-            Logger.verbose("UITableView row at index \(indexPath) was selectable but the the cell is not \(Selectable.self)")
+            Logger.verbose("UITableView row at index \(indexPath) was selected but the the cell is not \(Selectable.self)")
             return
         }
 

@@ -31,12 +31,27 @@ import UIKit
 import QAMenu
 import QAMenuUIKit
 
+// MARK: - CustomStringItem
+
+class CustomStringItem: StringItem {
+
+    override var isSharingEnabled: Bool {
+        return false
+    }
+}
+
+// MARK: - CustomStringItemView
+
 class CustomStringItemView: NibView, ItemUIRepresentable {
 
     // MARK: - Properties (Internal)
 
     var reuseIdentifier: String {
         return "CustomStringItemView"
+    }
+
+    override var nib: UINib {
+        return UINib(nibName: Self.nibName, bundle: Bundle.main)
     }
 
     weak var delegate: ItemUIRepresentableDelegate?
@@ -65,7 +80,7 @@ class CustomStringItemView: NibView, ItemUIRepresentable {
     // MARK: -
 
     func setItem(_ item: Item) {
-        guard let item = item as? StringItem else { return }
+        guard let item = item as? CustomStringItem else { return }
         self.item = item
         self.item?.onInvalidation
             .observe { [weak self] in

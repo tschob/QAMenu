@@ -141,7 +141,8 @@ class ShowcaseItemsFactory {
                 }),
                 ChildPaneItem(pane: { ProgressItemAdvancedExamplesFactory.makePane() }),
                 ChildPaneItem(pane: { ItemGroupAdvancedExamplesFactory().makePane() }),
-                ChildPaneItem(pane: { PickerGroupAdvancedExamplesFactory().makePane() })
+                ChildPaneItem(pane: { PickerGroupAdvancedExamplesFactory().makePane() }),
+                ChildPaneItem(pane: { CustomItemsAdvancedExamplesFactory().makePane() })
             ])
         )
 
