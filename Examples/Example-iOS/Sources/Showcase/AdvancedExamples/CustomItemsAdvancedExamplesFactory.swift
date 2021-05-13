@@ -39,7 +39,7 @@ class CustomItemsAdvancedExamplesFactory {
                     ShowcaseItemsFactory.DetailedItemExamples.ChildPane.customStringView,
                     ShowcaseItemsFactory.DetailedItemExamples.ChildPane.customScreen
                 ]
-                .asItemGroup(),
+                .asItemGroup()
             ]
         )
         return pane
