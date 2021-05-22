@@ -28,7 +28,7 @@
 
 import Foundation
 
-open class StringItem: Item, FooterSupport {
+open class StringItem: Item, FooterSupport, Shareable {
 
     // MARK: - Properties (Public)
 
@@ -93,11 +93,6 @@ open class StringItem: Item, FooterSupport {
         self.valueTextAttributes = textAttributes
         return self
     }
-}
-
-// MARK: - StringItem + Shareable
-
-extension StringItem: Shareable {
 
     open var isSharingEnabled: Bool {
         guard let shareContent = self.shareContent, !shareContent.isEmpty else {

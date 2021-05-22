@@ -20,6 +20,7 @@
 		A2A40885254EE33200ACA56B /* QAMenuUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40881254EE33200ACA56B /* QAMenuUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2BEC150257C23A80005EFDF /* CustomPaneRepresentableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEC14F257C23A80005EFDF /* CustomPaneRepresentableViewController.swift */; };
 		A2BEC152257C248E0005EFDF /* CustomPaneRepresentableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2BEC151257C248E0005EFDF /* CustomPaneRepresentableViewController.xib */; };
+		A2D87CB1264D69B70074A3A8 /* CustomItemsAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D87CB0264D69B70074A3A8 /* CustomItemsAdvancedExamplesFactory.swift */; };
 		A2DE479B24FBB60B00CE7F7A /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE478524FBB60B00CE7F7A /* ExampleViewController.swift */; };
 		A2DE479C24FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE478724FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift */; };
 		A2DE479D24FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE478924FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift */; };
@@ -70,6 +71,7 @@
 		A2A40881254EE33200ACA56B /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BEC14F257C23A80005EFDF /* CustomPaneRepresentableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPaneRepresentableViewController.swift; sourceTree = "<group>"; };
 		A2BEC151257C248E0005EFDF /* CustomPaneRepresentableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPaneRepresentableViewController.xib; sourceTree = "<group>"; };
+		A2D87CB0264D69B70074A3A8 /* CustomItemsAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomItemsAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
 		A2DE478524FBB60B00CE7F7A /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		A2DE478724FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowcaseItemsFactory+DetailedItemExamples.swift"; sourceTree = "<group>"; };
 		A2DE478924FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				A2DE478924FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift */,
 				A2DE478B24FBB60B00CE7F7A /* ButtonItemAdvancedExamplesFactory.swift */,
+				A2D87CB0264D69B70074A3A8 /* CustomItemsAdvancedExamplesFactory.swift */,
 				A200F19F25D83BF100B309F4 /* EditableStringItemAdvancedExamplesFactory.swift */,
 				A2E6596625E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift */,
 				A249DE3D258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift */,
@@ -303,6 +306,7 @@
 				A289795425E1A11200EB7326 /* MultipleAsyncPickerGroups.swift in Sources */,
 				A2DE479C24FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift in Sources */,
 				A200F1A025D83BF100B309F4 /* EditableStringItemAdvancedExamplesFactory.swift in Sources */,
+				A2D87CB1264D69B70074A3A8 /* CustomItemsAdvancedExamplesFactory.swift in Sources */,
 				A249DE3E258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift in Sources */,
 				A2DE47AC24FBB7D300CE7F7A /* SceneDelegate.swift in Sources */,
 				A2DE47A424FBB60B00CE7F7A /* ShowcaseItemsFactory.swift in Sources */,
