@@ -148,6 +148,13 @@ extension ShowcaseItemsFactory {
                 )
             }
 
+            static var simpleSwiftUIView: SimpleSwiftUIItem {
+                return SimpleSwiftUIItem(
+                    message: "Hello, World!",
+                    response: "Hello,\nSwiftUI!"
+                )
+            }
+
             static var customScreen: ChildPaneItem {
                 return ChildPaneItem(pane: {
                     CustomPane(

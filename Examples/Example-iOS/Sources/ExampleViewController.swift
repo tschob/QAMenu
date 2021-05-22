@@ -119,6 +119,7 @@ class ExampleViewController: UITableViewController {
         )
         if let presenter = self.showcaseQAMenu?.presenter as? QAMenuUIKitPresenter {
             presenter.ui.register(CustomPaneViewController.self, for: CustomPane.self)
+            presenter.ui.register(SwiftUIViewContainerView.self, for: SimpleSwiftUIItem.self)
             presenter.ui.register(CustomStringItemView.self, for: CustomStringItem.self)
         }
     }

@@ -18,9 +18,12 @@
 		A2A40883254EE33200ACA56B /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40880254EE33200ACA56B /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2A40884254EE33200ACA56B /* QAMenuUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40881254EE33200ACA56B /* QAMenuUtils.framework */; };
 		A2A40885254EE33200ACA56B /* QAMenuUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40881254EE33200ACA56B /* QAMenuUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2BB6F5D26593B68007B900F /* SwiftUIViewContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB6F5C26593B68007B900F /* SwiftUIViewContainerView.swift */; };
+		A2BB6F5F26593C23007B900F /* SimpleSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB6F5E26593C23007B900F /* SimpleSwiftUIItem.swift */; };
 		A2BEC150257C23A80005EFDF /* CustomPaneRepresentableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEC14F257C23A80005EFDF /* CustomPaneRepresentableViewController.swift */; };
 		A2BEC152257C248E0005EFDF /* CustomPaneRepresentableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2BEC151257C248E0005EFDF /* CustomPaneRepresentableViewController.xib */; };
 		A2D87CB1264D69B70074A3A8 /* CustomItemsAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D87CB0264D69B70074A3A8 /* CustomItemsAdvancedExamplesFactory.swift */; };
+		A2D87CB3264D6CBA0074A3A8 /* SimpleSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D87CB2264D6CBA0074A3A8 /* SimpleSwiftUIView.swift */; };
 		A2DE479B24FBB60B00CE7F7A /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE478524FBB60B00CE7F7A /* ExampleViewController.swift */; };
 		A2DE479C24FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE478724FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift */; };
 		A2DE479D24FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE478924FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift */; };
@@ -69,9 +72,12 @@
 		A289795325E1A11200EB7326 /* MultipleAsyncPickerGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAsyncPickerGroups.swift; sourceTree = "<group>"; };
 		A2A40880254EE33200ACA56B /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A40881254EE33200ACA56B /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2BB6F5C26593B68007B900F /* SwiftUIViewContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIViewContainerView.swift; sourceTree = "<group>"; };
+		A2BB6F5E26593C23007B900F /* SimpleSwiftUIItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSwiftUIItem.swift; sourceTree = "<group>"; };
 		A2BEC14F257C23A80005EFDF /* CustomPaneRepresentableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPaneRepresentableViewController.swift; sourceTree = "<group>"; };
 		A2BEC151257C248E0005EFDF /* CustomPaneRepresentableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPaneRepresentableViewController.xib; sourceTree = "<group>"; };
 		A2D87CB0264D69B70074A3A8 /* CustomItemsAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomItemsAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2D87CB2264D6CBA0074A3A8 /* SimpleSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSwiftUIView.swift; sourceTree = "<group>"; };
 		A2DE478524FBB60B00CE7F7A /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		A2DE478724FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowcaseItemsFactory+DetailedItemExamples.swift"; sourceTree = "<group>"; };
 		A2DE478924FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
@@ -142,6 +148,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A2D87CB4264D6CC30074A3A8 /* CustomPane */ = {
+			isa = PBXGroup;
+			children = (
+				A2DE489524FC009C00CE7F7A /* CustomPane.swift */,
+				A2BEC14F257C23A80005EFDF /* CustomPaneRepresentableViewController.swift */,
+				A2BEC151257C248E0005EFDF /* CustomPaneRepresentableViewController.xib */,
+				A2DE478D24FBB60B00CE7F7A /* CustomPaneViewController.swift */,
+				A2DE479024FBB60B00CE7F7A /* CustomPaneViewController.xib */,
+			);
+			path = CustomPane;
+			sourceTree = "<group>";
+		};
+		A2D87CB5264D6CCF0074A3A8 /* CustomStringItem */ = {
+			isa = PBXGroup;
+			children = (
+				A2DE478E24FBB60B00CE7F7A /* CustomStringItemView.swift */,
+				A2DE478F24FBB60B00CE7F7A /* CustomStringItemView.xib */,
+			);
+			path = CustomStringItem;
+			sourceTree = "<group>";
+		};
 		A2DE478424FBB60B00CE7F7A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,13 +213,11 @@
 		A2DE478C24FBB60B00CE7F7A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				A2DE489524FC009C00CE7F7A /* CustomPane.swift */,
-				A2BEC14F257C23A80005EFDF /* CustomPaneRepresentableViewController.swift */,
-				A2BEC151257C248E0005EFDF /* CustomPaneRepresentableViewController.xib */,
-				A2DE478E24FBB60B00CE7F7A /* CustomStringItemView.swift */,
-				A2DE478F24FBB60B00CE7F7A /* CustomStringItemView.xib */,
-				A2DE478D24FBB60B00CE7F7A /* CustomPaneViewController.swift */,
-				A2DE479024FBB60B00CE7F7A /* CustomPaneViewController.xib */,
+				A2BB6F5E26593C23007B900F /* SimpleSwiftUIItem.swift */,
+				A2D87CB2264D6CBA0074A3A8 /* SimpleSwiftUIView.swift */,
+				A2BB6F5C26593B68007B900F /* SwiftUIViewContainerView.swift */,
+				A2D87CB4264D6CC30074A3A8 /* CustomPane */,
+				A2D87CB5264D6CCF0074A3A8 /* CustomStringItem */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -226,7 +251,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Hans Seiffert";
 				TargetAttributes = {
 					3ACCCDA22475BDAD00A15252 = {
@@ -294,12 +319,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2BB6F5F26593C23007B900F /* SimpleSwiftUIItem.swift in Sources */,
 				A2BEC150257C23A80005EFDF /* CustomPaneRepresentableViewController.swift in Sources */,
 				A2E6596525E453880013DEE0 /* MultipleAsyncItemGroups.swift in Sources */,
 				A2E6596725E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift in Sources */,
 				A2DE47A124FBB60B00CE7F7A /* CustomStringItemView.swift in Sources */,
 				A2DE479D24FBB60B00CE7F7A /* BoolItemAdvancedExamplesFactory.swift in Sources */,
 				A2E6645D25E563B20013DEE0 /* ProgressItemAdvancedExamplesFactory.swift in Sources */,
+				A2D87CB3264D6CBA0074A3A8 /* SimpleSwiftUIView.swift in Sources */,
 				A2DE479E24FBB60B00CE7F7A /* StringItemAdvancedExamplesFactory.swift in Sources */,
 				A2DE479B24FBB60B00CE7F7A /* ExampleViewController.swift in Sources */,
 				A2DE479F24FBB60B00CE7F7A /* ButtonItemAdvancedExamplesFactory.swift in Sources */,
@@ -310,6 +337,7 @@
 				A249DE3E258E472D002AEC41 /* PickerGroupAdvancedExamplesFactory.swift in Sources */,
 				A2DE47AC24FBB7D300CE7F7A /* SceneDelegate.swift in Sources */,
 				A2DE47A424FBB60B00CE7F7A /* ShowcaseItemsFactory.swift in Sources */,
+				A2BB6F5D26593B68007B900F /* SwiftUIViewContainerView.swift in Sources */,
 				A2DE489624FC009C00CE7F7A /* CustomPane.swift in Sources */,
 				A2DE47A824FBB60B00CE7F7A /* AppDelegate.swift in Sources */,
 				A2DE47A024FBB60B00CE7F7A /* CustomPaneViewController.swift in Sources */,

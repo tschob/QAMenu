@@ -1,7 +1,7 @@
 //
-//  CustomItemsAdvancedExamplesFactory.swift
+//  SimpleSwiftUIItem.swift
 //
-//  Created by Hans Seiffert on 13.05.21.
+//  Created by Hans Seiffert on 22.05.21.
 //
 //  ---
 //  MIT License
@@ -24,25 +24,25 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//
+// 
 
-import UIKit
+import Foundation
 import QAMenu
 
-class CustomItemsAdvancedExamplesFactory {
+// MARK: - SimpleSwiftUIItem
 
-    func makePane() -> Pane {
-        let pane = Pane(
-            title: .static("Custom Items"),
-            groups: [
-                [
-                    ShowcaseItemsFactory.DetailedItemExamples.ChildPane.customStringView,
-                    ShowcaseItemsFactory.DetailedItemExamples.ChildPane.simpleSwiftUIView,
-                    ShowcaseItemsFactory.DetailedItemExamples.ChildPane.customScreen
-                ]
-                .asItemGroup()
-            ]
-        )
-        return pane
+class SimpleSwiftUIItem: Item {
+
+    var message: String
+
+    var response: String
+
+    init(
+        message: String,
+        response: String
+    ) {
+        self.message = message
+        self.response = response
+        super.init()
     }
 }

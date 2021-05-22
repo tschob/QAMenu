@@ -26,6 +26,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
+// swiftlint:disable multiline_arguments_brackets
+
 import QAMenu
 
 struct StringItemAdvancedExamplesFactory {

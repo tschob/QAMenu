@@ -1304,7 +1304,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Hans Seiffert";
 				TargetAttributes = {
 					A2217BB6255806ED0070FC68 = {
