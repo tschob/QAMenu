@@ -45,7 +45,7 @@ class SwiftUIViewContainerView: UIView, ItemUIRepresentable {
             guard let item = item else {
                 return
             }
-            if #available(iOS 13.0, *) {
+            if #available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *) {
                 if hostingController == nil {
                     guard let swiftUIView = SimpleSwiftUIView(item: item) else {
                         return
