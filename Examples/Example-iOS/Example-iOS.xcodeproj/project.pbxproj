@@ -18,6 +18,7 @@
 		A2A40883254EE33200ACA56B /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40880254EE33200ACA56B /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2A40884254EE33200ACA56B /* QAMenuUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40881254EE33200ACA56B /* QAMenuUtils.framework */; };
 		A2A40885254EE33200ACA56B /* QAMenuUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40881254EE33200ACA56B /* QAMenuUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2AC7D9F26595139002D1CF7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2AC7D9E26595139002D1CF7 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A2BB6F5D26593B68007B900F /* SwiftUIViewContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB6F5C26593B68007B900F /* SwiftUIViewContainerView.swift */; };
 		A2BB6F5F26593C23007B900F /* SimpleSwiftUIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB6F5E26593C23007B900F /* SimpleSwiftUIItem.swift */; };
 		A2BEC150257C23A80005EFDF /* CustomPaneRepresentableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEC14F257C23A80005EFDF /* CustomPaneRepresentableViewController.swift */; };
@@ -72,6 +73,7 @@
 		A289795325E1A11200EB7326 /* MultipleAsyncPickerGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAsyncPickerGroups.swift; sourceTree = "<group>"; };
 		A2A40880254EE33200ACA56B /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A40881254EE33200ACA56B /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2AC7D9E26595139002D1CF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A2BB6F5C26593B68007B900F /* SwiftUIViewContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIViewContainerView.swift; sourceTree = "<group>"; };
 		A2BB6F5E26593C23007B900F /* SimpleSwiftUIItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSwiftUIItem.swift; sourceTree = "<group>"; };
 		A2BEC14F257C23A80005EFDF /* CustomPaneRepresentableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPaneRepresentableViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2AC7D9F26595139002D1CF7 /* SwiftUI.framework in Frameworks */,
 				A288789A2517662D003528E5 /* QAMenuUIKit.framework in Frameworks */,
 				A2A40884254EE33200ACA56B /* QAMenuUtils.framework in Frameworks */,
 				A28878972517662A003528E5 /* QAMenuCatalog.framework in Frameworks */,
@@ -139,6 +142,7 @@
 		3ACCCDB92475C7E300A15252 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2AC7D9E26595139002D1CF7 /* SwiftUI.framework */,
 				A2A40880254EE33200ACA56B /* QAMenu.framework */,
 				A2A40881254EE33200ACA56B /* QAMenuUtils.framework */,
 				A28878992517662D003528E5 /* QAMenuUIKit.framework */,
@@ -496,7 +500,7 @@
 				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,7 +521,7 @@
 				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
