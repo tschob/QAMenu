@@ -45,6 +45,8 @@ open class Item: Invalidatable, Searchable {
     open class var typeId: String {
         return String(describing: self)
     }
+
+    public init() {}
 }
 
 // MARK: - Item + Conversions

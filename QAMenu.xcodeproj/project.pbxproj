@@ -432,6 +432,7 @@
 		A2969E6725167D8600EA54D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2969EA225167EBA00EA54D5 /* QAMenuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAMenuUtils.h; sourceTree = "<group>"; };
 		A2969EAD25167EBA00EA54D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2AC7DA02659514E002D1CF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/iOSSupport/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		A2B897082598D4480016A373 /* PaneRepresentableMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaneRepresentableMock.swift; sourceTree = "<group>"; };
 		A2B968F1259E40B0004CC383 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A2B98732256AC46B0059C5EA /* Bundle+QAMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+QAMenuTests.swift"; sourceTree = "<group>"; };
@@ -858,6 +859,7 @@
 		A2969D6E25167C5500EA54D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2AC7DA02659514E002D1CF7 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1304,7 +1306,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Hans Seiffert";
 				TargetAttributes = {
 					A2217BB6255806ED0070FC68 = {
