@@ -1,6 +1,20 @@
 # Changelog
 
-## TBA
+## Template
+
+#### Breaking Changes
+
+* None
+
+#### Enhancements
+
+* None
+
+#### Bug Fixes
+
+* None
+
+## 0.5.1
 
 #### Breaking Changes
 
