@@ -239,7 +239,7 @@ internal class PaneViewController: UIViewController {
             preferredStyle: .alert
         )
         let closeButton = UIAlertAction(
-            title: "Okay",
+            title: dialogContent.closeButtonTitle,
             style: .default,
             handler: nil
         )

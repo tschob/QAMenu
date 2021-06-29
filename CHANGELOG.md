@@ -12,7 +12,7 @@
 
 #### Bug Fixes
 
-* None
+* [QAMenuUIKit] Fix ignored `DialogContent.closeButtonTitle` usage (PR #22)
 
 ## 0.5.0
 

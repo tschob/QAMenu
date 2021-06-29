@@ -230,7 +230,7 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
             preferredStyle: .alert
         )
         let okayAction = UIAlertAction(
-            title: "Ok",
+            title: "Okay, I'll try again",
             style: .default
         )
         errorAlert.addAction(okayAction)
