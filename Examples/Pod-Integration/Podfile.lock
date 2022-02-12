@@ -1,11 +1,11 @@
 PODS:
-  - QAMenu (0.2.0):
+  - QAMenu (0.5.1):
     - QAMenuUtils
-  - QAMenuCatalog (0.2.0):
+  - QAMenuCatalog (0.5.1):
     - QAMenu
-  - QAMenuUIKit (0.2.0):
+  - QAMenuUIKit (0.5.1):
     - QAMenu
-  - QAMenuUtils (0.2.0)
+  - QAMenuUtils (0.5.1)
 
 DEPENDENCIES:
   - QAMenu (from `../..`)
@@ -24,11 +24,11 @@ EXTERNAL SOURCES:
     :path: "../.."
 
 SPEC CHECKSUMS:
-  QAMenu: 4b2bdb83593499d55526f8a43440260c4af0027d
-  QAMenuCatalog: b8cfd5d4b1a9d41eb1140d63f06d428f4780b08c
-  QAMenuUIKit: eabc20413bcd35ca6fb46f395110034225514cf0
-  QAMenuUtils: 2f3670d4c7f8c951e2f3f29fb495c4acc37b70d2
+  QAMenu: 8bd3c8913dee307c3bdd8d01cbf27ee122b4292e
+  QAMenuCatalog: c55a8cc72730a5a116e9ab6f0d19f172c2a95fba
+  QAMenuUIKit: 4781789732567a036096311a1a569cfaa07ee3d8
+  QAMenuUtils: 74f619dfb5cc7e500443689a140a7165a55a36d2
 
 PODFILE CHECKSUM: c44ec374043f6477287d76b1a823a5ed8712e2ed
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
