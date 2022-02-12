@@ -28,7 +28,7 @@
 
 import Foundation
 
-public protocol Group: Invalidatable, FooterSupport {
+public protocol Group: Invalidatable, DialogTrigger, FooterSupport {
 
     // MARK: - Properties (Public)
 

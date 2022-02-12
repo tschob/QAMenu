@@ -44,6 +44,7 @@
 		A2E6596525E453880013DEE0 /* MultipleAsyncItemGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6596425E453880013DEE0 /* MultipleAsyncItemGroups.swift */; };
 		A2E6596725E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6596625E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift */; };
 		A2E6645D25E563B20013DEE0 /* ProgressItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6645C25E563B20013DEE0 /* ProgressItemAdvancedExamplesFactory.swift */; };
+		A2FC196027B7C1BC001FC161 /* ShowcaseItemsFactory+CapabilitiesExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FC195F27B7C1BC001FC161 /* ShowcaseItemsFactory+CapabilitiesExamples.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,6 +101,7 @@
 		A2E6596425E453880013DEE0 /* MultipleAsyncItemGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAsyncItemGroups.swift; sourceTree = "<group>"; };
 		A2E6596625E456100013DEE0 /* ItemGroupAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGroupAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
 		A2E6645C25E563B20013DEE0 /* ProgressItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2FC195F27B7C1BC001FC161 /* ShowcaseItemsFactory+CapabilitiesExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowcaseItemsFactory+CapabilitiesExamples.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				A2DE479124FBB60B00CE7F7A /* ShowcaseItemsFactory.swift */,
+				A2FC195F27B7C1BC001FC161 /* ShowcaseItemsFactory+CapabilitiesExamples.swift */,
 				A2DE478724FBB60B00CE7F7A /* ShowcaseItemsFactory+DetailedItemExamples.swift */,
 				A2DE478824FBB60B00CE7F7A /* AdvancedExamples */,
 				A2DE478C24FBB60B00CE7F7A /* CustomViews */,
@@ -343,6 +346,7 @@
 				A2DE47A424FBB60B00CE7F7A /* ShowcaseItemsFactory.swift in Sources */,
 				A2BB6F5D26593B68007B900F /* SwiftUIViewContainerView.swift in Sources */,
 				A2DE489624FC009C00CE7F7A /* CustomPane.swift in Sources */,
+				A2FC196027B7C1BC001FC161 /* ShowcaseItemsFactory+CapabilitiesExamples.swift in Sources */,
 				A2DE47A824FBB60B00CE7F7A /* AppDelegate.swift in Sources */,
 				A2DE47A024FBB60B00CE7F7A /* CustomPaneViewController.swift in Sources */,
 			);

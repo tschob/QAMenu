@@ -1,5 +1,5 @@
 //
-//  DetailedItemExamples.swift
+//  ShowcaseItemsFactory+DetailedItemExamples.swift
 //
 //  Created by Hans Seiffert on 11.07.20.
 //
