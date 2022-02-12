@@ -1,6 +1,6 @@
 # Changelog
 
-## Template
+## Next Release
 
 #### Breaking Changes
 
@@ -8,7 +8,21 @@
 
 #### Enhancements
 
-* Conform to `DialogTrigger` in all Items and Groups (PR #23)
+* None
+
+#### Bug Fixes
+
+* None
+
+## 0.6.0
+
+#### Breaking Changes
+
+* None
+
+#### Enhancements
+
+* [QAMenu] Conform to `DialogTrigger` in all Items and Groups (PR #23)
 
 #### Bug Fixes
 
