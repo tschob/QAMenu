@@ -8,7 +8,7 @@
 
 #### Enhancements
 
-* None
+* Conform to `DialogTrigger` in all Items and Groups (PR #23)
 
 #### Bug Fixes
 
