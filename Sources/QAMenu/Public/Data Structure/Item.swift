@@ -28,7 +28,7 @@
 
 import Foundation
 
-open class Item: Invalidatable, Searchable {
+open class Item: Invalidatable, DialogTrigger, Searchable {
 
     // MARK: - Properties (Public)
 
@@ -37,6 +37,8 @@ open class Item: Invalidatable, Searchable {
     }
 
     public let onInvalidation = InvalidationEvent()
+
+    public let onPresentDialog = ObservableEvent<DialogContent>()
 
     open weak var parentGroup: Group?
 

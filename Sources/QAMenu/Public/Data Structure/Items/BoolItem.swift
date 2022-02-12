@@ -28,7 +28,7 @@
 
 import Foundation
 
-open class BoolItem: Item, FooterSupport, DialogTrigger {
+open class BoolItem: Item, FooterSupport {
 
     // MARK: - Properties (Public)
 
@@ -41,8 +41,6 @@ open class BoolItem: Item, FooterSupport, DialogTrigger {
     public let value: Dynamic<Bool>
     public let footerText: Dynamic<String?>?
     public let onValueChange: (_ newValue: Bool, _ item: BoolItem, _ result: @escaping (ValueChangeResult) -> Void) -> Void?
-
-    public let onPresentDialog = ObservableEvent<DialogContent>()
 
     override open var searchableContent: [String?] {
         return [

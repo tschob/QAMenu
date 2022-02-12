@@ -155,6 +155,7 @@ Capabilities:
 - [ ] Edit strings (multiline)
 - [x] Async loading operation (Items)
 - [ ] Async loading operation (Groups)
+- [x] Interface to trigger dialogs on Items and Groups
 
 See [DataStructure](Docs/DataStructure.md) for more details.
 

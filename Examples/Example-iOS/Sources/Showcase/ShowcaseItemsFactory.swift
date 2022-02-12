@@ -163,6 +163,11 @@ class ShowcaseItemsFactory {
             ])
         )
 
-        return [simpleCatalogGroup, detailedCatalogGroup, advancedExamples]
+        return [
+            simpleCatalogGroup,
+            detailedCatalogGroup,
+            CapabilitiesExamples.group,
+            advancedExamples
+        ]
     }
 }

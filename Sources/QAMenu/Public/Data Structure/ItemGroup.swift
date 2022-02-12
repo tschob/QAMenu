@@ -46,6 +46,8 @@ open class ItemGroup: Group, Searchable {
 
     public let onInvalidation = InvalidationEvent()
 
+    public let onPresentDialog = ObservableEvent<DialogContent>()
+
     // MARK: - Properties (Private / Internal)
 
     private var disposeBag = DisposeBag()

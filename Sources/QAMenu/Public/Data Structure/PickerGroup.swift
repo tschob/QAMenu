@@ -50,8 +50,6 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
     open private(set) var footerText: Dynamic<String?>?
     open private(set) var onPickedOption: ((_ item: PickableItem, _ result: @escaping (PickResult) -> Void) -> Void?)?
 
-    open var onPresentDialog = ObservableEvent<DialogContent>()
-
     open var onNavigateBack = ObservableEvent<(() -> Void)>()
 
     open var searchableContent: [String?] {
@@ -62,6 +60,8 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
     }
 
     public let onInvalidation = InvalidationEvent()
+
+    public let onPresentDialog = ObservableEvent<DialogContent>()
 
     // MARK: - Properties (Private / Internal)
 

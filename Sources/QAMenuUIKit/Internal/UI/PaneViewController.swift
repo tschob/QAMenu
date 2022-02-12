@@ -189,9 +189,9 @@ internal class PaneViewController: UIViewController {
     ) {
         pane.groups.forEach { group in
             self.observeInvalidatable(group)
-            self.observeDialogTriggerable(group as? DialogTrigger)
+            self.observeDialogTriggerable(group)
             group.items.unboxed.forEach { item in
-                self.observeDialogTriggerable(item as? DialogTrigger)
+                self.observeDialogTriggerable(item)
                 self.observeNavigationTrigger(item as? NavigationTrigger)
             }
         }
