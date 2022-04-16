@@ -40,7 +40,7 @@ class CustomPaneViewController: UIViewController, PaneUIKitRepresentable {
     init(pane: Pane, qaMenu: QAMenu) {
         self.pane = pane
         self.qaMenu = qaMenu
-        super.init(nibName: "CustomPaneViewController", bundle: nil)
+        super.init(nibName: "CustomPaneViewController", bundle: .main)
     }
 
     required init?(coder: NSCoder) {
@@ -56,7 +56,7 @@ class CustomPaneViewController: UIViewController, PaneUIKitRepresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = (pane as? CustomPane)?.color()
+        self.view.backgroundColor = .green
     }
 
     // MARK: -

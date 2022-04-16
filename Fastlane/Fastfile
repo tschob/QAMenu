@@ -45,7 +45,8 @@ platform :ios do
       "QAMenuUtils.podspec",
       "QAMenu.podspec",
       "QAMenuUIKit.podspec",
-      "QAMenuCatalog.podspec"
+      "QAMenuCatalog.podspec",
+      "QAMenuExampleItems.podspec"
     ]
 
     podspecs.each { |podspec|

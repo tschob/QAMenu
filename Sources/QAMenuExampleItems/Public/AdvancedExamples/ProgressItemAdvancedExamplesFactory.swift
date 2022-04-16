@@ -28,13 +28,14 @@
 
 // swiftlint:disable function_body_length
 
+import Foundation
 import QAMenu
 
-struct ProgressItemAdvancedExamplesFactory {
+public struct ProgressItemAdvancedExamplesFactory {
 
-    static var loopedProgressItem: ProgressItem?
+    private static var loopedProgressItem: ProgressItem?
 
-    static func makePane() -> Pane {
+    public static func makePane() -> Pane {
         let pane = Pane(
             title: .static("ProgressItem"),
             groups: [

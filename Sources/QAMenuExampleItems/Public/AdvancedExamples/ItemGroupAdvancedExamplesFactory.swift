@@ -26,12 +26,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import UIKit
+import Foundation
 import QAMenu
 
-class ItemGroupAdvancedExamplesFactory {
+public class ItemGroupAdvancedExamplesFactory {
 
-    func makePane() -> Pane {
+    public init() {}
+
+    public func makePane() -> Pane {
         let pane = Pane(
             title: .static("ItemGroup"),
             groups: [
@@ -63,6 +65,45 @@ class ItemGroupAdvancedExamplesFactory {
         return pane
     }
 
+    private static var remainingFailingLoadingCounts = [Swift.String: Int]()
+
+    public static func delayedItems(
+        identifier: Swift.String,
+        succeedsAfter: Int,
+        allowRetry: Swift.Bool,
+        footer: Swift.String
+    ) -> ItemGroup {
+        remainingFailingLoadingCounts[identifier] = succeedsAfter
+        let group = ItemGroup(
+            title: .static("Delayed Items \(identifier)"),
+            items: .async({ instance in
+                instance.updateProgress(ProgressItem(state: .progress("Loading Part I")))
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    instance.updateProgress(ProgressItem(state: .progress("Loading Part II")))
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                        let remainingFailingLoadingCount = remainingFailingLoadingCounts[identifier] ?? 0
+                        if remainingFailingLoadingCount <= 0 {
+                            instance.complete([StringItem(title: .static("Key"), value: .static("value"))])
+                        } else {
+                            instance.fail(
+                                ProgressItem(state: .failure("Error: Loading fails the first \(remainingFailingLoadingCount) time(s)")),
+                                onFailureOption: ButtonItem(
+                                    title: .static("Try Again"),
+                                    action: { _, _  in
+                                        instance.load()
+                                    }
+                                )
+                            )
+                        }
+                        remainingFailingLoadingCounts[identifier] = remainingFailingLoadingCount - 1
+                    })
+                })
+            }),
+            footerText: .static(footer)
+        )
+        return group
+    }
+
     private func makeDelayedLoadingExample(
         identifier: Swift.String,
         succeedsAfter: Int,
@@ -70,7 +111,7 @@ class ItemGroupAdvancedExamplesFactory {
         shouldDismiss: Swift.Bool
     ) -> ChildPaneItem {
         let footer = "Loading fails for \(succeedsAfter) time(s); Shows a retry button: \(allowRetry ? "yes" : "no")"
-        return ShowcaseItemsFactory.DetailedItemExamples.ItemGroups.delayedItems(
+        return Self.delayedItems(
             identifier: identifier,
             succeedsAfter: succeedsAfter,
             allowRetry: allowRetry,

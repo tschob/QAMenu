@@ -1,12 +1,12 @@
 //
-//  GroupItems.swift
+//  QAMenuExampleItems.h
 //
-//  Created by Hans Seiffert on 21.02.21.
+//  Created by Hans Seiffert on 16.04.22.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2021 Hans Seiffert
+//  Copyright © 2022 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,29 +26,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import Foundation
+#import <Foundation/Foundation.h>
 
-// MARK: - GroupItems
+//! Project version number for QAMenuExampleItems.
+FOUNDATION_EXPORT double QAMenuExampleItemsVersionNumber;
 
-public typealias GroupItems = Delayed<[Item?], ProgressItem?, ButtonItem?>
+//! Project version string for QAMenuExampleItems.
+FOUNDATION_EXPORT const unsigned char QAMenuExampleItemsVersionString[];
 
-extension GroupItems {
+// In this header, you should import all the public headers of your framework using statements like #import <QAMenu/PublicHeader.h>
 
-    public var unboxed: [Item] {
-        switch self.state.value {
-        case .initialized:
-            return []
-        case .loading(let progress):
-            return [
-                progress
-            ].compactMap { $0 }
-        case .loaded(let value):
-            return value.compactMap { $0 }
-        case .failed(let progress, let retry):
-            return [
-                progress,
-                retry
-            ].compactMap { $0 }
-        }
-    }
-}
+

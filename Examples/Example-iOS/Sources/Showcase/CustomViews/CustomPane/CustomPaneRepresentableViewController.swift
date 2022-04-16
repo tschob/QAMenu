@@ -28,7 +28,6 @@
 
 import UIKit
 import QAMenu
-import QAMenuUIKit
 
 class CustomPaneRepresentableViewController: UIViewController {
 

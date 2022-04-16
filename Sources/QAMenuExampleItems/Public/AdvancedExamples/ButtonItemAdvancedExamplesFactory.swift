@@ -26,12 +26,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import UIKit
+import Foundation
 import QAMenu
 
-class ButtonItemAdvancedExamplesFactory {
+public class ButtonItemAdvancedExamplesFactory {
 
-    func makePane() -> Pane {
+    public init() {}
+
+    public func makePane() -> Pane {
 
         let group_1 = ItemGroup(items: .static([
             ButtonItem(title: .static("Print to console"), action: { _, _  in

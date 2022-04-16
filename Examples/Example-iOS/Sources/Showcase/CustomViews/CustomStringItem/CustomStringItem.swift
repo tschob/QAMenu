@@ -1,12 +1,12 @@
 //
-//  GroupItems.swift
+//  CustomStringItemView.swift
 //
-//  Created by Hans Seiffert on 21.02.21.
+//  Created by Hans Seiffert on 20.05.20.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2021 Hans Seiffert
+//  Copyright © 2020 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,28 +27,11 @@
 //
 
 import Foundation
+import QAMenu
 
-// MARK: - GroupItems
+class CustomStringItem: StringItem {
 
-public typealias GroupItems = Delayed<[Item?], ProgressItem?, ButtonItem?>
-
-extension GroupItems {
-
-    public var unboxed: [Item] {
-        switch self.state.value {
-        case .initialized:
-            return []
-        case .loading(let progress):
-            return [
-                progress
-            ].compactMap { $0 }
-        case .loaded(let value):
-            return value.compactMap { $0 }
-        case .failed(let progress, let retry):
-            return [
-                progress,
-                retry
-            ].compactMap { $0 }
-        }
+    override var isSharingEnabled: Bool {
+        return false
     }
 }

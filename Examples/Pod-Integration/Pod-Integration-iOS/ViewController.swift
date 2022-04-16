@@ -9,6 +9,7 @@
 import UIKit
 import QAMenu
 import QAMenuCatalog
+import QAMenuExampleItems
 import QAMenuUIKit
 
 class ViewController: UIViewController {

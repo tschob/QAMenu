@@ -59,7 +59,7 @@ fileprivate struct BackendManager {
 
 // MARK: - MultipleAsyncPickerGroups
 
-struct MultipleAsyncPickerGroups {
+public struct MultipleAsyncPickerGroups {
 
     fileprivate static var productionURLs: [BackendURL] = []
 
@@ -68,7 +68,8 @@ struct MultipleAsyncPickerGroups {
     fileprivate static var shouldStagingLoadingFail = true
 
     // swiftlint:disable:next function_body_length
-    static func makePane() -> Pane {
+    public static func makePane() -> Pane {
+        var pane: Pane?
         let headerGroup = StringItem(
             title: .static("Current"),
             value: .computed({
@@ -94,6 +95,7 @@ struct MultipleAsyncPickerGroups {
             onPickedOption: { pickableItem, pickResult in
                 let backendURL = productionURLs.first(where: { $0.name == pickableItem.identifier() })
                 BackendManager.current = backendURL
+                pane?.invalidate()
                 pickResult(.success(shouldDismiss: false))
             }
         )
@@ -133,7 +135,7 @@ struct MultipleAsyncPickerGroups {
                 }
             }
         )
-        return Pane(
+        pane = Pane(
             title: .static("Multiple async picker groups"),
             groups: [
                 headerGroup,
@@ -142,5 +144,6 @@ struct MultipleAsyncPickerGroups {
             ],
             isReloadable: true
         )
+        return pane!
     }
 }

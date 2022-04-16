@@ -26,8 +26,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import UIKit
 import QAMenu
+import QAMenuExampleItems
 
 class CustomItemsAdvancedExamplesFactory {
 
@@ -36,9 +36,9 @@ class CustomItemsAdvancedExamplesFactory {
             title: .static("Custom Items"),
             groups: [
                 [
-                    ShowcaseItemsFactory.DetailedItemExamples.ChildPane.customStringView,
-                    ShowcaseItemsFactory.DetailedItemExamples.ChildPane.simpleSwiftUIView,
-                    ShowcaseItemsFactory.DetailedItemExamples.ChildPane.customScreen
+                    ShowcaseItemsFactory.CustomViews.ChildPane.customStringView,
+                    ShowcaseItemsFactory.CustomViews.ChildPane.simpleSwiftUIView,
+                    ShowcaseItemsFactory.CustomViews.ChildPane.customScreen
                 ]
                 .asItemGroup()
             ]

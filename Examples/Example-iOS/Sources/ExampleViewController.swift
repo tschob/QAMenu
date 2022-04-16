@@ -30,6 +30,7 @@ import UIKit
 import QAMenu
 import QAMenuCatalog
 import QAMenuUIKit
+import QAMenuExampleItems
 
 class ExampleViewController: UITableViewController {
 
@@ -114,7 +115,10 @@ class ExampleViewController: UITableViewController {
     private func setupShowcaseQAMenu() {
         self.showcaseQAMenu = QAMenu(
             identifier: "Simple QAMenu",
-            pane: ShowcaseItemsFactory.makeRootPane(),
+            pane: ShowcaseItemsFactory.makeRootPane(
+                customScreenChildPane: ShowcaseItemsFactory.CustomViews.ChildPane.customScreen,
+                customViewsGroupChildPane: ChildPaneItem(pane: { CustomItemsAdvancedExamplesFactory().makePane() })
+            ),
             presenterType: QAMenuUIKitPresenter.self
         )
         if let presenter = self.showcaseQAMenu?.presenter as? QAMenuUIKitPresenter {

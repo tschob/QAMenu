@@ -1,5 +1,5 @@
 //
-//  SimpleSwiftUIView.swift
+//  SimpleSwiftUIItemView.swift
 //
 //  Created by Hans Seiffert on 13.05.21.
 //
@@ -26,18 +26,16 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // 
 
-import QAMenu
-import QAMenuUIKit
 import Foundation
-
 #if canImport(SwiftUI)
-  import SwiftUI
+import SwiftUI
 #endif
+import QAMenu
 
 // MARK: - SimpleSwiftUIView
 
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-struct SimpleSwiftUIView: View {
+struct SimpleSwiftUIItemView: View {
 
     private var item: SimpleSwiftUIItem
 
@@ -67,13 +65,17 @@ struct SimpleSwiftUIView: View {
 
 // MARK: - Preview
 
+#if DEBUG
+
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-struct SimpleSwiftUIView_Previews: PreviewProvider {
+struct SimpleSwiftUIItemView_Previews: PreviewProvider {
     static var previews: some View {
         let stringItem = StringItem(
             title: .static("Title text"),
             value: .static("Value text")
         )
-        SimpleSwiftUIView(item: stringItem)
+        SimpleSwiftUIItemView(item: stringItem)
     }
 }
+
+#endif

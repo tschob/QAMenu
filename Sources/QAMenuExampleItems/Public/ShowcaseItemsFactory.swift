@@ -28,25 +28,42 @@
 
 // swiftlint:disable function_body_length
 
+import Foundation
+#if canImport(UIKit)
 import UIKit
-import QAMenu
+#endif
+#if canImport(QAMenuUIKit)
 import QAMenuUIKit
+#endif
+import QAMenu
 
-class ShowcaseItemsFactory {
+public class ShowcaseItemsFactory {
 
-    class Storage {
+    private class Storage {
         var storedBoolean = true
         var multilineStringTitle: String? = "Multiline String"
         var editableString: String? = "Value"
     }
 
-    class func makeRootPane() -> RootPane {
-        return RootPane(title: .static("QA Menu Showcase"), groups: self.makeGroups())
+    public class func makeRootPane(
+        customScreenChildPane: ChildPaneItem? = nil,
+        customViewsGroupChildPane: ChildPaneItem? = nil
+    ) -> RootPane {
+        return RootPane(
+            title: .static("QA Menu Showcase"),
+            groups: self.makeGroups(
+                customScreenChildPane: customScreenChildPane,
+                customViewsGroupChildPane: customViewsGroupChildPane
+            )
+        )
     }
 
-    static var storage = Storage()
+    private static var storage = Storage()
 
-    private class func makeGroups() -> [Group] {
+    public class func makeGroups(
+        customScreenChildPane: ChildPaneItem? = nil,
+        customViewsGroupChildPane: ChildPaneItem? = nil
+    ) -> [Group] {
         let simpleCatalogGroup = ItemGroup(
             title: .static("Simple Catalog"),
             items: .static([
@@ -112,11 +129,13 @@ class ShowcaseItemsFactory {
                             }
                         )
                         alert.addAction(closeAction)
-                        (qaMenu.presenter as? QAMenuUIKitPresenter)?.visiblePresentationContext?.present(alert, animated: true)
+                        #if canImport(QAMenuUIKit)
+                            (qaMenu.presenter as? QAMenuUIKitPresenter)?.visiblePresentationContext?.present(alert, animated: true)
+                        #endif
                     }
                 ),
                 DetailedItemExamples.ChildPane.nestedChildren,
-                DetailedItemExamples.ChildPane.customScreen
+                customScreenChildPane
             ]),
             footerText: .static("Tip: Perform a long touch on a StringItem to share its value 💯")
         )
@@ -132,21 +151,17 @@ class ShowcaseItemsFactory {
                     Pane(title: .static("ChildPaneItem"), groups: [
                         ItemGroup(items: .static([
                             DetailedItemExamples.ChildPane.nestedChildren
-                        ])),
-                        ItemGroup(title: .static("Custom Panes"), items: .static([
-                            DetailedItemExamples.ChildPane.simpleCustomScreen,
-                            DetailedItemExamples.ChildPane.advancedCustomScreen
                         ]))
                     ])
                 }),
                 ChildPaneItem(pane: { ProgressItemAdvancedExamplesFactory.makePane() }),
                 ChildPaneItem(pane: { ItemGroupAdvancedExamplesFactory().makePane() }),
                 ChildPaneItem(pane: { PickerGroupAdvancedExamplesFactory().makePane() }),
-                ChildPaneItem(pane: { CustomItemsAdvancedExamplesFactory().makePane() })
+                customViewsGroupChildPane
             ])
         )
 
-        let dynamicGroup = DetailedItemExamples.Bool.DynamicGroup.group
+        let dynamicGroup = BoolItemAdvancedExamplesFactory.DynamicGroups.group
         let advancedExamples = ItemGroup(
             title: .static("Advanced examples"),
             items: .static([
