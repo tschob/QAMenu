@@ -6,3 +6,4 @@ disabled_rules:
   - line_length
   - type_body_length
   - force_unwrapping
+  - multiline_arguments_brackets # resulted in buggy reports in 13.2.1
