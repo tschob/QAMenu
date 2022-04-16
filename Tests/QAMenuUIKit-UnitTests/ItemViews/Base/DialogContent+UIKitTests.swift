@@ -1,12 +1,12 @@
 //
-//  ButtonItem+Assert.swift
+//  DialogContent+UIKitTests.swift
 //
-//  Created by Hans Seiffert on 01.02.21.
+//  Created by Hans Seiffert on 16.03.22.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2021 Hans Seiffert
+//  Copyright © 2022 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,23 +24,35 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// 
+//
 
-import Foundation
 import XCTest
 import QAMenu
+@testable import QAMenuUIKit
 
-extension ButtonItem {
+class DialogContentUIKitTests: XCTestCase {
 
-    internal static func _assertInitProperties(
-        _ _sut: ButtonItem,
-        title: String,
-        footerText: String? = nil,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) {
-        XCTAssertEqual(_sut.title.unboxed, title, file: file, line: line)
-        _sut.action(_sut)
-        XCTAssertEqual(_sut.footerText?.unboxed, footerText, file: file, line: line)
+    func test_asUIAlertController_whenHavinDimissAction() throws {
+        let sut = DialogContent(
+            title: "Title",
+            message: "Message",
+            closeButtonTitle: "Dismiss"
+        ).asUIAlertController()
+
+        XCTAssertEqual(sut?.actions.count, 1)
+        XCTAssertEqual(sut?.actions.first?.title, "Dismiss")
+    }
+
+    func test_asUIAlertController_whenHavinPrimaryAndSecondaryAction() throws {
+        let sut = DialogContent(
+            title: "Title",
+            message: "Message",
+            primaryAction: .init(title: "Primary"),
+            secondaryAction: .init(title: "Secondary", buttonType: .destructive)
+        ).asUIAlertController()
+
+        XCTAssertEqual(sut?.actions.count, 2)
+        XCTAssertEqual(sut?.actions[0].title, "Primary")
+        XCTAssertEqual(sut?.actions[1].title, "Secondary")
     }
 }

@@ -36,12 +36,12 @@ public class ButtonItemAdvancedExamplesFactory {
     public func makePane() -> Pane {
 
         let group_1 = ItemGroup(items: .static([
-            ButtonItem(title: .static("Print to console"), action: { _, _  in
+            ButtonItem(title: .static("Print to console"), action: { _  in
                 print("Printing to console")
             }),
             ButtonItem(
                 title: .static("Print to console (Delayed)"),
-                action: { (item: ButtonItem, _) in
+                action: { item in
                     item.status = .progress("Preparing to print to console")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         print("Printing to console")
@@ -55,11 +55,11 @@ public class ButtonItemAdvancedExamplesFactory {
         let group_2 = ItemGroup(title: .static("Dynamic height examples"), items: .static([
             ButtonItem(
                 title: .static("This button has a very long title. The reason is to demonstrate the multine behaviour."),
-                action: { _, _ in }
+                action: { _ in }
             ),
             ButtonItem(
                 title: .static("This button has a very long title. The reason is to demonstrate the multine behaviour."),
-                action: { (item: ButtonItem, _) in
+                action: { item in
                     item.status = .progress("Short progress text")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         item.status = .idle
@@ -69,7 +69,7 @@ public class ButtonItemAdvancedExamplesFactory {
             ),
             ButtonItem(
                 title: .static("Button with Short title"),
-                action: { (item: ButtonItem, _) in
+                action: { item in
                     item.status = .progress("This button has a long progress message. The reason is to show the multiline behaviour.")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         item.status = .idle

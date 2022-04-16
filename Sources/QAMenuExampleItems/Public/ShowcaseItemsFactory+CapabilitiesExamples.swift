@@ -46,6 +46,7 @@ public extension ShowcaseItemsFactory {
 
             public static var pane: Pane {
                 return Pane(title: .static("DialogTrigger"), groups: [
+                    self.makeAdvancedDialogGroup(),
                     self.wrapItemInGroup(self.boolItem),
                     self.wrapItemInGroup(self.buttonItem),
                     self.wrapItemInGroup(self.progressItem),
@@ -54,6 +55,35 @@ public extension ShowcaseItemsFactory {
                     self.pickerChildPaneItemGroup,
                     self.wrapItemInGroup(self.stringItemGroup)
                 ])
+            }
+
+            private static func makeAdvancedDialogGroup() -> Group {
+                let titleDialogButton = ButtonItem(title: .static("Trigger dialog without a message"), action: { item in
+                    let dialogContent = DialogContent(
+                        title: "This dialog contains only a title"
+                    )
+                    item.presentDialog(dialogContent)
+                })
+                let messageDialogButton = ButtonItem(title: .static("Trigger dialog without a title"), action: { item in
+                    let dialogContent = DialogContent(
+                        message: "This dialog contains only a message"
+                    )
+                    item.presentDialog(dialogContent)
+                })
+                let multipleActionsDialogButton = ButtonItem(title: .static("Trigger dialog with multiple actions"), action: { item in
+                    let dialogContent = DialogContent(
+                        title: "Advanced Dialog",
+                        message: "This dialog contains multiple Actions",
+                        primaryAction: DialogContent.Action(title: "Primary", buttonType: .destructive),
+                        secondaryAction: DialogContent.Action(title: "Secondary", buttonType: .normal)
+                    )
+                    item.presentDialog(dialogContent)
+                })
+                return ItemGroup(title: .static("Advanced Dialogs"), items: .static([
+                    titleDialogButton,
+                    messageDialogButton,
+                    multipleActionsDialogButton
+                ]))
             }
 
             private static func makeDialogContent(withSource sourceName: String) -> DialogContent {
@@ -67,8 +97,8 @@ public extension ShowcaseItemsFactory {
             private static func makeDialogTriggerButton(withSource source: DialogTrigger, title: String) -> ButtonItem {
                 return ButtonItem(
                     title: .static(title),
-                    action: { _, _ in
-                        source.onPresentDialog.fire(with: self.makeDialogContent(withSource: "\(source.self)"))
+                    action: { _ in
+                        source.presentDialog(self.makeDialogContent(withSource: "\(source.self)"))
                     }
                 )
             }
@@ -93,7 +123,7 @@ public extension ShowcaseItemsFactory {
             private static var buttonItem: ButtonItem {
                 return ButtonItem(
                     title: .static("ButtonItem"),
-                    action: { _, _ in
+                    action: { _ in
                         // Nothing
                     }
                 )

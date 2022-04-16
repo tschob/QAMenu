@@ -52,7 +52,7 @@ class ButtonItemViewTests: XCTestCase {
     // MARK: - setItem
 
     func test_setItem_addsOnInvalidationObserverToItem() throws {
-        let mockItem = ButtonItem(title: .static("Title")) { _, _ in }
+        let mockItem = ButtonItem(title: .static("Title")) { _ in }
 
         XCTAssertEqual(mockItem.onInvalidation.observers.count, 0)
 
@@ -62,8 +62,8 @@ class ButtonItemViewTests: XCTestCase {
     }
 
     func test_setItem_whenReplacingExisting_addsOnInvalidationObserverToItem() throws {
-        let mockItem1 = ButtonItem(title: .static("Title")) { _, _ in }
-        let mockItem2 = ButtonItem(title: .static("Title")) { _, _ in }
+        let mockItem1 = ButtonItem(title: .static("Title")) { _ in }
+        let mockItem2 = ButtonItem(title: .static("Title")) { _ in }
 
         self.sut.setItem(mockItem1)
 
@@ -75,8 +75,8 @@ class ButtonItemViewTests: XCTestCase {
     }
 
     func test_setItem_whenReplacingExisting_removesOnInvalidationObserverFromPreviousItem() throws {
-        let mockItem1 = ButtonItem(title: .static("Title")) { _, _ in }
-        let mockItem2 = ButtonItem(title: .static("Title")) { _, _ in }
+        let mockItem1 = ButtonItem(title: .static("Title")) { _ in }
+        let mockItem2 = ButtonItem(title: .static("Title")) { _ in }
 
         self.sut.setItem(mockItem1)
 
@@ -105,7 +105,7 @@ class ButtonItemViewTests: XCTestCase {
     // MARK: - prepareForReuse
 
     func test_prepareForReuse_removesOnInvalidationObserverFromPreviousItem() throws {
-        let mockItem = ButtonItem(title: .static("Title")) { _, _ in }
+        let mockItem = ButtonItem(title: .static("Title")) { _ in }
         self.sut.setItem(mockItem)
 
         self.sut.prepareForReuse()
@@ -116,7 +116,7 @@ class ButtonItemViewTests: XCTestCase {
     // MARK: - updateContainerHeight
 
     func test_updateContainerHeight_whenItemIsInvalidated_isCalled() {
-        let mockItem = ButtonItem(title: .static("Title")) { _, _ in }
+        let mockItem = ButtonItem(title: .static("Title")) { _ in }
         self.sut.setItem(mockItem)
 
         XCTAssertEqual(self.delegateSpy._updateContainerHeightCount, 0)

@@ -319,7 +319,7 @@ public extension ShowcaseItemsFactory {
                                         ProgressItem(state: .failure(message)),
                                         onFailureOption: ButtonItem(
                                             title: .static("Try Again"),
-                                            action: { (_, _) in
+                                            action: { _ in
                                                 instance.load()
                                             }
                                         )

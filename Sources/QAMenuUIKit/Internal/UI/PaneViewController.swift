@@ -233,18 +233,9 @@ internal class PaneViewController: UIViewController {
     // MARK: - Dialog
 
     private func showDialog(_ dialogContent: DialogContent) {
-        let alert = UIAlertController(
-            title: dialogContent.title,
-            message: dialogContent.message,
-            preferredStyle: .alert
-        )
-        let closeButton = UIAlertAction(
-            title: dialogContent.closeButtonTitle,
-            style: .default,
-            handler: nil
-        )
-        alert.addAction(closeButton)
-        self.present(alert, animated: true)
+        if let alertController = dialogContent.asUIAlertController() {
+            self.present(alertController, animated: true)
+        }
     }
 
     // MARK: - Helper
@@ -390,8 +381,6 @@ extension PaneViewController: UITableViewDelegate {
         }
 
         switch item.selectionOutcome {
-        case .action(let actionClosure):
-            actionClosure(self.qaMenu)
         case .custom(let customClosure):
             customClosure()
         case .navigationWithPane(let paneClosure, let beforeNavigation):

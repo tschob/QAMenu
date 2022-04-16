@@ -4,10 +4,13 @@
 
 #### Breaking Changes
 
-* None
+* [QAMenu] Remove `QAMenu` parameter from the `ButtonItem.action` closure. Use `presentDialog` on the item instead of making use of the `QAMenu` instance (PR #26)
+* [QAMenu] Remove `SelectionOutcome.action((QAMenu)`, use `SelectionOutcome.custom()` instead (PR #26)
 
 #### Enhancements
 
+* [QAMenu] Add `presentDialog` function to trigger dialogs without accessing the observable itself (PR #26)
+* [QAMenuUIKit] Add `asUIAlertController` extension for `DialogContent` (PR #26)
 * [QAMenuExampleItems] Move internal QAMenu example configurations into reusable framework (PR #25)
 
 #### Bug Fixes

@@ -155,7 +155,7 @@ class PickerGroupOptionsTests: XCTestCase {
 
     func test_unboxedItems_whenStateIsLoadingFailed_returnsProgress() throws {
         let progress = ProgressItem(state: .failure("failure"))
-        let retryButton = ButtonItem(title: .static("button")) { _, _ in }
+        let retryButton = ButtonItem(title: .static("button")) { _ in }
         let sut = PickerGroupOptions({ delayed in
             delayed.fail(progress, onFailureOption: retryButton)
         })
@@ -173,7 +173,7 @@ class PickerGroupOptionsTests: XCTestCase {
 
     func test_unboxedOptions_whenStateIsLoadingFailed_returnsProgress() throws {
         let progress = ProgressItem(state: .failure("failure"))
-        let retryButton = ButtonItem(title: .static("button")) { _, _ in }
+        let retryButton = ButtonItem(title: .static("button")) { _ in }
         let sut = PickerGroupOptions({ delayed in
             delayed.fail(progress, onFailureOption: retryButton)
         })
@@ -199,7 +199,7 @@ class PickerGroupOptionsTests: XCTestCase {
     }
 
     func test_unboxedItems_whenStateIsLoadingFailed_andHavingOnlyOnFailureOption_returnsProgressAndOnFailureOption() throws {
-        let retryButton = ButtonItem(title: .static("button")) { _, _ in }
+        let retryButton = ButtonItem(title: .static("button")) { _ in }
         let sut = PickerGroupOptions({ delayed in
             delayed.fail(nil, onFailureOption: retryButton)
         })

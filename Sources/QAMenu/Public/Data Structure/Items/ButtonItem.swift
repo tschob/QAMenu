@@ -38,7 +38,7 @@ open class ButtonItem: Item {
     }
 
     public let title: Dynamic<String>
-    public let action: (_ item: ButtonItem, _ qaMenu: QAMenu) -> Void
+    public let action: (_ item: ButtonItem) -> Void
     public let footerText: Dynamic<String?>?
 
     open var status: ActionStatus = .idle {
@@ -58,7 +58,7 @@ open class ButtonItem: Item {
 
     public init(
         title: Dynamic<String>,
-        action: @escaping (_ item: ButtonItem, _ qaMenu: QAMenu) -> Void,
+        action: @escaping (_ item: ButtonItem) -> Void,
         footerText: Dynamic<String?>? = nil
     ) {
         self.title = title
@@ -79,11 +79,11 @@ extension ButtonItem: Selectable {
     }
 
     open var selectionOutcome: SelectionOutcome {
-        return .action({ [weak self] (qaMenu: QAMenu) in
+        return .custom({ [weak self] in
             guard let self = self else {
                 return
             }
-            self.action(self, qaMenu)
+            self.action(self)
         })
     }
 }

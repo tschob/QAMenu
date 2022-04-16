@@ -114,24 +114,20 @@ public class ShowcaseItemsFactory {
                 ),
                 ButtonItem(
                     title: .static("Perform a task"),
-                    action: { (item: ButtonItem, qaMenu: QAMenu) in
+                    action: { item in
                         item.status = .progress("Performing long running task")
-                        let alert = UIAlertController(
+                        let dialogContent = DialogContent(
                             title: "You clicked the button!",
                             message: "This dialog simulates a long running task. Click the button below to complete it",
-                            preferredStyle: .alert
+                            dismissAction: DialogContent.Action(
+                                title: "Complete task",
+                                action: { [weak item] in
+                                    item?.status = .idle
+                                },
+                                buttonType: .normal
+                            )
                         )
-                        let closeAction = UIAlertAction(
-                            title: "Complete task",
-                            style: .default,
-                            handler: { [weak item] _ in
-                                item?.status = .idle
-                            }
-                        )
-                        alert.addAction(closeAction)
-                        #if canImport(QAMenuUIKit)
-                            (qaMenu.presenter as? QAMenuUIKitPresenter)?.visiblePresentationContext?.present(alert, animated: true)
-                        #endif
+                        item.presentDialog(dialogContent)
                     }
                 ),
                 DetailedItemExamples.ChildPane.nestedChildren,

@@ -150,7 +150,7 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
             }
         case .failure(let message):
             let dialogContent = DialogContent(title: "Error", message: message)
-            self.onPresentDialog.fire(with: dialogContent)
+            self.presentDialog(dialogContent)
         }
     }
 }

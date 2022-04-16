@@ -102,7 +102,7 @@ class GroupItemsTests: XCTestCase {
 
     func test_unboxed_whenStateIsLoadingFailed_returnsProgress() throws {
         let progress = ProgressItem(state: .failure("failure"))
-        let retryButton = ButtonItem(title: .static("button")) { _, _ in }
+        let retryButton = ButtonItem(title: .static("button")) { _ in }
         let sut = GroupItems({ delayed in
             delayed.fail(progress, onFailureOption: retryButton)
         })
@@ -135,7 +135,7 @@ class GroupItemsTests: XCTestCase {
     }
 
     func test_unboxed_whenStateIsLoadingFailed_andHavingOnlyOnFailureOption_returnsProgressAndOnFailureOption() throws {
-        let retryButton = ButtonItem(title: .static("button")) { _, _ in }
+        let retryButton = ButtonItem(title: .static("button")) { _ in }
         let sut = GroupItems({ delayed in
             delayed.fail(nil, onFailureOption: retryButton)
         })

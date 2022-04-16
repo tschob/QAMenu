@@ -29,15 +29,13 @@
 import Foundation
 
 public enum SelectionOutcome {
-    case action((QAMenu) -> Void)
     case custom(() -> Void)
     case navigationWithPane(() -> Pane, beforeNavigation: (Pane) -> Void)
     case navigationWithPaneRepresentable(() -> PaneRepresentable, beforeNavigation: (PaneRepresentable) -> Void)
 
     public var shouldShowNavigationElement: Bool {
         switch self {
-        case .action,
-             .custom:
+        case .custom:
             return false
         case .navigationWithPane,
              .navigationWithPaneRepresentable:
