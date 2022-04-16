@@ -26,21 +26,57 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import UIKit
+import Foundation
 import QAMenu
 
-class BoolItemAdvancedExamplesFactory {
+public class BoolItemAdvancedExamplesFactory {
 
-    struct Storage {
-        static var bool_1_1 = true
-        static var bool_1_2 = false
-        static var bool_1_3 = true
-        static var bool_1_4 = false
+    internal struct Storage {
+        internal static var bool_1_1 = false
+        internal static var bool_1_2 = false
+        internal static var bool_1_3 = false
+        internal static var bool_1_4 = false
 
-        static var bool_2_1 = false
+        internal static var bool_2_1 = false
     }
 
-    func makePane() -> Pane {
+    public init() {}
+
+    public struct DynamicGroups {
+        private struct Storage {
+            static var dynamicGroupExpanded = false
+        }
+
+        public static var group: ItemGroup {
+            return ItemGroup(
+                title: .static("Dynamic group"),
+                items: .async({ delayed in
+                    var items: [Item] = [
+                        BoolItem(
+                            title: .static("Dynamic group visibility"),
+                            value: .computed({ Storage.dynamicGroupExpanded }),
+                            footerText: .static("Using the switch will add / remove additional items in the group."),
+                            onValueChange: { [weak delayed] newValue, _, result in
+                                Storage.dynamicGroupExpanded = newValue
+                                delayed?.load()
+                                result(.success)
+                            }
+                        )
+                    ]
+                    if Storage.dynamicGroupExpanded {
+                        let additionalItems = [
+                            StringItem(title: .static("This item was added dynamically"), value: .static("")),
+                            StringItem(title: .static("And this one as well"), value: .static(""))
+                        ]
+                        items.append(contentsOf: additionalItems)
+                    }
+                    delayed.complete(items)
+                })
+            )
+        }
+    }
+
+    public func makePane() -> Pane {
 
         let group_1 = ItemGroup(items: .static([
             BoolItem(
@@ -79,7 +115,7 @@ class BoolItemAdvancedExamplesFactory {
             )
         ]))
 
-        let group2 = ShowcaseItemsFactory.DetailedItemExamples.Bool.DynamicGroup.group
+        let group2 = Self.DynamicGroups.group
 
         let pane = Pane(
             title: .static("BoolItem"),

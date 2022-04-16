@@ -8,7 +8,7 @@
 
 #### Enhancements
 
-* None
+* [QAMenuExampleItems] Move internal QAMenu example configurations into reusable framework (PR #25)
 
 #### Bug Fixes
 

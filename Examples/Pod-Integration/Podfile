@@ -10,4 +10,5 @@ target 'Pod-Integration-iOS' do
 	pod 'QAMenuUIKit', path: '../..'
 	pod 'QAMenuUtils', path: '../..'
 	pod 'QAMenuCatalog', path: '../..'
+	pod 'QAMenuExampleItems', path: '../..'
 end

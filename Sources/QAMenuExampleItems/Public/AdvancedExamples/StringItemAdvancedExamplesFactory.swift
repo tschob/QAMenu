@@ -26,9 +26,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
+import Foundation
 import QAMenu
 
-struct StringItemAdvancedExamplesFactory {
+public struct StringItemAdvancedExamplesFactory {
 
     private struct TitleAttributes {
         static var textStyle: TextAttributes.TextStyle = .body
@@ -48,9 +49,9 @@ struct StringItemAdvancedExamplesFactory {
         }
     }
 
-    static var pane: Pane!
+    private static var pane: Pane!
 
-    static func makePane() -> Pane {
+    public static func makePane() -> Pane {
         self.pane = Pane(
             title: .static("StringItem"),
             groups: [

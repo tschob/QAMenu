@@ -130,6 +130,8 @@
 		A28C1D4A25863EDC00E43377 /* PickableStringItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C1D4925863EDC00E43377 /* PickableStringItemView.swift */; };
 		A28C1D50258641A000E43377 /* PickableStringItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28C1D4F258641A000E43377 /* PickableStringItemView.xib */; };
 		A28FE88625D7F9E500924A8F /* EditableStringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28FE88525D7F9E400924A8F /* EditableStringItem.swift */; };
+		A29223B927E600460083BCDB /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28873C525168215003528E5 /* QAMenu.framework */; };
+		A29223BA27E600460083BCDB /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A28873C525168215003528E5 /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2969E3E25167D7A00EA54D5 /* QAMenuUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A2969E0F25167D7900EA54D5 /* QAMenuUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2969E4525167D7A00EA54D5 /* BooleanItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E1B25167D7900EA54D5 /* BooleanItemView.swift */; };
 		A2969E4725167D7A00EA54D5 /* StringItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E1F25167D7900EA54D5 /* StringItemView.swift */; };
@@ -161,6 +163,23 @@
 		A2969E6D25167D8600EA54D5 /* Catalog.Device+Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E6525167D8600EA54D5 /* Catalog.Device+Locale.swift */; };
 		A2969E6E25167D8600EA54D5 /* QAMenu+Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E6625167D8600EA54D5 /* QAMenu+Catalog.swift */; };
 		A2969EAE25167EBA00EA54D5 /* QAMenuUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A2969EA225167EBA00EA54D5 /* QAMenuUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2B800A627E62278007204B9 /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28873C525168215003528E5 /* QAMenu.framework */; };
+		A2B800A927E62278007204B9 /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A28873C525168215003528E5 /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2B800CE27E622C9007204B9 /* MultipleAsyncItemGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B800B327E622C9007204B9 /* MultipleAsyncItemGroups.swift */; };
+		A2B800CF27E622C9007204B9 /* BoolItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B800B427E622C9007204B9 /* BoolItemAdvancedExamplesFactory.swift */; };
+		A2B800D027E622C9007204B9 /* ProgressItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B800B527E622C9007204B9 /* ProgressItemAdvancedExamplesFactory.swift */; };
+		A2B800D127E622C9007204B9 /* ItemGroupAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B800B627E622C9007204B9 /* ItemGroupAdvancedExamplesFactory.swift */; };
+		A2B800D227E622C9007204B9 /* StringItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B800B727E622C9007204B9 /* StringItemAdvancedExamplesFactory.swift */; };
+		A2B800D327E622C9007204B9 /* MultipleAsyncPickerGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B800B827E622C9007204B9 /* MultipleAsyncPickerGroups.swift */; };
+		A2B800D527E622C9007204B9 /* ButtonItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B800BA27E622C9007204B9 /* ButtonItemAdvancedExamplesFactory.swift */; };
+		A2B800D627E622C9007204B9 /* EditableStringItemAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B800BB27E622C9007204B9 /* EditableStringItemAdvancedExamplesFactory.swift */; };
+		A2B800E327E622CA007204B9 /* QAMenuExampleItems.h in Headers */ = {isa = PBXBuildFile; fileRef = A2B800CB27E622C9007204B9 /* QAMenuExampleItems.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2B800E527E62317007204B9 /* QAMenuExampleItems.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B800AD27E62278007204B9 /* QAMenuExampleItems.framework */; };
+		A2B800E627E62317007204B9 /* QAMenuExampleItems.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2B800AD27E62278007204B9 /* QAMenuExampleItems.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2B802C027E74DAA007204B9 /* ShowcaseItemsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B802BF27E74DAA007204B9 /* ShowcaseItemsFactory.swift */; };
+		A2B802DB27E74E28007204B9 /* PickerGroupAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B802CE27E74E28007204B9 /* PickerGroupAdvancedExamplesFactory.swift */; };
+		A2B802DD27E74E29007204B9 /* ShowcaseItemsFactory+DetailedItemExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B802D027E74E28007204B9 /* ShowcaseItemsFactory+DetailedItemExamples.swift */; };
+		A2B802E427E76D48007204B9 /* ShowcaseItemsFactory+CapabilitiesExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B802E327E76D48007204B9 /* ShowcaseItemsFactory+CapabilitiesExamples.swift */; };
 		A2B897092598D4480016A373 /* PaneRepresentableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B897082598D4480016A373 /* PaneRepresentableMock.swift */; };
 		A2B968FD259E40B3004CC383 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B968F1259E40B0004CC383 /* Group.swift */; };
 		A2B98733256AC46B0059C5EA /* Bundle+QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B98732256AC46B0059C5EA /* Bundle+QAMenuTests.swift */; };
@@ -240,6 +259,20 @@
 			remoteGlobalIDString = A2969CBE25167A1900EA54D5;
 			remoteInfo = QAMenuUtils;
 		};
+		A2B8009927E62278007204B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2969C7D251679BF00EA54D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A28873C425168215003528E5;
+			remoteInfo = QAMenu;
+		};
+		A2B800E727E62317007204B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2969C7D251679BF00EA54D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2B8009727E62278007204B9;
+			remoteInfo = QAMenuExampleItems;
+		};
 		A2E30575256704990049D88D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A2969C7D251679BF00EA54D5 /* Project object */;
@@ -279,6 +312,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A28873FF25168268003528E5 /* QAMenu.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B800A827E62278007204B9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A2B800A927E62278007204B9 /* QAMenu.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +477,22 @@
 		A2969EA225167EBA00EA54D5 /* QAMenuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAMenuUtils.h; sourceTree = "<group>"; };
 		A2969EAD25167EBA00EA54D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2AC7DA02659514E002D1CF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/iOSSupport/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
+		A2B800AD27E62278007204B9 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B800AE27E62278007204B9 /* QAMenuCatalog copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "QAMenuCatalog copy-Info.plist"; path = "/Users/hans.seiffert/Code/OSS/QAMenu/QAMenuCatalog copy-Info.plist"; sourceTree = "<absolute>"; };
+		A2B800B327E622C9007204B9 /* MultipleAsyncItemGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAsyncItemGroups.swift; sourceTree = "<group>"; };
+		A2B800B427E622C9007204B9 /* BoolItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2B800B527E622C9007204B9 /* ProgressItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2B800B627E622C9007204B9 /* ItemGroupAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGroupAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2B800B727E622C9007204B9 /* StringItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2B800B827E622C9007204B9 /* MultipleAsyncPickerGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAsyncPickerGroups.swift; sourceTree = "<group>"; };
+		A2B800BA27E622C9007204B9 /* ButtonItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2B800BB27E622C9007204B9 /* EditableStringItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableStringItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2B800CB27E622C9007204B9 /* QAMenuExampleItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAMenuExampleItems.h; sourceTree = "<group>"; };
+		A2B800CC27E622C9007204B9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2B802BF27E74DAA007204B9 /* ShowcaseItemsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowcaseItemsFactory.swift; sourceTree = "<group>"; };
+		A2B802CE27E74E28007204B9 /* PickerGroupAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroupAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
+		A2B802D027E74E28007204B9 /* ShowcaseItemsFactory+DetailedItemExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowcaseItemsFactory+DetailedItemExamples.swift"; sourceTree = "<group>"; };
+		A2B802E327E76D48007204B9 /* ShowcaseItemsFactory+CapabilitiesExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowcaseItemsFactory+CapabilitiesExamples.swift"; sourceTree = "<group>"; };
 		A2B897082598D4480016A373 /* PaneRepresentableMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaneRepresentableMock.swift; sourceTree = "<group>"; };
 		A2B968F1259E40B0004CC383 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A2B98732256AC46B0059C5EA /* Bundle+QAMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+QAMenuTests.swift"; sourceTree = "<group>"; };
@@ -520,6 +580,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B800A527E62278007204B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2B800A627E62278007204B9 /* QAMenu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +901,7 @@
 				A2969E0E25167D7900EA54D5 /* QAMenuUIKit */,
 				A2E30582256705190049D88D /* QAMenuUIKit-UnitTests */,
 				A2969E5E25167D8600EA54D5 /* QAMenuCatalog */,
+				A2B800AF27E622C9007204B9 /* QAMenuExampleItems */,
 				A2969EA125167EBA00EA54D5 /* QAMenuUtils */,
 				A2217BEC2558081E0070FC68 /* QAMenuUtils-UnitTests */,
 				A2969C87251679BF00EA54D5 /* Products */,
@@ -852,6 +921,7 @@
 				A28873C525168215003528E5 /* QAMenu.framework */,
 				A2217BB7255806ED0070FC68 /* QAMenuUtils-UnitTests.xctest */,
 				A2E3056F256704980049D88D /* QAMenuUIKit-UnitTests.xctest */,
+				A2B800AD27E62278007204B9 /* QAMenuExampleItems.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1045,6 +1115,44 @@
 			path = Sources/QAMenuUtils;
 			sourceTree = "<group>";
 		};
+		A2B800AF27E622C9007204B9 /* QAMenuExampleItems */ = {
+			isa = PBXGroup;
+			children = (
+				A2B800B027E622C9007204B9 /* Public */,
+				A2B800CB27E622C9007204B9 /* QAMenuExampleItems.h */,
+				A2B800CC27E622C9007204B9 /* Info.plist */,
+			);
+			name = QAMenuExampleItems;
+			path = Sources/QAMenuExampleItems;
+			sourceTree = "<group>";
+		};
+		A2B800B027E622C9007204B9 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				A2B802CE27E74E28007204B9 /* PickerGroupAdvancedExamplesFactory.swift */,
+				A2B802E327E76D48007204B9 /* ShowcaseItemsFactory+CapabilitiesExamples.swift */,
+				A2B802D027E74E28007204B9 /* ShowcaseItemsFactory+DetailedItemExamples.swift */,
+				A2B802BF27E74DAA007204B9 /* ShowcaseItemsFactory.swift */,
+				A2B800B227E622C9007204B9 /* AdvancedExamples */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		A2B800B227E622C9007204B9 /* AdvancedExamples */ = {
+			isa = PBXGroup;
+			children = (
+				A2B800B327E622C9007204B9 /* MultipleAsyncItemGroups.swift */,
+				A2B800B427E622C9007204B9 /* BoolItemAdvancedExamplesFactory.swift */,
+				A2B800B527E622C9007204B9 /* ProgressItemAdvancedExamplesFactory.swift */,
+				A2B800B627E622C9007204B9 /* ItemGroupAdvancedExamplesFactory.swift */,
+				A2B800B727E622C9007204B9 /* StringItemAdvancedExamplesFactory.swift */,
+				A2B800B827E622C9007204B9 /* MultipleAsyncPickerGroups.swift */,
+				A2B800BA27E622C9007204B9 /* ButtonItemAdvancedExamplesFactory.swift */,
+				A2B800BB27E622C9007204B9 /* EditableStringItemAdvancedExamplesFactory.swift */,
+			);
+			path = AdvancedExamples;
+			sourceTree = "<group>";
+		};
 		A2B9898A256D72560059C5EA /* ItemViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1154,6 +1262,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2969EAE25167EBA00EA54D5 /* QAMenuUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B8009A27E62278007204B9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2B800E327E622CA007204B9 /* QAMenuExampleItems.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1280,6 +1396,27 @@
 			productReference = A2969CBF25167A1900EA54D5 /* QAMenuUtils.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		A2B8009727E62278007204B9 /* QAMenuExampleItems */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2B800AA27E62278007204B9 /* Build configuration list for PBXNativeTarget "QAMenuExampleItems" */;
+			buildPhases = (
+				A2B8009A27E62278007204B9 /* Headers */,
+				A2B8009C27E62278007204B9 /* SwiftLint */,
+				A2B8009D27E62278007204B9 /* Sources */,
+				A2B800A527E62278007204B9 /* Frameworks */,
+				A2B800A727E62278007204B9 /* Resources */,
+				A2B800A827E62278007204B9 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2B8009827E62278007204B9 /* PBXTargetDependency */,
+			);
+			name = QAMenuExampleItems;
+			productName = QAMenuCatalog;
+			productReference = A2B800AD27E62278007204B9 /* QAMenuExampleItems.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		A2E3056E256704980049D88D /* QAMenuUIKit-UnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2E30579256704990049D88D /* Build configuration list for PBXNativeTarget "QAMenuUIKit-UnitTests" */;
@@ -1305,7 +1442,7 @@
 		A2969C7D251679BF00EA54D5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Hans Seiffert";
 				TargetAttributes = {
@@ -1353,6 +1490,7 @@
 				A28873C425168215003528E5 /* QAMenu */,
 				A2969C8E251679BF00EA54D5 /* QAMenu-UnitTests */,
 				A2969CB125167A0800EA54D5 /* QAMenuCatalog */,
+				A2B8009727E62278007204B9 /* QAMenuExampleItems */,
 				A2969CA4251679F800EA54D5 /* QAMenuUIKit */,
 				A2E3056E256704980049D88D /* QAMenuUIKit-UnitTests */,
 				A2969CBE25167A1900EA54D5 /* QAMenuUtils */,
@@ -1405,6 +1543,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A2969CBD25167A1900EA54D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B800A727E62278007204B9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1528,6 +1673,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd Tests/QAMenu-UnitTests; \"${PROJECT_DIR}\"/Vendor/SwiftLint/swiftlint --config \"${PROJECT_DIR}/Tests/.swiftlint.yml\" --quiet\n";
+		};
+		A2B8009C27E62278007204B9 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd Sources/QAMenuExampleItems; \"${PROJECT_DIR}\"/Vendor/SwiftLint/swiftlint --config \"${PROJECT_DIR}/Sources/QAMenuExampleItems/.swiftlint.yml\" --quiet\n";
 		};
 		A2B897242598D4CA0016A373 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1745,6 +1908,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2B8009D27E62278007204B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2B800D327E622C9007204B9 /* MultipleAsyncPickerGroups.swift in Sources */,
+				A2B800CF27E622C9007204B9 /* BoolItemAdvancedExamplesFactory.swift in Sources */,
+				A2B800D127E622C9007204B9 /* ItemGroupAdvancedExamplesFactory.swift in Sources */,
+				A2B802E427E76D48007204B9 /* ShowcaseItemsFactory+CapabilitiesExamples.swift in Sources */,
+				A2B800D027E622C9007204B9 /* ProgressItemAdvancedExamplesFactory.swift in Sources */,
+				A2B800D627E622C9007204B9 /* EditableStringItemAdvancedExamplesFactory.swift in Sources */,
+				A2B800CE27E622C9007204B9 /* MultipleAsyncItemGroups.swift in Sources */,
+				A2B802DD27E74E29007204B9 /* ShowcaseItemsFactory+DetailedItemExamples.swift in Sources */,
+				A2B802C027E74DAA007204B9 /* ShowcaseItemsFactory.swift in Sources */,
+				A2B802DB27E74E28007204B9 /* PickerGroupAdvancedExamplesFactory.swift in Sources */,
+				A2B800D527E622C9007204B9 /* ButtonItemAdvancedExamplesFactory.swift in Sources */,
+				A2B800D227E622C9007204B9 /* StringItemAdvancedExamplesFactory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2E3056B256704980049D88D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1807,6 +1989,16 @@
 			isa = PBXTargetDependency;
 			target = A2969CBE25167A1900EA54D5 /* QAMenuUtils */;
 			targetProxy = A288740625168331003528E5 /* PBXContainerItemProxy */;
+		};
+		A2B8009827E62278007204B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A28873C425168215003528E5 /* QAMenu */;
+			targetProxy = A2B8009927E62278007204B9 /* PBXContainerItemProxy */;
+		};
+		A2B800E827E62317007204B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2B8009727E62278007204B9 /* QAMenuExampleItems */;
+			targetProxy = A2B800E727E62317007204B9 /* PBXContainerItemProxy */;
 		};
 		A2E30576256704990049D88D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2189,6 +2381,62 @@
 			};
 			name = Release;
 		};
+		A2B800AB27E62278007204B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/QAMenuExampleItems/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.exampleitems;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		A2B800AC27E62278007204B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/QAMenuExampleItems/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.exampleitems;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
 		A2B897182598D4BE0016A373 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2303,6 +2551,15 @@
 			buildConfigurations = (
 				A2969CC525167A1900EA54D5 /* Debug */,
 				A2969CC625167A1900EA54D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2B800AA27E62278007204B9 /* Build configuration list for PBXNativeTarget "QAMenuExampleItems" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2B800AB27E62278007204B9 /* Debug */,
+				A2B800AC27E62278007204B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

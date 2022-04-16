@@ -26,12 +26,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import UIKit
+import Foundation
 import QAMenu
 
-class PickerGroupAdvancedExamplesFactory {
+public class PickerGroupAdvancedExamplesFactory {
 
-    func makePane() -> Pane {
+    public init() {}
+
+    public func makePane() -> Pane {
         let pane = Pane(
             title: .static("PickerGroup"),
             groups: [

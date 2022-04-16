@@ -26,20 +26,17 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import UIKit
+import Foundation
 import QAMenu
 
 class CustomPane: Pane {
 
-    var color: () -> UIColor
     var childPane: () -> Pane
 
     init(
         title: String,
-        color: @escaping () -> UIColor,
         childPane: @escaping () -> Pane
     ) {
-        self.color = color
         self.childPane = childPane
         super.init(title: .computed({ title }), groups: [], isSearchable: false)
     }

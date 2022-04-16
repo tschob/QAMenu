@@ -29,7 +29,7 @@
 import Foundation
 import QAMenu
 
-struct MultipleAsyncItemGroups {
+public struct MultipleAsyncItemGroups {
 
     fileprivate static var groupOneItems: [StringItem] = []
 
@@ -37,7 +37,7 @@ struct MultipleAsyncItemGroups {
 
     fileprivate static var shouldStringItemsLoadingFail = true
 
-    static func makePane() -> Pane {
+    public static func makePane() -> Pane {
         let groupOne = ItemGroup(
             title: .static("Group One"),
             items: .async({ instance in

@@ -29,11 +29,11 @@
 import Foundation
 import QAMenu
 
-extension ShowcaseItemsFactory {
+public extension ShowcaseItemsFactory {
 
     struct CapabilitiesExamples {
 
-        static var group: ItemGroup {
+        public static var group: ItemGroup {
             return ItemGroup(
                 title: .static("Capabilities Examples"),
                 items: .static([
@@ -42,9 +42,9 @@ extension ShowcaseItemsFactory {
             )
         }
 
-        struct DialogTriggers {
+        public struct DialogTriggers {
 
-            static var pane: Pane {
+            public static var pane: Pane {
                 return Pane(title: .static("DialogTrigger"), groups: [
                     self.wrapItemInGroup(self.boolItem),
                     self.wrapItemInGroup(self.buttonItem),
@@ -107,7 +107,7 @@ extension ShowcaseItemsFactory {
                 return ChildPaneItem(pane: { Pane(title: .static("ChildPaneItem"), items: []) })
             }
 
-            static var editableStringValue = "Value"
+            public static var editableStringValue = "Value"
             private static var editableStringItem: EditableStringItem {
                 return EditableStringItem(
                     title: .static(""),
@@ -121,7 +121,7 @@ extension ShowcaseItemsFactory {
                 )
             }
 
-            static var isPickableItemSelected = true
+            public static var isPickableItemSelected = true
             private static var pickerChildPaneItemGroup: ItemGroup {
                 let item = PickableStringItem(
                     identifier: .static("a"),

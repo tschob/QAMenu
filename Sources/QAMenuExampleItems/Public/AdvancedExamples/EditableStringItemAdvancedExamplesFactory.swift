@@ -26,13 +26,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
+import Foundation
 import QAMenu
 
 // swiftlint:disable:next type_name
-struct EditableStringItemAdvancedExamplesFactory {
+public struct EditableStringItemAdvancedExamplesFactory {
 
-    struct Storage {
-        static var layoutExampleStringValues = [
+    internal struct Storage {
+        internal static var layoutExampleStringValues = [
             "Value",
             "Value",
             "Value (medium length)",
@@ -42,12 +43,12 @@ struct EditableStringItemAdvancedExamplesFactory {
             "Value (with a very extensive and long length)"
         ]
 
-        static var example1String = "value"
-        static var example2String = "valid"
-        static var example3String = "value"
+        internal static var example1String = "value"
+        internal static var example2String = "valid"
+        internal static var example3String = "value"
     }
 
-    static func makePane() -> Pane {
+    public static func makePane() -> Pane {
         let pane = Pane(
             title: .static("EditableStringItem"),
             groups: [

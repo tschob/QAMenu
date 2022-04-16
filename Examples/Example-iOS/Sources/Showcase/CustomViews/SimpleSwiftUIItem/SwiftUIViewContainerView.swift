@@ -26,9 +26,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // 
 
+import UIKit
 import QAMenu
 import QAMenuUIKit
-import Foundation
 
 #if canImport(SwiftUI)
   import SwiftUI
@@ -47,7 +47,7 @@ class SwiftUIViewContainerView: UIView, ItemUIRepresentable {
             }
             if #available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *) {
                 if hostingController == nil {
-                    guard let swiftUIView = SimpleSwiftUIView(item: item) else {
+                    guard let swiftUIView = SimpleSwiftUIItemView(item: item) else {
                         return
                     }
                     let hostingController = UIHostingController(rootView: swiftUIView)

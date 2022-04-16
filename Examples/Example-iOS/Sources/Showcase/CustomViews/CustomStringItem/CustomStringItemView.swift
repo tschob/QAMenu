@@ -26,21 +26,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import Foundation
 import UIKit
 import QAMenu
 import QAMenuUIKit
-
-// MARK: - CustomStringItem
-
-class CustomStringItem: StringItem {
-
-    override var isSharingEnabled: Bool {
-        return false
-    }
-}
-
-// MARK: - CustomStringItemView
 
 class CustomStringItemView: NibView, ItemUIRepresentable {
 
@@ -51,7 +39,7 @@ class CustomStringItemView: NibView, ItemUIRepresentable {
     }
 
     override var nib: UINib {
-        return UINib(nibName: Self.nibName, bundle: Bundle.main)
+        return UINib(nibName: Self.nibName, bundle: .main)
     }
 
     weak var delegate: ItemUIRepresentableDelegate?
