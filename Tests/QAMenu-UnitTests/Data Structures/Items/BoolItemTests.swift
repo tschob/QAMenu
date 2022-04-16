@@ -76,6 +76,27 @@ class BoolItemTests: XCTestCase {
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
+    @available(iOS 13.0, *)
+    func test_invalidate_sendsOnInvalidationSubject() {
+        let sut = BoolItem(
+            title: .static("title"),
+            value: .static(false),
+            onValueChange: { _, _, _ in }
+        )
+
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
+        invalidationExpectation.assertForOverFulfill = true
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
+                invalidationExpectation.fulfill()
+            })
+
+        sut.invalidate()
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
+    }
+
     // MARK: - init
 
     func test_init_whenPassingOnlyMandatoryParameters() throws {

@@ -27,6 +27,9 @@
 //
 
 import Foundation
+#if canImport(Combine)
+import Combine
+#endif
 
 open class Pane: NSObject, Invalidatable {
 
@@ -42,6 +45,8 @@ open class Pane: NSObject, Invalidatable {
     public let isSearchable: Bool
 
     open var onInvalidation = InvalidationEvent()
+    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+    public private(set) lazy var onInvalidationSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Initialization
 
@@ -88,6 +93,9 @@ open class Pane: NSObject, Invalidatable {
     open func invalidate() {
         self.groups.forEach { $0.invalidate() }
         self.onInvalidation.fire()
+        if #available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *) {
+            self.onInvalidationSubject.send()
+        }
     }
 }
 

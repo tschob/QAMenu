@@ -28,6 +28,9 @@
 
 import Foundation
 import QAMenuUtils
+#if canImport(Combine)
+import Combine
+#endif
 
 open class ItemGroup: Group, Searchable {
 
@@ -45,8 +48,12 @@ open class ItemGroup: Group, Searchable {
     }
 
     public let onInvalidation = InvalidationEvent()
+    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+    public private(set) lazy var  onInvalidationSubject = PassthroughSubject<Void, Never>()
 
     public let onPresentDialog = ObservableEvent<DialogContent>()
+    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+    public private(set) lazy var  onPresentDialogSubject = PassthroughSubject<DialogContent, Never>()
 
     // MARK: - Properties (Private / Internal)
 

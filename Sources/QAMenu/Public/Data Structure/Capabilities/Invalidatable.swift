@@ -27,12 +27,17 @@
 //
 
 import Foundation
+#if canImport(Combine)
+import Combine
+#endif
 
 public protocol Invalidatable {
 
     typealias InvalidationEvent = ObservableEvent<Void>
 
     var onInvalidation: InvalidationEvent { get }
+    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+    var onInvalidationSubject: PassthroughSubject<Void, Never> { get }
 
     func invalidate()
 }
@@ -41,5 +46,8 @@ public extension Invalidatable {
 
     func invalidate() {
         self.onInvalidation.fire()
+        if #available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *) {
+            self.onInvalidationSubject.send()
+        }
     }
 }

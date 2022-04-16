@@ -69,6 +69,23 @@ class ChildPaneItemTests: XCTestCase {
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
+    @available(iOS 13.0, *)
+    func test_invalidate_sendsOnInvalidationSubject() {
+        let sut = ChildPaneItem(pane: { MockPane() })
+
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
+        invalidationExpectation.assertForOverFulfill = true
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
+                invalidationExpectation.fulfill()
+            })
+
+        sut.invalidate()
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
+    }
+
     // MARK: - init (pane)
 
     func test_initWithPane_whenPassingOnlyMandatoryParameters() throws {
@@ -208,9 +225,36 @@ class ChildPaneItemTests: XCTestCase {
             })
             .disposeWith(self.disposeBag)
 
-        pickerGroup.onNavigateBack.fire(with: {})
+        pickerGroup.navigateBack(completion: {})
 
         wait(for: [observeExpectation], timeout: 0.01)
+    }
+
+    @available(iOS 13.0, *)
+    func test_onNavigateBackSubject_isSentWhenChildPaneIsTriggered() {
+        let pickerGroup = PickerGroup(
+            title: .static("PickerGroup"),
+            options: .static([]),
+            onPickedOption: { _, _ in }
+        )
+        let mockPane = MockPane(groups: [pickerGroup])
+        let sut = ChildPaneItem(pane: { mockPane })
+        if case .navigationWithPane(let paneClosure, let beforeNavigation) = sut.selectionOutcome {
+            beforeNavigation(paneClosure())
+        }
+
+        let observeExpectation = expectation(description: "onNavigateBack is triggered")
+        observeExpectation.assertForOverFulfill = true
+        let cancellable = sut
+            .onNavigateBackSubject
+            .sink(receiveValue: { _ in
+                observeExpectation.fulfill()
+        })
+
+        pickerGroup.navigateBack(completion: {})
+
+        wait(for: [observeExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_onNavigateBack_whenTriggered_invalidatesChildPaneItem() {
@@ -238,7 +282,7 @@ class ChildPaneItemTests: XCTestCase {
             })
             .disposeWith(self.disposeBag)
 
-        pickerGroup.onNavigateBack.fire { }
+        pickerGroup.navigateBack { }
 
         wait(for: [invalidationExpectation], timeout: 0.01)
     }

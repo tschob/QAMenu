@@ -27,8 +27,25 @@
 //
 
 import Foundation
+#if canImport(Combine)
+import Combine
+#endif
 
 public protocol NavigationTrigger {
 
     var onNavigateBack: ObservableEvent<() -> Void> { get }
+    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+    var onNavigateBackSubject: PassthroughSubject<() -> Void, Never> { get }
+
+    func navigateBack(completion: @escaping () -> Void)
+}
+
+extension NavigationTrigger {
+
+    public func navigateBack(completion: @escaping () -> Void) {
+        self.onNavigateBack.fire(with: completion)
+        if #available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *) {
+            self.onNavigateBackSubject.send(completion)
+        }
+    }
 }
