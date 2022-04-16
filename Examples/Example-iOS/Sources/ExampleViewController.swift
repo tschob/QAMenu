@@ -179,7 +179,7 @@ class ExampleViewController: UITableViewController {
                 ),
                 ButtonItem(
                     title: .static("Reset image cache"),
-                    action: { [weak self] (item: ButtonItem, _) in
+                    action: { [weak self] item in
                         item.status = .progress("Deleting cache")
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             self?.simpleProjectCachedImagesCount = 0

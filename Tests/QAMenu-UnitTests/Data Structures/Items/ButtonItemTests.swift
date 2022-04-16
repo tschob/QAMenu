@@ -48,7 +48,7 @@ class ButtonItemTests: XCTestCase {
     func test_invalidate_doesNotCrash_whenNoObserverIsAdded() {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
 
         sut.invalidate()
@@ -59,7 +59,7 @@ class ButtonItemTests: XCTestCase {
     func test_invalidate_firesOnInvalidationEvent() {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
@@ -79,7 +79,7 @@ class ButtonItemTests: XCTestCase {
     func test_init_whenPassingOnlyMandatoryParameters() throws {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
 
         ButtonItem._assertInitProperties(
@@ -91,7 +91,7 @@ class ButtonItemTests: XCTestCase {
     func test_init_whenPassingAllParameters() throws {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in },
+            action: { _ in },
             footerText: .static("footer")
         )
 
@@ -107,7 +107,7 @@ class ButtonItemTests: XCTestCase {
     func test_status_equalsInitiallyIdle() {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
 
         XCTAssertEqual(sut.status, .idle)
@@ -116,7 +116,7 @@ class ButtonItemTests: XCTestCase {
     func test_status_canBeChangedToIdle() {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
 
         sut.status = .progress("progress")
@@ -128,7 +128,7 @@ class ButtonItemTests: XCTestCase {
     func test_status_canBeChangedToProgress() {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
 
         sut.status = .progress("progress")
@@ -139,7 +139,7 @@ class ButtonItemTests: XCTestCase {
     func test_status_whenChangedToProgress_callsInvalidate() {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
 
         let invalidationExpectation = expectation(description: "onInvalidation fires")
@@ -158,7 +158,7 @@ class ButtonItemTests: XCTestCase {
     func test_status_whenChangedToIdle_callsInvalidate() {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
 
         sut.status = .idle
@@ -179,16 +179,12 @@ class ButtonItemTests: XCTestCase {
     func test_status_canBeChangedFromWithinAction() {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { sut, _ in
+            action: { sut in
                 sut.status = .progress("progress")
             }
         )
-        let qaMenu = QAMenu(
-            pane: RootPane(items: []),
-            presenterType: MockQAMenuPresenter.self
-        )
 
-        sut.action(sut, qaMenu)
+        sut.action(sut)
 
         XCTAssertEqual(sut.status, .progress("progress"))
     }
@@ -198,7 +194,7 @@ class ButtonItemTests: XCTestCase {
     func test_searchableContent_whenHavingTitle_containsOnlyTitle() throws {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
 
         let searchableContent = sut.searchableContent.compactMap { $0 }
@@ -209,7 +205,7 @@ class ButtonItemTests: XCTestCase {
     func test_searchableContent_whenHavingTitleAndFooter_containsBoth() throws {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in },
+            action: { _ in },
             footerText: .static("footer")
         )
 
@@ -222,7 +218,7 @@ class ButtonItemTests: XCTestCase {
     func test_searchableContent_whenHavingTitleAndNilFooter_containsOnlyTitle() throws {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in },
+            action: { _ in },
             footerText: .static(nil)
         )
 
@@ -236,7 +232,7 @@ class ButtonItemTests: XCTestCase {
     func test_isSelectable_whenStatusIsIdle_returnsTrue() throws {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
         sut.status = .idle
 
@@ -246,34 +242,30 @@ class ButtonItemTests: XCTestCase {
     func test_isSelectable_whenStatusIsProgress_returnsFalse() throws {
         let sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
         sut.status = .progress("progress")
 
         XCTAssertFalse(sut.isSelectable)
     }
 
-    func test_selectionOutcome_returnsAction() throws {
-        let qaMenu = QAMenu(
-            pane: RootPane(items: []),
-            presenterType: MockQAMenuPresenter.self
-        )
+    func test_selectionOutcome_returnsCustomClosure() throws {
         let actionExpectation = expectation(description: "")
         actionExpectation.assertForOverFulfill = true
         var sut: ButtonItem?
         sut = ButtonItem(
             title: .static("title"),
-            action: { _sut, _qaMenu in
-                if _sut === sut, _qaMenu === qaMenu {
+            action: { _sut in
+                if _sut === sut {
                     actionExpectation.fulfill()
                 } else {
-                    XCTFail("\(_sut) didn't euqal \(String(describing: sut)) or \(qaMenu) didn't equal \(qaMenu)")
+                    XCTFail("\(_sut) didn't euqal \(String(describing: sut))")
                 }
             }
         )
 
-        if case .action(let action) = sut!.selectionOutcome {
-            action(qaMenu)
+        if case .custom(let closure) = sut!.selectionOutcome {
+            closure()
         } else {
             XCTFail("\(sut!.selectionOutcome) is not an action")
         }
@@ -282,14 +274,10 @@ class ButtonItemTests: XCTestCase {
     }
 
     func test_selectionOutcome_hasWeakReference() throws {
-        let qaMenu = QAMenu(
-            pane: RootPane(items: []),
-            presenterType: MockQAMenuPresenter.self
-        )
         var sut: ButtonItem?
         sut = ButtonItem(
             title: .static("title"),
-            action: { _, _ in }
+            action: { _ in }
         )
         weak var leakSut = sut
         let selectionOutcome = sut!.selectionOutcome
@@ -298,8 +286,8 @@ class ButtonItemTests: XCTestCase {
 
         XCTAssertNil(leakSut, "\(String(describing: sut)) is not released from memory")
 
-        if case .action(let actionClosure) = selectionOutcome {
-            actionClosure(qaMenu)
+        if case .custom(let closure) = selectionOutcome {
+            closure()
         } else {
             XCTFail("\(sut!.selectionOutcome) is not an action")
         }

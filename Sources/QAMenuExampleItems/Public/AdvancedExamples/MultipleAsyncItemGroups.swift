@@ -62,7 +62,7 @@ public struct MultipleAsyncItemGroups {
                             ProgressItem(state: .failure("Couldn't load group. Please try again.")),
                             onFailureOption: ButtonItem(
                                 title: .static("Try Again"),
-                                action: { (_, _) in
+                                action: { _ in
                                     instance.load()
                                 }
                             )

@@ -76,7 +76,7 @@ open class BoolItem: Item, FooterSupport {
                     title: "Error",
                     message: message
                 )
-                self?.onPresentDialog.fire(with: dialogContent)
+                self?.presentDialog(dialogContent)
             }
             self?.invalidate()
         }

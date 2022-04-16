@@ -180,6 +180,11 @@
 		A2B802DB27E74E28007204B9 /* PickerGroupAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B802CE27E74E28007204B9 /* PickerGroupAdvancedExamplesFactory.swift */; };
 		A2B802DD27E74E29007204B9 /* ShowcaseItemsFactory+DetailedItemExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B802D027E74E28007204B9 /* ShowcaseItemsFactory+DetailedItemExamples.swift */; };
 		A2B802E427E76D48007204B9 /* ShowcaseItemsFactory+CapabilitiesExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B802E327E76D48007204B9 /* ShowcaseItemsFactory+CapabilitiesExamples.swift */; };
+		A2B81077280B301F004C775F /* DialogContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B81076280B301F004C775F /* DialogContent.swift */; };
+		A2B81079280B30E2004C775F /* DialogContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B81078280B30E2004C775F /* DialogContentTests.swift */; };
+		A2B8107B280B3540004C775F /* DialogTriggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8107A280B3540004C775F /* DialogTriggerTests.swift */; };
+		A2B8107D280B37F8004C775F /* DialogContent+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8107C280B37F8004C775F /* DialogContent+UIKit.swift */; };
+		A2B8107F280B388F004C775F /* DialogContent+UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B8107E280B388F004C775F /* DialogContent+UIKitTests.swift */; };
 		A2B897092598D4480016A373 /* PaneRepresentableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B897082598D4480016A373 /* PaneRepresentableMock.swift */; };
 		A2B968FD259E40B3004CC383 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B968F1259E40B0004CC383 /* Group.swift */; };
 		A2B98733256AC46B0059C5EA /* Bundle+QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B98732256AC46B0059C5EA /* Bundle+QAMenuTests.swift */; };
@@ -493,6 +498,11 @@
 		A2B802CE27E74E28007204B9 /* PickerGroupAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroupAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
 		A2B802D027E74E28007204B9 /* ShowcaseItemsFactory+DetailedItemExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowcaseItemsFactory+DetailedItemExamples.swift"; sourceTree = "<group>"; };
 		A2B802E327E76D48007204B9 /* ShowcaseItemsFactory+CapabilitiesExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowcaseItemsFactory+CapabilitiesExamples.swift"; sourceTree = "<group>"; };
+		A2B81076280B301F004C775F /* DialogContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogContent.swift; sourceTree = "<group>"; };
+		A2B81078280B30E2004C775F /* DialogContentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogContentTests.swift; sourceTree = "<group>"; };
+		A2B8107A280B3540004C775F /* DialogTriggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogTriggerTests.swift; sourceTree = "<group>"; };
+		A2B8107C280B37F8004C775F /* DialogContent+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DialogContent+UIKit.swift"; sourceTree = "<group>"; };
+		A2B8107E280B388F004C775F /* DialogContent+UIKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DialogContent+UIKitTests.swift"; sourceTree = "<group>"; };
 		A2B897082598D4480016A373 /* PaneRepresentableMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaneRepresentableMock.swift; sourceTree = "<group>"; };
 		A2B968F1259E40B0004CC383 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A2B98732256AC46B0059C5EA /* Bundle+QAMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+QAMenuTests.swift"; sourceTree = "<group>"; };
@@ -687,6 +697,8 @@
 		A2172CE725C9DF43009DC774 /* Capabilities */ = {
 			isa = PBXGroup;
 			children = (
+				A2B81078280B30E2004C775F /* DialogContentTests.swift */,
+				A2B8107A280B3540004C775F /* DialogTriggerTests.swift */,
 				A2172CE825C9DF43009DC774 /* SearchableTests.swift */,
 			);
 			path = Capabilities;
@@ -838,6 +850,7 @@
 		A28873D22516822A003528E5 /* Capabilities */ = {
 			isa = PBXGroup;
 			children = (
+				A2B81076280B301F004C775F /* DialogContent.swift */,
 				A249DE5F258FA0E2002AEC41 /* DialogTrigger.swift */,
 				A249DE65258FA7A9002AEC41 /* NavigationTrigger.swift */,
 				A28873D32516822A003528E5 /* Invalidatable.swift */,
@@ -1061,6 +1074,7 @@
 		A2969E3325167D7900EA54D5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A2B8107C280B37F8004C775F /* DialogContent+UIKit.swift */,
 				A2969E3425167D7900EA54D5 /* QAMenuUIKitPresenter.swift */,
 				A2969E3525167D7900EA54D5 /* NibView.swift */,
 				A2969E3625167D7900EA54D5 /* PaneRepresentable+UIViewController.swift */,
@@ -1167,6 +1181,7 @@
 		A2B989B7256D909F0059C5EA /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A2B8107E280B388F004C775F /* DialogContent+UIKitTests.swift */,
 				A2B989CC256D9B9C0059C5EA /* ItemViewTests.swift */,
 				A2B989C2256D967E0059C5EA /* ShareInteractionHandlerTests.swift */,
 				A2B989B8256D909F0059C5EA /* FooterViewSupportingTests.swift */,
@@ -1750,6 +1765,7 @@
 				A25EE39325A8F4C300932C65 /* DisposeBag.swift in Sources */,
 				A25EE39525A8F4C300932C65 /* ObservableEvent.swift in Sources */,
 				A28873EF2516822A003528E5 /* ItemGroup.swift in Sources */,
+				A2B81077280B301F004C775F /* DialogContent.swift in Sources */,
 				A28873F32516822A003528E5 /* ButtonItem.swift in Sources */,
 				A25EE39425A8F4C300932C65 /* Disposable.swift in Sources */,
 				A28873EB2516822A003528E5 /* FooterSupport.swift in Sources */,
@@ -1821,6 +1837,7 @@
 				A2E6592F25E4402C0013DEE0 /* PickerGroupOptionsTests.swift in Sources */,
 				A2172D0825C9DF43009DC774 /* ItemGroup+Assert.swift in Sources */,
 				A2172D2B25C9DF43009DC774 /* ObservableEventTests.swift in Sources */,
+				A2B8107B280B3540004C775F /* DialogTriggerTests.swift in Sources */,
 				A289796025E1A9E900EB7326 /* ObservableTests.swift in Sources */,
 				A2E6592825E4396E0013DEE0 /* GroupItemsTests.swift in Sources */,
 				A2172D2425C9DF43009DC774 /* PaneTests+Conversions.swift in Sources */,
@@ -1836,6 +1853,7 @@
 				A28979A725E2B35200EB7326 /* DelayedTests.swift in Sources */,
 				A2172D1425C9DF43009DC774 /* MockItem.swift in Sources */,
 				A2172D2125C9DF43009DC774 /* ChildPaneItemTests.swift in Sources */,
+				A2B81079280B30E2004C775F /* DialogContentTests.swift in Sources */,
 				A2172D0C25C9DF43009DC774 /* BoolItem+Assert.swift in Sources */,
 				A2172D0E25C9DF43009DC774 /* ChildPaneItem+Assert.swift in Sources */,
 				A2172D0625C9DF43009DC774 /* MockQAMenuPresenter.swift in Sources */,
@@ -1870,6 +1888,7 @@
 				A2969E5225167D7A00EA54D5 /* UIWindow+ShakeGesture.swift in Sources */,
 				A2969E4825167D7A00EA54D5 /* ButtonItemView.swift in Sources */,
 				A2BEC0D3257BF8E20005EFDF /* RootPaneUIRepresentable.swift in Sources */,
+				A2B8107D280B37F8004C775F /* DialogContent+UIKit.swift in Sources */,
 				A2969E4A25167D7A00EA54D5 /* FooterViewSupporting.swift in Sources */,
 				A2969E5825167D7A00EA54D5 /* UIBarButtonItem+QAMenu.swift in Sources */,
 				A2969E5125167D7A00EA54D5 /* UnsupportedPaneViewController.swift in Sources */,
@@ -1948,6 +1967,7 @@
 				A2B989D7256D9D820059C5EA /* UIWindow+ShakeGestureTests.swift in Sources */,
 				A2B98A72256DAA7A0059C5EA /* CustomItemView.swift in Sources */,
 				A2B98733256AC46B0059C5EA /* Bundle+QAMenuTests.swift in Sources */,
+				A2B8107F280B388F004C775F /* DialogContent+UIKitTests.swift in Sources */,
 				A2B989E1256DA1820059C5EA /* PaneViewControllerTests.swift in Sources */,
 				A2B98A6C256DAA7A0059C5EA /* ItemUIRepresentableDelegateSpy.swift in Sources */,
 				A2B98A71256DAA7A0059C5EA /* CustomPaneViewController.swift in Sources */,

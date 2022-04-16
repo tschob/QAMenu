@@ -224,16 +224,13 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
     }
 
     private func showEditValidationError(_ message: String) {
-        let errorAlert = UIAlertController(
+        let dialogContent = DialogContent(
             title: "Error",
             message: message,
-            preferredStyle: .alert
+            closeButtonTitle: "Okay, I'll try again"
         )
-        let okayAction = UIAlertAction(
-            title: "Okay, I'll try again",
-            style: .default
-        )
-        errorAlert.addAction(okayAction)
-        self.delegate?.presentationContext.present(errorAlert, animated: true)
+        if let alertController = dialogContent.asUIAlertController() {
+            self.delegate?.presentationContext.present(alertController, animated: true)
+        }
     }
 }

@@ -28,23 +28,16 @@
 
 import Foundation
 
-public struct DialogContent {
-    public let title: String?
-    public let message: String?
-    public let closeButtonTitle: String
-
-    public init(
-        title: String? = nil,
-        message: String? = nil,
-        closeButtonTitle: String = "Ok"
-    ) {
-        self.title = title
-        self.message = message
-        self.closeButtonTitle = closeButtonTitle
-    }
-}
-
 public protocol DialogTrigger {
 
     var onPresentDialog: ObservableEvent<DialogContent> { get }
+
+    func presentDialog(_ dialogContent: DialogContent)
+}
+
+extension DialogTrigger {
+
+    public func presentDialog(_ dialogContent: DialogContent) {
+        self.onPresentDialog.fire(with: dialogContent)
+    }
 }

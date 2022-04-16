@@ -89,7 +89,7 @@ public class ItemGroupAdvancedExamplesFactory {
                                 ProgressItem(state: .failure("Error: Loading fails the first \(remainingFailingLoadingCount) time(s)")),
                                 onFailureOption: ButtonItem(
                                     title: .static("Try Again"),
-                                    action: { _, _  in
+                                    action: { _  in
                                         instance.load()
                                     }
                                 )

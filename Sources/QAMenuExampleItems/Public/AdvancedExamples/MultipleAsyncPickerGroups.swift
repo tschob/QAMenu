@@ -110,7 +110,7 @@ public struct MultipleAsyncPickerGroups {
                             ProgressItem(state: .failure("Couldn't load URLs. Please try again.")),
                             onFailureOption: ButtonItem(
                                 title: .static("Try Again"),
-                                action: { (_, _) in
+                                action: { _ in
                                     instance.load()
                                 }
                             )
