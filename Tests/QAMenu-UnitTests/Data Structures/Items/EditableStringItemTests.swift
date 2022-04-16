@@ -77,6 +77,27 @@ class EditableStringItemTests: XCTestCase {
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
+    @available(iOS 13.0, *)
+    func test_invalidate_sendsOnInvalidationSubject() {
+        let sut = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            onValueChange: { _, _, _ in }
+        )
+
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
+        invalidationExpectation.assertForOverFulfill = true
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
+                invalidationExpectation.fulfill()
+            })
+
+        sut.invalidate()
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
+    }
+
     // MARK: - init
 
     func test_init_whenPassingOnlyMandatoryParameters() throws {
@@ -203,6 +224,54 @@ class EditableStringItemTests: XCTestCase {
         wait(for: [onShouldEditExpectation], timeout: 0.01)
     }
 
+    func test_whenSelected_andIsEditable_firesOnEdit() throws {
+        let sut = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            footerText: .static("footer"),
+            isEditable: .static(true),
+            onValueChange: { _, _, _ in }
+        )
+
+        let onEditExpectation = expectation(description: "onEdit is fired")
+        onEditExpectation.assertForOverFulfill = true
+        sut.onEdit
+            .observe { _ in
+            onEditExpectation.fulfill()
+            }
+            .disposeWith(self.disposeBag)
+
+        if case .custom(let closure) = sut.selectionOutcome {
+            closure()
+        }
+
+        wait(for: [onEditExpectation], timeout: 0.01)
+    }
+
+    @available(iOS 13.0, *)
+    func test_whenSelected_andIsEditable_sendsOnEditSubject() throws {
+        let sut = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            footerText: .static("footer"),
+            isEditable: .static(true),
+            onValueChange: { _, _, _ in }
+        )
+
+        let onEditSubjectExpectation = expectation(description: "onEditSubject is send")
+        onEditSubjectExpectation.assertForOverFulfill = true
+        let cancellable = sut.onEditSubject.sink(receiveValue: {
+            onEditSubjectExpectation.fulfill()
+        })
+
+        if case .custom(let closure) = sut.selectionOutcome {
+            closure()
+        }
+
+        wait(for: [onEditSubjectExpectation], timeout: 0.01)
+        cancellable.cancel()
+    }
+
     func test_whenSelected_andIsNotEditable_doesNotCallOnShouldEdit() throws {
         let sut = EditableStringItem(
             title: .static("title"),
@@ -223,5 +292,53 @@ class EditableStringItemTests: XCTestCase {
         }
 
         wait(for: [onShouldEditExpectation], timeout: 0.01)
+    }
+
+    func test_whenSelected_andIsNotEditable_doesNotFireOnEdit() throws {
+        let sut = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            footerText: .static("footer"),
+            isEditable: .static(false),
+            onValueChange: { _, _, _ in }
+        )
+
+        let onEditExpectation = expectation(description: "onEdit is not fired")
+        onEditExpectation.isInverted = true
+        sut.onEdit
+            .observe { _ in
+            onEditExpectation.fulfill()
+            }
+            .disposeWith(self.disposeBag)
+
+        if case .custom(let closure) = sut.selectionOutcome {
+            closure()
+        }
+
+        wait(for: [onEditExpectation], timeout: 0.01)
+    }
+
+    @available(iOS 13.0, *)
+    func test_whenSelected_andIsNotEditable_doesNotSendOnEditSubject() throws {
+        let sut = EditableStringItem(
+            title: .static("title"),
+            value: .static("value"),
+            footerText: .static("footer"),
+            isEditable: .static(false),
+            onValueChange: { _, _, _ in }
+        )
+
+        let onEditSubjectExpectation = expectation(description: "onEditSubject is not send")
+        onEditSubjectExpectation.isInverted = true
+        let cancellable = sut.onEditSubject.sink(receiveValue: {
+            onEditSubjectExpectation.fulfill()
+        })
+
+        if case .custom(let closure) = sut.selectionOutcome {
+            closure()
+        }
+
+        wait(for: [onEditSubjectExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 }

@@ -9,6 +9,7 @@
 disabled_rules:
   - identifier_name # e.g. "qm_functioName" should be possible
   - nesting # e.g. "QAMenu.Log.Level" should be possible
+  - multiline_arguments_brackets # resulted in buggy reports in 13.2.1
 
 opt_in_rules:
   - anyobject_protocol

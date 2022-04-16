@@ -27,6 +27,9 @@
 //
 
 import Foundation
+#if canImport(Combine)
+import Combine
+#endif
 
 open class EditableStringItem: StringItem {
 
@@ -40,7 +43,12 @@ open class EditableStringItem: StringItem {
     public let isEditable: Dynamic<Bool>
     public let onValueChange: ((_ newValue: String, _ item: EditableStringItem, _ result: @escaping (ValueChangeResult) -> Void) -> Void?)?
 
+    @available(*, deprecated, message: "`onShouldEdit` is no longer supported; Use `onEdit` or `onEditSubject` instead.")
     public var onShouldEdit: ((_ item: EditableStringItem) -> Void)?
+
+    public let onEdit = ObservableEvent<Void>()
+    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
+    public private(set) lazy var onEditSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Initialization
 
@@ -77,6 +85,10 @@ extension EditableStringItem: Selectable {
                 return
             }
             self.onShouldEdit?(self)
+            self.onEdit.fire()
+            if #available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *) {
+                self.onEditSubject.send()
+            }
         }
     }
 }

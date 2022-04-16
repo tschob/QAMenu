@@ -30,10 +30,6 @@ import Foundation
 
 public protocol Group: Invalidatable, DialogTrigger, FooterSupport {
 
-    // MARK: - Properties (Public)
-
-    var onInvalidation: InvalidationEvent { get }
-
     // MARK: - Properties (Internal)
 
     var title: Dynamic<String?>? { get }

@@ -102,6 +102,28 @@ class PickerGroupTests: XCTestCase {
         XCTAssertNotNil(options[1].onPick)
     }
 
+    // MARK: - Invalidate
+
+    @available(iOS 13.0, *)
+    func test_invalidate_sendsOnInvalidationSubject() {
+        let sut = PickerGroup(
+            options: .static([MockPickableItem()]),
+            onPickedOption: { _, _ in }
+        )
+
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
+        invalidationExpectation.assertForOverFulfill = true
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
+                invalidationExpectation.fulfill()
+            })
+
+        sut.invalidate()
+
+        wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
+    }
+
     // MARK: - Update (static options)
 
     func test_update_whenGivenEmptyStaticArray_replacesInstanceItems() throws {
@@ -563,6 +585,30 @@ class PickerGroupTests: XCTestCase {
         mockItem.onPick?(mockItem)
 
         wait(for: [navigationExpectation], timeout: 0.01)
+    }
+
+    @available(iOS 13.0, *)
+    func test_whenOnPickResultIsSuccessWithShouldDismiss_triggersOnNavigationBackSubject() throws {
+        let mockItem = MockPickableItem()
+        let sut = PickerGroup(
+            title: .static(nil),
+            options: .static([mockItem]),
+            onPickedOption: { _, result in
+                result(.success(shouldDismiss: true))
+            }
+        )
+        let navigationExpectation = expectation(description: "onNavigateBack fires")
+        navigationExpectation.assertForOverFulfill = true
+        let cancellable = sut.onNavigateBackSubject
+            .sink(receiveValue: { completion in
+                navigationExpectation.fulfill()
+                completion()
+            })
+
+        mockItem.onPick?(mockItem)
+
+        wait(for: [navigationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_whenOnPickResultIsSuccessWithShouldDismiss_invalidatesGroupOnCompletion() throws {
