@@ -1,12 +1,12 @@
 //
-//  Catalog+Device.swift
+//  QAMenuSwiftUI.h
 //
-//  Created by Hans Seiffert on 18.07.20.
+//  Created by Hans Seiffert on 18.04.22.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2022 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,30 +24,16 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//
+// 
 
-import Foundation
-import QAMenu
+#import <Foundation/Foundation.h>
 
-public extension QAMenu.Catalog {
+//! Project version number for QAMenuSwiftUI.
+FOUNDATION_EXPORT double QAMenuSwiftUIVersionNumber;
 
-    enum Device {
+//! Project version string for QAMenuSwiftUI.
+FOUNDATION_EXPORT const unsigned char QAMenuSwiftUIVersionString[];
 
-        public static var all: [Group] {
-            return [
-                group()
-            ]
-        }
+// In this header, you should import all the public headers of your framework using statements like #import <QAMenuSwiftUI/PublicHeader.h>
 
-        public static func group(title: String = "Device") -> ItemGroup {
-            var items: [Item] = [Locale.group().asChildPaneItem()]
-            #if os(iOS)
-                items.append(Accessibility.group().asChildPaneItem())
-            #endif
-            return ItemGroup(
-                title: .static(title),
-                items: .static(items)
-            )
-        }
-    }
-}
+

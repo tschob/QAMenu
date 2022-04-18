@@ -1,12 +1,12 @@
 //
-//  Catalog+Device.swift
+//  QAMenuSwiftUIPresenter.swift
 //
-//  Created by Hans Seiffert on 18.07.20.
+//  Created by Hans Seiffert on 19.03.22.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2021 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,30 +24,39 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//
+// 
 
 import Foundation
+import SwiftUI
 import QAMenu
+import QAMenuUtils
 
-public extension QAMenu.Catalog {
+open class QAMenuSwiftUIPresenter: QAMenuPresenter {
 
-    enum Device {
+    public var dismissBehavior: QAMenu.DismissBehavior
 
-        public static var all: [Group] {
-            return [
-                group()
-            ]
-        }
+    public required init(qaMenu: QAMenu, dismissBehavior: QAMenu.DismissBehavior) {
+        Logger.verbose("")
+        self.dismissBehavior = dismissBehavior
+    }
 
-        public static func group(title: String = "Device") -> ItemGroup {
-            var items: [Item] = [Locale.group().asChildPaneItem()]
-            #if os(iOS)
-                items.append(Accessibility.group().asChildPaneItem())
-            #endif
-            return ItemGroup(
-                title: .static(title),
-                items: .static(items)
-            )
-        }
+    public func toggleVisibility(completion: @escaping (QAMenuState) -> Void) {
+        Logger.verbose("")
+    }
+
+    public func show(completion: @escaping () -> Void) {
+        Logger.verbose("")
+    }
+
+    public func hide(completion: @escaping () -> Void) {
+        Logger.verbose("")
+    }
+
+    public func navigateToRootPane() {
+        Logger.verbose("")
+    }
+
+    public func resetRootViewController() {
+        Logger.verbose("")
     }
 }

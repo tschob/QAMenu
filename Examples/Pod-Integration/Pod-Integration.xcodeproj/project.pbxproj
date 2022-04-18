@@ -7,17 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C8904BD8A498046019D3192 /* Pods_Pod_Integration_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B923524169A7841734216B1D /* Pods_Pod_Integration_iOS.framework */; };
+		A21B4607280B63440024F107 /* PodIntegrationiOSSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B4606280B63440024F107 /* PodIntegrationiOSSwiftUIApp.swift */; };
+		A21B460B280B63450024F107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A21B460A280B63450024F107 /* Assets.xcassets */; };
+		A21B463B280B6DA60024F107 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B463A280B6DA60024F107 /* ContentView.swift */; };
 		A2E081BB2517760E00706D23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E081B22517760E00706D23 /* ViewController.swift */; };
 		A2E081BC2517760E00706D23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E081B32517760E00706D23 /* Assets.xcassets */; };
 		A2E081BD2517760E00706D23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E081B42517760E00706D23 /* LaunchScreen.storyboard */; };
 		A2E081BE2517760E00706D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E081B62517760E00706D23 /* Main.storyboard */; };
 		A2E081BF2517760E00706D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E081B82517760E00706D23 /* AppDelegate.swift */; };
 		A2E081C12517760E00706D23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E081BA2517760E00706D23 /* SceneDelegate.swift */; };
+		C6DB28F0C34A2209BA6C1EE2 /* Pods_Pod_Integration_iOS_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A624646616BB69B88A2480 /* Pods_Pod_Integration_iOS_UIKit.framework */; };
+		C6E38C7AEBA53062593AB586 /* Pods_Pod_Integration_iOS_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7307CA27B4F147A04F68EE7 /* Pods_Pod_Integration_iOS_SwiftUI.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A21B4631280B6AEE0024F107 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		A2E0819A2517758400706D23 /* Pod-Integration-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pod-Integration-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AC880B87A1D57053473141B /* Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension/Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		2E711C6C4D12E0C529CF84BD /* Pods_Pod_Integration_macOS_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pod_Integration_macOS_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54A6B67EC1066BA48DAC3696 /* Pods-Pod-Integration-iOS-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-iOS-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-iOS-SwiftUI/Pods-Pod-Integration-iOS-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		5850C787E6018E997BF0E42A /* Pods_Pod_Integration_watchOS_SwiftUI_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pod_Integration_watchOS_SwiftUI_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59EF773B9F0DFA8D0D12651C /* Pods-Pod-Integration-iOS-UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-iOS-UIKit.debug.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-iOS-UIKit/Pods-Pod-Integration-iOS-UIKit.debug.xcconfig"; sourceTree = "<group>"; };
+		706836D29AB10DC10E1C7F27 /* Pods-Pod-Integration-iOS-UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-iOS-UIKit.release.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-iOS-UIKit/Pods-Pod-Integration-iOS-UIKit.release.xcconfig"; sourceTree = "<group>"; };
+		93A44A77A7D7C4AD4B80609B /* Pods-Pod-Integration-tvOS-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-tvOS-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-tvOS-SwiftUI/Pods-Pod-Integration-tvOS-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		952DB26DCDA69E6F8D0357CD /* Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension/Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		9E59E4E79FEE96D6B4E642E4 /* Pods-Pod-Integration-macOS-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-macOS-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-macOS-SwiftUI/Pods-Pod-Integration-macOS-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		A21B4604280B63440024F107 /* Pod-Integration-iOS-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pod-Integration-iOS-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B4606280B63440024F107 /* PodIntegrationiOSSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodIntegrationiOSSwiftUIApp.swift; sourceTree = "<group>"; };
+		A21B460A280B63450024F107 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A21B463A280B6DA60024F107 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A2E0819A2517758400706D23 /* Pod-Integration-iOS-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pod-Integration-iOS-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E081B22517760E00706D23 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A2E081B32517760E00706D23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2E081B52517760E00706D23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -25,27 +55,51 @@
 		A2E081B82517760E00706D23 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2E081B92517760E00706D23 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2E081BA2517760E00706D23 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B923524169A7841734216B1D /* Pods_Pod_Integration_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pod_Integration_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7307CA27B4F147A04F68EE7 /* Pods_Pod_Integration_iOS_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pod_Integration_iOS_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B76FEA798FC99AF0FE2D9D0D /* Pods-Pod-Integration-tvOS-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-tvOS-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-tvOS-SwiftUI/Pods-Pod-Integration-tvOS-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		B85571C89B6ED2DC1D79454F /* Pods-Pod-Integration-macOS-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-macOS-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-macOS-SwiftUI/Pods-Pod-Integration-macOS-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		BA9C387B6D2D6AEB2DAFD55E /* Pods-Pod-Integration-iOS-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-iOS-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-iOS-SwiftUI/Pods-Pod-Integration-iOS-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		BACA1966E8A13362C10BB5B8 /* Pods-Pod-Integration-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-iOS.release.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-iOS/Pods-Pod-Integration-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		C887DB9B2B0D8FA6F0F7D7F3 /* Pods_Pod_Integration_tvOS_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pod_Integration_tvOS_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A624646616BB69B88A2480 /* Pods_Pod_Integration_iOS_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pod_Integration_iOS_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4187E191C5AD8206CC8B26A /* Pods-Pod-Integration-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pod-Integration-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Pod-Integration-iOS/Pods-Pod-Integration-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A21B4601280B63440024F107 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6E38C7AEBA53062593AB586 /* Pods_Pod_Integration_iOS_SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2E081972517758400706D23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C8904BD8A498046019D3192 /* Pods_Pod_Integration_iOS.framework in Frameworks */,
+				C6DB28F0C34A2209BA6C1EE2 /* Pods_Pod_Integration_iOS_UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A21B4605280B63440024F107 /* Pod-Integration-iOS-SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				A21B463A280B6DA60024F107 /* ContentView.swift */,
+				A21B4606280B63440024F107 /* PodIntegrationiOSSwiftUIApp.swift */,
+				A21B460A280B63450024F107 /* Assets.xcassets */,
+			);
+			path = "Pod-Integration-iOS-SwiftUI";
+			sourceTree = "<group>";
+		};
 		A2E081912517758400706D23 = {
 			isa = PBXGroup;
 			children = (
 				A2E081B12517760E00706D23 /* Pod-Integration-iOS */,
+				A21B4605280B63440024F107 /* Pod-Integration-iOS-SwiftUI */,
 				A2E0819B2517758400706D23 /* Products */,
 				C2B05E6AE5CBCDDFBC7EB9E0 /* Pods */,
 				C88EF23094DD4A9D11A90AD5 /* Frameworks */,
@@ -57,7 +111,8 @@
 		A2E0819B2517758400706D23 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A2E0819A2517758400706D23 /* Pod-Integration-iOS.app */,
+				A2E0819A2517758400706D23 /* Pod-Integration-iOS-UIKit.app */,
+				A21B4604280B63440024F107 /* Pod-Integration-iOS-SwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +136,16 @@
 			children = (
 				E4187E191C5AD8206CC8B26A /* Pods-Pod-Integration-iOS.debug.xcconfig */,
 				BACA1966E8A13362C10BB5B8 /* Pods-Pod-Integration-iOS.release.xcconfig */,
+				54A6B67EC1066BA48DAC3696 /* Pods-Pod-Integration-iOS-SwiftUI.debug.xcconfig */,
+				BA9C387B6D2D6AEB2DAFD55E /* Pods-Pod-Integration-iOS-SwiftUI.release.xcconfig */,
+				59EF773B9F0DFA8D0D12651C /* Pods-Pod-Integration-iOS-UIKit.debug.xcconfig */,
+				706836D29AB10DC10E1C7F27 /* Pods-Pod-Integration-iOS-UIKit.release.xcconfig */,
+				0AC880B87A1D57053473141B /* Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension.debug.xcconfig */,
+				952DB26DCDA69E6F8D0357CD /* Pods-Pod-Integration-watchOS-SwiftUI WatchKit Extension.release.xcconfig */,
+				9E59E4E79FEE96D6B4E642E4 /* Pods-Pod-Integration-macOS-SwiftUI.debug.xcconfig */,
+				B85571C89B6ED2DC1D79454F /* Pods-Pod-Integration-macOS-SwiftUI.release.xcconfig */,
+				93A44A77A7D7C4AD4B80609B /* Pods-Pod-Integration-tvOS-SwiftUI.debug.xcconfig */,
+				B76FEA798FC99AF0FE2D9D0D /* Pods-Pod-Integration-tvOS-SwiftUI.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -88,7 +153,11 @@
 		C88EF23094DD4A9D11A90AD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B923524169A7841734216B1D /* Pods_Pod_Integration_iOS.framework */,
+				B7307CA27B4F147A04F68EE7 /* Pods_Pod_Integration_iOS_SwiftUI.framework */,
+				D2A624646616BB69B88A2480 /* Pods_Pod_Integration_iOS_UIKit.framework */,
+				5850C787E6018E997BF0E42A /* Pods_Pod_Integration_watchOS_SwiftUI_WatchKit_Extension.framework */,
+				2E711C6C4D12E0C529CF84BD /* Pods_Pod_Integration_macOS_SwiftUI.framework */,
+				C887DB9B2B0D8FA6F0F7D7F3 /* Pods_Pod_Integration_tvOS_SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -96,9 +165,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A2E081992517758400706D23 /* Pod-Integration-iOS */ = {
+		A21B4603280B63440024F107 /* Pod-Integration-iOS-SwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A2E081AE2517758700706D23 /* Build configuration list for PBXNativeTarget "Pod-Integration-iOS" */;
+			buildConfigurationList = A21B4611280B63450024F107 /* Build configuration list for PBXNativeTarget "Pod-Integration-iOS-SwiftUI" */;
+			buildPhases = (
+				C8D094D608B10BA23B11BDDB /* [CP] Check Pods Manifest.lock */,
+				A21B4612280B65C30024F107 /* Run SwiftLInt */,
+				A21B4600280B63440024F107 /* Sources */,
+				A21B4601280B63440024F107 /* Frameworks */,
+				A21B4602280B63440024F107 /* Resources */,
+				EB3D6B48FEFBCE6459A9FADA /* [CP] Embed Pods Frameworks */,
+				A21B4631280B6AEE0024F107 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pod-Integration-iOS-SwiftUI";
+			productName = "Pod-Integration-iOS-SwiftUI";
+			productReference = A21B4604280B63440024F107 /* Pod-Integration-iOS-SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A2E081992517758400706D23 /* Pod-Integration-iOS-UIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2E081AE2517758700706D23 /* Build configuration list for PBXNativeTarget "Pod-Integration-iOS-UIKit" */;
 			buildPhases = (
 				2B005684F5DD7FAE5C6716DD /* [CP] Check Pods Manifest.lock */,
 				A28133FC2520D67A00B9F8A7 /* SwiftLInt */,
@@ -111,9 +201,9 @@
 			);
 			dependencies = (
 			);
-			name = "Pod-Integration-iOS";
+			name = "Pod-Integration-iOS-UIKit";
 			productName = "Example-Pod-Integration";
-			productReference = A2E0819A2517758400706D23 /* Pod-Integration-iOS.app */;
+			productReference = A2E0819A2517758400706D23 /* Pod-Integration-iOS-UIKit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -122,10 +212,13 @@
 		A2E081922517758400706D23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Hans Seiffert";
 				TargetAttributes = {
+					A21B4603280B63440024F107 = {
+						CreatedOnToolsVersion = 13.3;
+					};
 					A2E081992517758400706D23 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -144,12 +237,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A2E081992517758400706D23 /* Pod-Integration-iOS */,
+				A2E081992517758400706D23 /* Pod-Integration-iOS-UIKit */,
+				A21B4603280B63440024F107 /* Pod-Integration-iOS-SwiftUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A21B4602280B63440024F107 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21B460B280B63450024F107 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2E081982517758400706D23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,7 +280,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Pod-Integration-iOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Pod-Integration-iOS-UIKit-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -191,16 +293,34 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pod-Integration-iOS/Pods-Pod-Integration-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Pod-Integration-iOS-UIKit/Pods-Pod-Integration-iOS-UIKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pod-Integration-iOS/Pods-Pod-Integration-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Pod-Integration-iOS-UIKit/Pods-Pod-Integration-iOS-UIKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pod-Integration-iOS/Pods-Pod-Integration-iOS-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pod-Integration-iOS-UIKit/Pods-Pod-Integration-iOS-UIKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A21B4612280B65C30024F107 /* Run SwiftLInt */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLInt";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "WORKSPACE_DIR=\"../..\"\n${WORKSPACE_DIR}/Vendor/SwiftLint/swiftlint --config \"${WORKSPACE_DIR}/Examples/.swiftlint.yml\" --quiet\n";
 		};
 		A28133FC2520D67A00B9F8A7 /* SwiftLInt */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -220,9 +340,57 @@
 			shellPath = /bin/sh;
 			shellScript = "WORKSPACE_DIR=\"../..\"\n${WORKSPACE_DIR}/Vendor/SwiftLint/swiftlint --config \"${WORKSPACE_DIR}/Examples/.swiftlint.yml\" --quiet\n";
 		};
+		C8D094D608B10BA23B11BDDB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pod-Integration-iOS-SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB3D6B48FEFBCE6459A9FADA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pod-Integration-iOS-SwiftUI/Pods-Pod-Integration-iOS-SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pod-Integration-iOS-SwiftUI/Pods-Pod-Integration-iOS-SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pod-Integration-iOS-SwiftUI/Pods-Pod-Integration-iOS-SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A21B4600280B63440024F107 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21B4607280B63440024F107 /* PodIntegrationiOSSwiftUIApp.swift in Sources */,
+				A21B463B280B6DA60024F107 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2E081962517758400706D23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,6 +423,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A21B460F280B63450024F107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54A6B67EC1066BA48DAC3696 /* Pods-Pod-Integration-iOS-SwiftUI.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pod-Integration-iOS-SwiftUI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seiffert.hans.tools.qamenu.example.pod-integration.ios.swiftui";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A21B4610280B63450024F107 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA9C387B6D2D6AEB2DAFD55E /* Pods-Pod-Integration-iOS-SwiftUI.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pod-Integration-iOS-SwiftUI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seiffert.hans.tools.qamenu.example.pod-integration.ios.swiftui";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A2E081AC2517758700706D23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -373,7 +603,7 @@
 		};
 		A2E081AF2517758700706D23 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4187E191C5AD8206CC8B26A /* Pods-Pod-Integration-iOS.debug.xcconfig */;
+			baseConfigurationReference = 59EF773B9F0DFA8D0D12651C /* Pods-Pod-Integration-iOS-UIKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -382,7 +612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.seiffert.hans.tools.qamenu.example.pod-integration.ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seiffert.hans.tools.qamenu.example.pod-integration.ios.uikit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -391,7 +621,7 @@
 		};
 		A2E081B02517758700706D23 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BACA1966E8A13362C10BB5B8 /* Pods-Pod-Integration-iOS.release.xcconfig */;
+			baseConfigurationReference = 706836D29AB10DC10E1C7F27 /* Pods-Pod-Integration-iOS-UIKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -400,7 +630,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.seiffert.hans.tools.qamenu.example.pod-integration.ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seiffert.hans.tools.qamenu.example.pod-integration.ios.uikit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -410,6 +640,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A21B4611280B63450024F107 /* Build configuration list for PBXNativeTarget "Pod-Integration-iOS-SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A21B460F280B63450024F107 /* Debug */,
+				A21B4610280B63450024F107 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A2E081952517758400706D23 /* Build configuration list for PBXProject "Pod-Integration" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -419,7 +658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2E081AE2517758700706D23 /* Build configuration list for PBXNativeTarget "Pod-Integration-iOS" */ = {
+		A2E081AE2517758700706D23 /* Build configuration list for PBXNativeTarget "Pod-Integration-iOS-UIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2E081AF2517758700706D23 /* Debug */,

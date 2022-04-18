@@ -127,63 +127,73 @@ This screenshot shows the resulting QAMenu. You can also find and use the code i
 
 ## Roadmap
 
-Supported Data types - Layout:
+*Legend*
+	
+✅ = *Supported*  
+🚧 = *In development*  
+🤔 = *Might be added in future*   
+❌ = *Not supported*
 
-- [x] Panes (aka screens / view controllers)
-- [x] Nested panes (aka child panes)
-- [x] Groups
-- [x] Picker groups
 
-Supported Data types - Items:
+**Renderer**
 
-- [x] Strings (editable)
-- [x] Buttons
-- [x] Booleans (editable)
-- [x] Footers
-- [x] PickableStrings
-- [x] ProgressItem
-- [ ] StepperItem
-- [ ] SliderItem
+| Syntax | iPhone | iPad | Watch | Mac | TV |
+| --- | --- | --- | --- | --- | --- |
+| QAMenuUIKit | ✅ | ✅* | ❌ | ❌ | ❌ |
+| QAMenuSwiftUI | 🚧 | 🚧 | 🚧 | ❌ | ❌ |
 
-Capabilities:
+**iPad is supported, but no UI optimizations like split view done*
+
+**Supported Data types - Layout**
+
+- ✅ Panes (aka screens / view controllers)
+- ✅ Nested panes (aka child panes)
+- ✅ Groups
+- ✅ Picker groups
+
+**Supported Data types - Items**
+
+- ✅ Strings (editable)
+- ✅ Buttons
+- ✅ Booleans (editable)
+- ✅ Footers
+- ✅ PickableStrings
+- ✅ ProgressItem
+- 🤔 StepperItem
+- 🤔 SliderItem
+
+**Capabilities**
  
-- [x] Tap items long to share them
-- [x] Search in panes
-- [x] Invalidation (reloading) of items, groups and panes
-- [x] Add / remove items dynamically in groups
-- [x] Edit strings (single line)
-- [ ] Edit strings (multiline)
-- [x] Async loading operation (Items)
-- [ ] Async loading operation (Groups)
-- [x] Interface to trigger dialogs on Items and Groups
+- ✅ Tap items long to share them
+- ✅ Search in panes
+- ✅ Invalidation (reloading) of items, groups and panes
+- ✅ Add / remove items dynamically in groups
+- ✅ Edit strings (single line)
+- 🤔 Edit strings (multiline)
+- ✅ Async loading operation (Items)
+- 🤔 Async loading operation (Groups)
+- ✅ Interface to trigger dialogs on Items and Groups
 
 See [DataStructure](Docs/DataStructure.md) for more details.
 
-Renderer:
+**Tests**
 
-- [x] UIKit (optimized for iPhone)
-- [ ] UIKit (optimized for iPad)
-- [ ] SwiftUI (optimized for iPhone)
-- [ ] SwiftUI (optimized for iPad)
+- ✅ Unit tests
+- 🤔 UI tests
+- 🤔 UI Snapshot tests
 
-Tests:
+**CI**
 
-- [x] Unit tests
-- [ ] UI tests
-- [ ] UI Snapshot tests
+- ✅ Run unit tests in PRs
+- ✅ Compile example apps in PRs
+- ✅ Lint in PRs
+- 🤔 Run UI tests in PRs
 
-CI:
+**Documentation**
 
-- [x] Run unit tests in PRs
-- [x] Compile example apps in PRs
-- [x] Lint in PRs
-- [ ] Run UI tests in PRs
-
-Documentation:
-
-- [x] README
-- [ ] Documentation in the source code
-- [ ] Wiki with more detailed integration and public API description
+- ✅ README
+- 🤔 Documentation in the source code
+- 🤔 Wiki with more detailed integration and public API description
 
 ## QAMenu catalog
 

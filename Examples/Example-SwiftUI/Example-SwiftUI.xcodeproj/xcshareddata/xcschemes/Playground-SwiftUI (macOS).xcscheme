@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1230"
+   LastUpgradeVersion = "1330"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A2E081992517758400706D23"
-               BuildableName = "Pod-Integration-iOS.app"
-               BlueprintName = "Pod-Integration-iOS"
-               ReferencedContainer = "container:Pod-Integration.xcodeproj">
+               BlueprintIdentifier = "A2B81092280B558E004C775F"
+               BuildableName = "Example-SwiftUI.app"
+               BlueprintName = "Playground-SwiftUI (macOS)"
+               ReferencedContainer = "container:Example-SwiftUI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,10 +44,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A2E081992517758400706D23"
-            BuildableName = "Pod-Integration-iOS.app"
-            BlueprintName = "Pod-Integration-iOS"
-            ReferencedContainer = "container:Pod-Integration.xcodeproj">
+            BlueprintIdentifier = "A2B81092280B558E004C775F"
+            BuildableName = "Example-SwiftUI.app"
+            BlueprintName = "Playground-SwiftUI (macOS)"
+            ReferencedContainer = "container:Example-SwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A2E081992517758400706D23"
-            BuildableName = "Pod-Integration-iOS.app"
-            BlueprintName = "Pod-Integration-iOS"
-            ReferencedContainer = "container:Pod-Integration.xcodeproj">
+            BlueprintIdentifier = "A2B81092280B558E004C775F"
+            BuildableName = "Example-SwiftUI.app"
+            BlueprintName = "Playground-SwiftUI (macOS)"
+            ReferencedContainer = "container:Example-SwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

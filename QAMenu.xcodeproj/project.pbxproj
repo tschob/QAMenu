@@ -84,6 +84,7 @@
 		A249DE46258E5CAD002AEC41 /* PickableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249DE45258E5CAD002AEC41 /* PickableItem.swift */; };
 		A249DE60258FA0E2002AEC41 /* DialogTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249DE5F258FA0E2002AEC41 /* DialogTrigger.swift */; };
 		A249DE66258FA7A9002AEC41 /* NavigationTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249DE65258FA7A9002AEC41 /* NavigationTrigger.swift */; };
+		A258A7C527EFC1690087D00C /* QAMenuSwiftUIPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258A7BB27EFC1690087D00C /* QAMenuSwiftUIPresenter.swift */; };
 		A25EE39325A8F4C300932C65 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE39025A8F4C300932C65 /* DisposeBag.swift */; };
 		A25EE39425A8F4C300932C65 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE39125A8F4C300932C65 /* Disposable.swift */; };
 		A25EE39525A8F4C300932C65 /* ObservableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE39225A8F4C300932C65 /* ObservableEvent.swift */; };
@@ -210,6 +211,9 @@
 		A2B98A73256DAA7A0059C5EA /* CustomShareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B98A69256DAA790059C5EA /* CustomShareable.swift */; };
 		A2BEC0D3257BF8E20005EFDF /* RootPaneUIRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEC0D2257BF8E20005EFDF /* RootPaneUIRepresentable.swift */; };
 		A2BEC0E4257BFD5B0005EFDF /* PaneRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BEC0E1257BFD5B0005EFDF /* PaneRepresentable.swift */; };
+		A2C2E914268BBDB10070204D /* QAMenuSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C2E8E4268BBCE40070204D /* QAMenuSwiftUI.framework */; };
+		A2C2E946268BBE3D0070204D /* QAMenuSwiftUIUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C2E92D268BBE340070204D /* QAMenuSwiftUIUnitTests.swift */; };
+		A2C2E9A5268BC33A0070204D /* QAMenuSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A2C2E92A268BBE1A0070204D /* QAMenuSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2E0856F2517C56B00706D23 /* QAMenuLifecycleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E0856E2517C56B00706D23 /* QAMenuLifecycleManager.swift */; };
 		A2E30574256704990049D88D /* QAMenuUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2969CA5251679F800EA54D5 /* QAMenuUIKit.framework */; };
 		A2E30585256705190049D88D /* QAMenuPresenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E30583256705190049D88D /* QAMenuPresenterUITests.swift */; };
@@ -278,6 +282,13 @@
 			remoteGlobalIDString = A2B8009727E62278007204B9;
 			remoteInfo = QAMenuExampleItems;
 		};
+		A2C2E915268BBDB10070204D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2969C7D251679BF00EA54D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2C2E8E3268BBCE40070204D;
+			remoteInfo = QAMenuSwiftUI;
+		};
 		A2E30575256704990049D88D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A2969C7D251679BF00EA54D5 /* Project object */;
@@ -295,6 +306,18 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A288740525168331003528E5 /* QAMenuUtils.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A29223BB27E600460083BCDB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A29223BA27E600460083BCDB /* QAMenu.framework in Embed Frameworks */,
+				A2B800E627E62317007204B9 /* QAMenuExampleItems.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +424,7 @@
 		A249DE45258E5CAD002AEC41 /* PickableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickableItem.swift; sourceTree = "<group>"; };
 		A249DE5F258FA0E2002AEC41 /* DialogTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogTrigger.swift; sourceTree = "<group>"; };
 		A249DE65258FA7A9002AEC41 /* NavigationTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTrigger.swift; sourceTree = "<group>"; };
+		A258A7BB27EFC1690087D00C /* QAMenuSwiftUIPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuSwiftUIPresenter.swift; sourceTree = "<group>"; };
 		A25EE39025A8F4C300932C65 /* DisposeBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
 		A25EE39125A8F4C300932C65 /* Disposable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		A25EE39225A8F4C300932C65 /* ObservableEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableEvent.swift; sourceTree = "<group>"; };
@@ -483,7 +507,6 @@
 		A2969EAD25167EBA00EA54D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2AC7DA02659514E002D1CF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/iOSSupport/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		A2B800AD27E62278007204B9 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B800AE27E62278007204B9 /* QAMenuCatalog copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "QAMenuCatalog copy-Info.plist"; path = "/Users/hans.seiffert/Code/OSS/QAMenu/QAMenuCatalog copy-Info.plist"; sourceTree = "<absolute>"; };
 		A2B800B327E622C9007204B9 /* MultipleAsyncItemGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAsyncItemGroups.swift; sourceTree = "<group>"; };
 		A2B800B427E622C9007204B9 /* BoolItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
 		A2B800B527E622C9007204B9 /* ProgressItemAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressItemAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
@@ -528,6 +551,12 @@
 		A2B98A69256DAA790059C5EA /* CustomShareable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomShareable.swift; sourceTree = "<group>"; };
 		A2BEC0D2257BF8E20005EFDF /* RootPaneUIRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootPaneUIRepresentable.swift; sourceTree = "<group>"; };
 		A2BEC0E1257BFD5B0005EFDF /* PaneRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaneRepresentable.swift; sourceTree = "<group>"; };
+		A2C2E8E4268BBCE40070204D /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2C2E90F268BBDB10070204D /* QAMenuSwiftUI-UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QAMenuSwiftUI-UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2C2E92A268BBE1A0070204D /* QAMenuSwiftUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAMenuSwiftUI.h; sourceTree = "<group>"; };
+		A2C2E92B268BBE1A0070204D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2C2E92D268BBE340070204D /* QAMenuSwiftUIUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuSwiftUIUnitTests.swift; sourceTree = "<group>"; };
+		A2C2E92E268BBE340070204D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2E0856E2517C56B00706D23 /* QAMenuLifecycleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuLifecycleManager.swift; sourceTree = "<group>"; };
 		A2E3056F256704980049D88D /* QAMenuUIKit-UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QAMenuUIKit-UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E30583256705190049D88D /* QAMenuPresenterUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuPresenterUITests.swift; sourceTree = "<group>"; };
@@ -598,6 +627,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B800A627E62278007204B9 /* QAMenu.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2C2E8E1268BBCE40070204D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A29223B927E600460083BCDB /* QAMenu.framework in Frameworks */,
+				A2B800E527E62317007204B9 /* QAMenuExampleItems.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2C2E90C268BBDB10070204D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2C2E914268BBDB10070204D /* QAMenuSwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +835,22 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		A258A7B927EFC1690087D00C /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				A258A7BA27EFC1690087D00C /* UI */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		A258A7BA27EFC1690087D00C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A258A7BB27EFC1690087D00C /* QAMenuSwiftUIPresenter.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		A25EE38F25A8F4C300932C65 /* Observable */ = {
 			isa = PBXGroup;
 			children = (
@@ -917,6 +979,8 @@
 				A2B800AF27E622C9007204B9 /* QAMenuExampleItems */,
 				A2969EA125167EBA00EA54D5 /* QAMenuUtils */,
 				A2217BEC2558081E0070FC68 /* QAMenuUtils-UnitTests */,
+				A2C2E928268BBE1A0070204D /* QAMenuSwiftUI */,
+				A2C2E92C268BBE330070204D /* QAMenuSwiftUI-UnitTests */,
 				A2969C87251679BF00EA54D5 /* Products */,
 				A2969D6E25167C5500EA54D5 /* Frameworks */,
 			);
@@ -934,6 +998,8 @@
 				A28873C525168215003528E5 /* QAMenu.framework */,
 				A2217BB7255806ED0070FC68 /* QAMenuUtils-UnitTests.xctest */,
 				A2E3056F256704980049D88D /* QAMenuUIKit-UnitTests.xctest */,
+				A2C2E8E4268BBCE40070204D /* QAMenuSwiftUI.framework */,
+				A2C2E90F268BBDB10070204D /* QAMenuSwiftUI-UnitTests.xctest */,
 				A2B800AD27E62278007204B9 /* QAMenuExampleItems.framework */,
 			);
 			name = Products;
@@ -1225,6 +1291,27 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A2C2E928268BBE1A0070204D /* QAMenuSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				A258A7B927EFC1690087D00C /* Public */,
+				A2C2E92A268BBE1A0070204D /* QAMenuSwiftUI.h */,
+				A2C2E92B268BBE1A0070204D /* Info.plist */,
+			);
+			name = QAMenuSwiftUI;
+			path = Sources/QAMenuSwiftUI;
+			sourceTree = "<group>";
+		};
+		A2C2E92C268BBE330070204D /* QAMenuSwiftUI-UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				A2C2E92D268BBE340070204D /* QAMenuSwiftUIUnitTests.swift */,
+				A2C2E92E268BBE340070204D /* Info.plist */,
+			);
+			name = "QAMenuSwiftUI-UnitTests";
+			path = "Tests/QAMenuSwiftUI-UnitTests";
+			sourceTree = "<group>";
+		};
 		A2E30582256705190049D88D /* QAMenuUIKit-UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1285,6 +1372,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B800E327E622CA007204B9 /* QAMenuExampleItems.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2C2E8DF268BBCE40070204D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2C2E9A5268BC33A0070204D /* QAMenuSwiftUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1432,6 +1527,45 @@
 			productReference = A2B800AD27E62278007204B9 /* QAMenuExampleItems.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		A2C2E8E3268BBCE40070204D /* QAMenuSwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2C2E8EB268BBCE40070204D /* Build configuration list for PBXNativeTarget "QAMenuSwiftUI" */;
+			buildPhases = (
+				A2C2E8DF268BBCE40070204D /* Headers */,
+				A29223B827E6001F0083BCDB /* SwiftLint */,
+				A2C2E8E0268BBCE40070204D /* Sources */,
+				A2C2E8E1268BBCE40070204D /* Frameworks */,
+				A2C2E8E2268BBCE40070204D /* Resources */,
+				A29223BB27E600460083BCDB /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2B800E827E62317007204B9 /* PBXTargetDependency */,
+			);
+			name = QAMenuSwiftUI;
+			productName = QAMenuSwiftUI;
+			productReference = A2C2E8E4268BBCE40070204D /* QAMenuSwiftUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A2C2E90E268BBDB10070204D /* QAMenuSwiftUI-UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2C2E917268BBDB10070204D /* Build configuration list for PBXNativeTarget "QAMenuSwiftUI-UnitTests" */;
+			buildPhases = (
+				A2C2E90B268BBDB10070204D /* Sources */,
+				A2C2E90C268BBDB10070204D /* Frameworks */,
+				A2C2E90D268BBDB10070204D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2C2E916268BBDB10070204D /* PBXTargetDependency */,
+			);
+			name = "QAMenuSwiftUI-UnitTests";
+			productName = "QAMenuSwiftUI-UnitTests";
+			productReference = A2C2E90F268BBDB10070204D /* QAMenuSwiftUI-UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A2E3056E256704980049D88D /* QAMenuUIKit-UnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2E30579256704990049D88D /* Build configuration list for PBXNativeTarget "QAMenuUIKit-UnitTests" */;
@@ -1483,6 +1617,13 @@
 					A2B897162598D4BE0016A373 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
+					A2C2E8E3268BBCE40070204D = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+					A2C2E90E268BBDB10070204D = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					A2E3056E256704980049D88D = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
@@ -1508,6 +1649,8 @@
 				A2B8009727E62278007204B9 /* QAMenuExampleItems */,
 				A2969CA4251679F800EA54D5 /* QAMenuUIKit */,
 				A2E3056E256704980049D88D /* QAMenuUIKit-UnitTests */,
+				A2C2E8E3268BBCE40070204D /* QAMenuSwiftUI */,
+				A2C2E90E268BBDB10070204D /* QAMenuSwiftUI-UnitTests */,
 				A2969CBE25167A1900EA54D5 /* QAMenuUtils */,
 				A2217BB6255806ED0070FC68 /* QAMenuUtils-UnitTests */,
 			);
@@ -1565,6 +1708,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A2B800A727E62278007204B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2C2E8E2268BBCE40070204D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2C2E90D268BBDB10070204D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1688,6 +1845,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd Tests/QAMenu-UnitTests; \"${PROJECT_DIR}\"/Vendor/SwiftLint/swiftlint --config \"${PROJECT_DIR}/Tests/.swiftlint.yml\" --quiet\n";
+		};
+		A29223B827E6001F0083BCDB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"a\"\n#cd Sources/QAMenuSwiftUI; \"${PROJECT_DIR}\"/Vendor/SwiftLint/swiftlint --config \"${PROJECT_DIR}/Sources/.swiftlint.yml\" --quiet\n";
 		};
 		A2B8009C27E62278007204B9 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1946,6 +2121,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2C2E8E0268BBCE40070204D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A258A7C527EFC1690087D00C /* QAMenuSwiftUIPresenter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2C2E90B268BBDB10070204D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2C2E946268BBE3D0070204D /* QAMenuSwiftUIUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2E3056B256704980049D88D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2020,6 +2211,11 @@
 			target = A2B8009727E62278007204B9 /* QAMenuExampleItems */;
 			targetProxy = A2B800E727E62317007204B9 /* PBXContainerItemProxy */;
 		};
+		A2C2E916268BBDB10070204D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2C2E8E3268BBCE40070204D /* QAMenuSwiftUI */;
+			targetProxy = A2C2E915268BBDB10070204D /* PBXContainerItemProxy */;
+		};
 		A2E30576256704990049D88D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A2969CA4251679F800EA54D5 /* QAMenuUIKit */;
@@ -2041,10 +2237,13 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.utils.unittests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
@@ -2061,15 +2260,19 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.utils.unittests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
 		A28873CB25168215003528E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2085,13 +2288,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 			};
 			name = Debug;
 		};
 		A28873CC25168215003528E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2107,7 +2313,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 			};
 			name = Release;
 		};
@@ -2115,6 +2323,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2164,6 +2373,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2171,8 +2381,10 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
@@ -2180,6 +2392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2223,15 +2436,18 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
@@ -2246,9 +2462,12 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
@@ -2263,15 +2482,19 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
 		A2969CAB251679F800EA54D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2294,6 +2517,7 @@
 		A2969CAC251679F800EA54D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2316,6 +2540,7 @@
 		A2969CB825167A0800EA54D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2331,13 +2556,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.catalog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 			};
 			name = Debug;
 		};
 		A2969CB925167A0800EA54D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2353,13 +2581,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.catalog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 			};
 			name = Release;
 		};
 		A2969CC525167A1900EA54D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2375,13 +2606,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.utils;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 			};
 			name = Debug;
 		};
 		A2969CC625167A1900EA54D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2397,7 +2631,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.utils;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 			};
 			name = Release;
 		};
@@ -2417,15 +2653,12 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.exampleitems;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
 				SUPPORTS_MACCATALYST = YES;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
-				TVOS_DEPLOYMENT_TARGET = 14.0;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 			};
 			name = Debug;
 		};
@@ -2445,15 +2678,12 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.exampleitems;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
 				SUPPORTS_MACCATALYST = YES;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
-				TVOS_DEPLOYMENT_TARGET = 14.0;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 			};
 			name = Release;
 		};
@@ -2470,6 +2700,107 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A2C2E8E9268BBCE40070204D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/QAMenuSwiftUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.swiftui;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
+			};
+			name = Debug;
+		};
+		A2C2E8EA268BBCE40070204D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/QAMenuSwiftUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seiffert.hans.tools.qamenu.swiftui;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
+			};
+			name = Release;
+		};
+		A2C2E918268BBDB10070204D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tests/QAMenuSwiftUI-UnitTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seiffert.hans.tools.qamenu.swiftui.unittests.QAMenuSwiftUI-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		A2C2E919268BBDB10070204D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tests/QAMenuSwiftUI-UnitTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seiffert.hans.tools.qamenu.swiftui.unittests.QAMenuSwiftUI-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
@@ -2589,6 +2920,24 @@
 			buildConfigurations = (
 				A2B897182598D4BE0016A373 /* Debug */,
 				A2B897192598D4BE0016A373 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2C2E8EB268BBCE40070204D /* Build configuration list for PBXNativeTarget "QAMenuSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2C2E8E9268BBCE40070204D /* Debug */,
+				A2C2E8EA268BBCE40070204D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2C2E917268BBDB10070204D /* Build configuration list for PBXNativeTarget "QAMenuSwiftUI-UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2C2E918268BBDB10070204D /* Debug */,
+				A2C2E919268BBDB10070204D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

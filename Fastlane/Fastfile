@@ -20,15 +20,70 @@ platform :ios do
     )
   end
 
-  desc "Builds the Pod-Integration example app"
-  lane :build_pods_integration_example_app do
+  desc "Builds the Example-SwiftUI (iOS) app"
+  lane :build_swiftui_ios_example_app do
+    build_app(
+      workspace: "QAMenu.xcworkspace",
+      scheme: "Example-SwiftUI (iOS)",
+      skip_archive: true,
+      skip_codesigning: true
+    )
+  end
+
+  desc "Builds the Example-SwiftUI (watchOS) app"
+  lane :build_swiftui_watchos_example_app do
+    build_app(
+      workspace: "QAMenu.xcworkspace",
+      scheme: "Example-SwiftUI (watchOS) WatchKit App",
+      skip_archive: true,
+      skip_codesigning: true,
+      destination: 'generic/platform=watchOS'
+    )
+  end
+
+  desc "Builds the Example-SwiftUI (macOS) app"
+  lane :build_swiftui_macos_playground_app do
+    build_app(
+      workspace: "QAMenu.xcworkspace",
+      scheme: "Playground-SwiftUI (macOS)",
+      skip_archive: true,
+      skip_codesigning: true
+    )
+  end
+
+  desc "Builds the Example-SwiftUI (tvOS) app"
+  lane :build_swiftui_tvos_playground_app do
+    build_app(
+      workspace: "QAMenu.xcworkspace",
+      scheme: "Playground-SwiftUI (tvOS)",
+      skip_archive: true,
+      skip_codesigning: true
+    )
+  end
+
+  desc "Builds the Pod-Integration-iOS-UIKit example apps"
+  lane :build_pods_integration_uikit_ios_example_app do
     cocoapods(
       clean_install: true,
       podfile: "Examples/Pod-Integration/Podfile"
     )
     build_app(
       workspace: "Examples/Pod-Integration/Pod-Integration.xcworkspace",
-      scheme: "Pod-Integration-iOS",
+      scheme: "Pod-Integration-iOS-UIKit",
+      skip_archive: true,
+      skip_codesigning: true
+    )
+  end
+
+  desc "Builds the Pod-Integration-iOS-SwiftUI example apps"
+  lane :build_pods_integration_swiftui_ios_example_app do
+    cocoapods(
+      clean_install: true,
+      podfile: "Examples/Pod-Integration/Podfile"
+    )
+    build_app(
+      workspace: "Examples/Pod-Integration/Pod-Integration.xcworkspace",
+      scheme: "Pod-Integration-iOS-SwiftUI",
       skip_archive: true,
       skip_codesigning: true
     )
@@ -45,6 +100,7 @@ platform :ios do
       "QAMenuUtils.podspec",
       "QAMenu.podspec",
       "QAMenuUIKit.podspec",
+      "QAMenuSwiftUI.podspec",
       "QAMenuCatalog.podspec",
       "QAMenuExampleItems.podspec"
     ]

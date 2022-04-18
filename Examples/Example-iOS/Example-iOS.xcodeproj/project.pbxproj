@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A21B4656280B76F60024F107 /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4651280B76F60024F107 /* QAMenu.framework */; };
+		A21B4657280B76F60024F107 /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4651280B76F60024F107 /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B4658280B76F60024F107 /* QAMenuCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4652280B76F60024F107 /* QAMenuCatalog.framework */; };
+		A21B4659280B76F60024F107 /* QAMenuCatalog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4652280B76F60024F107 /* QAMenuCatalog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B465A280B76F60024F107 /* QAMenuExampleItems.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4653280B76F60024F107 /* QAMenuExampleItems.framework */; };
+		A21B465B280B76F60024F107 /* QAMenuExampleItems.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4653280B76F60024F107 /* QAMenuExampleItems.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B465C280B76F60024F107 /* QAMenuUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4654280B76F60024F107 /* QAMenuUIKit.framework */; };
+		A21B465D280B76F60024F107 /* QAMenuUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4654280B76F60024F107 /* QAMenuUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B465E280B76F60024F107 /* QAMenuUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4655280B76F60024F107 /* QAMenuUtils.framework */; };
+		A21B465F280B76F60024F107 /* QAMenuUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B4655280B76F60024F107 /* QAMenuUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A258A79B27EF5AC90087D00C /* CustomStringItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258A78E27EF5AC90087D00C /* CustomStringItemView.swift */; };
 		A258A79C27EF5AC90087D00C /* CustomStringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258A78F27EF5AC90087D00C /* CustomStringItem.swift */; };
 		A258A79D27EF5AC90087D00C /* CustomStringItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A258A79027EF5AC90087D00C /* CustomStringItemView.xib */; };
@@ -20,19 +30,6 @@
 		A258A7A527EF5AC90087D00C /* SwiftUIViewContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258A79A27EF5AC90087D00C /* SwiftUIViewContainerView.swift */; };
 		A258A7A927EF5BBA0087D00C /* ShowcaseItemsFactory+CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258A7A827EF5BBA0087D00C /* ShowcaseItemsFactory+CustomViews.swift */; };
 		A258A7AB27EF5CA30087D00C /* CustomItemsAdvancedExamplesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258A7AA27EF5CA30087D00C /* CustomItemsAdvancedExamplesFactory.swift */; };
-		A28878972517662A003528E5 /* QAMenuCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28878962517662A003528E5 /* QAMenuCatalog.framework */; };
-		A28878982517662A003528E5 /* QAMenuCatalog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A28878962517662A003528E5 /* QAMenuCatalog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A288789A2517662D003528E5 /* QAMenuUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28878992517662D003528E5 /* QAMenuUIKit.framework */; };
-		A288789B2517662D003528E5 /* QAMenuUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A28878992517662D003528E5 /* QAMenuUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A2A40882254EE33200ACA56B /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40880254EE33200ACA56B /* QAMenu.framework */; };
-		A2A40883254EE33200ACA56B /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40880254EE33200ACA56B /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A2A40884254EE33200ACA56B /* QAMenuUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40881254EE33200ACA56B /* QAMenuUtils.framework */; };
-		A2A40885254EE33200ACA56B /* QAMenuUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2A40881254EE33200ACA56B /* QAMenuUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A2AC7D9F26595139002D1CF7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2AC7D9E26595139002D1CF7 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		A2B800EA27E62333007204B9 /* QAMenuExampleItems.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B800E927E62333007204B9 /* QAMenuExampleItems.framework */; };
-		A2B800EB27E62334007204B9 /* QAMenuExampleItems.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2B800E927E62333007204B9 /* QAMenuExampleItems.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A2C2E98E268BC1D20070204D /* QAMenuSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C2E98D268BC1D20070204D /* QAMenuSwiftUI.framework */; };
-		A2C2E98F268BC1D20070204D /* QAMenuSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2C2E98D268BC1D20070204D /* QAMenuSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2DE479B24FBB60B00CE7F7A /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DE478524FBB60B00CE7F7A /* ExampleViewController.swift */; };
 		A2DE47A624FBB60B00CE7F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2DE479324FBB60B00CE7F7A /* LaunchScreen.storyboard */; };
 		A2DE47A724FBB60B00CE7F7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2DE479524FBB60B00CE7F7A /* Main.storyboard */; };
@@ -48,11 +45,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A288789B2517662D003528E5 /* QAMenuUIKit.framework in Embed Frameworks */,
-				A2A40885254EE33200ACA56B /* QAMenuUtils.framework in Embed Frameworks */,
-				A28878982517662A003528E5 /* QAMenuCatalog.framework in Embed Frameworks */,
-				A2A40883254EE33200ACA56B /* QAMenu.framework in Embed Frameworks */,
-				A2B800EB27E62334007204B9 /* QAMenuExampleItems.framework in Embed Frameworks */,
+				A21B4657280B76F60024F107 /* QAMenu.framework in Embed Frameworks */,
+				A21B4659280B76F60024F107 /* QAMenuCatalog.framework in Embed Frameworks */,
+				A21B465F280B76F60024F107 /* QAMenuUtils.framework in Embed Frameworks */,
+				A21B465D280B76F60024F107 /* QAMenuUIKit.framework in Embed Frameworks */,
+				A21B465B280B76F60024F107 /* QAMenuExampleItems.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +58,11 @@
 
 /* Begin PBXFileReference section */
 		3ACCCDA32475BDAD00A15252 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B4651280B76F60024F107 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B4652280B76F60024F107 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B4653280B76F60024F107 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B4654280B76F60024F107 /* QAMenuUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B4655280B76F60024F107 /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A258A78E27EF5AC90087D00C /* CustomStringItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStringItemView.swift; sourceTree = "<group>"; };
 		A258A78F27EF5AC90087D00C /* CustomStringItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStringItem.swift; sourceTree = "<group>"; };
 		A258A79027EF5AC90087D00C /* CustomStringItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomStringItemView.xib; sourceTree = "<group>"; };
@@ -74,32 +76,6 @@
 		A258A79A27EF5AC90087D00C /* SwiftUIViewContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIViewContainerView.swift; sourceTree = "<group>"; };
 		A258A7A827EF5BBA0087D00C /* ShowcaseItemsFactory+CustomViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowcaseItemsFactory+CustomViews.swift"; sourceTree = "<group>"; };
 		A258A7AA27EF5CA30087D00C /* CustomItemsAdvancedExamplesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomItemsAdvancedExamplesFactory.swift; sourceTree = "<group>"; };
-		A288789325176626003528E5 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A28878962517662A003528E5 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A28878992517662D003528E5 /* QAMenuUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A29223F827E605600083BCDB /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A29223FC27E605680083BCDB /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292240027E605710083BCDB /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292240327E605770083BCDB /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292240627E6058A0083BCDB /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292240727E6058A0083BCDB /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292240C27E605920083BCDB /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292240D27E605920083BCDB /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292241227E608360083BCDB /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292241327E608360083BCDB /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292241427E608360083BCDB /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A292241527E608360083BCDB /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2A40880254EE33200ACA56B /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2A40881254EE33200ACA56B /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2AC7D9E26595139002D1CF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		A2B800E927E62333007204B9 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B8025427E74365007204B9 /* QAMenuUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B802AF27E74621007204B9 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B802B027E74621007204B9 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B802B127E74621007204B9 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B802B227E74621007204B9 /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2B802B327E74621007204B9 /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2C2E98D268BC1D20070204D /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DE478524FBB60B00CE7F7A /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		A2DE479424FBB60B00CE7F7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2DE479624FBB60B00CE7F7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,12 +90,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2AC7D9F26595139002D1CF7 /* SwiftUI.framework in Frameworks */,
-				A2B800EA27E62333007204B9 /* QAMenuExampleItems.framework in Frameworks */,
-				A288789A2517662D003528E5 /* QAMenuUIKit.framework in Frameworks */,
-				A2A40884254EE33200ACA56B /* QAMenuUtils.framework in Frameworks */,
-				A28878972517662A003528E5 /* QAMenuCatalog.framework in Frameworks */,
-				A2A40882254EE33200ACA56B /* QAMenu.framework in Frameworks */,
+				A21B4656280B76F60024F107 /* QAMenu.framework in Frameworks */,
+				A21B4658280B76F60024F107 /* QAMenuCatalog.framework in Frameworks */,
+				A21B465E280B76F60024F107 /* QAMenuUtils.framework in Frameworks */,
+				A21B465C280B76F60024F107 /* QAMenuUIKit.framework in Frameworks */,
+				A21B465A280B76F60024F107 /* QAMenuExampleItems.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,27 +125,11 @@
 		3ACCCDB92475C7E300A15252 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A2B802AF27E74621007204B9 /* QAMenu.framework */,
-				A2B802B027E74621007204B9 /* QAMenuCatalog.framework */,
-				A2B802B127E74621007204B9 /* QAMenuExampleItems.framework */,
-				A2B802B327E74621007204B9 /* QAMenuUtils.framework */,
-				A2B8025427E74365007204B9 /* QAMenuUIKit.framework */,
-				A2B800E927E62333007204B9 /* QAMenuExampleItems.framework */,
-				A292241227E608360083BCDB /* QAMenu.framework */,
-				A292241327E608360083BCDB /* QAMenuCatalog.framework */,
-				A292241527E608360083BCDB /* QAMenuUtils.framework */,
-				A292240C27E605920083BCDB /* QAMenuCatalog.framework */,
-				A292240D27E605920083BCDB /* QAMenuUtils.framework */,
-				A292240627E6058A0083BCDB /* QAMenuCatalog.framework */,
-				A292240727E6058A0083BCDB /* QAMenuUtils.framework */,
-				A29223FC27E605680083BCDB /* QAMenu.framework */,
-				A29223F827E605600083BCDB /* QAMenu.framework */,
-				A2AC7D9E26595139002D1CF7 /* SwiftUI.framework */,
-				A2A40880254EE33200ACA56B /* QAMenu.framework */,
-				A2A40881254EE33200ACA56B /* QAMenuUtils.framework */,
-				A28878992517662D003528E5 /* QAMenuUIKit.framework */,
-				A28878962517662A003528E5 /* QAMenuCatalog.framework */,
-				A288789325176626003528E5 /* QAMenu.framework */,
+				A21B4651280B76F60024F107 /* QAMenu.framework */,
+				A21B4652280B76F60024F107 /* QAMenuCatalog.framework */,
+				A21B4653280B76F60024F107 /* QAMenuExampleItems.framework */,
+				A21B4654280B76F60024F107 /* QAMenuUIKit.framework */,
+				A21B4655280B76F60024F107 /* QAMenuUtils.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
