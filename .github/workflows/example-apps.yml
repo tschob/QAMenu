@@ -8,7 +8,7 @@ env:
 
 jobs:
   job-build-ios-example-app:
-    name: Example-iOS
+    name: Example-UIKit-iOS
     runs-on: macOS-latest
     steps:
       - name: Checkout Git
@@ -37,7 +37,7 @@ jobs:
         run: bundle exec fastlane build_ios_example_app
 
   job-build-swiftui-ios-example-app:
-    name: Example-SwiftUI
+    name: Example-SwiftUI-iOS
     runs-on: macOS-latest
     steps:
       - name: Checkout Git
@@ -66,7 +66,7 @@ jobs:
         run: bundle exec fastlane build_swiftui_ios_example_app
 
   job-build-swiftui-watchos-example-app:
-    name: Example-SwiftUI
+    name: Example-SwiftUI-watchOS
     runs-on: macOS-latest
     steps:
       - name: Checkout Git
@@ -95,7 +95,7 @@ jobs:
         run: bundle exec fastlane build_swiftui_watchos_example_app
 
   job-build-swiftui-macos-playground-app:
-    name: Example-SwiftUI
+    name: Playground-SwiftUI-macOS
     runs-on: macOS-latest
     steps:
       - name: Checkout Git
@@ -124,7 +124,7 @@ jobs:
         run: bundle exec fastlane build_swiftui_macos_playground_app
 
   job-build-swiftui-tvos-playground-app:
-    name: Example-SwiftUI
+    name: Playground-SwiftUI-tvOS
     runs-on: macOS-latest
     steps:
       - name: Checkout Git
@@ -153,7 +153,7 @@ jobs:
         run: bundle exec fastlane build_swiftui_tvos_playground_app
 
   job-build-pod-integration-uikit-ios-example-app:
-    name: Pod-Integration-iOS
+    name: Pod-Integration-UIKit-iOS
     runs-on: macOS-latest
     steps:
       - name: Checkout Git
@@ -182,7 +182,7 @@ jobs:
         run: bundle exec fastlane build_pods_integration_uikit_ios_example_app
 
   job-build-pod-integration-swiftui-ios-example-app:
-    name: Pod-Integration-iOS
+    name: Pod-Integration-SwiftUI-iOS
     runs-on: macOS-latest
     steps:
       - name: Checkout Git
