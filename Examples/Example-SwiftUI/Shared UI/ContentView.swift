@@ -40,7 +40,6 @@ struct ContentView: View {
             Text("🚧 SwiftUI Support is under development ...")
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-        .background(.gray)
     }
 }
 
