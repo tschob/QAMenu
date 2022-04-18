@@ -3,6 +3,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 inhibit_all_warnings!
 use_frameworks!
 
+platform :ios, '14.0'
+
 def qamenu_without_renderer
 	pod 'QAMenu', path: '../..'
 	pod 'QAMenuUtils', path: '../..'
@@ -11,15 +13,11 @@ def qamenu_without_renderer
 end
 
 target 'Pod-Integration-iOS-UIKit' do
-	platform :ios, '10.0'
-
 	qamenu_without_renderer
 	pod 'QAMenuUIKit', path: '../..'
 end
 
 target 'Pod-Integration-iOS-SwiftUI' do
-	platform :ios, '14.0'
-
 	qamenu_without_renderer
 	pod 'QAMenuSwiftUI', path: '../..'
 end
