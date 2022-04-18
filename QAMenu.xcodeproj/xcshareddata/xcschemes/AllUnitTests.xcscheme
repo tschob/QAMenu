@@ -8,6 +8,20 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A2969CB125167A0800EA54D5"
+               BuildableName = "QAMenuCatalog.framework"
+               BlueprintName = "QAMenuCatalog"
+               ReferencedContainer = "container:QAMenu.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
@@ -37,28 +51,28 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A2969CB125167A0800EA54D5"
-               BuildableName = "QAMenuCatalog.framework"
-               BlueprintName = "QAMenuCatalog"
-               ReferencedContainer = "container:QAMenu.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A2E3056E256704980049D88D"
                BuildableName = "QAMenuUIKit-UnitTests.xctest"
                BlueprintName = "QAMenuUIKit-UnitTests"
+               ReferencedContainer = "container:QAMenu.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A2C2E90E268BBDB10070204D"
+               BuildableName = "QAMenuSwiftUI-UnitTests.xctest"
+               BlueprintName = "QAMenuSwiftUI-UnitTests"
                ReferencedContainer = "container:QAMenu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -151,15 +165,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A2969CB125167A0800EA54D5"
-            BuildableName = "QAMenuCatalog.framework"
-            BlueprintName = "QAMenuCatalog"
-            ReferencedContainer = "container:QAMenu.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

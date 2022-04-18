@@ -5,6 +5,10 @@ PODS:
     - QAMenu
   - QAMenuExampleItems (0.6.0):
     - QAMenu
+  - QAMenuSwiftUI (0.6.0):
+    - QAMenu
+    - QAMenuCatalog
+    - QAMenuExampleItems
   - QAMenuUIKit (0.6.0):
     - QAMenu
   - QAMenuUtils (0.6.0)
@@ -13,6 +17,7 @@ DEPENDENCIES:
   - QAMenu (from `../..`)
   - QAMenuCatalog (from `../..`)
   - QAMenuExampleItems (from `../..`)
+  - QAMenuSwiftUI (from `../..`)
   - QAMenuUIKit (from `../..`)
   - QAMenuUtils (from `../..`)
 
@@ -23,6 +28,8 @@ EXTERNAL SOURCES:
     :path: "../.."
   QAMenuExampleItems:
     :path: "../.."
+  QAMenuSwiftUI:
+    :path: "../.."
   QAMenuUIKit:
     :path: "../.."
   QAMenuUtils:
@@ -32,9 +39,10 @@ SPEC CHECKSUMS:
   QAMenu: 23e73918a42c31d383bc08e3a28af367b3b2a27a
   QAMenuCatalog: f21a97843be6cb9e1758cb70ec3aa0cecd1ada1d
   QAMenuExampleItems: 25aa244f1d5127048d212d66a35e26890da11e32
+  QAMenuSwiftUI: fc88c7f888989d5abc1e7c3f6eb4b3d1dab2de7e
   QAMenuUIKit: aa9d020ca58d79c188ca3d998a6dd0529c56ed68
   QAMenuUtils: 561ad603a7d593ed72d66e4ce8b5fa386c4780af
 
-PODFILE CHECKSUM: 99da826572c0b7180c5c905c1f19014d1f50ff5c
+PODFILE CHECKSUM: a961c67eeb801d7765eac23bdde19b03a933c10d
 
 COCOAPODS: 1.11.2

@@ -1,12 +1,12 @@
 //
-//  Catalog+Device.swift
+//  QAMenuSwiftUIUnitTests.swift
 //
-//  Created by Hans Seiffert on 18.07.20.
+//  Created by Hans Seiffert on 18.04.22.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2022 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,30 +24,29 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//
+// 
 
-import Foundation
-import QAMenu
+import XCTest
 
-public extension QAMenu.Catalog {
+class QAMenuSwiftUIUnitTests: XCTestCase {
 
-    enum Device {
+    override func setUpWithError() throws {
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
 
-        public static var all: [Group] {
-            return [
-                group()
-            ]
-        }
+    override func tearDownWithError() throws {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
 
-        public static func group(title: String = "Device") -> ItemGroup {
-            var items: [Item] = [Locale.group().asChildPaneItem()]
-            #if os(iOS)
-                items.append(Accessibility.group().asChildPaneItem())
-            #endif
-            return ItemGroup(
-                title: .static(title),
-                items: .static(items)
-            )
+    func testExample() throws {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+
+    func testPerformanceExample() throws {
+        // This is an example of a performance test case.
+        measure {
+            // Put the code you want to measure the time of here.
         }
     }
 }

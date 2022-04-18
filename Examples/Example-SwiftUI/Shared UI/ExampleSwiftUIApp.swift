@@ -1,12 +1,12 @@
 //
-//  Catalog+Device.swift
+//  Example_SwiftUIApp.swift
 //
-//  Created by Hans Seiffert on 18.07.20.
+//  Created by Hans Seiffert on 16.04.22.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2022 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,30 +24,15 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//
+// 
 
-import Foundation
-import QAMenu
+import SwiftUI
 
-public extension QAMenu.Catalog {
-
-    enum Device {
-
-        public static var all: [Group] {
-            return [
-                group()
-            ]
-        }
-
-        public static func group(title: String = "Device") -> ItemGroup {
-            var items: [Item] = [Locale.group().asChildPaneItem()]
-            #if os(iOS)
-                items.append(Accessibility.group().asChildPaneItem())
-            #endif
-            return ItemGroup(
-                title: .static(title),
-                items: .static(items)
-            )
+@main
+struct ExampleSwiftUIApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
         }
     }
 }

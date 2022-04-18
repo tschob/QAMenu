@@ -5,6 +5,9 @@
       location = "group:Examples/Example-iOS/Example-iOS.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Examples/Example-SwiftUI/Example-SwiftUI.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:QAMenu.xcodeproj">
    </FileRef>
 </Workspace>

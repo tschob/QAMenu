@@ -12,6 +12,10 @@
 
 ### ChildPaneItem
 
+### PickableStringItem
+
+### ProgressItem
+
 ## Other elements
 
 ### ItemGroup
@@ -23,6 +27,10 @@
 ### RootPane
 
 ## Capabilities
+
+### DialogTrigger
+
+### NavigationTrigger
 
 ### Invalidatable
 

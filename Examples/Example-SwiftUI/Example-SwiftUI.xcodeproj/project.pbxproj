@@ -1,0 +1,1081 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A21B45C6280B583D0024F107 /* ExampleSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B45C3280B583D0024F107 /* ExampleSwiftUIApp.swift */; };
+		A21B45C7280B583D0024F107 /* ExampleSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B45C3280B583D0024F107 /* ExampleSwiftUIApp.swift */; };
+		A21B45C8280B583D0024F107 /* ExampleSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B45C3280B583D0024F107 /* ExampleSwiftUIApp.swift */; };
+		A21B45CC280B583D0024F107 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B45C5280B583D0024F107 /* ContentView.swift */; };
+		A21B45CD280B583D0024F107 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B45C5280B583D0024F107 /* ContentView.swift */; };
+		A21B45CE280B583D0024F107 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B45C5280B583D0024F107 /* ContentView.swift */; };
+		A21B45D5280B5FE70024F107 /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D0280B5FE70024F107 /* QAMenu.framework */; };
+		A21B45D6280B5FE70024F107 /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D0280B5FE70024F107 /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45D7280B5FE70024F107 /* QAMenuCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D1280B5FE70024F107 /* QAMenuCatalog.framework */; };
+		A21B45D8280B5FE70024F107 /* QAMenuCatalog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D1280B5FE70024F107 /* QAMenuCatalog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45D9280B5FE80024F107 /* QAMenuExampleItems.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D2280B5FE70024F107 /* QAMenuExampleItems.framework */; };
+		A21B45DA280B5FE80024F107 /* QAMenuExampleItems.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D2280B5FE70024F107 /* QAMenuExampleItems.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45DB280B5FE80024F107 /* QAMenuSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D3280B5FE70024F107 /* QAMenuSwiftUI.framework */; };
+		A21B45DC280B5FE80024F107 /* QAMenuSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D3280B5FE70024F107 /* QAMenuSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45DD280B5FE80024F107 /* QAMenuUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D4280B5FE70024F107 /* QAMenuUtils.framework */; };
+		A21B45DE280B5FE80024F107 /* QAMenuUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45D4280B5FE70024F107 /* QAMenuUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45E5280B604C0024F107 /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E0280B604C0024F107 /* QAMenu.framework */; };
+		A21B45E6280B604C0024F107 /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E0280B604C0024F107 /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45E7280B604C0024F107 /* QAMenuCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E1280B604C0024F107 /* QAMenuCatalog.framework */; };
+		A21B45E8280B604C0024F107 /* QAMenuCatalog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E1280B604C0024F107 /* QAMenuCatalog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45E9280B604C0024F107 /* QAMenuExampleItems.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E2280B604C0024F107 /* QAMenuExampleItems.framework */; };
+		A21B45EA280B604C0024F107 /* QAMenuExampleItems.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E2280B604C0024F107 /* QAMenuExampleItems.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45EB280B604C0024F107 /* QAMenuSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E3280B604C0024F107 /* QAMenuSwiftUI.framework */; };
+		A21B45EC280B604C0024F107 /* QAMenuSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E3280B604C0024F107 /* QAMenuSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45ED280B604C0024F107 /* QAMenuUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E4280B604C0024F107 /* QAMenuUtils.framework */; };
+		A21B45EE280B604C0024F107 /* QAMenuUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45E4280B604C0024F107 /* QAMenuUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45F5280B605A0024F107 /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F0280B605A0024F107 /* QAMenu.framework */; };
+		A21B45F6280B605A0024F107 /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F0280B605A0024F107 /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45F7280B605A0024F107 /* QAMenuCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F1280B605A0024F107 /* QAMenuCatalog.framework */; };
+		A21B45F8280B605A0024F107 /* QAMenuCatalog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F1280B605A0024F107 /* QAMenuCatalog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45F9280B605A0024F107 /* QAMenuExampleItems.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F2280B605A0024F107 /* QAMenuExampleItems.framework */; };
+		A21B45FA280B605A0024F107 /* QAMenuExampleItems.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F2280B605A0024F107 /* QAMenuExampleItems.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45FB280B605A0024F107 /* QAMenuSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F3280B605A0024F107 /* QAMenuSwiftUI.framework */; };
+		A21B45FC280B605A0024F107 /* QAMenuSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F3280B605A0024F107 /* QAMenuSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A21B45FD280B605A0024F107 /* QAMenuUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F4280B605A0024F107 /* QAMenuUtils.framework */; };
+		A21B45FE280B605A0024F107 /* QAMenuUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A21B45F4280B605A0024F107 /* QAMenuUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2B45653280D952800E53DD9 /* ExampleSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B45C3280B583D0024F107 /* ExampleSwiftUIApp.swift */; };
+		A2B810AA280B56C4004C775F /* Example-SwiftUI (watchOS) WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A2B810A9280B56C4004C775F /* Example-SwiftUI (watchOS) WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A2B810B5280B56C5004C775F /* Example-SwiftUI (watchOS) WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A2B810B4280B56C5004C775F /* Example-SwiftUI (watchOS) WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A2F2CBEB280D84570030BD22 /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBE6280D84570030BD22 /* QAMenu.framework */; };
+		A2F2CBEC280D84570030BD22 /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBE6280D84570030BD22 /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2F2CBED280D84570030BD22 /* QAMenuCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBE7280D84570030BD22 /* QAMenuCatalog.framework */; };
+		A2F2CBEE280D84570030BD22 /* QAMenuCatalog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBE7280D84570030BD22 /* QAMenuCatalog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2F2CBEF280D84570030BD22 /* QAMenuExampleItems.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBE8280D84570030BD22 /* QAMenuExampleItems.framework */; };
+		A2F2CBF0280D84570030BD22 /* QAMenuExampleItems.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBE8280D84570030BD22 /* QAMenuExampleItems.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2F2CBF1280D84570030BD22 /* QAMenuSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBE9280D84570030BD22 /* QAMenuSwiftUI.framework */; };
+		A2F2CBF2280D84570030BD22 /* QAMenuSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBE9280D84570030BD22 /* QAMenuSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2F2CBF3280D84570030BD22 /* QAMenuUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBEA280D84570030BD22 /* QAMenuUtils.framework */; };
+		A2F2CBF4280D84570030BD22 /* QAMenuUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2F2CBEA280D84570030BD22 /* QAMenuUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A2F2CBF6280D845F0030BD22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21B45C5280B583D0024F107 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A2B810AB280B56C4004C775F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2B81081280B558C004C775F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2B810A8280B56C4004C775F;
+			remoteInfo = "Example-SwiftUI (watchOS) WatchKit App";
+		};
+		A2B810B6280B56C5004C775F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2B81081280B558C004C775F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2B810B3280B56C5004C775F;
+			remoteInfo = "Example-SwiftUI (watchOS) WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A21B45DF280B5FE80024F107 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A21B45D6280B5FE70024F107 /* QAMenu.framework in Embed Frameworks */,
+				A21B45DC280B5FE80024F107 /* QAMenuSwiftUI.framework in Embed Frameworks */,
+				A21B45DE280B5FE80024F107 /* QAMenuUtils.framework in Embed Frameworks */,
+				A21B45D8280B5FE70024F107 /* QAMenuCatalog.framework in Embed Frameworks */,
+				A21B45DA280B5FE80024F107 /* QAMenuExampleItems.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A21B45EF280B604C0024F107 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A21B45E6280B604C0024F107 /* QAMenu.framework in Embed Frameworks */,
+				A21B45EC280B604C0024F107 /* QAMenuSwiftUI.framework in Embed Frameworks */,
+				A21B45EE280B604C0024F107 /* QAMenuUtils.framework in Embed Frameworks */,
+				A21B45E8280B604C0024F107 /* QAMenuCatalog.framework in Embed Frameworks */,
+				A21B45EA280B604C0024F107 /* QAMenuExampleItems.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A21B45FF280B605A0024F107 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A21B45F6280B605A0024F107 /* QAMenu.framework in Embed Frameworks */,
+				A21B45FC280B605A0024F107 /* QAMenuSwiftUI.framework in Embed Frameworks */,
+				A21B45FE280B605A0024F107 /* QAMenuUtils.framework in Embed Frameworks */,
+				A21B45F8280B605A0024F107 /* QAMenuCatalog.framework in Embed Frameworks */,
+				A21B45FA280B605A0024F107 /* QAMenuExampleItems.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B810C8280B56C6004C775F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A2B810B5280B56C5004C775F /* Example-SwiftUI (watchOS) WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B810CC280B56C6004C775F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				A2B810AA280B56C4004C775F /* Example-SwiftUI (watchOS) WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2F2CBF5280D84570030BD22 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A2F2CBEC280D84570030BD22 /* QAMenu.framework in Embed Frameworks */,
+				A2F2CBF2280D84570030BD22 /* QAMenuSwiftUI.framework in Embed Frameworks */,
+				A2F2CBF4280D84570030BD22 /* QAMenuUtils.framework in Embed Frameworks */,
+				A2F2CBEE280D84570030BD22 /* QAMenuCatalog.framework in Embed Frameworks */,
+				A2F2CBF0280D84570030BD22 /* QAMenuExampleItems.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A21B45C3280B583D0024F107 /* ExampleSwiftUIApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleSwiftUIApp.swift; sourceTree = "<group>"; };
+		A21B45C5280B583D0024F107 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A21B45D0280B5FE70024F107 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45D1280B5FE70024F107 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45D2280B5FE70024F107 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45D3280B5FE70024F107 /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45D4280B5FE70024F107 /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45E0280B604C0024F107 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45E1280B604C0024F107 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45E2280B604C0024F107 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45E3280B604C0024F107 /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45E4280B604C0024F107 /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45F0280B605A0024F107 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45F1280B605A0024F107 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45F2280B605A0024F107 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45F3280B605A0024F107 /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21B45F4280B605A0024F107 /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B8108D280B558E004C775F /* Example-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B81093280B558E004C775F /* Example-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B81095280B558E004C775F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		A2B810A6280B56C4004C775F /* Example-SwiftUI (watchOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-SwiftUI (watchOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B810A9280B56C4004C775F /* Example-SwiftUI (watchOS) WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-SwiftUI (watchOS) WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B810B4280B56C5004C775F /* Example-SwiftUI (watchOS) WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Example-SwiftUI (watchOS) WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B810DA280B5759004C775F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2F2CBD8280D84470030BD22 /* Playground-SwiftUI (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Playground-SwiftUI (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2F2CBE6280D84570030BD22 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2F2CBE7280D84570030BD22 /* QAMenuCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2F2CBE8280D84570030BD22 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2F2CBE9280D84570030BD22 /* QAMenuSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2F2CBEA280D84570030BD22 /* QAMenuUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QAMenuUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A2B8108A280B558E004C775F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21B45D5280B5FE70024F107 /* QAMenu.framework in Frameworks */,
+				A21B45DB280B5FE80024F107 /* QAMenuSwiftUI.framework in Frameworks */,
+				A21B45DD280B5FE80024F107 /* QAMenuUtils.framework in Frameworks */,
+				A21B45D7280B5FE70024F107 /* QAMenuCatalog.framework in Frameworks */,
+				A21B45D9280B5FE80024F107 /* QAMenuExampleItems.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B81090280B558E004C775F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21B45E5280B604C0024F107 /* QAMenu.framework in Frameworks */,
+				A21B45EB280B604C0024F107 /* QAMenuSwiftUI.framework in Frameworks */,
+				A21B45ED280B604C0024F107 /* QAMenuUtils.framework in Frameworks */,
+				A21B45E7280B604C0024F107 /* QAMenuCatalog.framework in Frameworks */,
+				A21B45E9280B604C0024F107 /* QAMenuExampleItems.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B810B1280B56C5004C775F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21B45F5280B605A0024F107 /* QAMenu.framework in Frameworks */,
+				A21B45FB280B605A0024F107 /* QAMenuSwiftUI.framework in Frameworks */,
+				A21B45FD280B605A0024F107 /* QAMenuUtils.framework in Frameworks */,
+				A21B45F7280B605A0024F107 /* QAMenuCatalog.framework in Frameworks */,
+				A21B45F9280B605A0024F107 /* QAMenuExampleItems.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2F2CBD5280D84470030BD22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2F2CBEB280D84570030BD22 /* QAMenu.framework in Frameworks */,
+				A2F2CBF1280D84570030BD22 /* QAMenuSwiftUI.framework in Frameworks */,
+				A2F2CBF3280D84570030BD22 /* QAMenuUtils.framework in Frameworks */,
+				A2F2CBED280D84570030BD22 /* QAMenuCatalog.framework in Frameworks */,
+				A2F2CBEF280D84570030BD22 /* QAMenuExampleItems.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A21B45C2280B583D0024F107 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				A21B45C3280B583D0024F107 /* ExampleSwiftUIApp.swift */,
+				A21B45C5280B583D0024F107 /* ContentView.swift */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
+		A21B45CF280B5FE70024F107 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2F2CBE6280D84570030BD22 /* QAMenu.framework */,
+				A2F2CBE7280D84570030BD22 /* QAMenuCatalog.framework */,
+				A2F2CBE8280D84570030BD22 /* QAMenuExampleItems.framework */,
+				A2F2CBE9280D84570030BD22 /* QAMenuSwiftUI.framework */,
+				A2F2CBEA280D84570030BD22 /* QAMenuUtils.framework */,
+				A21B45F0280B605A0024F107 /* QAMenu.framework */,
+				A21B45F1280B605A0024F107 /* QAMenuCatalog.framework */,
+				A21B45F2280B605A0024F107 /* QAMenuExampleItems.framework */,
+				A21B45F3280B605A0024F107 /* QAMenuSwiftUI.framework */,
+				A21B45F4280B605A0024F107 /* QAMenuUtils.framework */,
+				A21B45E0280B604C0024F107 /* QAMenu.framework */,
+				A21B45E1280B604C0024F107 /* QAMenuCatalog.framework */,
+				A21B45E2280B604C0024F107 /* QAMenuExampleItems.framework */,
+				A21B45E3280B604C0024F107 /* QAMenuSwiftUI.framework */,
+				A21B45E4280B604C0024F107 /* QAMenuUtils.framework */,
+				A21B45D0280B5FE70024F107 /* QAMenu.framework */,
+				A21B45D1280B5FE70024F107 /* QAMenuCatalog.framework */,
+				A21B45D2280B5FE70024F107 /* QAMenuExampleItems.framework */,
+				A21B45D3280B5FE70024F107 /* QAMenuSwiftUI.framework */,
+				A21B45D4280B5FE70024F107 /* QAMenuUtils.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2B81080280B558C004C775F = {
+			isa = PBXGroup;
+			children = (
+				A21B45C2280B583D0024F107 /* Shared UI */,
+				A2B81094280B558E004C775F /* macOS */,
+				A2B810D3280B5759004C775F /* WatchKit Extension */,
+				A2F2CBD9280D84470030BD22 /* tvOS */,
+				A2B8108E280B558E004C775F /* Products */,
+				A21B45CF280B5FE70024F107 /* Frameworks */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+		};
+		A2B8108E280B558E004C775F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2B8108D280B558E004C775F /* Example-SwiftUI.app */,
+				A2B81093280B558E004C775F /* Example-SwiftUI.app */,
+				A2B810A6280B56C4004C775F /* Example-SwiftUI (watchOS).app */,
+				A2B810A9280B56C4004C775F /* Example-SwiftUI (watchOS) WatchKit App.app */,
+				A2B810B4280B56C5004C775F /* Example-SwiftUI (watchOS) WatchKit Extension.appex */,
+				A2F2CBD8280D84470030BD22 /* Playground-SwiftUI (tvOS).app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2B81094280B558E004C775F /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				A2B81095280B558E004C775F /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		A2B810D3280B5759004C775F /* WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A2B810DA280B5759004C775F /* Info.plist */,
+			);
+			path = "WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		A2F2CBD9280D84470030BD22 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A2B8108C280B558E004C775F /* Example-SwiftUI (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2B8109E280B558E004C775F /* Build configuration list for PBXNativeTarget "Example-SwiftUI (iOS)" */;
+			buildPhases = (
+				A2B81089280B558E004C775F /* Sources */,
+				A2B8108A280B558E004C775F /* Frameworks */,
+				A2B8108B280B558E004C775F /* Resources */,
+				A21B45DF280B5FE80024F107 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Example-SwiftUI (iOS)";
+			productName = "Example-SwiftUI (iOS)";
+			productReference = A2B8108D280B558E004C775F /* Example-SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A2B81092280B558E004C775F /* Playground-SwiftUI (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2B810A1280B558E004C775F /* Build configuration list for PBXNativeTarget "Playground-SwiftUI (macOS)" */;
+			buildPhases = (
+				A2B8108F280B558E004C775F /* Sources */,
+				A2B81090280B558E004C775F /* Frameworks */,
+				A2B81091280B558E004C775F /* Resources */,
+				A21B45EF280B604C0024F107 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Playground-SwiftUI (macOS)";
+			productName = "Example-SwiftUI (macOS)";
+			productReference = A2B81093280B558E004C775F /* Example-SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A2B810A5280B56C4004C775F /* Example-SwiftUI (watchOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2B810CD280B56C6004C775F /* Build configuration list for PBXNativeTarget "Example-SwiftUI (watchOS)" */;
+			buildPhases = (
+				A2B810A4280B56C4004C775F /* Resources */,
+				A2B810CC280B56C6004C775F /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2B810AC280B56C4004C775F /* PBXTargetDependency */,
+			);
+			name = "Example-SwiftUI (watchOS)";
+			productName = "Example-SwiftUI (watchOS)";
+			productReference = A2B810A6280B56C4004C775F /* Example-SwiftUI (watchOS).app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		A2B810A8280B56C4004C775F /* Example-SwiftUI (watchOS) WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2B810C9280B56C6004C775F /* Build configuration list for PBXNativeTarget "Example-SwiftUI (watchOS) WatchKit App" */;
+			buildPhases = (
+				A2B810A7280B56C4004C775F /* Resources */,
+				A2B810C8280B56C6004C775F /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2B810B7280B56C5004C775F /* PBXTargetDependency */,
+			);
+			name = "Example-SwiftUI (watchOS) WatchKit App";
+			productName = "Example-SwiftUI (watchOS) WatchKit App";
+			productReference = A2B810A9280B56C4004C775F /* Example-SwiftUI (watchOS) WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		A2B810B3280B56C5004C775F /* Example-SwiftUI (watchOS) WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2B810C5280B56C6004C775F /* Build configuration list for PBXNativeTarget "Example-SwiftUI (watchOS) WatchKit Extension" */;
+			buildPhases = (
+				A2B810B0280B56C5004C775F /* Sources */,
+				A2B810B1280B56C5004C775F /* Frameworks */,
+				A2B810B2280B56C5004C775F /* Resources */,
+				A21B45FF280B605A0024F107 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Example-SwiftUI (watchOS) WatchKit Extension";
+			productName = "Example-SwiftUI (watchOS) WatchKit Extension";
+			productReference = A2B810B4280B56C5004C775F /* Example-SwiftUI (watchOS) WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		A2F2CBD7280D84470030BD22 /* Playground-SwiftUI (tvOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2F2CBE5280D84480030BD22 /* Build configuration list for PBXNativeTarget "Playground-SwiftUI (tvOS)" */;
+			buildPhases = (
+				A2F2CBD4280D84470030BD22 /* Sources */,
+				A2F2CBD5280D84470030BD22 /* Frameworks */,
+				A2F2CBD6280D84470030BD22 /* Resources */,
+				A2F2CBF5280D84570030BD22 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Playground-SwiftUI (tvOS)";
+			productName = "Example-SwiftUI (tvOS)";
+			productReference = A2F2CBD8280D84470030BD22 /* Playground-SwiftUI (tvOS).app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A2B81081280B558C004C775F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1330;
+				ORGANIZATIONNAME = "Hans Seiffert";
+				TargetAttributes = {
+					A2B8108C280B558E004C775F = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					A2B81092280B558E004C775F = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					A2B810A5280B56C4004C775F = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					A2B810A8280B56C4004C775F = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					A2B810B3280B56C5004C775F = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					A2F2CBD7280D84470030BD22 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = A2B81084280B558C004C775F /* Build configuration list for PBXProject "Example-SwiftUI" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A2B81080280B558C004C775F;
+			productRefGroup = A2B8108E280B558E004C775F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A2B8108C280B558E004C775F /* Example-SwiftUI (iOS) */,
+				A2B810A5280B56C4004C775F /* Example-SwiftUI (watchOS) */,
+				A2B810A8280B56C4004C775F /* Example-SwiftUI (watchOS) WatchKit App */,
+				A2B810B3280B56C5004C775F /* Example-SwiftUI (watchOS) WatchKit Extension */,
+				A2B81092280B558E004C775F /* Playground-SwiftUI (macOS) */,
+				A2F2CBD7280D84470030BD22 /* Playground-SwiftUI (tvOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A2B8108B280B558E004C775F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B81091280B558E004C775F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B810A4280B56C4004C775F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B810A7280B56C4004C775F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B810B2280B56C5004C775F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2F2CBD6280D84470030BD22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A2B81089280B558E004C775F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21B45CC280B583D0024F107 /* ContentView.swift in Sources */,
+				A21B45C6280B583D0024F107 /* ExampleSwiftUIApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B8108F280B558E004C775F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21B45CD280B583D0024F107 /* ContentView.swift in Sources */,
+				A21B45C7280B583D0024F107 /* ExampleSwiftUIApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2B810B0280B56C5004C775F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A21B45CE280B583D0024F107 /* ContentView.swift in Sources */,
+				A21B45C8280B583D0024F107 /* ExampleSwiftUIApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2F2CBD4280D84470030BD22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2B45653280D952800E53DD9 /* ExampleSwiftUIApp.swift in Sources */,
+				A2F2CBF6280D845F0030BD22 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A2B810AC280B56C4004C775F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2B810A8280B56C4004C775F /* Example-SwiftUI (watchOS) WatchKit App */;
+			targetProxy = A2B810AB280B56C4004C775F /* PBXContainerItemProxy */;
+		};
+		A2B810B7280B56C5004C775F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2B810B3280B56C5004C775F /* Example-SwiftUI (watchOS) WatchKit Extension */;
+			targetProxy = A2B810B6280B56C5004C775F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A2B8109C280B558E004C775F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A2B8109D280B558E004C775F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A2B8109F280B558E004C775F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.ios;
+				PRODUCT_NAME = "Example-SwiftUI";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A2B810A0280B558E004C775F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.ios;
+				PRODUCT_NAME = "Example-SwiftUI";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A2B810A2280B558E004C775F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.macos;
+				PRODUCT_NAME = "Example-SwiftUI";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A2B810A3280B558E004C775F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.macos;
+				PRODUCT_NAME = "Example-SwiftUI";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A2B810C6280B56C6004C775F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Example-SwiftUI WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Example_SwiftUI__watchOS__WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.watchos.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		A2B810C7280B56C6004C775F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Example-SwiftUI WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Example_SwiftUI__watchOS__WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.watchos.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		A2B810CA280B56C6004C775F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = Example_SwiftUI__watchOS__WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "Example-SwiftUI WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.watchos.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		A2B810CB280B56C6004C775F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = Example_SwiftUI__watchOS__WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "Example-SwiftUI WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.watchos.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		A2B810CE280B56C6004C775F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.watchos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A2B810CF280B56C6004C775F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = de.seiffert.hans.tools.qamenu.example.swiftui.watchos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A2F2CBE3280D84480030BD22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.seiffert.hans.tools.qamenu.example.swiftui.tvos.Example-SwiftUI--tvOS-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.2;
+			};
+			name = Debug;
+		};
+		A2F2CBE4280D84480030BD22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.seiffert.hans.tools.qamenu.example.swiftui.tvos.Example-SwiftUI--tvOS-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A2B81084280B558C004C775F /* Build configuration list for PBXProject "Example-SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2B8109C280B558E004C775F /* Debug */,
+				A2B8109D280B558E004C775F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2B8109E280B558E004C775F /* Build configuration list for PBXNativeTarget "Example-SwiftUI (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2B8109F280B558E004C775F /* Debug */,
+				A2B810A0280B558E004C775F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2B810A1280B558E004C775F /* Build configuration list for PBXNativeTarget "Playground-SwiftUI (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2B810A2280B558E004C775F /* Debug */,
+				A2B810A3280B558E004C775F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2B810C5280B56C6004C775F /* Build configuration list for PBXNativeTarget "Example-SwiftUI (watchOS) WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2B810C6280B56C6004C775F /* Debug */,
+				A2B810C7280B56C6004C775F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2B810C9280B56C6004C775F /* Build configuration list for PBXNativeTarget "Example-SwiftUI (watchOS) WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2B810CA280B56C6004C775F /* Debug */,
+				A2B810CB280B56C6004C775F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2B810CD280B56C6004C775F /* Build configuration list for PBXNativeTarget "Example-SwiftUI (watchOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2B810CE280B56C6004C775F /* Debug */,
+				A2B810CF280B56C6004C775F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2F2CBE5280D84480030BD22 /* Build configuration list for PBXNativeTarget "Playground-SwiftUI (tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2F2CBE3280D84480030BD22 /* Debug */,
+				A2F2CBE4280D84480030BD22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A2B81081280B558C004C775F /* Project object */;
+}

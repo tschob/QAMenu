@@ -8,7 +8,7 @@ env:
 
 jobs:
   job-build-ios-example-app:
-    name: Example-iOS
+    name: Example-UIKit-iOS
     runs-on: macOS-latest
     steps:
       - name: Checkout Git
@@ -36,8 +36,124 @@ jobs:
       - name: Build Example-iOS
         run: bundle exec fastlane build_ios_example_app
 
-  job-build-pod-integration-example-app:
-    name: Pod-Integration-iOS
+  job-build-swiftui-ios-example-app:
+    name: Example-SwiftUI-iOS
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v2
+
+      - name: ruby versions
+        run: |
+          ruby --version
+          gem --version
+          bundler --version
+
+      - name: Cache Gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+
+      - name: Install bundles
+        run: |
+          bundle config path Vendor/Bundle
+          bundle install --without=documentation --jobs 4 --retry 3
+
+      - name: Build Example-iOS
+        run: bundle exec fastlane build_swiftui_ios_example_app
+
+  job-build-swiftui-watchos-example-app:
+    name: Example-SwiftUI-watchOS
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v2
+
+      - name: ruby versions
+        run: |
+          ruby --version
+          gem --version
+          bundler --version
+
+      - name: Cache Gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+
+      - name: Install bundles
+        run: |
+          bundle config path Vendor/Bundle
+          bundle install --without=documentation --jobs 4 --retry 3
+
+      - name: Build Example-iOS
+        run: bundle exec fastlane build_swiftui_watchos_example_app
+
+  job-build-swiftui-macos-playground-app:
+    name: Playground-SwiftUI-macOS
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v2
+
+      - name: ruby versions
+        run: |
+          ruby --version
+          gem --version
+          bundler --version
+
+      - name: Cache Gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+
+      - name: Install bundles
+        run: |
+          bundle config path Vendor/Bundle
+          bundle install --without=documentation --jobs 4 --retry 3
+
+      - name: Build Example-iOS
+        run: bundle exec fastlane build_swiftui_macos_playground_app
+
+  job-build-swiftui-tvos-playground-app:
+    name: Playground-SwiftUI-tvOS
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v2
+
+      - name: ruby versions
+        run: |
+          ruby --version
+          gem --version
+          bundler --version
+
+      - name: Cache Gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+
+      - name: Install bundles
+        run: |
+          bundle config path Vendor/Bundle
+          bundle install --without=documentation --jobs 4 --retry 3
+
+      - name: Build Example-iOS
+        run: bundle exec fastlane build_swiftui_tvos_playground_app
+
+  job-build-pod-integration-uikit-ios-example-app:
+    name: Pod-Integration-UIKit-iOS
     runs-on: macOS-latest
     steps:
       - name: Checkout Git
@@ -63,4 +179,33 @@ jobs:
           bundle install --without=documentation --jobs 4 --retry 3
 
       - name: Build Pod-Integration-iOS
-        run: bundle exec fastlane build_pods_integration_example_app
+        run: bundle exec fastlane build_pods_integration_uikit_ios_example_app
+
+  job-build-pod-integration-swiftui-ios-example-app:
+    name: Pod-Integration-SwiftUI-iOS
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v2
+
+      - name: ruby versions
+        run: |
+          ruby --version
+          gem --version
+          bundler --version
+
+      - name: Cache Gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+
+      - name: Install bundles
+        run: |
+          bundle config path Vendor/Bundle
+          bundle install --without=documentation --jobs 4 --retry 3
+
+      - name: Build Pod-Integration-iOS
+        run: bundle exec fastlane build_pods_integration_swiftui_ios_example_app

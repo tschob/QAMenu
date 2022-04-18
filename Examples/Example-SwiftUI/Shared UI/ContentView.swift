@@ -1,12 +1,12 @@
 //
-//  Catalog+Device.swift
+//  ContentView.swift
 //
-//  Created by Hans Seiffert on 18.07.20.
+//  Created by Hans Seiffert on 16.04.22.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2020 Hans Seiffert
+//  Copyright © 2022 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,28 +26,25 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-import Foundation
+import SwiftUI
+import QAMenuSwiftUI
+import QAMenuUtils
+import QAMenuCatalog
+import QAMenuExampleItems
 import QAMenu
 
-public extension QAMenu.Catalog {
+struct ContentView: View {
 
-    enum Device {
-
-        public static var all: [Group] {
-            return [
-                group()
-            ]
+    var body: some View {
+        VStack {
+            Text("🚧 SwiftUI Support is under development ...")
         }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+    }
+}
 
-        public static func group(title: String = "Device") -> ItemGroup {
-            var items: [Item] = [Locale.group().asChildPaneItem()]
-            #if os(iOS)
-                items.append(Accessibility.group().asChildPaneItem())
-            #endif
-            return ItemGroup(
-                title: .static(title),
-                items: .static(items)
-            )
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
