@@ -102,9 +102,9 @@ open class ItemGroup: Group, Searchable {
 
     private func observeItemsState() {
         self.stateSubscription = self.items.state
-            .sink { [weak self] receiveCompletion in
+            .sink { [weak self] _ in
                 self?.reloadAfterDelayedStateChange()
-            } receiveValue: { [weak self] receiveValue in
+            } receiveValue: { [weak self] _ in
                 self?.reloadAfterDelayedStateChange()
             }
     }
