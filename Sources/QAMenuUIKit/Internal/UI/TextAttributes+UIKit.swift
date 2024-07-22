@@ -36,11 +36,7 @@ extension TextAttributes.TextStyle {
     internal var asUIFontTextStyle: UIFont.TextStyle {
         switch self {
         case .largeTitle:
-            if #available(iOS 11.0, *) {
-                return .largeTitle
-            } else {
-                return .title1
-            }
+            return .largeTitle
         case .title1:
             return .title1
         case .title2:

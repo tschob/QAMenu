@@ -62,20 +62,11 @@ open class NibView: UIView {
         }
         self.addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
-        if #available(iOS 11.0, *) {
-            NSLayoutConstraint.activate([
-                view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-                view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
-            ])
-        } else {
-            NSLayoutConstraint.activate([
-                view.topAnchor.constraint(equalTo: self.topAnchor),
-                view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                view.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-            ])
-        }
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            view.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
+        ])
     }
 }

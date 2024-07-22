@@ -27,6 +27,7 @@
 //
 
 import Foundation
+import Combine
 
 public class Delayed<Value, Progress, OnFailureOption> {
 

@@ -27,9 +27,7 @@
 //
 
 import Foundation
-#if canImport(Combine)
 import Combine
-#endif
 
 open class ChildPaneItem: StringItem, NavigationTrigger {
 
@@ -43,7 +41,6 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
     public let childType: ChildType
 
     public let onNavigateBack = ObservableEvent<() -> Void>()
-    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
     public private(set) lazy var onNavigateBackSubject = PassthroughSubject<() -> Void, Never>()
 
     private var navigationDisposeBag = DisposeBag()

@@ -73,7 +73,6 @@ class ItemTests: XCTestCase {
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
-    @available(iOS 13.0, *)
     func test_invalidate_sendsOnInvalidationSubject() {
         let sut = Item()
 

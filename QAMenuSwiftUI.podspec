@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   spec.authors            = { "Hans Seiffert" => "tschob@posteo.de" }
 
   spec.ios.deployment_target  = '14.0'
-  spec.swift_version          = '5.3'
+  spec.swift_version          = '5.10'
   spec.requires_arc           = true
 
   spec.frameworks = 'SwiftUI'

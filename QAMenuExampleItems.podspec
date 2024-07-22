@@ -14,8 +14,8 @@ Pod::Spec.new do |spec|
   spec.license            = { :type => "MIT", :file => "LICENSE" }
   spec.authors            = { "Hans Seiffert" => "tschob@posteo.de" }
 
-  spec.ios.deployment_target  = '10.0'
-  spec.swift_version          = '5.3'
+  spec.ios.deployment_target  = '13.0'
+  spec.swift_version          = '5.10'
   spec.requires_arc           = true
 
   spec.source_files  = "Sources/QAMenuExampleItems/**/*.{h,swift}"

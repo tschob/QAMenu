@@ -38,10 +38,8 @@ extension PaneRepresentable where Self: UIViewController {
     }
 
     public func setupNavigationItems(isRoot: Bool = false, in qaMenu: QAMenu) {
-        if #available(iOS 11.0, *) {
-            self.navigationController?.navigationBar.prefersLargeTitles = true
-            self.navigationItem.largeTitleDisplayMode = isRoot ? .always : .never
-        }
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = isRoot ? .always : .never
 
         self.navigationItem.rightBarButtonItems = [
             .dm_hideQAMenu(in: qaMenu)

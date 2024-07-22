@@ -27,9 +27,7 @@
 //
 
 import Foundation
-#if canImport(Combine)
 import Combine
-#endif
 
 open class EditableStringItem: StringItem {
 
@@ -47,7 +45,6 @@ open class EditableStringItem: StringItem {
     public var onShouldEdit: ((_ item: EditableStringItem) -> Void)?
 
     public let onEdit = ObservableEvent<Void>()
-    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
     public private(set) lazy var onEditSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Initialization
@@ -86,9 +83,7 @@ extension EditableStringItem: Selectable {
             }
             self.onShouldEdit?(self)
             self.onEdit.fire()
-            if #available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *) {
-                self.onEditSubject.send()
-            }
+            self.onEditSubject.send()
         }
     }
 }

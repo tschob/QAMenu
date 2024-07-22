@@ -28,9 +28,7 @@
 
 import Foundation
 import QAMenuUtils
-#if canImport(Combine)
 import Combine
-#endif
 
 // MARK: - PickerGroup
 
@@ -54,7 +52,6 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
     open private(set) var onPickedOption: ((_ item: PickableItem, _ result: @escaping (PickResult) -> Void) -> Void?)?
 
     open var onNavigateBack = ObservableEvent<(() -> Void)>()
-    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
     public private(set) lazy var onNavigateBackSubject = PassthroughSubject<() -> Void, Never>()
 
     open var searchableContent: [String?] {
@@ -65,11 +62,9 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
     }
 
     public let onInvalidation = InvalidationEvent()
-    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-    public private(set) lazy var  onInvalidationSubject = PassthroughSubject<Void, Never>()
+    public private(set) lazy var onInvalidationSubject = PassthroughSubject<Void, Never>()
 
     public let onPresentDialog = ObservableEvent<DialogContent>()
-    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
     public private(set) lazy var  onPresentDialogSubject = PassthroughSubject<DialogContent, Never>()
 
     // MARK: - Properties (Private / Internal)

@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/QAMenu.svg?style=flat)](http://cocoadocs.org/docsets/QAMenu)
 [![Platform](https://img.shields.io/cocoapods/p/QAMenu?style=flat)](http://cocoadocs.org/docsets/QAMenu)
 [![Language: Swift 5](https://img.shields.io/badge/Swift-5-green.svg)](https://swift.org)
-![iOS: 10.0+](https://img.shields.io/badge/iOS-10.0+-blue)
+![iOS: 13.0+](https://img.shields.io/badge/iOS-13.0+-blue)
 [![codecov](https://codecov.io/gh/tschob/QAMenu/branch/main/graph/badge.svg?token=PA4QI8EFBB)](https://codecov.io/gh/tschob/QAMenu)
 
 Did you ever want to quickly:

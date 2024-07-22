@@ -104,7 +104,6 @@ class PickerGroupTests: XCTestCase {
 
     // MARK: - Invalidate
 
-    @available(iOS 13.0, *)
     func test_invalidate_sendsOnInvalidationSubject() {
         let sut = PickerGroup(
             options: .static([MockPickableItem()]),
@@ -587,7 +586,6 @@ class PickerGroupTests: XCTestCase {
         wait(for: [navigationExpectation], timeout: 0.01)
     }
 
-    @available(iOS 13.0, *)
     func test_whenOnPickResultIsSuccessWithShouldDismiss_triggersOnNavigationBackSubject() throws {
         let mockItem = MockPickableItem()
         let sut = PickerGroup(

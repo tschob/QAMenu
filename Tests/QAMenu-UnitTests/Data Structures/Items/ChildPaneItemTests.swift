@@ -69,7 +69,6 @@ class ChildPaneItemTests: XCTestCase {
         wait(for: [invalidationExpectation], timeout: 0.01)
     }
 
-    @available(iOS 13.0, *)
     func test_invalidate_sendsOnInvalidationSubject() {
         let sut = ChildPaneItem(pane: { MockPane() })
 
@@ -230,7 +229,6 @@ class ChildPaneItemTests: XCTestCase {
         wait(for: [observeExpectation], timeout: 0.01)
     }
 
-    @available(iOS 13.0, *)
     func test_onNavigateBackSubject_isSentWhenChildPaneIsTriggered() {
         let pickerGroup = PickerGroup(
             title: .static("PickerGroup"),

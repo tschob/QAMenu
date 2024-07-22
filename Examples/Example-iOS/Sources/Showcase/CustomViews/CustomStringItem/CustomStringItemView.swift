@@ -27,6 +27,7 @@
 //
 
 import UIKit
+import Combine
 import QAMenu
 import QAMenuUIKit
 

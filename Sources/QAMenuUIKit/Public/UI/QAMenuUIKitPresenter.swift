@@ -54,12 +54,9 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
     internal weak var qaMenu: QAMenu?
 
     internal lazy var window: UIWindow = {
-        if #available(iOS 13.0, *) {
-            let windowScene = UIApplication.shared.connectedScenes
-                .first(where: { $0.activationState == .foregroundActive })
-            if let windowScene = windowScene as? UIWindowScene {
-                return UIWindow(windowScene: windowScene)
-            }
+        let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive })
+        if let windowScene = windowScene as? UIWindowScene {
+            return UIWindow(windowScene: windowScene)
         }
         return UIWindow(frame: UIScreen.main.bounds)
     }()
@@ -94,9 +91,7 @@ open class QAMenuUIKitPresenter: QAMenuPresenter {
 
         let navigationController = UINavigationController(rootViewController: uiRepresentation)
 
-        if #available(iOS 13.0, *) {
-            self.window.windowLevel = .alert + 1
-        }
+        self.window.windowLevel = .alert + 1
         self.window.rootViewController = navigationController
     }
 

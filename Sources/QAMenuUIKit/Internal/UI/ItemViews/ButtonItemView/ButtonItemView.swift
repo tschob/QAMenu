@@ -27,6 +27,7 @@
 //
 
 import Foundation
+import Combine
 import UIKit
 import QAMenu
 import QAMenuUtils
@@ -100,17 +101,9 @@ internal final class ButtonItemView: NibView, ItemView {
         self.progressLabel.textColor = .systemGray
         self.progressLabel.font = .preferredFont(forTextStyle: .body)
         self.titleLabel.numberOfLines = 0
-        if #available(iOS 13.0, *) {
-            self.titleLabel.textColor = .link
-        } else {
-            self.titleLabel.textColor = .systemBlue
-        }
+        self.titleLabel.textColor = .link
         self.titleLabel.font = .preferredFont(forTextStyle: .body)
-        if #available(iOS 13.0, *) {
-            self.indicator.style = .medium
-        } else {
-            self.indicator.style = .gray
-        }
+        self.indicator.style = .medium
     }
 
     private func reload() {
