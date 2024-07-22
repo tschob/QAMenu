@@ -123,7 +123,7 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
     }
 
     private func observeOptionsState() {
-        self.stateSubscription = self.options.state.sink { [weak self] _ in
+        self.stateSubscription = self.options.state.dropFirst().sink { [weak self] _ in
             self?.reloadAfterDelayedStateChange()
         } receiveValue: { [weak self] _ in
             self?.reloadAfterDelayedStateChange()

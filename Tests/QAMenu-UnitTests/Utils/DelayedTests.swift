@@ -226,7 +226,7 @@ class DelayedTests: XCTestCase {
         let observableExpectation = self.expectation(description: "")
         observableExpectation.expectedFulfillmentCount = 2
         var lastestState: Delayed<String, String, String>.State?
-        let cancellable = sut.state.sink { _ in
+        let cancellable = sut.state.dropFirst().sink { _ in
             // Nothing to do here
         } receiveValue: { value in
             lastestState = value
@@ -253,7 +253,7 @@ class DelayedTests: XCTestCase {
         let observableExpectation = self.expectation(description: "")
         observableExpectation.expectedFulfillmentCount = 1
         var lastestState: Delayed<String, String, String>.State?
-        let cancellable = sut.state.sink { _ in
+        let cancellable = sut.state.dropFirst().sink { _ in
             // Nothing to do here
         } receiveValue: { value in
             lastestState = value
@@ -280,7 +280,7 @@ class DelayedTests: XCTestCase {
         let observableExpectation = self.expectation(description: "")
         observableExpectation.expectedFulfillmentCount = 1
         var lastestState: Delayed<String, String, String>.State?
-        let cancellable = sut.state.sink { _ in
+        let cancellable = sut.state.dropFirst().sink { _ in
             // Nothing to do here
         } receiveValue: { value in
             lastestState = value

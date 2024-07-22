@@ -75,7 +75,6 @@ class CustomStringItemView: NibView, ItemUIRepresentable {
             self?.reload()
         })
         .store(in: &self.subscriptions)
-        self.reload()
     }
 
     private func reload() {
