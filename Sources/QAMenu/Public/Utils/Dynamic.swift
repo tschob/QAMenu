@@ -30,9 +30,9 @@ import Foundation
 
 public class Dynamic<T> {
 
-    internal enum Value<T> {
-        case `static`(T)
-        case closure(() -> T)
+    internal enum Value<V> {
+        case `static`(V)
+        case closure(() -> V)
         case keyPath(Any, AnyKeyPath)
     }
 
