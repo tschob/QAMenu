@@ -27,6 +27,7 @@
 //
 
 import Foundation
+import Combine
 import UIKit
 import QAMenu
 import QAMenuUtils
@@ -98,11 +99,7 @@ internal final class BooleanItemView: NibView, ItemView {
 
     private func applyStyle() {
         self.titleLabel.numberOfLines = 0
-        if #available(iOS 13.0, *) {
-            self.titleLabel.textColor = .label
-        } else {
-            self.titleLabel.textColor = .black
-        }
+        self.titleLabel.textColor = .label
         self.titleLabel.font = .preferredFont(forTextStyle: .body)
     }
 

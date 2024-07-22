@@ -27,6 +27,7 @@
 //
 
 import Foundation
+import Combine
 import UIKit
 import QAMenu
 import QAMenuUtils
@@ -96,11 +97,7 @@ internal final class ProgressItemView: NibView, ItemView {
     private func applyStyle() {
         self.label.numberOfLines = 0
         self.label.font = .preferredFont(forTextStyle: .body)
-        if #available(iOS 13.0, *) {
-            self.activityIndicator.style = .medium
-        } else {
-            self.activityIndicator.style = .gray
-        }
+        self.activityIndicator.style = .medium
     }
 
     private func reload() {
@@ -125,11 +122,7 @@ internal final class ProgressItemView: NibView, ItemView {
         case .success(let message):
             self.label.text = message
             self.label.isHidden = message?.isEmpty != false
-            if #available(iOS 13.0, *) {
-                self.label.textColor = .label
-            } else {
-                self.label.textColor = .black
-            }
+            self.label.textColor = .label
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
         case .failure(let message):

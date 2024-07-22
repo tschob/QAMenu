@@ -26,9 +26,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //
 
-// swiftlint:disable file_length
-
 import UIKit
+import Combine
 import QAMenu
 import QAMenuUtils
 
@@ -65,11 +64,7 @@ internal class PaneViewController: UIViewController {
     }
 
     private var tableViewStyle: UITableView.Style {
-        if #available(iOS 13.0, *) {
-            return .insetGrouped
-        } else {
-            return .grouped
-        }
+        return .insetGrouped
     }
 
     private let refreshControl = UIRefreshControl()
@@ -131,13 +126,9 @@ internal class PaneViewController: UIViewController {
         self.searchController?.dimsBackgroundDuringPresentation = false
         self.tableView?.keyboardDismissMode = .onDrag
 
-        if #available(iOS 11.0, *) {
-            self.navigationItem.searchController = self.searchController
-            self.navigationItem.hidesSearchBarWhenScrolling = false
-            self.navigationItem.searchController?.isActive = false
-        } else {
-            self.tableView?.tableHeaderView = self.searchController?.searchBar
-        }
+        self.navigationItem.searchController = self.searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.searchController?.isActive = false
     }
 
     // MARK: - Lifecycle

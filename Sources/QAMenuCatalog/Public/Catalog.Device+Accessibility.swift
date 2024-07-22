@@ -80,11 +80,10 @@ public extension UIAccessibility {
             ("isAssistiveTouchRunning", UIAccessibility.isAssistiveTouchRunning)
         ]
 
-        if #available(iOS 13.0, *) {
-            all.append(("isVideoAutoplayEnabled", UIAccessibility.isVideoAutoplayEnabled))
-            all.append(("shouldDifferentiateWithoutColor", UIAccessibility.shouldDifferentiateWithoutColor))
-            all.append(("isOnOffSwitchLabelsEnabled", UIAccessibility.isOnOffSwitchLabelsEnabled))
-        }
+        all.append(("isVideoAutoplayEnabled", UIAccessibility.isVideoAutoplayEnabled))
+        all.append(("shouldDifferentiateWithoutColor", UIAccessibility.shouldDifferentiateWithoutColor))
+        all.append(("isOnOffSwitchLabelsEnabled", UIAccessibility.isOnOffSwitchLabelsEnabled))
+
         return all
     }
 }

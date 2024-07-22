@@ -4,6 +4,8 @@
 
 #### Breaking Changes
 
+* [ALL] Increase minimum iOS version to 13.0 (PR #29)
+* [ALL] Update project to Xcode 15.4 and Swift 5.10 (PR #29)
 * [QAMenu] Remove `QAMenu` parameter from the `ButtonItem.action` closure. Use `presentDialog` on the item instead of making use of the `QAMenu` instance (PR #26)
 * [QAMenu] Remove `SelectionOutcome.action((QAMenu)`, use `SelectionOutcome.custom()` instead (PR #26)
 * [QAMenu] Replace `onShouldEdit` closure with `onEdit` and `onEditSubject` (PR #27)

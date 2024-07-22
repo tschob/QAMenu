@@ -27,6 +27,7 @@
 //
 
 import Foundation
+import Combine
 import UIKit
 import QAMenu
 import QAMenuUtils
@@ -154,11 +155,7 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
     }
 
     private func applyStyle() {
-        if #available(iOS 13.0, *) {
-            self.titleLabel.textColor = .label
-        } else {
-            self.titleLabel.textColor = .black
-        }
+        self.titleLabel.textColor = .label
         self.titleLabel.font = .preferredFont(forTextStyle: .body)
         self.valueLabel.textColor = .systemGray
         self.valueLabel.font = .preferredFont(forTextStyle: .body)

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -206,8 +206,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3ACCCDB42475BDAE00A15252 /* Build configuration list for PBXNativeTarget "Example-iOS" */;
 			buildPhases = (
-				A28133FB2520D34000B9F8A7 /* SwiftLint */,
 				3ACCCD9F2475BDAD00A15252 /* Sources */,
+				A28133FB2520D34000B9F8A7 /* SwiftLint */,
 				3ACCCDA02475BDAD00A15252 /* Frameworks */,
 				3ACCCDA12475BDAD00A15252 /* Resources */,
 				3ACCCDBE2475C7E300A15252 /* Embed Frameworks */,
@@ -273,6 +273,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		A28133FB2520D34000B9F8A7 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -464,7 +465,7 @@
 				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,7 +486,7 @@
 				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

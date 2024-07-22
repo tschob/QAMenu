@@ -27,14 +27,11 @@
 // 
 
 import Foundation
-#if canImport(SwiftUI)
 import SwiftUI
-#endif
 import QAMenu
 
 // MARK: - SimpleSwiftUIView
 
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 struct SimpleSwiftUIItemView: View {
 
     private var item: SimpleSwiftUIItem
@@ -67,7 +64,6 @@ struct SimpleSwiftUIItemView: View {
 
 #if DEBUG
 
-@available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 struct SimpleSwiftUIItemView_Previews: PreviewProvider {
     static var previews: some View {
         let stringItem = StringItem(

@@ -27,9 +27,7 @@
 //
 
 import Foundation
-#if canImport(Combine)
 import Combine
-#endif
 
 open class Item: Invalidatable, DialogTrigger, Searchable {
 
@@ -40,11 +38,9 @@ open class Item: Invalidatable, DialogTrigger, Searchable {
     }
 
     public let onInvalidation = InvalidationEvent()
-    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
     public private(set) lazy var onInvalidationSubject = PassthroughSubject<Void, Never>()
 
     public let onPresentDialog = ObservableEvent<DialogContent>()
-    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
     public private(set) lazy var onPresentDialogSubject = PassthroughSubject<DialogContent, Never>()
 
     open weak var parentGroup: Group?

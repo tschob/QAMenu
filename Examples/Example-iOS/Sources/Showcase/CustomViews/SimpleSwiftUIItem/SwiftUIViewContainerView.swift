@@ -30,9 +30,7 @@ import UIKit
 import QAMenu
 import QAMenuUIKit
 
-#if canImport(SwiftUI)
-  import SwiftUI
-#endif
+import SwiftUI
 
 class SwiftUIViewContainerView: UIView, ItemUIRepresentable {
 
@@ -45,26 +43,24 @@ class SwiftUIViewContainerView: UIView, ItemUIRepresentable {
             guard let item = item else {
                 return
             }
-            if #available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *) {
-                if hostingController == nil {
-                    guard let swiftUIView = SimpleSwiftUIItemView(item: item) else {
-                        return
-                    }
-                    let hostingController = UIHostingController(rootView: swiftUIView)
-                    self.hostingController = hostingController
-                    delegate?.presentationContext.addChild(hostingController)
-                    addSubview(hostingController.view)
-
-                    hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-                    NSLayoutConstraint.activate([
-                        self.safeAreaLayoutGuide.topAnchor.constraint(equalTo: hostingController.view.topAnchor),
-                        self.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: hostingController.view.bottomAnchor),
-                        self.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: hostingController.view.leadingAnchor),
-                        self.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: hostingController.view.trailingAnchor)
-                    ])
-                    hostingController.didMove(toParent: nil)
-                    hostingController.view.layoutIfNeeded()
+            if hostingController == nil {
+                guard let swiftUIView = SimpleSwiftUIItemView(item: item) else {
+                    return
                 }
+                let hostingController = UIHostingController(rootView: swiftUIView)
+                self.hostingController = hostingController
+                delegate?.presentationContext.addChild(hostingController)
+                addSubview(hostingController.view)
+
+                hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    self.safeAreaLayoutGuide.topAnchor.constraint(equalTo: hostingController.view.topAnchor),
+                    self.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: hostingController.view.bottomAnchor),
+                    self.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: hostingController.view.leadingAnchor),
+                    self.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: hostingController.view.trailingAnchor)
+                ])
+                hostingController.didMove(toParent: nil)
+                hostingController.view.layoutIfNeeded()
             }
         }
     }

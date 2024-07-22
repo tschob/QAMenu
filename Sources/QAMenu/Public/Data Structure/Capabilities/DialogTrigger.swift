@@ -27,14 +27,11 @@
 //
 
 import Foundation
-#if canImport(Combine)
 import Combine
-#endif
 
 public protocol DialogTrigger {
 
     var onPresentDialog: ObservableEvent<DialogContent> { get }
-    @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
     var onPresentDialogSubject: PassthroughSubject<DialogContent, Never> { get }
 
     func presentDialog(_ dialogContent: DialogContent)
@@ -44,8 +41,6 @@ extension DialogTrigger {
 
     public func presentDialog(_ dialogContent: DialogContent) {
         self.onPresentDialog.fire(with: dialogContent)
-        if #available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *) {
-            self.onPresentDialogSubject.send(dialogContent)
-        }
+        self.onPresentDialogSubject.send(dialogContent)
     }
 }
