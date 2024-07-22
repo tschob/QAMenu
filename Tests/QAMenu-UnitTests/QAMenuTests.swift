@@ -31,8 +31,6 @@ import QAMenu
 
 class QAMenuTests: XCTestCase {
 
-    var disposeBag = DisposeBag()
-
     var configurationStorage: QAMenuConfigurationStorageProvider!
 
     override func setUpWithError() throws {
@@ -44,7 +42,6 @@ class QAMenuTests: XCTestCase {
         UserDefaults().removePersistentDomain(forName: "QAMenu configuration")
         configurationStorage = nil
         QAMenu.instances.removeAll()
-        self.disposeBag = DisposeBag()
     }
 
     func test_instances_hasWeakReferences() throws {
@@ -284,20 +281,20 @@ class QAMenuTests: XCTestCase {
         presenter._toggleVisibilityToState = .open
 
         let toggleExpectation = expectation(description: "new state should be \(QAMenuState.open)")
-        presenter
+        let cancellable = presenter
             ._toggleVisibility
-            .observe { (newState: QAMenuState) in
+            .sink { (newState: QAMenuState) in
                 if newState == .open {
                     toggleExpectation.fulfill()
                 } else {
                     XCTFail("\(newState) doesn't equal \(QAMenuState.open)")
                 }
             }
-            .disposeWith(self.disposeBag)
 
         sut.onShakeRecognized()
 
         wait(for: [toggleExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_onShakeRecognized_whenClosed_callsOnDidAppear() throws {
@@ -325,20 +322,20 @@ class QAMenuTests: XCTestCase {
 
         let toggleExpectation = expectation(description: "new state should be \(QAMenuState.closed)")
         toggleExpectation.assertForOverFulfill = true
-        presenter
+        let cancellable = presenter
             ._toggleVisibility
-            .observe { (newState: QAMenuState) in
+            .sink { (newState: QAMenuState) in
                 if newState == .closed {
                     toggleExpectation.fulfill()
                 } else {
                     XCTFail("\(newState) doesn't equal \(QAMenuState.open)")
                 }
             }
-            .disposeWith(self.disposeBag)
 
         sut.onShakeRecognized()
 
         wait(for: [toggleExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_onShakeRecognized_whenOpen_callsOnDidDisappear() throws {
@@ -367,16 +364,16 @@ class QAMenuTests: XCTestCase {
 
         let navigateToRootPaneExpectation = expectation(description: "navigateToRootPane should be forwards to the presenter")
         navigateToRootPaneExpectation.assertForOverFulfill = true
-        presenter
+        let cancellable = presenter
             ._navigateToRootPane
-            .observe {
+            .sink {
                 navigateToRootPaneExpectation.fulfill()
             }
-            .disposeWith(self.disposeBag)
 
         sut.navigateToRootPane()
 
         wait(for: [navigateToRootPaneExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     // MARK: - show
@@ -388,16 +385,16 @@ class QAMenuTests: XCTestCase {
 
         let showExpectation = expectation(description: "show should be forwarded to the presenter")
         showExpectation.assertForOverFulfill = true
-        presenter
+        let cancellable = presenter
             ._show
-            .observe {
+            .sink {
                 showExpectation.fulfill()
             }
-            .disposeWith(self.disposeBag)
 
         sut.show()
 
         wait(for: [showExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_show_callsOnDidDidAppear() throws {
@@ -424,16 +421,16 @@ class QAMenuTests: XCTestCase {
 
         let hideExpectation = expectation(description: "hide should be forwarded to the presenter")
         hideExpectation.assertForOverFulfill = true
-        presenter
+        let cancellable = presenter
             ._hide
-            .observe {
+            .sink {
                 hideExpectation.fulfill()
             }
-            .disposeWith(self.disposeBag)
 
         sut.hide()
 
         wait(for: [hideExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_hide_callsOnDidDidDisappear() throws {

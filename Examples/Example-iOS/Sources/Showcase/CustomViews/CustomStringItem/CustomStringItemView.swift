@@ -57,12 +57,12 @@ class CustomStringItemView: NibView, ItemUIRepresentable {
     @IBOutlet private weak var valueLabel: UILabel!
     @IBOutlet private weak var stackView: UIStackView!
 
-    private let disposeBag = DisposeBag()
+    private var subscriptions: Set<AnyCancellable> = []
 
     // MARK: - Lifecycle
 
     func prepareForReuse() {
-        self.disposeBag.dispose()
+        self.subscriptions.removeAll()
         self.item = nil
     }
 
@@ -71,11 +71,10 @@ class CustomStringItemView: NibView, ItemUIRepresentable {
     func setItem(_ item: Item) {
         guard let item = item as? CustomStringItem else { return }
         self.item = item
-        self.item?.onInvalidation
-            .observe { [weak self] in
-                self?.reload()
-            }
-            .disposeWith(self.disposeBag)
+        self.item?.onInvalidationSubject.sink(receiveValue: { [weak self] in
+            self?.reload()
+        })
+        .store(in: &self.subscriptions)
         self.reload()
     }
 

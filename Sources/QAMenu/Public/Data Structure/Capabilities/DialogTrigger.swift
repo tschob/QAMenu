@@ -31,7 +31,6 @@ import Combine
 
 public protocol DialogTrigger {
 
-    var onPresentDialog: ObservableEvent<DialogContent> { get }
     var onPresentDialogSubject: PassthroughSubject<DialogContent, Never> { get }
 
     func presentDialog(_ dialogContent: DialogContent)
@@ -40,7 +39,6 @@ public protocol DialogTrigger {
 extension DialogTrigger {
 
     public func presentDialog(_ dialogContent: DialogContent) {
-        self.onPresentDialog.fire(with: dialogContent)
         self.onPresentDialogSubject.send(dialogContent)
     }
 }

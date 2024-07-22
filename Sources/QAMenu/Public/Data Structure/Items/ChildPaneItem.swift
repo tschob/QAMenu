@@ -40,10 +40,9 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
 
     public let childType: ChildType
 
-    public let onNavigateBack = ObservableEvent<() -> Void>()
     public private(set) lazy var onNavigateBackSubject = PassthroughSubject<() -> Void, Never>()
 
-    private var navigationDisposeBag = DisposeBag()
+    private var navigationSubscriptions: Set<AnyCancellable> = []
 
     // MARK: - Initialization
 
@@ -81,17 +80,16 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
     // MARK: - NavigationTrigger
 
     private func observeNavigationTriggerInChildPane(_ pane: Pane) {
-        navigationDisposeBag.dispose()
+        navigationSubscriptions.removeAll()
         let navigationTriggers = pane.groups.compactMap { $0 as? NavigationTrigger }
         navigationTriggers.forEach { navigationTrigger in
-            navigationTrigger.onNavigateBack
-                .observe({ [weak self] completion in
-                    self?.navigateBack { [weak self] in
-                        self?.invalidate()
-                        completion()
-                    }
-                })
-                .disposeWith(self.navigationDisposeBag)
+            navigationTrigger.onNavigateBackSubject.sink(receiveValue: { [weak self] completion in
+                self?.navigateBack { [weak self] in
+                    self?.invalidate()
+                    completion()
+                }
+            })
+            .store(in: &self.navigationSubscriptions)
         }
     }
 }

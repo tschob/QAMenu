@@ -35,19 +35,16 @@ class StringItemViewTests: XCTestCase {
     var sut: StringItemView!
 
     var delegateSpy: ItemUIRepresentableDelegateSpy!
-    var disposeBag: DisposeBag!
 
     override func setUpWithError() throws {
         self.sut = StringItemView()
         self.delegateSpy = ItemUIRepresentableDelegateSpy()
         self.sut.delegate = self.delegateSpy
-        self.disposeBag = DisposeBag()
     }
 
     override func tearDownWithError() throws {
         self.sut = nil
         self.delegateSpy = nil
-        self.disposeBag = nil
     }
 
     // MARK: - init
@@ -62,42 +59,6 @@ class StringItemViewTests: XCTestCase {
     }
 
     // MARK: - setItem
-
-    func test_setItem_addsOnInvalidationObserverToItem() throws {
-        let mockItem = StringItem(title: .static("Key"), value: .static("Value"))
-
-        XCTAssertEqual(mockItem.onInvalidation.observers.count, 0)
-
-        self.sut.setItem(mockItem)
-
-        XCTAssertEqual(mockItem.onInvalidation.observers.count, 1)
-    }
-
-    func test_setItem_whenReplacingExisting_addsOnInvalidationObserverToItem() throws {
-        let mockItem1 = StringItem(title: .static("Key"), value: .static("Value"))
-        let mockItem2 = StringItem(title: .static("Key1"), value: .static("Value2"))
-
-        self.sut.setItem(mockItem1)
-
-        XCTAssertEqual(mockItem2.onInvalidation.observers.count, 0)
-
-        self.sut.setItem(mockItem2)
-
-        XCTAssertEqual(mockItem2.onInvalidation.observers.count, 1)
-    }
-
-    func test_setItem_whenReplacingExisting_removesOnInvalidationObserverFromPreviousItem() throws {
-        let mockItem1 = StringItem(title: .static("Key"), value: .static("Value"))
-        let mockItem2 = StringItem(title: .static("Key1"), value: .static("Value2"))
-
-        self.sut.setItem(mockItem1)
-
-        XCTAssertEqual(mockItem1.onInvalidation.observers.count, 1)
-
-        self.sut.setItem(mockItem2)
-
-        XCTAssertEqual(mockItem1.onInvalidation.observers.count, 0)
-    }
 
     func test_setItem_addsItemToShareInteractionHandler() throws {
         let mockItem = StringItem(title: .static("Key"), value: .static("Value"))
@@ -157,13 +118,6 @@ class StringItemViewTests: XCTestCase {
         XCTAssert(true, "adding an unsupported item did not crash")
     }
 
-    func test_setItem_whenNotStringItem_doesNotAddObserverToItem() throws {
-        let mockItem = MockItem()
-        self.sut.setItem(mockItem)
-
-        XCTAssertEqual(mockItem.onInvalidation.observers.count, 0)
-    }
-
     func test_setItem_whenNotStringItem_doesNotAddItemAsShareable() throws {
         self.sut.setItem(MockItem())
 
@@ -171,15 +125,6 @@ class StringItemViewTests: XCTestCase {
     }
 
     // MARK: - prepareForReuse
-
-    func test_prepareForReuse_removesOnInvalidationObserverFromPreviousItem() throws {
-        let mockItem = StringItem(title: .static("Key"), value: .static("Value"))
-        self.sut.setItem(mockItem)
-
-        self.sut.prepareForReuse()
-
-        XCTAssertEqual(mockItem.onInvalidation.observers.count, 0)
-    }
 
     // MARK: - updateContainerHeight
 
@@ -287,15 +232,15 @@ class StringItemViewTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation is fired")
         invalidationExpectation.assertForOverFulfill = true
-        mockItem.onInvalidation
-            .observe {
+        let cancellable = mockItem.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         textEditorMock.onEndEditing("", textEditorMock)
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_whenEditItemFailed_presentsErrorAlert() throws {
@@ -341,15 +286,15 @@ class StringItemViewTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation is not fired")
         invalidationExpectation.isInverted = true
-        mockItem.onInvalidation
-            .observe {
+        let cancellable = mockItem.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         textEditorMock.onEndEditing("", textEditorMock)
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_whenCancelingEdit_dismissesTextEditor() throws {
@@ -386,14 +331,14 @@ class StringItemViewTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation is not fired")
         invalidationExpectation.isInverted = true
-        mockItem.onInvalidation
-            .observe {
+        let cancellable = mockItem.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         textEditorMock.onEndEditing("", textEditorMock)
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 }

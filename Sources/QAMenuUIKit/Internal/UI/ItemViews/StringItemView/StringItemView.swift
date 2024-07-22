@@ -59,16 +59,15 @@ internal final class StringItemView: NibView, ItemView, ShareInteractionSupporti
     @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var textStackView: UIStackView!
 
-    private let disposeBag = DisposeBag()
+    private var subscription: AnyCancellable?
 
     private weak var item: StringItem? {
         didSet {
-            self.disposeBag.dispose()
-            self.item?.onInvalidation
-                .observe { [weak self] in
+            self.subscription?.cancel()
+            self.subscription = self.item?.onInvalidationSubject
+                .sink(receiveValue: { [weak self] in
                     self?.reload()
-                }
-                .disposeWith(self.disposeBag)
+                })
             self.shareInteractionHandler?.shareable = self.item
             if let editableStringItem = item as? EditableStringItem {
                 editableStringItem.onShouldEdit = { [weak self] item in

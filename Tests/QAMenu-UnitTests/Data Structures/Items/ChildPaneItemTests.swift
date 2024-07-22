@@ -31,16 +31,6 @@ import QAMenu
 
 class ChildPaneItemTests: XCTestCase {
 
-    var disposeBag: DisposeBag!
-
-    override func setUpWithError() throws {
-        self.disposeBag = DisposeBag()
-    }
-
-    override func tearDownWithError() throws {
-        self.disposeBag = nil
-    }
-
     func test_typeId() throws {
         XCTAssertEqual(ChildPaneItem.typeId, "ChildPaneItem")
     }
@@ -58,15 +48,15 @@ class ChildPaneItemTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.invalidate()
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_invalidate_sendsOnInvalidationSubject() {
@@ -218,15 +208,15 @@ class ChildPaneItemTests: XCTestCase {
 
         let observeExpectation = expectation(description: "onNavigateBack is triggered")
         observeExpectation.assertForOverFulfill = true
-        sut.onNavigateBack
-            .observe({ _ in
+        let onNavigateBackSubscription = sut.onNavigateBackSubject
+            .sink(receiveValue: { _ in
                 observeExpectation.fulfill()
             })
-            .disposeWith(self.disposeBag)
 
         pickerGroup.navigateBack(completion: {})
 
         wait(for: [observeExpectation], timeout: 0.01)
+        onNavigateBackSubscription.cancel()
     }
 
     func test_onNavigateBackSubject_isSentWhenChildPaneIsTriggered() {
@@ -266,23 +256,23 @@ class ChildPaneItemTests: XCTestCase {
         if case .navigationWithPane(let paneClosure, let beforeNavigation) = sut.selectionOutcome {
             beforeNavigation(paneClosure())
         }
-        sut.onNavigateBack
-            .observe({ closure in
+        let onNavigateBackSubscription = sut.onNavigateBackSubject
+            .sink(receiveValue: { closure in
                 closure()
             })
-            .disposeWith(self.disposeBag)
 
         let invalidationExpectation = expectation(description: "ChildPaneItem is invalidated")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe({
+        let onInvalidationSubscription = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
             })
-            .disposeWith(self.disposeBag)
 
         pickerGroup.navigateBack { }
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        onNavigateBackSubscription.cancel()
+        onInvalidationSubscription.cancel()
     }
 
     // MARK: - Selectable
@@ -303,24 +293,6 @@ class ChildPaneItemTests: XCTestCase {
         } else {
             XCTFail("\(sut.selectionOutcome) doesn't equal a navigation to \(mockPane)")
         }
-    }
-
-    func test_selectionOutcome_whenChildPaneIsPane_addsNavigationTriggerObserver() throws {
-        let pickerGroup = PickerGroup(
-            title: .static("PickerGroup"),
-            options: .static([]),
-            onPickedOption: { _, _ in }
-        )
-        let mockPane = MockPane(groups: [pickerGroup])
-        let sut = ChildPaneItem(pane: { mockPane })
-
-        XCTAssertEqual(pickerGroup.onNavigateBack.observers.count, 0)
-
-        if case .navigationWithPane(let paneClosure, let beforeNavigation) = sut.selectionOutcome {
-            beforeNavigation(paneClosure())
-        }
-
-        XCTAssertEqual(pickerGroup.onNavigateBack.observers.count, 1)
     }
 
     func test_selectionOutcome_whenChildPaneIsPaneRepresentable_returnsNavigation() throws {

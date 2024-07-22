@@ -31,12 +31,6 @@ import XCTest
 
 class ItemTests: XCTestCase {
 
-    var disposeBag = DisposeBag()
-
-    override func setUpWithError() throws {
-        self.disposeBag = DisposeBag()
-    }
-
     func test_typeId() throws {
         XCTAssertEqual(Item.typeId, "Item")
     }
@@ -60,17 +54,17 @@ class ItemTests: XCTestCase {
     func test_invalidate_firesOnInvalidationEvent() {
         let sut = Item()
 
-        let invalidationExpectation = expectation(description: "onInvalidation fires")
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.invalidate()
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_invalidate_sendsOnInvalidationSubject() {

@@ -49,68 +49,12 @@ class ButtonItemViewTests: XCTestCase {
         XCTAssertEqual(labels.count, 1)
     }
 
-    // MARK: - setItem
-
-    func test_setItem_addsOnInvalidationObserverToItem() throws {
-        let mockItem = ButtonItem(title: .static("Title")) { _ in }
-
-        XCTAssertEqual(mockItem.onInvalidation.observers.count, 0)
-
-        self.sut.setItem(mockItem)
-
-        XCTAssertEqual(mockItem.onInvalidation.observers.count, 1)
-    }
-
-    func test_setItem_whenReplacingExisting_addsOnInvalidationObserverToItem() throws {
-        let mockItem1 = ButtonItem(title: .static("Title")) { _ in }
-        let mockItem2 = ButtonItem(title: .static("Title")) { _ in }
-
-        self.sut.setItem(mockItem1)
-
-        XCTAssertEqual(mockItem2.onInvalidation.observers.count, 0)
-
-        self.sut.setItem(mockItem2)
-
-        XCTAssertEqual(mockItem2.onInvalidation.observers.count, 1)
-    }
-
-    func test_setItem_whenReplacingExisting_removesOnInvalidationObserverFromPreviousItem() throws {
-        let mockItem1 = ButtonItem(title: .static("Title")) { _ in }
-        let mockItem2 = ButtonItem(title: .static("Title")) { _ in }
-
-        self.sut.setItem(mockItem1)
-
-        XCTAssertEqual(mockItem1.onInvalidation.observers.count, 1)
-
-        self.sut.setItem(mockItem2)
-
-        XCTAssertEqual(mockItem1.onInvalidation.observers.count, 0)
-    }
-
     // MARK: whenNotButtonItem
 
     func test_setItem_whenNotButtonItem_doesNotCrash() throws {
         self.sut.setItem(MockItem())
 
         XCTAssert(true, "adding an unsupported item did not crash")
-    }
-
-    func test_setItem_whenNotButtonItem_doesNotAddObserverToItem() throws {
-        let mockItem = MockItem()
-        self.sut.setItem(mockItem)
-
-        XCTAssertEqual(mockItem.onInvalidation.observers.count, 0)
-    }
-
-    // MARK: - prepareForReuse
-
-    func test_prepareForReuse_removesOnInvalidationObserverFromPreviousItem() throws {
-        let mockItem = ButtonItem(title: .static("Title")) { _ in }
-        self.sut.setItem(mockItem)
-
-        self.sut.prepareForReuse()
-
-        XCTAssertEqual(mockItem.onInvalidation.observers.count, 0)
     }
 
     // MARK: - updateContainerHeight

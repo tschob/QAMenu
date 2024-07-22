@@ -55,7 +55,7 @@ internal class PaneViewController: UIViewController {
     private var tableView: UITableView?
     private var searchController: UISearchController?
 
-    private var disposeBag = DisposeBag()
+    private var subscriptions: Set<AnyCancellable> = []
 
     private var data = [Group]() {
         didSet {
@@ -158,7 +158,7 @@ internal class PaneViewController: UIViewController {
     // MARK: - Loading
 
     private func loadPane() {
-        self.disposeBag.dispose()
+        self.subscriptions.removeAll()
         self.addObserver(for: self.pane)
 
         self.presenter.ui.items.values.forEach { (itemType: ItemUIRepresentable.Type) in
@@ -191,34 +191,34 @@ internal class PaneViewController: UIViewController {
     private func observeInvalidatable(
         _ invalidatable: Invalidatable?
     ) {
-        invalidatable?.onInvalidation
-            .observe { [weak self] _ in
+        invalidatable?.onInvalidationSubject
+            .sink(receiveValue: { [weak self] in
                 self?.reloadItems(for: self?.searchQuery)
-            }
-            .disposeWith(self.disposeBag)
+            })
+            .store(in: &self.subscriptions)
     }
 
     private func observeDialogTriggerable(
         _ dialogTriggerable: DialogTrigger?
     ) {
-        dialogTriggerable?.onPresentDialog
-            .observe { [weak self] dialogContent in
+        dialogTriggerable?.onPresentDialogSubject
+            .sink(receiveValue: { [weak self] dialogContent in
                 self?.showDialog(dialogContent)
-            }
-            .disposeWith(self.disposeBag)
+            })
+            .store(in: &self.subscriptions)
     }
 
     private func observeNavigationTrigger(
         _ navigationTrigger: NavigationTrigger?
     ) {
-        navigationTrigger?.onNavigateBack
-            .observe { [weak self] completion in
+        navigationTrigger?.onNavigateBackSubject
+            .sink(receiveValue: { [weak self] completion in
                 CATransaction.begin()
                 CATransaction.setCompletionBlock(completion)
                 self?.navigationController?.popViewController(animated: true)
                 CATransaction.commit()
-            }
-            .disposeWith(self.disposeBag)
+            })
+            .store(in: &self.subscriptions)
     }
 
     // MARK: - Dialog

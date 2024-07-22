@@ -55,16 +55,15 @@ internal final class PickableStringItemView: NibView, ItemView, ShareInteraction
     @IBOutlet private weak var checkboxView: CheckboxView!
     @IBOutlet private weak var stackView: UIStackView!
 
-    private let disposeBag = DisposeBag()
+    private var subscription: AnyCancellable?
 
     private weak var item: PickableStringItem? {
         didSet {
-            self.disposeBag.dispose()
-            self.item?.onInvalidation
-                .observe { [weak self] in
+            self.subscription?.cancel()
+            self.subscription = self.item?.onInvalidationSubject
+                .sink(receiveValue: { [weak self] in
                     self?.reload()
-                }
-                .disposeWith(self.disposeBag)
+                })
             self.shareInteractionHandler?.shareable = self.item
             self.updateViewContent()
         }

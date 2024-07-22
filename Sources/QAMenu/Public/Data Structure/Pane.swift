@@ -42,7 +42,6 @@ open class Pane: NSObject, Invalidatable {
     public let isReloadable: Bool
     public let isSearchable: Bool
 
-    open var onInvalidation = InvalidationEvent()
     public private(set) lazy var onInvalidationSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Initialization
@@ -89,7 +88,6 @@ open class Pane: NSObject, Invalidatable {
 
     open func invalidate() {
         self.groups.forEach { $0.invalidate() }
-        self.onInvalidation.fire()
         self.onInvalidationSubject.send()
     }
 }

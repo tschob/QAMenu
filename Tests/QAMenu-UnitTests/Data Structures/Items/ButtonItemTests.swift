@@ -31,16 +31,6 @@ import QAMenu
 
 class ButtonItemTests: XCTestCase {
 
-    var disposeBag: DisposeBag!
-
-    override func setUpWithError() throws {
-        self.disposeBag = DisposeBag()
-    }
-
-    override func tearDownWithError() throws {
-        self.disposeBag = nil
-    }
-
     func test_typeId() throws {
         XCTAssertEqual(ButtonItem.typeId, "ButtonItem")
     }
@@ -63,15 +53,15 @@ class ButtonItemTests: XCTestCase {
         )
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.invalidate()
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_invalidate_sendsOnInvalidationSubject() {
@@ -163,15 +153,15 @@ class ButtonItemTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.status = .progress("progress")
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_status_whenChangedToIdle_callsInvalidate() {
@@ -184,15 +174,15 @@ class ButtonItemTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.status = .progress("progress")
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_status_canBeChangedFromWithinAction() {

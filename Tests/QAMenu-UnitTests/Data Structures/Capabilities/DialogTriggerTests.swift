@@ -31,22 +31,20 @@ import XCTest
 
 class DialogTriggerTests: XCTestCase {
 
-    let disposeBag = DisposeBag()
-
     func test_presentDialog_firesOnPresentDialog() throws {
         let sut = MockItem()
         let dialogContent = DialogContent(title: "Dialog")
         let onPresentDialogExpectation = expectation(description: "onPresentDialog fires")
         onPresentDialogExpectation.assertForOverFulfill = true
-        sut.onPresentDialog
-            .observe { dialog in
+        let cancellable = sut.onPresentDialogSubject
+            .sink(receiveValue: { dialog in
                 XCTAssertEqual(dialog.title, "Dialog")
                 onPresentDialogExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.presentDialog(dialogContent)
 
         wait(for: [onPresentDialogExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 }

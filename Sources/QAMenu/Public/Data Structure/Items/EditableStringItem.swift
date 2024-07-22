@@ -44,7 +44,6 @@ open class EditableStringItem: StringItem {
     @available(*, deprecated, message: "`onShouldEdit` is no longer supported; Use `onEdit` or `onEditSubject` instead.")
     public var onShouldEdit: ((_ item: EditableStringItem) -> Void)?
 
-    public let onEdit = ObservableEvent<Void>()
     public private(set) lazy var onEditSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Initialization
@@ -82,7 +81,6 @@ extension EditableStringItem: Selectable {
                 return
             }
             self.onShouldEdit?(self)
-            self.onEdit.fire()
             self.onEditSubject.send()
         }
     }

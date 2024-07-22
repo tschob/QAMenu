@@ -31,16 +31,6 @@ import XCTest
 
 class ProgressItemTests: XCTestCase {
 
-    var disposeBag: DisposeBag!
-
-    override func setUpWithError() throws {
-        self.disposeBag = DisposeBag()
-    }
-
-    override func tearDownWithError() throws {
-        self.disposeBag = nil
-    }
-
     func test_typeId() throws {
         XCTAssertEqual(ProgressItem.typeId, "ProgressItem")
     }
@@ -60,15 +50,15 @@ class ProgressItemTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.invalidate()
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_invalidate_sendsOnInvalidationSubject() {
@@ -94,15 +84,15 @@ class ProgressItemTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.state = .progress("progress")
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     // MARK: - Searchable

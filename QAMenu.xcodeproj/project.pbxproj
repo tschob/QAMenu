@@ -60,9 +60,6 @@
 		A2172D2525C9DF43009DC774 /* Dictionary+QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CF925C9DF43009DC774 /* Dictionary+QAMenuTests.swift */; };
 		A2172D2825C9DF43009DC774 /* QAMenu+LogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172CFE25C9DF43009DC774 /* QAMenu+LogTests.swift */; };
 		A2172D2A25C9DF43009DC774 /* QAMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0025C9DF43009DC774 /* QAMenuTests.swift */; };
-		A2172D2B25C9DF43009DC774 /* ObservableEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */; };
-		A2172D2C25C9DF43009DC774 /* DisposableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0325C9DF43009DC774 /* DisposableTests.swift */; };
-		A2172D2D25C9DF43009DC774 /* DisposeBagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D0425C9DF43009DC774 /* DisposeBagTests.swift */; };
 		A2172D7B25C9E4F0009DC774 /* RootPaneTests+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D7A25C9E4F0009DC774 /* RootPaneTests+Conversions.swift */; };
 		A2172D9725C9EAD1009DC774 /* QAMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D9525C9EAD1009DC774 /* QAMenuConfiguration.swift */; };
 		A2172D9825C9EAD1009DC774 /* QAMenuConfigurationStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2172D9625C9EAD1009DC774 /* QAMenuConfigurationStorable.swift */; };
@@ -85,9 +82,6 @@
 		A249DE60258FA0E2002AEC41 /* DialogTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249DE5F258FA0E2002AEC41 /* DialogTrigger.swift */; };
 		A249DE66258FA7A9002AEC41 /* NavigationTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249DE65258FA7A9002AEC41 /* NavigationTrigger.swift */; };
 		A258A7C527EFC1690087D00C /* QAMenuSwiftUIPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258A7BB27EFC1690087D00C /* QAMenuSwiftUIPresenter.swift */; };
-		A25EE39325A8F4C300932C65 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE39025A8F4C300932C65 /* DisposeBag.swift */; };
-		A25EE39425A8F4C300932C65 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE39125A8F4C300932C65 /* Disposable.swift */; };
-		A25EE39525A8F4C300932C65 /* ObservableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EE39225A8F4C300932C65 /* ObservableEvent.swift */; };
 		A28873E62516822A003528E5 /* QAMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = A28873CE2516822A003528E5 /* QAMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A28873E72516822A003528E5 /* Pane.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28873D12516822A003528E5 /* Pane.swift */; };
 		A28873E82516822A003528E5 /* Invalidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28873D32516822A003528E5 /* Invalidatable.swift */; };
@@ -117,12 +111,10 @@
 		A28876D52516AB94003528E5 /* BooleanItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28876CF2516AB94003528E5 /* BooleanItemView.xib */; };
 		A28876D62516AB94003528E5 /* ButtonItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28876D02516AB94003528E5 /* ButtonItemView.xib */; };
 		A28876D72516AB94003528E5 /* UnsupportedItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A28876D12516AB94003528E5 /* UnsupportedItemView.xib */; };
-		A28976A925E1723600EB7326 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28976A825E1723600EB7326 /* Observable.swift */; };
 		A28976B025E1724100EB7326 /* Delayed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28976AF25E1724100EB7326 /* Delayed.swift */; };
 		A28976B825E1764C00EB7326 /* ProgressItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28976B725E1764C00EB7326 /* ProgressItemView.swift */; };
 		A28976C925E1783D00EB7326 /* ProgressItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28976C825E1783D00EB7326 /* ProgressItem.swift */; };
 		A289794825E194EC00EB7326 /* ProgressItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A289794725E194EC00EB7326 /* ProgressItemView.xib */; };
-		A289796025E1A9E900EB7326 /* ObservableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289795F25E1A9E900EB7326 /* ObservableTests.swift */; };
 		A289797625E29A4100EB7326 /* GroupItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289797525E29A4100EB7326 /* GroupItems.swift */; };
 		A289797D25E29A7D00EB7326 /* PickerGroupOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289797C25E29A7D00EB7326 /* PickerGroupOptions.swift */; };
 		A28979A725E2B35200EB7326 /* DelayedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28979A525E2B35200EB7326 /* DelayedTests.swift */; };
@@ -397,9 +389,6 @@
 		A2172CF925C9DF43009DC774 /* Dictionary+QAMenuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+QAMenuTests.swift"; sourceTree = "<group>"; };
 		A2172CFE25C9DF43009DC774 /* QAMenu+LogTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QAMenu+LogTests.swift"; sourceTree = "<group>"; };
 		A2172D0025C9DF43009DC774 /* QAMenuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuTests.swift; sourceTree = "<group>"; };
-		A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableEventTests.swift; sourceTree = "<group>"; };
-		A2172D0325C9DF43009DC774 /* DisposableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposableTests.swift; sourceTree = "<group>"; };
-		A2172D0425C9DF43009DC774 /* DisposeBagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposeBagTests.swift; sourceTree = "<group>"; };
 		A2172D0525C9DF43009DC774 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2172D7A25C9E4F0009DC774 /* RootPaneTests+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RootPaneTests+Conversions.swift"; sourceTree = "<group>"; };
 		A2172D9525C9EAD1009DC774 /* QAMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuConfiguration.swift; sourceTree = "<group>"; };
@@ -425,9 +414,6 @@
 		A249DE5F258FA0E2002AEC41 /* DialogTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogTrigger.swift; sourceTree = "<group>"; };
 		A249DE65258FA7A9002AEC41 /* NavigationTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTrigger.swift; sourceTree = "<group>"; };
 		A258A7BB27EFC1690087D00C /* QAMenuSwiftUIPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuSwiftUIPresenter.swift; sourceTree = "<group>"; };
-		A25EE39025A8F4C300932C65 /* DisposeBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
-		A25EE39125A8F4C300932C65 /* Disposable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
-		A25EE39225A8F4C300932C65 /* ObservableEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableEvent.swift; sourceTree = "<group>"; };
 		A28873C525168215003528E5 /* QAMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QAMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28873CE2516822A003528E5 /* QAMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAMenu.h; sourceTree = "<group>"; };
 		A28873D12516822A003528E5 /* Pane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pane.swift; sourceTree = "<group>"; };
@@ -453,12 +439,10 @@
 		A28876CF2516AB94003528E5 /* BooleanItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooleanItemView.xib; sourceTree = "<group>"; };
 		A28876D02516AB94003528E5 /* ButtonItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonItemView.xib; sourceTree = "<group>"; };
 		A28876D12516AB94003528E5 /* UnsupportedItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnsupportedItemView.xib; sourceTree = "<group>"; };
-		A28976A825E1723600EB7326 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		A28976AF25E1724100EB7326 /* Delayed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delayed.swift; sourceTree = "<group>"; };
 		A28976B725E1764C00EB7326 /* ProgressItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressItemView.swift; sourceTree = "<group>"; };
 		A28976C825E1783D00EB7326 /* ProgressItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressItem.swift; sourceTree = "<group>"; };
 		A289794725E194EC00EB7326 /* ProgressItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressItemView.xib; sourceTree = "<group>"; };
-		A289795F25E1A9E900EB7326 /* ObservableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTests.swift; sourceTree = "<group>"; };
 		A289797525E29A4100EB7326 /* GroupItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupItems.swift; sourceTree = "<group>"; };
 		A289797C25E29A7D00EB7326 /* PickerGroupOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerGroupOptions.swift; sourceTree = "<group>"; };
 		A28979A525E2B35200EB7326 /* DelayedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelayedTests.swift; sourceTree = "<group>"; };
@@ -670,7 +654,6 @@
 				A2172CFE25C9DF43009DC774 /* QAMenu+LogTests.swift */,
 				A2172DA525C9EB2D009DC774 /* QAMenuConfigurationTests.swift */,
 				A2172D0025C9DF43009DC774 /* QAMenuTests.swift */,
-				A2172D0125C9DF43009DC774 /* Observable */,
 				A2172D0525C9DF43009DC774 /* Info.plist */,
 			);
 			name = "QAMenu-UnitTests";
@@ -773,17 +756,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		A2172D0125C9DF43009DC774 /* Observable */ = {
-			isa = PBXGroup;
-			children = (
-				A2172D0325C9DF43009DC774 /* DisposableTests.swift */,
-				A2172D0425C9DF43009DC774 /* DisposeBagTests.swift */,
-				A2172D0225C9DF43009DC774 /* ObservableEventTests.swift */,
-				A289795F25E1A9E900EB7326 /* ObservableTests.swift */,
-			);
-			path = Observable;
-			sourceTree = "<group>";
-		};
 		A2217BEC2558081E0070FC68 /* QAMenuUtils-UnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -827,7 +799,6 @@
 		A238A06B253C71AB0016BBD7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A25EE38F25A8F4C300932C65 /* Observable */,
 				A28976AF25E1724100EB7326 /* Delayed.swift */,
 				A238A06C253C71AB0016BBD7 /* Dynamic.swift */,
 				A2EC5CF125F539C000F2BAE1 /* TextAttributes.swift */,
@@ -849,17 +820,6 @@
 				A258A7BB27EFC1690087D00C /* QAMenuSwiftUIPresenter.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		A25EE38F25A8F4C300932C65 /* Observable */ = {
-			isa = PBXGroup;
-			children = (
-				A25EE39025A8F4C300932C65 /* DisposeBag.swift */,
-				A25EE39125A8F4C300932C65 /* Disposable.swift */,
-				A28976A825E1723600EB7326 /* Observable.swift */,
-				A25EE39225A8F4C300932C65 /* ObservableEvent.swift */,
-			);
-			path = Observable;
 			sourceTree = "<group>";
 		};
 		A28873CD2516822A003528E5 /* QAMenu */ = {
@@ -1949,18 +1909,14 @@
 			files = (
 				A28873F12516822A003528E5 /* StringItem.swift in Sources */,
 				A2B968FD259E40B3004CC383 /* Group.swift in Sources */,
-				A25EE39325A8F4C300932C65 /* DisposeBag.swift in Sources */,
-				A25EE39525A8F4C300932C65 /* ObservableEvent.swift in Sources */,
 				A28873EF2516822A003528E5 /* ItemGroup.swift in Sources */,
 				A2B81077280B301F004C775F /* DialogContent.swift in Sources */,
 				A28873F32516822A003528E5 /* ButtonItem.swift in Sources */,
-				A25EE39425A8F4C300932C65 /* Disposable.swift in Sources */,
 				A28873EB2516822A003528E5 /* FooterSupport.swift in Sources */,
 				A28873EE2516822A003528E5 /* RootPane.swift in Sources */,
 				A28873F72516822A003528E5 /* QAMenuPresenter.swift in Sources */,
 				A28873EC2516822A003528E5 /* Shareable.swift in Sources */,
 				A28873F62516822A003528E5 /* QAMenu+Log.swift in Sources */,
-				A28976A925E1723600EB7326 /* Observable.swift in Sources */,
 				A2EA8C7C258661B2008F18DF /* ChildPaneItem.swift in Sources */,
 				A28873E82516822A003528E5 /* Invalidatable.swift in Sources */,
 				A249DE60258FA0E2002AEC41 /* DialogTrigger.swift in Sources */,
@@ -1997,7 +1953,6 @@
 				A2172D1325C9DF43009DC774 /* MockPaneRepresentable.swift in Sources */,
 				A2172D1A25C9DF43009DC774 /* ItemTests+Conversions.swift in Sources */,
 				A2172D0925C9DF43009DC774 /* Pane+Assert.swift in Sources */,
-				A2172D2C25C9DF43009DC774 /* DisposableTests.swift in Sources */,
 				A2172D2325C9DF43009DC774 /* StringItemTests.swift in Sources */,
 				A2172D2025C9DF43009DC774 /* ButtonItemTests.swift in Sources */,
 				A2172D1725C9DF43009DC774 /* ItemTests.swift in Sources */,
@@ -2006,7 +1961,6 @@
 				A2172D1125C9DF43009DC774 /* MockGroup.swift in Sources */,
 				A2172D1C25C9DF43009DC774 /* PaneTests.swift in Sources */,
 				A2172D2525C9DF43009DC774 /* Dictionary+QAMenuTests.swift in Sources */,
-				A2172D2D25C9DF43009DC774 /* DisposeBagTests.swift in Sources */,
 				A2172D0B25C9DF43009DC774 /* StringItem+Assert.swift in Sources */,
 				A2172D2825C9DF43009DC774 /* QAMenu+LogTests.swift in Sources */,
 				A200F18F25D8326900B309F4 /* EditableStringItem+Assert.swift in Sources */,
@@ -2023,9 +1977,7 @@
 				A2172D1225C9DF43009DC774 /* MockPickableItem.swift in Sources */,
 				A2E6592F25E4402C0013DEE0 /* PickerGroupOptionsTests.swift in Sources */,
 				A2172D0825C9DF43009DC774 /* ItemGroup+Assert.swift in Sources */,
-				A2172D2B25C9DF43009DC774 /* ObservableEventTests.swift in Sources */,
 				A2B8107B280B3540004C775F /* DialogTriggerTests.swift in Sources */,
-				A289796025E1A9E900EB7326 /* ObservableTests.swift in Sources */,
 				A2E6592825E4396E0013DEE0 /* GroupItemsTests.swift in Sources */,
 				A2172D2425C9DF43009DC774 /* PaneTests+Conversions.swift in Sources */,
 				A2172D1925C9DF43009DC774 /* ItemGroupTests.swift in Sources */,

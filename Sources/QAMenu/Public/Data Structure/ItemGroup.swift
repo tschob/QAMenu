@@ -45,15 +45,13 @@ open class ItemGroup: Group, Searchable {
         ]
     }
 
-    public let onInvalidation = InvalidationEvent()
     public private(set) lazy var  onInvalidationSubject = PassthroughSubject<Void, Never>()
 
-    public let onPresentDialog = ObservableEvent<DialogContent>()
     public private(set) lazy var  onPresentDialogSubject = PassthroughSubject<DialogContent, Never>()
 
     // MARK: - Properties (Private / Internal)
 
-    private var disposeBag = DisposeBag()
+    private var stateSubscription: AnyCancellable?
 
     // MARK: - Initialization
 
@@ -103,9 +101,11 @@ open class ItemGroup: Group, Searchable {
     }
 
     private func observeItemsState() {
-        self.items.state.observe({ [weak self] _ in
-            self?.reloadAfterDelayedStateChange()
-        })
-        .disposeWith(self.disposeBag)
+        self.stateSubscription = self.items.state
+            .sink { [weak self] receiveCompletion in
+                self?.reloadAfterDelayedStateChange()
+            } receiveValue: { [weak self] receiveValue in
+                self?.reloadAfterDelayedStateChange()
+            }
     }
 }
