@@ -52,16 +52,15 @@ internal final class BooleanItemView: NibView, ItemView {
     @IBOutlet private weak var `switch`: UISwitch!
     @IBOutlet private weak var stackView: UIStackView!
 
-    private let disposeBag = DisposeBag()
+    private var subscription: AnyCancellable?
 
     private weak var item: BoolItem? {
         didSet {
-            self.disposeBag.dispose()
-            self.item?.onInvalidation
-                .observe { [weak self] in
+            self.subscription?.cancel()
+            self.subscription = self.item?.onInvalidationSubject
+                .sink(receiveValue: { [weak self] in
                     self?.reload()
-                }
-                .disposeWith(self.disposeBag)
+                })
             self.updateViewContent()
         }
     }

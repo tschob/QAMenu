@@ -40,7 +40,7 @@ public class Delayed<Value, Progress, OnFailureOption> {
 
     // MARK: - Properties (Public)
 
-    public private(set) var state = Observable<State>(.initialized)
+    public private(set) var state = CurrentValueSubject<State, Error>(.initialized)
 
     // MARK: - Properties (Private / Internal)
 
@@ -84,14 +84,14 @@ public class Delayed<Value, Progress, OnFailureOption> {
     }
 
     public func updateProgress(_ progress: Progress) {
-        self.state.update(with: .loading(progress: progress))
+        self.state.value = .loading(progress: progress)
     }
 
     public func complete(_ value: Value) {
-        self.state.update(with: .loaded(value: value))
+        self.state.value = .loaded(value: value)
     }
 
     public func fail(_ progress: Progress, onFailureOption: OnFailureOption) {
-        self.state.update(with: .failed(progress: progress, onFailureOption: onFailureOption))
+        self.state.value = .failed(progress: progress, onFailureOption: onFailureOption)
     }
 }

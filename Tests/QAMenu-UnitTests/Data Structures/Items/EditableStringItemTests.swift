@@ -31,16 +31,6 @@ import QAMenu
 
 class EditableStringItemTests: XCTestCase {
 
-    var disposeBag: DisposeBag!
-
-    override func setUpWithError() throws {
-        self.disposeBag = DisposeBag()
-    }
-
-    override func tearDownWithError() throws {
-        self.disposeBag = nil
-    }
-
     func test_typeId() throws {
         XCTAssertEqual(EditableStringItem.typeId, "EditableStringItem")
     }
@@ -66,15 +56,15 @@ class EditableStringItemTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.invalidate()
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_invalidate_sendsOnInvalidationSubject() {
@@ -234,17 +224,17 @@ class EditableStringItemTests: XCTestCase {
 
         let onEditExpectation = expectation(description: "onEdit is fired")
         onEditExpectation.assertForOverFulfill = true
-        sut.onEdit
-            .observe { _ in
-            onEditExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+        let onEditSubscription = sut.onEditSubject
+            .sink(receiveValue: { _ in
+                onEditExpectation.fulfill()
+            })
 
         if case .custom(let closure) = sut.selectionOutcome {
             closure()
         }
 
         wait(for: [onEditExpectation], timeout: 0.01)
+        onEditSubscription.cancel()
     }
 
     func test_whenSelected_andIsEditable_sendsOnEditSubject() throws {
@@ -303,17 +293,17 @@ class EditableStringItemTests: XCTestCase {
 
         let onEditExpectation = expectation(description: "onEdit is not fired")
         onEditExpectation.isInverted = true
-        sut.onEdit
-            .observe { _ in
-            onEditExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+        let onEditSubscription = sut.onEditSubject
+            .sink(receiveValue: { _ in
+                onEditExpectation.fulfill()
+            })
 
         if case .custom(let closure) = sut.selectionOutcome {
             closure()
         }
 
         wait(for: [onEditExpectation], timeout: 0.01)
+        onEditSubscription.cancel()
     }
 
     func test_whenSelected_andIsNotEditable_doesNotSendOnEditSubject() throws {

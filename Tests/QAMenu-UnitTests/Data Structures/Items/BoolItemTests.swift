@@ -31,16 +31,6 @@ import QAMenu
 
 class BoolItemTests: XCTestCase {
 
-    var disposeBag: DisposeBag!
-
-    override func setUpWithError() throws {
-        self.disposeBag = DisposeBag()
-    }
-
-    override func tearDownWithError() throws {
-        self.disposeBag = nil
-    }
-
     func test_typeId() throws {
         XCTAssertEqual(BoolItem.typeId, "BoolItem")
     }
@@ -65,15 +55,15 @@ class BoolItemTests: XCTestCase {
         )
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.invalidate()
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_invalidate_sendsOnInvalidationSubject() {

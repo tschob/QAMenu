@@ -31,12 +31,6 @@ import QAMenu
 
 class PickerGroupTests: XCTestCase {
 
-    private var disposeBag = DisposeBag()
-
-    override func setUpWithError() throws {
-        self.disposeBag = DisposeBag()
-    }
-
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
@@ -142,17 +136,19 @@ class PickerGroupTests: XCTestCase {
             onPickedOption: { _, _ in }
         )
 
-        let invalidationExpectation = expectation(description: "onInvalidation was called")
-        invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
+        invalidationExpectation.expectedFulfillmentCount = 2
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
+
+        sut.invalidate()
 
         sut.update(options: .static([]))
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_update_whenGivenStaticOptions_replacesEmptyInstanceItems() throws {
@@ -183,17 +179,17 @@ class PickerGroupTests: XCTestCase {
             onPickedOption: { _, _ in }
         )
 
-        let invalidationExpectation = expectation(description: "onInvalidation was called")
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.update(options: .static([MockPickableItem()]))
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_update_whenGivenStaticOptions_referencesTheGroupAsParent() throws {
@@ -248,14 +244,12 @@ class PickerGroupTests: XCTestCase {
         )
         sut.loadContent()
 
-        let invalidationExpectation = expectation(description: "onInvalidation was called as expected")
-        // 2 invalidations are expected: Replacing the group, loading success
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
         invalidationExpectation.expectedFulfillmentCount = 2
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.update(options: .async({ instance in
             instance.complete([
@@ -268,6 +262,7 @@ class PickerGroupTests: XCTestCase {
         sut.loadContent()
 
         wait(for: [invalidationExpectation], timeout: 0.1)
+        cancellable.cancel()
     }
 
     func test_update_whenGivenAsyncOptions_replacesEmptyInstanceItems() throws {
@@ -320,19 +315,19 @@ class PickerGroupTests: XCTestCase {
         )
         sut.loadContent()
 
-        let invalidationExpectation = expectation(description: "onInvalidation was called")
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.update(options: .async({ instance in
             instance.complete([MockPickableItem()])
         }))
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_update_whenGivenAsyncOptions_andContentIsLoaded_referencesTheGroupAsParent() throws {
@@ -525,17 +520,17 @@ class PickerGroupTests: XCTestCase {
             onPickedOption: { _, _ in }
         )
 
-        let invalidationExpectation = expectation(description: "onInvalidation fires")
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.invalidate()
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     // MARK: - onPick
@@ -550,17 +545,17 @@ class PickerGroupTests: XCTestCase {
             }
         )
 
-        let invalidationExpectation = expectation(description: "onInvalidation fires")
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         mockItem.onPick?(mockItem)
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_whenOnPickResultIsSuccessWithShouldDismiss_triggersOnNavigationBack() throws {
@@ -574,16 +569,16 @@ class PickerGroupTests: XCTestCase {
         )
         let navigationExpectation = expectation(description: "onNavigateBack fires")
         navigationExpectation.assertForOverFulfill = true
-        sut.onNavigateBack
-            .observe { completion in
+        let onNavigateBackSubscription = sut.onNavigateBackSubject
+            .sink(receiveValue: { completion in
                 navigationExpectation.fulfill()
                 completion()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         mockItem.onPick?(mockItem)
 
         wait(for: [navigationExpectation], timeout: 0.01)
+        onNavigateBackSubscription.cancel()
     }
 
     func test_whenOnPickResultIsSuccessWithShouldDismiss_triggersOnNavigationBackSubject() throws {
@@ -618,23 +613,23 @@ class PickerGroupTests: XCTestCase {
                 result(.success(shouldDismiss: true))
             }
         )
-        sut.onNavigateBack
-            .observe { completion in
+        let onNavigateBackSubscription = sut.onNavigateBackSubject
+            .sink(receiveValue: { completion in
                 completion()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
-        let invalidationExpectation = expectation(description: "onInvalidation fires")
+        let invalidationExpectation = expectation(description: "onInvalidationSubject sent")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let invalidationSubscription = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         mockItem.onPick?(mockItem)
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        onNavigateBackSubscription.cancel()
+        invalidationSubscription.cancel()
     }
 
     func test_whenOnPickResultIsSuccessWithShouldDismiss_andNoObserverAdded_doesNotCrash() throws {
@@ -670,16 +665,16 @@ class PickerGroupTests: XCTestCase {
         let navigationExpectation = expectation(description: "onNavigateBack fires")
         navigationExpectation.assertForOverFulfill = true
         navigationExpectation.isInverted = true
-        sut.onNavigateBack
-            .observe { completion in
+        let onNavigateBackSubscription = sut.onNavigateBackSubject
+            .sink(receiveValue: { completion in
                 navigationExpectation.fulfill()
                 completion()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         mockItem.onPick?(mockItem)
 
         wait(for: [navigationExpectation], timeout: 0.01)
+        onNavigateBackSubscription.cancel()
     }
 
     func test_handlePickResult_whenResultIsFailure_triggersOnPresentDialog() throws {
@@ -693,17 +688,17 @@ class PickerGroupTests: XCTestCase {
         )
         let presentDialogExpectation = expectation(description: "onPresentDialog fires")
         presentDialogExpectation.assertForOverFulfill = true
-        sut.onPresentDialog
-            .observe { dialogContent in
+        let onPresentDialogSubscription = sut.onPresentDialogSubject
+            .sink(receiveValue: { dialogContent in
                 if dialogContent.message == "Failure" {
                     presentDialogExpectation.fulfill()
                 }
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         mockItem.onPick?(mockItem)
 
         wait(for: [presentDialogExpectation], timeout: 0.01)
+        onPresentDialogSubscription.cancel()
     }
 
     func test_whenOnPickResultIsFailure_andNoObserverAdded_doesNotCrash() throws {

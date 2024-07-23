@@ -45,15 +45,13 @@ open class ItemGroup: Group, Searchable {
         ]
     }
 
-    public let onInvalidation = InvalidationEvent()
     public private(set) lazy var  onInvalidationSubject = PassthroughSubject<Void, Never>()
 
-    public let onPresentDialog = ObservableEvent<DialogContent>()
     public private(set) lazy var  onPresentDialogSubject = PassthroughSubject<DialogContent, Never>()
 
     // MARK: - Properties (Private / Internal)
 
-    private var disposeBag = DisposeBag()
+    private var stateSubscription: AnyCancellable?
 
     // MARK: - Initialization
 
@@ -65,9 +63,7 @@ open class ItemGroup: Group, Searchable {
         self.title = title
         self.items = items
         self.footerText = footerText
-
-        self.observeItemsState()
-        self.bindItems()
+        self.onItemsChanged()
     }
 
     // MARK: - Methods (Public)
@@ -77,7 +73,7 @@ open class ItemGroup: Group, Searchable {
         loadDelayedContent: Bool = false
     ) {
         self.items = items
-        self.observeItemsState()
+        self.onItemsChanged()
         if loadDelayedContent {
             self.loadContent()
         }
@@ -91,9 +87,15 @@ open class ItemGroup: Group, Searchable {
         items.load()
     }
 
+    open func invalidate() {
+        self.items.unboxed.forEach { $0.invalidate() }
+        self.onInvalidationSubject.send()
+    }
+
     // MARK: - Methods (Private)
 
-    private func reloadAfterDelayedStateChange() {
+    private func onItemsChanged() {
+        self.observeItemsState()
         self.bindItems()
         self.invalidate()
     }
@@ -103,9 +105,12 @@ open class ItemGroup: Group, Searchable {
     }
 
     private func observeItemsState() {
-        self.items.state.observe({ [weak self] _ in
-            self?.reloadAfterDelayedStateChange()
-        })
-        .disposeWith(self.disposeBag)
+        self.stateSubscription = self.items.state
+            .dropFirst()
+            .sink { [weak self] _ in
+                self?.onItemsChanged()
+            } receiveValue: { [weak self] _ in
+                self?.onItemsChanged()
+            }
     }
 }

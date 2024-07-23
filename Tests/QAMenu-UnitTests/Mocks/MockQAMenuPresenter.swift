@@ -27,17 +27,18 @@
 //
 
 import XCTest
+import Combine
 import QAMenu
 
 class MockQAMenuPresenter: QAMenuPresenter {
 
     var _toggleVisibilityToState = QAMenuState.open
-    let _toggleVisibility = ObservableEvent<QAMenuState>()
+    let _toggleVisibility = PassthroughSubject<QAMenuState, Never>()
 
-    let _navigateToRootPane = ObservableEvent<Void>()
+    let _navigateToRootPane = PassthroughSubject<Void, Never>()
 
-    let _show = ObservableEvent<Void>()
-    let _hide = ObservableEvent<Void>()
+    let _show = PassthroughSubject<Void, Never>()
+    let _hide = PassthroughSubject<Void, Never>()
 
     var dismissBehavior: QAMenu.DismissBehavior
 
@@ -47,21 +48,21 @@ class MockQAMenuPresenter: QAMenuPresenter {
 
     func toggleVisibility(completion: @escaping (QAMenuState) -> Void) {
         completion(self._toggleVisibilityToState)
-        _toggleVisibility.fire(with: self._toggleVisibilityToState)
+        _toggleVisibility.send(self._toggleVisibilityToState)
     }
 
     func show(completion: @escaping () -> Void) {
         completion()
-        _show.fire()
+        _show.send()
     }
 
     func hide(completion: @escaping () -> Void) {
         completion()
-        _hide.fire()
+        _hide.send()
     }
 
     func navigateToRootPane() {
-        _navigateToRootPane.fire()
+        _navigateToRootPane.send()
     }
 
     func resetRootViewController() {}

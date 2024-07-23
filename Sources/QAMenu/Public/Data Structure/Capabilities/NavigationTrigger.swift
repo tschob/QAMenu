@@ -31,7 +31,6 @@ import Combine
 
 public protocol NavigationTrigger {
 
-    var onNavigateBack: ObservableEvent<() -> Void> { get }
     var onNavigateBackSubject: PassthroughSubject<() -> Void, Never> { get }
 
     func navigateBack(completion: @escaping () -> Void)
@@ -40,7 +39,6 @@ public protocol NavigationTrigger {
 extension NavigationTrigger {
 
     public func navigateBack(completion: @escaping () -> Void) {
-        self.onNavigateBack.fire(with: completion)
         self.onNavigateBackSubject.send(completion)
     }
 }

@@ -226,8 +226,10 @@ class DelayedTests: XCTestCase {
         let observableExpectation = self.expectation(description: "")
         observableExpectation.expectedFulfillmentCount = 2
         var lastestState: Delayed<String, String, String>.State?
-        _ = sut.state.observe(skipInitialValue: true) { newState in
-            lastestState = newState
+        let cancellable = sut.state.dropFirst().sink { _ in
+            // Nothing to do here
+        } receiveValue: { value in
+            lastestState = value
             observableExpectation.fulfill()
         }
 
@@ -238,6 +240,7 @@ class DelayedTests: XCTestCase {
         sut._assert(
             state: lastestState!
         )
+        cancellable.cancel()
     }
 
     // MARK: - complete
@@ -250,8 +253,10 @@ class DelayedTests: XCTestCase {
         let observableExpectation = self.expectation(description: "")
         observableExpectation.expectedFulfillmentCount = 1
         var lastestState: Delayed<String, String, String>.State?
-        _ = sut.state.observe(skipInitialValue: true) { newState in
-            lastestState = newState
+        let cancellable = sut.state.dropFirst().sink { _ in
+            // Nothing to do here
+        } receiveValue: { value in
+            lastestState = value
             observableExpectation.fulfill()
         }
 
@@ -262,6 +267,7 @@ class DelayedTests: XCTestCase {
         sut._assert(
             state: lastestState!
         )
+        cancellable.cancel()
     }
 
     // MARK: - fail
@@ -274,8 +280,10 @@ class DelayedTests: XCTestCase {
         let observableExpectation = self.expectation(description: "")
         observableExpectation.expectedFulfillmentCount = 1
         var lastestState: Delayed<String, String, String>.State?
-        _ = sut.state.observe(skipInitialValue: true) { newState in
-            lastestState = newState
+        let cancellable = sut.state.dropFirst().sink { _ in
+            // Nothing to do here
+        } receiveValue: { value in
+            lastestState = value
             observableExpectation.fulfill()
         }
 
@@ -286,5 +294,6 @@ class DelayedTests: XCTestCase {
         sut._assert(
             state: lastestState!
         )
+        cancellable.cancel()
     }
 }

@@ -31,9 +31,6 @@ import Combine
 
 public protocol Invalidatable {
 
-    typealias InvalidationEvent = ObservableEvent<Void>
-
-    var onInvalidation: InvalidationEvent { get }
     var onInvalidationSubject: PassthroughSubject<Void, Never> { get }
 
     func invalidate()
@@ -42,7 +39,6 @@ public protocol Invalidatable {
 public extension Invalidatable {
 
     func invalidate() {
-        self.onInvalidation.fire()
         self.onInvalidationSubject.send()
     }
 }

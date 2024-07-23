@@ -31,12 +31,6 @@ import QAMenu
 
 class ItemGroupTests: XCTestCase {
 
-    private var disposeBag = DisposeBag()
-
-    override func setUpWithError() throws {
-        self.disposeBag = DisposeBag()
-    }
-
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
@@ -78,7 +72,7 @@ class ItemGroupTests: XCTestCase {
             MockItem()
         ]))
 
-        let groupReferencedExpectation = expectation(description: "")
+        let groupReferencedExpectation = expectation(description: "Group is referenced as parent")
         groupReferencedExpectation.expectedFulfillmentCount = 2
         sut.items.unboxed.forEach { item in
             if item.parentGroup === sut {
@@ -156,15 +150,15 @@ class ItemGroupTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation fires")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.invalidate()
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_invalidate_sendsOnInvalidationSubject() {
@@ -203,15 +197,15 @@ class ItemGroupTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation was called")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.update(items: .static([]))
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_update_whenGivenStaticItems_replacesEmptyInstanceItems() throws {
@@ -245,17 +239,17 @@ class ItemGroupTests: XCTestCase {
 
         let invalidationExpectation = expectation(description: "onInvalidation was called")
         invalidationExpectation.assertForOverFulfill = true
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.update(items: .static([
             MockItem()
         ]))
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_update_whenGivenStaticItems_referencesTheGroupAsParent() throws {
@@ -307,14 +301,13 @@ class ItemGroupTests: XCTestCase {
         )
         sut.loadContent()
 
-        let invalidationExpectation = expectation(description: "onInvalidation was called")
+        let invalidationExpectation = expectation(description: "onInvalidationSubject was sent")
         // 2 invalidations are expected: Replacing the group, loading success
         invalidationExpectation.expectedFulfillmentCount = 2
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.update(
             items: .async({ instance in
@@ -328,6 +321,7 @@ class ItemGroupTests: XCTestCase {
         )
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_update_whenGivenAsyncItems_replacesEmptyInstanceItems() throws {
@@ -387,11 +381,10 @@ class ItemGroupTests: XCTestCase {
         let invalidationExpectation = expectation(description: "onInvalidation was called")
         // 2 invalidations are expected: Replacing the group, loading success
         invalidationExpectation.expectedFulfillmentCount = 2
-        sut.onInvalidation
-            .observe {
+        let cancellable = sut.onInvalidationSubject
+            .sink(receiveValue: {
                 invalidationExpectation.fulfill()
-            }
-            .disposeWith(self.disposeBag)
+            })
 
         sut.update(
             items: .async({ instance in
@@ -403,6 +396,7 @@ class ItemGroupTests: XCTestCase {
         )
 
         wait(for: [invalidationExpectation], timeout: 0.01)
+        cancellable.cancel()
     }
 
     func test_update_whenGivenAsyncItems_referencesTheGroupAsParent() throws {

@@ -51,7 +51,6 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
     open private(set) var footerText: Dynamic<String?>?
     open private(set) var onPickedOption: ((_ item: PickableItem, _ result: @escaping (PickResult) -> Void) -> Void?)?
 
-    open var onNavigateBack = ObservableEvent<(() -> Void)>()
     public private(set) lazy var onNavigateBackSubject = PassthroughSubject<() -> Void, Never>()
 
     open var searchableContent: [String?] {
@@ -61,15 +60,13 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
         ]
     }
 
-    public let onInvalidation = InvalidationEvent()
     public private(set) lazy var onInvalidationSubject = PassthroughSubject<Void, Never>()
 
-    public let onPresentDialog = ObservableEvent<DialogContent>()
     public private(set) lazy var  onPresentDialogSubject = PassthroughSubject<DialogContent, Never>()
 
     // MARK: - Properties (Private / Internal)
 
-    private var disposeBag = DisposeBag()
+    private var stateSubscription: AnyCancellable?
 
     // MARK: - Initialization
 
@@ -84,8 +81,7 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
         self.footerText = footerText
         self.onPickedOption = onPickedOption
 
-        self.observeOptionsState()
-        self.bindOptions()
+        self.onOptionsChanged()
     }
 
     // MARK: - Methods (Public)
@@ -95,7 +91,7 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
         loadDelayedContent: Bool = false
     ) {
         self.options = options
-        self.observeOptionsState()
+        self.onOptionsChanged()
         if loadDelayedContent {
             self.loadContent()
         }
@@ -109,9 +105,15 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
         options.load()
     }
 
+    open func invalidate() {
+        self.options.unboxedItems.forEach { $0.invalidate() }
+        self.onInvalidationSubject.send()
+    }
+
     // MARK: - Methods (Private)
 
-    private func reloadAfterDelayedStateChange() {
+    private func onOptionsChanged() {
+        self.observeOptionsState()
         self.bindOptions()
         self.invalidate()
     }
@@ -126,10 +128,13 @@ open class PickerGroup: Group, DialogTrigger, NavigationTrigger {
     }
 
     private func observeOptionsState() {
-        self.options.state.observe({ [weak self] _ in
-            self?.reloadAfterDelayedStateChange()
-        })
-        .disposeWith(self.disposeBag)
+        self.stateSubscription = self.options.state
+            .dropFirst()
+            .sink { [weak self] _ in
+                self?.onOptionsChanged()
+            } receiveValue: { [weak self] _ in
+                self?.onOptionsChanged()
+            }
     }
 
     private func addObserver(for options: [PickableItem]) {

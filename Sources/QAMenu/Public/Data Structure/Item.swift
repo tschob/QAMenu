@@ -37,10 +37,8 @@ open class Item: Invalidatable, DialogTrigger, Searchable {
         return []
     }
 
-    public let onInvalidation = InvalidationEvent()
     public private(set) lazy var onInvalidationSubject = PassthroughSubject<Void, Never>()
 
-    public let onPresentDialog = ObservableEvent<DialogContent>()
     public private(set) lazy var onPresentDialogSubject = PassthroughSubject<DialogContent, Never>()
 
     open weak var parentGroup: Group?
