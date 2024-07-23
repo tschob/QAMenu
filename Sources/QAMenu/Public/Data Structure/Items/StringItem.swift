@@ -40,6 +40,15 @@ open class StringItem: Item, FooterSupport, Shareable {
             case singleLine
             case autoGrow
         }
+
+        public var lineCount: LineCount {
+            switch self {
+            case .horizontal(let lineCount):
+                return lineCount
+            case .vertical(let lineCount):
+                return lineCount
+            }
+        }
     }
 
     public let title: Dynamic<String?>?

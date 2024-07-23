@@ -86,14 +86,14 @@ open class PickableStringItem: PickableItem, FooterSupport {
 
 extension PickableStringItem: Shareable {
 
-    open var isSharingEnabled: Bool {
+    public var isSharingEnabled: Bool {
         guard let shareContent = self.shareContent, !shareContent.isEmpty else {
             return false
         }
         return true
     }
 
-    open var shareContent: String? {
+    public var shareContent: String? {
         return self.value?() ?? self.title()
     }
 }

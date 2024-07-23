@@ -17,6 +17,7 @@
 * [QAMenu] Add `presentDialog` function to trigger dialogs without accessing the observable itself (PR #26)
 * [QAMenuUIKit] Add `asUIAlertController` extension for `DialogContent` (PR #26)
 * [QAMenu] Add `PassthroughSubject` alternative for all `ObservableEvent` properties (PR #27)
+* [QAMenuSwiftUI] Initial QAMenuSwiftUI WIP (PR ??)
 
 #### Bug Fixes
 

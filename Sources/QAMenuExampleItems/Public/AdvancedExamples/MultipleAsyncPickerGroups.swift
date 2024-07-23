@@ -131,6 +131,7 @@ public struct MultipleAsyncPickerGroups {
                     pickResult(.failure("Couldn't reach staging URL"))
                 } else {
                     BackendManager.current = backendURL
+                    pane?.invalidate()
                     pickResult(.success(shouldDismiss: false))
                 }
             }

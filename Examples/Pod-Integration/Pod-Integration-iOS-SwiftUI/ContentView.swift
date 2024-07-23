@@ -15,12 +15,34 @@ import QAMenu
 
 struct ContentView: View {
 
+    @State var showQAMenu = false
+
     var body: some View {
-        VStack {
-            Text("🚧 SwiftUI Support is under development ...")
+        Button("Show QA Menu") {
+            showQAMenu.toggle()
+            Logger.logLevel = .verbose
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+        .fullScreenCover(isPresented: $showQAMenu) {
+            NavigationView {
+                if let pane = self.qaMenu.pane {
+                    PaneView(pane: pane)
+                }
+            }
+        }
     }
+
+    private var qaMenu: QAMenu = {
+        let catalogQAMenu = QAMenu(
+            identifier: "Catalog QAMenu",
+            presenterType: QAMenuSwiftUIPresenter.self
+        )
+        catalogQAMenu.setTrigger([], mode: .initialValue)
+        catalogQAMenu.setDismissBehavior(.resetImmediately, mode: .initialValue)
+        catalogQAMenu.setRootPane(
+            ShowcaseItemsFactory.makeRootPane()
+        )
+        return catalogQAMenu
+    }()
 }
 
 #if DEBUG

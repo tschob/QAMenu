@@ -27,18 +27,17 @@
 //
 
 import Foundation
-import QAMenu
 
-internal struct Searcher {
+public struct Searcher {
 
-    internal static func validatedQuery(from string: String?) -> String? {
+    public static func validatedQuery(from string: String?) -> String? {
         guard let string = string, !string.isEmpty else {
             return nil
         }
         return string
     }
 
-    internal static func filter(_ groups: [Group], with query: String?) -> [Group] {
+    public static func filter(_ groups: [Group], with query: String?) -> [Group] {
         if let items = self.items(for: query, in: groups) {
             // Create a search result group if items are matching
             return [ItemGroup(items: .static(items))]

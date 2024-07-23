@@ -71,11 +71,11 @@ open class EditableStringItem: StringItem {
 
 extension EditableStringItem: Selectable {
 
-    open var isSelectable: Bool {
+    public var isSelectable: Bool {
         return self.isEditable.unboxed
     }
 
-    open var selectionOutcome: SelectionOutcome {
+    public var selectionOutcome: SelectionOutcome {
         return .custom { [weak self] in
             guard let self = self, self.isEditable.unboxed else {
                 return

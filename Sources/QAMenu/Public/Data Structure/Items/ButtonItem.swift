@@ -28,7 +28,7 @@
 
 import Foundation
 
-open class ButtonItem: Item {
+open class ButtonItem: Item, FooterSupport {
 
     // MARK: - Properties (Public)
 
@@ -71,14 +71,14 @@ open class ButtonItem: Item {
 
 extension ButtonItem: Selectable {
 
-    open var isSelectable: Bool {
+    public var isSelectable: Bool {
         guard case ActionStatus.idle = self.status else {
             return false
         }
         return true
     }
 
-    open var selectionOutcome: SelectionOutcome {
+    public var selectionOutcome: SelectionOutcome {
         return .custom({ [weak self] in
             guard let self = self else {
                 return

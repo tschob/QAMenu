@@ -140,7 +140,6 @@
 		A2969E5125167D7A00EA54D5 /* UnsupportedPaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E2E25167D7900EA54D5 /* UnsupportedPaneViewController.swift */; };
 		A2969E5225167D7A00EA54D5 /* UIWindow+ShakeGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E2F25167D7900EA54D5 /* UIWindow+ShakeGesture.swift */; };
 		A2969E5325167D7A00EA54D5 /* Bundle+QAMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E3025167D7900EA54D5 /* Bundle+QAMenu.swift */; };
-		A2969E5425167D7A00EA54D5 /* Searcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E3125167D7900EA54D5 /* Searcher.swift */; };
 		A2969E5525167D7A00EA54D5 /* QAMenuUIKitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E3425167D7900EA54D5 /* QAMenuUIKitPresenter.swift */; };
 		A2969E5625167D7A00EA54D5 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E3525167D7900EA54D5 /* NibView.swift */; };
 		A2969E5725167D7A00EA54D5 /* PaneRepresentable+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E3625167D7900EA54D5 /* PaneRepresentable+UIViewController.swift */; };
@@ -156,6 +155,25 @@
 		A2969E6D25167D8600EA54D5 /* Catalog.Device+Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E6525167D8600EA54D5 /* Catalog.Device+Locale.swift */; };
 		A2969E6E25167D8600EA54D5 /* QAMenu+Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2969E6625167D8600EA54D5 /* QAMenu+Catalog.swift */; };
 		A2969EAE25167EBA00EA54D5 /* QAMenuUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A2969EA225167EBA00EA54D5 /* QAMenuUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2A000B92C4FFE0000E76F93 /* DialogTrigger+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000B82C4FFE0000E76F93 /* DialogTrigger+SwiftUI.swift */; };
+		A2A000CA2C4FFE0C00E76F93 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000BA2C4FFE0C00E76F93 /* ViewDidLoadModifier.swift */; };
+		A2A000CB2C4FFE0C00E76F93 /* BoolItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000BC2C4FFE0C00E76F93 /* BoolItemView.swift */; };
+		A2A000CC2C4FFE0C00E76F93 /* ButtonItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000BD2C4FFE0C00E76F93 /* ButtonItemView.swift */; };
+		A2A000CD2C4FFE0C00E76F93 /* EditableStringItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000BE2C4FFE0C00E76F93 /* EditableStringItemView.swift */; };
+		A2A000CE2C4FFE0C00E76F93 /* PickableStringItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000BF2C4FFE0C00E76F93 /* PickableStringItemView.swift */; };
+		A2A000CF2C4FFE0C00E76F93 /* ProgressItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000C02C4FFE0C00E76F93 /* ProgressItemView.swift */; };
+		A2A000D02C4FFE0C00E76F93 /* StringItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000C12C4FFE0C00E76F93 /* StringItemView.swift */; };
+		A2A000D12C4FFE0C00E76F93 /* AdaptiveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000C32C4FFE0C00E76F93 /* AdaptiveStack.swift */; };
+		A2A000D22C4FFE0C00E76F93 /* ItemContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000C42C4FFE0C00E76F93 /* ItemContainerView.swift */; };
+		A2A000D32C4FFE0C00E76F93 /* PaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000C52C4FFE0C00E76F93 /* PaneView.swift */; };
+		A2A000D52C4FFE0C00E76F93 /* ShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000C72C4FFE0C00E76F93 /* ShareSheetView.swift */; };
+		A2A000D62C4FFE0C00E76F93 /* TextAttributes+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000C82C4FFE0C00E76F93 /* TextAttributes+SwiftUI.swift */; };
+		A2A000D82C4FFE5700E76F93 /* Searcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000D72C4FFE5700E76F93 /* Searcher.swift */; };
+		A2A000DA2C500C8500E76F93 /* Group+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000D92C500C8500E76F93 /* Group+SwiftUI.swift */; };
+		A2A000DE2C500D1A00E76F93 /* ItemGroup+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000DB2C500D1A00E76F93 /* ItemGroup+SwiftUI.swift */; };
+		A2A000DF2C500D1A00E76F93 /* Pane+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000DC2C500D1A00E76F93 /* Pane+SwiftUI.swift */; };
+		A2A000E02C500D1A00E76F93 /* Item+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000DD2C500D1A00E76F93 /* Item+SwiftUI.swift */; };
+		A2A000E22C500D8C00E76F93 /* PickerGroup+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A000E12C500D8C00E76F93 /* PickerGroup+SwiftUI.swift */; };
 		A2B800A627E62278007204B9 /* QAMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28873C525168215003528E5 /* QAMenu.framework */; };
 		A2B800A927E62278007204B9 /* QAMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A28873C525168215003528E5 /* QAMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A2B800CE27E622C9007204B9 /* MultipleAsyncItemGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B800B327E622C9007204B9 /* MultipleAsyncItemGroups.swift */; };
@@ -470,7 +488,6 @@
 		A2969E2E25167D7900EA54D5 /* UnsupportedPaneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsupportedPaneViewController.swift; sourceTree = "<group>"; };
 		A2969E2F25167D7900EA54D5 /* UIWindow+ShakeGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ShakeGesture.swift"; sourceTree = "<group>"; };
 		A2969E3025167D7900EA54D5 /* Bundle+QAMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+QAMenu.swift"; sourceTree = "<group>"; };
-		A2969E3125167D7900EA54D5 /* Searcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Searcher.swift; sourceTree = "<group>"; };
 		A2969E3425167D7900EA54D5 /* QAMenuUIKitPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAMenuUIKitPresenter.swift; sourceTree = "<group>"; };
 		A2969E3525167D7900EA54D5 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		A2969E3625167D7900EA54D5 /* PaneRepresentable+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaneRepresentable+UIViewController.swift"; sourceTree = "<group>"; };
@@ -489,6 +506,25 @@
 		A2969E6725167D8600EA54D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2969EA225167EBA00EA54D5 /* QAMenuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAMenuUtils.h; sourceTree = "<group>"; };
 		A2969EAD25167EBA00EA54D5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2A000B82C4FFE0000E76F93 /* DialogTrigger+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DialogTrigger+SwiftUI.swift"; sourceTree = "<group>"; };
+		A2A000BA2C4FFE0C00E76F93 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
+		A2A000BC2C4FFE0C00E76F93 /* BoolItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolItemView.swift; sourceTree = "<group>"; };
+		A2A000BD2C4FFE0C00E76F93 /* ButtonItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonItemView.swift; sourceTree = "<group>"; };
+		A2A000BE2C4FFE0C00E76F93 /* EditableStringItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableStringItemView.swift; sourceTree = "<group>"; };
+		A2A000BF2C4FFE0C00E76F93 /* PickableStringItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickableStringItemView.swift; sourceTree = "<group>"; };
+		A2A000C02C4FFE0C00E76F93 /* ProgressItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressItemView.swift; sourceTree = "<group>"; };
+		A2A000C12C4FFE0C00E76F93 /* StringItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringItemView.swift; sourceTree = "<group>"; };
+		A2A000C32C4FFE0C00E76F93 /* AdaptiveStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveStack.swift; sourceTree = "<group>"; };
+		A2A000C42C4FFE0C00E76F93 /* ItemContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemContainerView.swift; sourceTree = "<group>"; };
+		A2A000C52C4FFE0C00E76F93 /* PaneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaneView.swift; sourceTree = "<group>"; };
+		A2A000C72C4FFE0C00E76F93 /* ShareSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareSheetView.swift; sourceTree = "<group>"; };
+		A2A000C82C4FFE0C00E76F93 /* TextAttributes+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextAttributes+SwiftUI.swift"; sourceTree = "<group>"; };
+		A2A000D72C4FFE5700E76F93 /* Searcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Searcher.swift; sourceTree = "<group>"; };
+		A2A000D92C500C8500E76F93 /* Group+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+SwiftUI.swift"; sourceTree = "<group>"; };
+		A2A000DB2C500D1A00E76F93 /* ItemGroup+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemGroup+SwiftUI.swift"; sourceTree = "<group>"; };
+		A2A000DC2C500D1A00E76F93 /* Pane+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pane+SwiftUI.swift"; sourceTree = "<group>"; };
+		A2A000DD2C500D1A00E76F93 /* Item+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+SwiftUI.swift"; sourceTree = "<group>"; };
+		A2A000E12C500D8C00E76F93 /* PickerGroup+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PickerGroup+SwiftUI.swift"; sourceTree = "<group>"; };
 		A2AC7DA02659514E002D1CF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/iOSSupport/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		A2B800AD27E62278007204B9 /* QAMenuExampleItems.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QAMenuExampleItems.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B800B327E622C9007204B9 /* MultipleAsyncItemGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleAsyncItemGroups.swift; sourceTree = "<group>"; };
@@ -801,6 +837,7 @@
 			children = (
 				A28976AF25E1724100EB7326 /* Delayed.swift */,
 				A238A06C253C71AB0016BBD7 /* Dynamic.swift */,
+				A2A000D72C4FFE5700E76F93 /* Searcher.swift */,
 				A2EC5CF125F539C000F2BAE1 /* TextAttributes.swift */,
 			);
 			path = Utils;
@@ -817,6 +854,7 @@
 		A258A7BA27EFC1690087D00C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A2A000B82C4FFE0000E76F93 /* DialogTrigger+SwiftUI.swift */,
 				A258A7BB27EFC1690087D00C /* QAMenuSwiftUIPresenter.swift */,
 			);
 			path = UI;
@@ -992,7 +1030,6 @@
 				A2969E1825167D7900EA54D5 /* UI */,
 				A2969E3025167D7900EA54D5 /* Bundle+QAMenu.swift */,
 				A2E0856E2517C56B00706D23 /* QAMenuLifecycleManager.swift */,
-				A2969E3125167D7900EA54D5 /* Searcher.swift */,
 				A2EC5CF825F53A0E00F2BAE1 /* TextAttributes+UIKit.swift */,
 			);
 			path = Internal;
@@ -1155,6 +1192,46 @@
 			path = Sources/QAMenuUtils;
 			sourceTree = "<group>";
 		};
+		A2A000BB2C4FFE0C00E76F93 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A2A000BA2C4FFE0C00E76F93 /* ViewDidLoadModifier.swift */,
+				A2A000DD2C500D1A00E76F93 /* Item+SwiftUI.swift */,
+				A2A000DB2C500D1A00E76F93 /* ItemGroup+SwiftUI.swift */,
+				A2A000DC2C500D1A00E76F93 /* Pane+SwiftUI.swift */,
+				A2A000E12C500D8C00E76F93 /* PickerGroup+SwiftUI.swift */,
+				A2A000D92C500C8500E76F93 /* Group+SwiftUI.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		A2A000C22C4FFE0C00E76F93 /* ItemViews */ = {
+			isa = PBXGroup;
+			children = (
+				A2A000BC2C4FFE0C00E76F93 /* BoolItemView.swift */,
+				A2A000BD2C4FFE0C00E76F93 /* ButtonItemView.swift */,
+				A2A000BE2C4FFE0C00E76F93 /* EditableStringItemView.swift */,
+				A2A000BF2C4FFE0C00E76F93 /* PickableStringItemView.swift */,
+				A2A000C02C4FFE0C00E76F93 /* ProgressItemView.swift */,
+				A2A000C12C4FFE0C00E76F93 /* StringItemView.swift */,
+			);
+			path = ItemViews;
+			sourceTree = "<group>";
+		};
+		A2A000C92C4FFE0C00E76F93 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				A2A000BB2C4FFE0C00E76F93 /* Helper */,
+				A2A000C22C4FFE0C00E76F93 /* ItemViews */,
+				A2A000C32C4FFE0C00E76F93 /* AdaptiveStack.swift */,
+				A2A000C42C4FFE0C00E76F93 /* ItemContainerView.swift */,
+				A2A000C52C4FFE0C00E76F93 /* PaneView.swift */,
+				A2A000C72C4FFE0C00E76F93 /* ShareSheetView.swift */,
+				A2A000C82C4FFE0C00E76F93 /* TextAttributes+SwiftUI.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		A2B800AF27E622C9007204B9 /* QAMenuExampleItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -1254,7 +1331,7 @@
 		A2C2E928268BBE1A0070204D /* QAMenuSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				A258A7AD27EFC1690087D00C /* Internal */,
+				A2A000C92C4FFE0C00E76F93 /* Internal */,
 				A258A7B927EFC1690087D00C /* Public */,
 				A2C2E92A268BBE1A0070204D /* QAMenuSwiftUI.h */,
 				A2C2E92B268BBE1A0070204D /* Info.plist */,
@@ -1932,6 +2009,7 @@
 				A2BEC0E4257BFD5B0005EFDF /* PaneRepresentable.swift in Sources */,
 				A2EA8C9825867E25008F18DF /* PickerGroup.swift in Sources */,
 				A289797D25E29A7D00EB7326 /* PickerGroupOptions.swift in Sources */,
+				A2A000D82C4FFE5700E76F93 /* Searcher.swift in Sources */,
 				A28873F22516822A003528E5 /* BoolItem.swift in Sources */,
 				A28873F82516822A003528E5 /* Dictionary+QAMenu.swift in Sources */,
 				A28873ED2516822A003528E5 /* Item.swift in Sources */,
@@ -2023,7 +2101,6 @@
 				A200F16125D819BB00B309F4 /* TextEditorProtocol.swift in Sources */,
 				A2969E5C25167D7A00EA54D5 /* PaneUIKitRepresentable.swift in Sources */,
 				A20C2D8625D046B00061A158 /* SingleLineTextEditorController.swift in Sources */,
-				A2969E5425167D7A00EA54D5 /* Searcher.swift in Sources */,
 				A2969E5225167D7A00EA54D5 /* UIWindow+ShakeGesture.swift in Sources */,
 				A2969E4825167D7A00EA54D5 /* ButtonItemView.swift in Sources */,
 				A2BEC0D3257BF8E20005EFDF /* RootPaneUIRepresentable.swift in Sources */,
@@ -2089,7 +2166,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2A000DA2C500C8500E76F93 /* Group+SwiftUI.swift in Sources */,
+				A2A000D12C4FFE0C00E76F93 /* AdaptiveStack.swift in Sources */,
+				A2A000D62C4FFE0C00E76F93 /* TextAttributes+SwiftUI.swift in Sources */,
+				A2A000D22C4FFE0C00E76F93 /* ItemContainerView.swift in Sources */,
+				A2A000DF2C500D1A00E76F93 /* Pane+SwiftUI.swift in Sources */,
+				A2A000CF2C4FFE0C00E76F93 /* ProgressItemView.swift in Sources */,
+				A2A000DE2C500D1A00E76F93 /* ItemGroup+SwiftUI.swift in Sources */,
+				A2A000CC2C4FFE0C00E76F93 /* ButtonItemView.swift in Sources */,
+				A2A000CA2C4FFE0C00E76F93 /* ViewDidLoadModifier.swift in Sources */,
+				A2A000D52C4FFE0C00E76F93 /* ShareSheetView.swift in Sources */,
+				A2A000D02C4FFE0C00E76F93 /* StringItemView.swift in Sources */,
+				A2A000E02C500D1A00E76F93 /* Item+SwiftUI.swift in Sources */,
+				A2A000B92C4FFE0000E76F93 /* DialogTrigger+SwiftUI.swift in Sources */,
 				A258A7C527EFC1690087D00C /* QAMenuSwiftUIPresenter.swift in Sources */,
+				A2A000D32C4FFE0C00E76F93 /* PaneView.swift in Sources */,
+				A2A000CD2C4FFE0C00E76F93 /* EditableStringItemView.swift in Sources */,
+				A2A000E22C500D8C00E76F93 /* PickerGroup+SwiftUI.swift in Sources */,
+				A2A000CB2C4FFE0C00E76F93 /* BoolItemView.swift in Sources */,
+				A2A000CE2C4FFE0C00E76F93 /* PickableStringItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

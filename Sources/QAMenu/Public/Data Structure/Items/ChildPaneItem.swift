@@ -98,11 +98,11 @@ open class ChildPaneItem: StringItem, NavigationTrigger {
 
 extension ChildPaneItem: Selectable {
 
-    open var isSelectable: Bool {
+    public var isSelectable: Bool {
         return true
     }
 
-    open var selectionOutcome: SelectionOutcome {
+    public var selectionOutcome: SelectionOutcome {
         switch self.childType {
         case .pane(let paneClosure):
             return .navigationWithPane(

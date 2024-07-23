@@ -41,7 +41,7 @@ public extension QAMenu.Catalog {
 
         public static func group(title: String = "Device") -> ItemGroup {
             var items: [Item] = [Locale.group().asChildPaneItem()]
-            #if os(iOS)
+            #if os(iOS) && canImport(UIKit)
                 items.append(Accessibility.group().asChildPaneItem())
             #endif
             return ItemGroup(

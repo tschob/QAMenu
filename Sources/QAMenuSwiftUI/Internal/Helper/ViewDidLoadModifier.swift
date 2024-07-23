@@ -1,12 +1,12 @@
 //
-//  ProgressItem.swift
+//  ViewDidLoadModifier.swift
 //
-//  Created by Hans Seiffert on 20.02.21.
+//  Created by Hans Seiffert on 27.03.22.
 //
 //  ---
 //  MIT License
 //
-//  Copyright © 2021 Hans Seiffert
+//  Copyright © 2022 Hans Seiffert
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,56 +24,36 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//
+// 
 
-import Foundation
+import SwiftUI
 
-open class ProgressItem: Item, FooterSupport {
+public struct ViewDidLoadModifier: ViewModifier {
 
-    // MARK: - Properties (Public)
+    @State private var wasViewLoadedBefore = false
 
-    public enum State: Equatable {
-        case idle
-        case progress(String?)
-        case success(String?)
-        case failure(String?)
+    private let action: (() -> Void)?
+
+    public init(perform action: (() -> Void)? = nil) {
+        self.action = action
     }
 
-    public let footerText: Dynamic<String?>?
-
-    open var state: State {
-        didSet {
-            self.invalidate()
+    public func body(content: Content) -> some View {
+        content.onAppear {
+            guard wasViewLoadedBefore == false else {
+                return
+            }
+            wasViewLoadedBefore = true
+            action?()
         }
     }
+}
 
-    override open var searchableContent: [String?] {
-        return [
-            self.message,
-            self.footerText?()
-        ]
-    }
+// MARK: - View + ViewDidLoadModifier
 
-    // MARK: - Properties (Private / Internal)
+public extension View {
 
-    public var message: String? {
-        switch self.state {
-        case .idle:
-            return nil
-        case .progress(let message),
-             .success(let message),
-             .failure(let message):
-            return message
-        }
-    }
-
-    // MARK: - Initialization
-
-    public init(
-        state: State = .idle,
-        footerText: Dynamic<String?>? = nil
-    ) {
-        self.state = state
-        self.footerText = footerText
+    func onLoad(perform action: (() -> Void)? = nil) -> some View {
+        modifier(ViewDidLoadModifier(perform: action))
     }
 }

@@ -1,7 +1,7 @@
 //
-//  ProgressItem.swift
+//  TextAttributes+SwiftUI.swift
 //
-//  Created by Hans Seiffert on 20.02.21.
+//  Created by Hans Seiffert on 07.03.21.
 //
 //  ---
 //  MIT License
@@ -24,56 +24,53 @@
 //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//
+// 
 
-import Foundation
+import SwiftUI
+import QAMenu
 
-open class ProgressItem: Item, FooterSupport {
+// MARK: - TextAttributes.TextStyle + Font
 
-    // MARK: - Properties (Public)
+extension TextAttributes.TextStyle {
 
-    public enum State: Equatable {
-        case idle
-        case progress(String?)
-        case success(String?)
-        case failure(String?)
-    }
-
-    public let footerText: Dynamic<String?>?
-
-    open var state: State {
-        didSet {
-            self.invalidate()
+    internal var asFont: Font {
+        switch self {
+        case .largeTitle:
+            return .largeTitle
+        case .title1:
+            return .title
+        case .title2:
+            return .title2
+        case .title3:
+            return .title3
+        case .headline:
+            return .headline
+        case .subheadline:
+            return .subheadline
+        case .body:
+            return .body
+        case .callout:
+            return .callout
+        case .footnote:
+            return .footnote
+        case .caption1:
+            return .caption
+        case .caption2:
+            return .caption2
         }
     }
+}
 
-    override open var searchableContent: [String?] {
-        return [
-            self.message,
-            self.footerText?()
-        ]
-    }
+// MARK: - TextAttributes.LineBreak + NSLineBreakMode
 
-    // MARK: - Properties (Private / Internal)
+extension TextAttributes.LineBreak {
 
-    public var message: String? {
-        switch self.state {
-        case .idle:
-            return nil
-        case .progress(let message),
-             .success(let message),
-             .failure(let message):
-            return message
+    internal var asNSLineBreakMode: NSLineBreakMode {
+        switch self {
+        case .wrapByCharacter:
+            return .byCharWrapping
+        case .wrapByWord:
+            return .byWordWrapping
         }
-    }
-
-    // MARK: - Initialization
-
-    public init(
-        state: State = .idle,
-        footerText: Dynamic<String?>? = nil
-    ) {
-        self.state = state
-        self.footerText = footerText
     }
 }
