@@ -72,7 +72,7 @@ class ItemGroupTests: XCTestCase {
             MockItem()
         ]))
 
-        let groupReferencedExpectation = expectation(description: "")
+        let groupReferencedExpectation = expectation(description: "Group is referenced as parent")
         groupReferencedExpectation.expectedFulfillmentCount = 2
         sut.items.unboxed.forEach { item in
             if item.parentGroup === sut {
@@ -301,7 +301,7 @@ class ItemGroupTests: XCTestCase {
         )
         sut.loadContent()
 
-        let invalidationExpectation = expectation(description: "onInvalidation was called")
+        let invalidationExpectation = expectation(description: "onInvalidationSubject was sent")
         // 2 invalidations are expected: Replacing the group, loading success
         invalidationExpectation.expectedFulfillmentCount = 2
         let cancellable = sut.onInvalidationSubject

@@ -63,9 +63,7 @@ open class ItemGroup: Group, Searchable {
         self.title = title
         self.items = items
         self.footerText = footerText
-
-        self.observeItemsState()
-        self.bindItems()
+        self.onItemsChanged()
     }
 
     // MARK: - Methods (Public)
@@ -75,7 +73,7 @@ open class ItemGroup: Group, Searchable {
         loadDelayedContent: Bool = false
     ) {
         self.items = items
-        self.observeItemsState()
+        self.onItemsChanged()
         if loadDelayedContent {
             self.loadContent()
         }
@@ -89,9 +87,15 @@ open class ItemGroup: Group, Searchable {
         items.load()
     }
 
+    open func invalidate() {
+        self.items.unboxed.forEach { $0.invalidate() }
+        self.onInvalidationSubject.send()
+    }
+
     // MARK: - Methods (Private)
 
-    private func reloadAfterDelayedStateChange() {
+    private func onItemsChanged() {
+        self.observeItemsState()
         self.bindItems()
         self.invalidate()
     }
@@ -104,9 +108,9 @@ open class ItemGroup: Group, Searchable {
         self.stateSubscription = self.items.state
             .dropFirst()
             .sink { [weak self] _ in
-                self?.reloadAfterDelayedStateChange()
+                self?.onItemsChanged()
             } receiveValue: { [weak self] _ in
-                self?.reloadAfterDelayedStateChange()
+                self?.onItemsChanged()
             }
     }
 }
